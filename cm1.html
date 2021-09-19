@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>📖 Cours 1: rappels | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<link rel="icon" href="img/favicon.svg">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="hsl(200,50%, 50%)" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90">
+		en Python
+	</text>
+</svg>
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="index.html#Introduction">
+					Introduction
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="groupes.html#Groupes de TD / TP">
+					Groupes de TD / TP
+				</a>
+			</div>
+	
+
+	
+			<div class="page_actuelle h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#📖 Cours 1: rappels">
+					📖 Cours 1: rappels
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Python">
+					Python
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Execution à distance via replit.com">
+					Execution à distance via replit.com
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Execution en local">
+					Execution en local
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Un langage qui évolue: les versions de Python">
+					Un langage qui évolue: les versions de Python
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Vue d'ensemble: la programmation, c'est quoi?">
+					Vue d'ensemble: la programmation, c'est quoi?
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#L'exécutant">
+					L'exécutant
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les données">
+					Les données
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les types de données">
+					Les types de données
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les valeurs littérales, ou littéraux">
+					Les valeurs littérales, ou littéraux
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les variables">
+					Les variables
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les instructions">
+					Les instructions
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Création / manipulation des variables">
+					Création / manipulation des variables
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les opérateurs">
+					Les opérateurs
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les expressions">
+					Les expressions
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Ordre d'execution des instructions">
+					Ordre d'execution des instructions
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les structures de contrôle">
+					Les structures de contrôle
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Les fonctions">
+					Les fonctions
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td1.html#✏️ TD 1 - Calculatrice niv.1 ✔️">
+					✏️ TD 1 - Calculatrice niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp1.html#✏️ TP 1 - Calculatrice niv.2 ✔️">
+					✏️ TP 1 - Calculatrice niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp2.html#✏️ TP 2 - Calculatrice niv.3 ✔️">
+					✏️ TP 2 - Calculatrice niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp3.html#✏️ TP 3 - Calculatrice niv.4 ✔️">
+					✏️ TP 3 - Calculatrice niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm2.html#📖 Cours 2: Programmation orientée objets">
+					📖 Cours 2: Programmation orientée objets
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td2.html#✏️ TD 2 - Prog. objets niv.1 ✔️">
+					✏️ TD 2 - Prog. objets niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp4.html#✏️ TP 4 - Prog. objets niv.2 ✔️">
+					✏️ TP 4 - Prog. objets niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp5.html#✏️ TP 5 - Prog. objets niv.3 ✔️">
+					✏️ TP 5 - Prog. objets niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp6.html#✏️ TP 6 - Prog. objets niv.4 ✔️">
+					✏️ TP 6 - Prog. objets niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp7.html#✏️ TP 7 - Prog. objets niv.5 ✔️">
+					✏️ TP 7 - Prog. objets niv.5 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm3.html#📖 Cours 3: fonctionnalités de Python">
+					📖 Cours 3: fonctionnalités de Python
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td3.html#✏️ TD 3 ✔️">
+					✏️ TD 3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm4.html#📖 Cours 4: rappels et compléments">
+					📖 Cours 4: rappels et compléments
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp8.html#✏️ TP 8 ✔️">
+					✏️ TP 8 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp9.html#✏️ TP 9 - Jeu du pendu niv.1">
+					✏️ TP 9 - Jeu du pendu niv.1
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="exos_notes.html#📝 Exercices notés">
+					📝 Exercices notés
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cc1_2021.html#📝 Contrôle continu 1">
+					📝 Contrôle continu 1
+				</a>
+			</div>
+	
+
+	</div>
+	<div id="contenu">
+		
+
+		<div class="nav_arrows">
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="groupes.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+					<a href="td1.html">Page suivante →</a>
+				
+				</span>
+		</div>
+		</div>
+		<hr>
+
+		
+	<h1 data-nb="3" id="📖 Cours 1: rappels">📖 Cours 1: rappels</h1>
+<h2 data-nb="3.1" id="Python">Python</h2>
+<p>C'est un langage facile à commencer à utiliser, et en même temps parmi les plus utilisés car efficace et pratique. Il a de nombreuses fonctionnalités et
+		le maîtriser demande du temps et de l'expérience. Il n'est cependant pas nécessaire de le maîtriser pour commencer à s'en servir pour faire des choses
+		utiles.</p>
+<p>Il existe plusieurs façons de l'utiliser, dont deux sont présentées ci-dessous.</p>
+<h3 data-nb="3.1.1" id="Execution à distance via replit.com">Execution à distance via replit.com</h3>
+<img alt="" src="img/cm1/replit.jpg"/>
+<p>Dans ce cours nous développons en Python à travers le service en ligne <a href="https://replit.com" target="_blank">replit.com</a>. Dans cette
+		configuration, replit nous sert à tout: éditeur de code, gestion de projet, et exécution du code.</p>
+<img alt="" src="img/cm1/replit fonctionnement.png"/>
+<p>Cette approche a les avantages suivants:</p>
+<ul>
+<li>Extrême facilité d'utilisation: nous n'avons rien à télécharger, installer ou configurer, ce qui est vraiment très pratique.</li>
+<li>Très grande disponibilité: comme tout se passe en ligne, seule une connexion internet est nécessaire. On peut ainsi développer de n'importe quel
+			appareil: pc, tablettes, et même smartphones.
+		</li>
+<li>Très facile de partager son code avec d'autres personnes</li>
+</ul>
+<p>Cette approche a les désavantages suivants:</p>
+<ul>
+<li>Dépendance sur un service tiers et une connexion internet: si replit ou le réseau sont indisponibles pour une raison quelconque, plus rien n'est
+			possible. De plus replit a des fonctionnalités payantes, et pourrait le devenir entièrement.
+		</li>
+<li>Aucune configuration possible: on ne peut utiliser l'éditeur de code qu'on veut, ou la version exacte de Python qu'on veut, aucun contrôle sur les
+			bibliothèques de code disponibles.
+		</li>
+<li>Performances réduites: Python s'éxecute sur les serveurs de replit, qui sont probablement moins puissants qu'une machine ordinaire, pour des raisons
+			de coût. De plus il y a un délai entre le moment où appuie sur le bouton pour exécuter, et le moment où on voit les résultats à l'écran, à cause du
+			délai normal du réseau.
+		</li>
+<li>Certaines fonctionnalités de Python sont indisponibles: développement d'interfaces utilisateur, utilisation de matériel spécifique comme accès à la
+			carte graphique pour des calculs haute performance, intégration dans un projet plus grand, etc...
+		</li>
+</ul>
+<p>Replit est destiné avant tout à l'apprentissage, et n'est définitivement pas la façon classique de développer! C'est néanmoins ce que nous utiliserons
+		pour ce cours, pour tous ses avantages.</p>
+<h3 data-nb="3.1.2" id="Execution en local">Execution en local</h3>
+<p>Pour résumer, tous les avantages et inconvénients sont inversés par rapport à l'option replit. C'est l'option la plus ordinaire pour exécuter Python, et
+		si vous avez votre propre ordi, et que vous souhaitez utiliser cette option pour ce cours, n'hésitez pas à installer et configurer votre propre
+		environnement de développement. Cela demande un peu plus d'efforts (pas tant que ça au final) mais vous apprend à développer de façon plus
+		"sérieuse".</p>
+<img alt="" src="img/cm1/python local fonctionnement.png"/>
+<p>Il vous faut d'abord télécharger gratuitement Python depuis <a href="https://www.python.org/" target="_blank">python.org</a> (ou un gestionnaire de
+		paquets sur Linux), l'installer, c'est assez simple. Puis vous pouvez éditer votre code à l'aide d'un éditeur de texte simple (<a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a> , <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>
+		...) ou avancé (<a href="https://code.visualstudio.com/" target="_blank">Microsoft Visual Studio Code</a>, <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>...), mais SURTOUT PAS un éditeur de texte riche tel que Microsoft Word, qui sont destinés à éditer visuellement des
+		documents, et pas du code. Tous les outils sont majoritairement gratuits, certains peuvent être payants, ou avoir des fonctionnalités payantes. Elles
+		seront peut-être utiles lorsque vous serez professionnels, pour augmenter votre productivité.</p>
+<p>Je laisse cette option aux étudiants plus avancés, si vous avez besoin d'aide ponctuelle sur l'utilisation de ces outils, demandez-moi en TD ou TP, je
+		ferai de mon mieux.</p>
+<h3 data-nb="3.1.3" id="Un langage qui évolue: les versions de Python">Un langage qui évolue: les versions de Python</h3>
+<p>Python est lui-même développé et constamment corrigé, amélioré, par de nombreuses personnes, dont l'équipe centrale la <em>Python Software
+		Foundation</em>, qui coordonne tous les efforts de développement. C'est pour cela qu'il y a des versions de Python. Chaque version est de la forme
+		2.7.1, ou 3.9.2 par exemple. Le premier chiffre est la génération, le second la version majeure, et le troisième la version mineure de correction de
+		bugs. </p>
+<p>
+		La génération est une grande catégorie de versions majeures. La génération actuelle est la 3, la 2 étant vieille de plus de 10 ans et sur le point de
+		devenir obsolète. Vous ne devez démarrer aucun nouveau projet de développement Python dans une version de génération 2, à moins d'avoir de bonnes
+		raisons, telles que par exemple pour exécuter du code sur des vieilles machines sur lesquelles seul Python 2 est disponible, ou pour étendre un vieux
+		programme de génération 2. </p>
+<p>La version majeure marque, par rapport à la version précédente, l'apparition de nouvelles fonctionnalités, des changements, améliorations, et parfois des
+		suppressions de fonctionnalités jugées obsolètes. Dans la grande majorité des cas, une mise à jour majeure de Python n'entraîne aucun problème pour tout
+		programme Python qui a été développé pour la version majeure précédente (de même génération), mais il faut quand même bien lire les nouveautés de la
+		nouvelle version avant de faire la mise à jour de Python. Parfois certaines précautions sont documentées et sont à prendre, au risque de voir des bugs
+		apparaître dans vos programmes avec la nouvelle version majeure de Python.</p>
+<p>La version mineure ne marque aucun ajout, modification ou suppression de fonctionnalité, mais apporte des corrections de bugs et vulnérabilités de
+		sécurité, pour la version majeure correspondante. Vous pouvez donc faire la mise à jour de Python sans souci.</p>
+<p>Chaque version majeure est officiellement supportée pour une certaine durée, en général quelques années, ce qui signifie qu'elle recevra des corrections
+		de bugs par la sortie régulières de versions mineures. Passé ce délai, plus aucune version mineure ne sera développée.</p>
+<p>En règle générale, on utilise la version la plus récente de Python, il faut donc faire une mise à jour quand c'est nécessaire.</p>
+<h2 data-nb="3.2" id="Vue d'ensemble: la programmation, c'est quoi?">Vue d'ensemble: la programmation, c'est quoi?</h2>
+<p>Il y a 4 choses centrales en algorithmique et programmation: </p>
+<ul>
+<li>Un langage, par exemple Python.</li>
+<li>Des données,
+			<br/>
+			de formes différentes mais bien déterminées, selon le langage.
+		</li>
+<li>Des instructions possibles,
+			<br/>
+			précises et limitées en nombre, selon le langage.
+		</li>
+<li>Une ou plusieurs entités qui gèrent les données et exécutent les instructions.</li>
+</ul>
+<p>Un programme consiste en une série d'instructions écrites dans le langage utilisé, pour manipuler les données et effectuer diverses actions, que la ou
+		les entités exécutantes vont exécuter.</p>
+<h2 data-nb="3.3" id="L'exécutant">L'exécutant</h2>
+<p>L'entité exécutante peut de manière générale être une personne ou une machine, mais nous allons nous limiter aux machines. Pourquoi? Parce qu'elles sont
+		extrêmement rapides, fiables, infatiguables, et ne demandent rien en échange (à part électricité et entretien). En revanche elles sont beaucoup plus
+		limitées que les humains, dans ce qu'elles sont capables de faire. Il faut tout leur expliquer. Et c'est précisément là que l'algorithmique et la
+		programmation sont indispensables. Comment faire faire des choses utiles mais très complexes à une machine à priori simple mais très rapide.</p>
+<h2 data-nb="3.4" id="Les données">Les données</h2>
+<p>Les données sont sous formes de variables en mémoire, mais avant cela, elles proviennent de différentes sources. Parmi ces sources, il y a celles que le
+		programme en lui-même génère, celles que l'utilisateur du programme entre directement ou indirectement, ou celles provenant des fichiers lus par le
+		programme. Les données générées sont les variables temporaires et données intermédiaires par exemple, ou encore les données déclarées directement dans
+		le programme, on dit alors alors des données écrites "en dur" dans le programme. Les données qui proviennent de l'utilisateur sont soit récupérées
+		directement, avec la fonction <code>input()</code> par exemple. Soit si l'utilisateur choisi un fichier que le programme ouvrira et lira. Les fichiers
+		qui justement forment une autre source possible de données pour un programme. En Python, on les ouvre avec la fonction <code>open()</code>. Les données
+		peuvent provenir d'autres sources encore, comme du réseau par exemple.</p>
+<h3 data-nb="3.4.1" id="Les types de données">Les types de données</h3>
+<p>Elles sont de différents natures. A la base, en général, il y a</p>
+<ol>
+<li>Les nombres
+			<br/>
+			souvent séparés en sous-groupes: entiers (type <code>int</code> en Python), réels (type <code>float</code> en Python), imaginaires.
+		</li>
+<li>Le texte
+			<br/>
+			qu'on appelle chaîne de caractères, ou <em>string</em> en anglais (type <code>str</code> en Python).
+		</li>
+<li>Les booléens
+			<br/>
+			valeurs <em>vrai</em> et <em>faux</em> (type <code>bool</code> en Python).
+		</li>
+</ol>
+<p>Puis ces données peuvent être organisées en structures plus complexes, comme des listes par exemple (type <code>list</code> en Python).</p>
+<p>Voici la liste des types en Python que vous connaissez et avez manipulés jusqu'ici:</p>
+<ol>
+<li><code>int</code></li>
+<li><code>float</code></li>
+<li><code>bool</code></li>
+<li><code>str</code></li>
+<li><code>list</code></li>
+<li><code>tuple</code></li>
+<li><code>range</code></li>
+<li><code>NoneType</code></li>
+</ol>
+<h3 data-nb="3.4.2" id="Les valeurs littérales, ou littéraux">Les valeurs littérales, ou littéraux</h3>
+<p>C'est ainsi qu'on appelle les valeurs concrètes des types de base. Exemples de valeurs littérales pour chaque type:</p>
+<ol>
+<li><code>int</code>:
+			<br/>
+<code>0</code>
+<br/>
+<code>2</code>
+<br/>
+<code>31</code>
+<br/>
+<code>-12</code>
+<br/>
+<code>1840</code></li>
+<li><code>float</code>:
+			<br/>
+<code>0.0</code>
+<br/>
+<code>1.204</code>
+<br/>
+<code>7.0</code>
+<br/>
+<code>-4.5</code>
+<br/>
+<code>6000.02</code></li>
+<li><code>bool</code>:
+			<br/>
+<code>True</code>
+<br/>
+<code>False</code>
+<br/>
+			Aucune autre valeur possible
+		</li>
+<li><code>str</code>:
+			<br/>
+<code>""</code> Chaîne vide
+			<br/>
+<code>''</code> Chaîne vide avec simples guillemets
+			<br/>
+<code>"Bonjour"</code>
+<br/>
+<code>'Bonjour'</code>
+<br/>
+<code>"a"</code></li>
+<li><code>list</code>:
+			<br/>
+<code>[]</code> Liste vide
+			<br/>
+<code>[2]</code>
+<br/>
+<code>[-8, 41]</code>
+<br/>
+<code>[True, 12, "Coucou"]</code> Chaque élément d'une liste peut être d'un type différent, ou pas
+			<br/>
+<code>["Hello", [6, 2, False], True]</code> Une liste qui contient une autre liste à l'indice 1
+		</li>
+<li><code>tuple</code>:
+			<br/>
+<code>()</code> Tuple vide
+			<br/>
+<code>(2, )</code> Tuple à un élément, on doit mettre la virgule, sinon les parenthèses comptent comme contrôle de priorité des opérateurs
+			<br/>
+<code>(-8, 41)</code>
+<br/>
+<code>(True, 12, "Coucou")</code> Chaque élément d'un tuple peut être d'un type différent, ou pas
+			<br/>
+<code>("Hello", [6, 2, False], True, (10, 20))</code> Un tuple qui contient une liste à l'indice 1 et un autre tuple à l'indice 3
+		</li>
+<li><code>range</code>:
+			<br/>
+<code>range(8)</code> Séquence de nombres de 0 à 7 inclus.
+			<br/>
+<code>range(3, 10)</code> Séquence de nombres de 3 à 9 inclus.
+			<br/>
+<code>range(-8, 10, 2)</code> Séquence de nombres de -8 à 9 inclus, en comptant de 2 en 2. (en réalité le dernier nombre sera 8, car on compte de 2
+			en 2)
+		</li>
+<li><code>NoneType</code>:
+			<br/>
+<code>None</code>
+<br/>
+			Aucune autre valeur possible
+		</li>
+</ol>
+<p>Certains types n'ont pas de valeurs littérales possibles, car ils sont trop complexes. Une valeur littérale est une façon d'écrire facilement une valeur
+		d'un certain type, mais si le type est trop complexe, ou est défini par l'utilisateur, alors il n'est pas possible de décrire les valeurs de ce type par
+		des littéraux. On verra comment créer des valeurs de ces types complexes lorsqu'on abordera la programmation orientée objets.</p>
+<h3 data-nb="3.4.3" id="Les variables">Les variables</h3>
+<p>Les données existent quelque part dans la mémoire de l'ordinateur, et c'est par les variables qu'on peut leur donner des noms à ces données, et y faire
+		référence pour y accéder afin de les lire ou les modifier. On les appelle <em>variables</em> car elles varient justement, c'est à dire que soit les
+		données auxquelles elles font références sont manipulables et peuvent changer. Soit on peut préciser à une variable de faire référence à des données
+		différentes au cours de son exsitence.</p>
+<p>Une variable est un nom associé à une zone de la mémoire de l'ordinateur, qui contient une donnée d'un certain type.</p>
+<img alt="" src="img/cm1/variables.png"/>
+<p>Voyons un exemple avec une variable qui pointe vers un int, puis un autre int:</p>
+<pre><code class="language-python">
+		# Crée la variable et la donnée en mémoire
+		ma_variable = 2
+
+		# Modifie la variable mais PAS la donnée en mémoire:
+		# la variable pointe désormais vers un nouvel emplacement mémoire qui contient 3.
+		# L'ancienne partie de la mémoire qui contenait 2 est libérée automatiquement, et 2 a disparu
+		ma_variable = 3
+	</code></pre>
+<p>Voyons un exemple avec une variable qui pointe vers des listes:</p>
+<pre><code class="language-python">
+		# Crée la variable et la donnée en mémoire
+		ma_variable = [5, 7, 1]
+
+		# Modifie la variable mais PAS la donnée en mémoire.
+		# La variable pointe vers une nouvelle liste en mémoire.
+		ma_variable = [8, 2]
+
+		# Modifie la variable mais PAS la donnée en mémoire.
+		# La variable pointe vers une nouvelle liste en mémoire.
+		ma_variable = ma_variable + [10] # Vaut [8, 2, 10]
+
+		# Modifie la donnée en mémoire mais PAS la variable!!
+		# La variable pointe TOUJOURS vers la même liste en mémoire que la précédente.
+		# Cependant celle-ci a changé de valeur.
+		ma_variable.append(5) # Vaut [8, 2, 10, 5]
+	</code></pre>
+<h2 data-nb="3.5" id="Les instructions">Les instructions</h2>
+<p>
+		Les instructions forment un ensemble fini. Elles sont en général dictées par le langage de programmation utilisé. Le programmeur est limité par cet
+		ensemble. A lui/elle de savoir utiliser ces instructions limitées pour parvenir au final à faire faire à la machine ce qu'il faut pour atteindre le
+		résultat désiré. Chaque langage à ces propres limitations, mais nous sommes chanceux, Python est un langage très expressif, avec de base énormément
+		d'actions possibles. Cela facilite la vie du programmeur. Celui-ci/celle-ci décrit les instructions qui seront ensuite exécutées de façon linéaire, les
+		unes après les autres.</p>
+<h3 data-nb="3.5.1" id="Création / manipulation des variables">Création / manipulation des variables</h3>
+<p>Un langage permet aussi aux développeurs de créer des variables, les supprimer, les modifier. Par modifier, cela signifie modifier les données auxquelles
+		elles font référence, ou alor les faire référencer d'autres données. En Python, c'est l'instruction <code>=</code> qui permet à la fois de créer une
+		variable, et en même temps de lui assigner une donnée, quelle soit nouvelle ou déjà existante. L'instruction <code class="language-python">a = 10</code>
+		créé la variable <code>a</code> si elle n'existe pas encore, puis lui assigne le nombre entier <code>10</code>.</p>
+<h3 data-nb="3.5.2" id="Les opérateurs">Les opérateurs</h3>
+<p>Les opérateurs sont parmis les premières catégories d'instructions qui existent dans un programme. Ils sont très similaires aux opérations mathématiques
+		classiques, comme addition, multiplication, soustraction, division. De nombreux existent selon chaque langage. Ils peuvent s'appliquer sur un ou deux
+		opérandes, par exemple l'opérateur <code>-</code> (moins) peut s'appliquer sur deux nombres, ou sur un seul. Les opérateurs peuvent fonctionner sur un
+		ou plusieurs types de données, par exemple en Python, <code>+</code> (plus) peut s'appliquer entre deux nombres, mais aussi entre deux chaînes de
+		caractères</p>
+<p>Un opérateur est en fait comme une fonction, on lui passes des paramètres (les opérandes) et il calcule un unique résultat. La différence est que
+		l'appel/l'exécution d'un opérateur ne s'écrit pas comme l'appel d'une fonction (cf plus bas pour les fonctions).</p>
+<pre><code class="language-python">
+		# Opérateur + entre nombres
+		5 + 2.8 - 100
+
+		# Opérateur + entre chaînes de caractères
+		"Bonjour" + " tout " + " le monde"
+
+		# Ces deux lignes ne sont pas identiques:
+		# l'une donne le nombre 15, alors que la seconde donne la chaîne "510"
+		5 + 10
+		"5" + "10"
+	</code></pre>
+<h3 data-nb="3.5.3" id="Les expressions">Les expressions</h3>
+<p>Une expression est une suite, aussi courte ou complexe que nécessaire, de:</p>
+<ul>
+<li>valeurs littérales</li>
+<li>d'opérateurs et parenthèses pour contrôler les priorités de calcul</li>
+<li>de variables</li>
+<li>d'appels de fonctions,</li>
+</ul>
+<p>qui au final s'évalue à UNE SEULE VALEUR unique, et qui est d'un certain type. Par exemple:</p>
+<pre><code class="language-python">
+		# Chaque valeur littérale est une expression à part entière:
+		1 # expression de type int
+		8 # type int
+		"Coucou" # type str
+		True # type bool
+		[8, 7, -4] # type list
+
+		# On peut ajouter des opérateurs
+		1 + 1 # type int
+		(8 - 10) * 12 # type int
+		True and False # type bool
+		(True or not False) and True # type bool
+		"Bonjour " + "tout le monde" # type str
+		[0, 1] + [50, "Hello"] # type list
+
+		# On peut ajouter des variables
+		mon_int = 10 # ceci n'est PAS une expression car contient l'instruction d'affectation
+		mon_int # expression de type int
+		8 + mon_int * 2.5 # type float
+		[7, mon_int] + ["truc"] # type list
+		mon_int == 10 # type bool
+
+		# On peut ajouter des appels de fonctions
+		float("5.0") # type float, vaut 5.0
+		int("8") + mon_int # type int, vaut 18
+		list(range(mon_int)) + [50, 60] # type list, vaut [0,1,2,3,4,5,6,7,8,9,50,60]
+	</code></pre>
+<h3 data-nb="3.5.4" id="Ordre d'execution des instructions">Ordre d'execution des instructions</h3>
+<p>L'ordre d'exécutions des instructions d'un programme compte. Un programme arriverait à un résultat totalement différent si l'ordre de ses instructions
+		n'était pas respecté. Les instructions sont écrites sous forme de lignes, ligne après ligne, et elles sont exécutées du haut vers le bas. Chaque ligne
+		peut elle-même comporter plusieurs instructions. Dans ce cas, il existe des règles et des mécanismes pour définir l'ordre d'exécution des instructions
+		au sein d'une ligne. Par exemple les opérateurs ont des priorités d'exécution, prédéfinies par le langage, par exemple les <code>*</code>
+		(multiplications) sont exécutées avant les <code>+</code> (additions). Les parenthèses permettent de contrôler l'ordre d'exécution. Et lorsque deux
+		instructions ou plus dans une ligne ont la même priorité au moment de leur exécution, elles sont exécutées de gauche à droite.</p>
+<h3 data-nb="3.5.5" id="Les structures de contrôle">Les structures de contrôle</h3>
+<p>Elles nous permettent de structurer notre programme en différentes parties, qui vont s'exécuter dans un ordre différent de celui linéaire.</p>
+<p>Les principales structures de contrôle sont:</p>
+<ol>
+<li>si - sinon (<em>if - else</em> en anglais)
+			<p>Les actions à exécuter dans certaines conditions. En Python cela s'écrit</p>
+<pre><code class="language-python">
+				if condition:
+					instruction
+					instruction
+					instruction
+					...
+				else:
+					instruction
+					instruction
+					instruction
+					...
+			</code></pre>
+</li>
+<li>boucles <em>pour</em> et <em>tant-que</em> (<em>for</em> et <em>while</em> en anglais)
+			<p>Répéter les mêmes instructions un certain nombre de fois, et potentiellement avec des données différentes à chaque fois.</p>
+<pre><code class="language-python">
+				for variable in sequence:
+					instruction
+					instruction
+					instruction
+					...
+
+				while condition:
+					instruction
+					instruction
+					instruction
+					...
+			</code></pre>
+<p>Une séquence est une valeur / expression de type list, tuple, str ou range.</p>
+</li>
+</ol>
+<h3 data-nb="3.5.6" id="Les fonctions">Les fonctions</h3>
+<p>Une forme d'instruction plus sophistiquée que les précédentes sont les fonctions. Une fonction doit d'abord être déclarée par le programmeur avant de
+		pouvoir être utilisée. C'est un groupe d'instructions, auquel on donne un nom, et qu'on peut paramétrer afin que certaines données soient
+		potentiellement différentes chaque fois qu'on exécutera ce groupe d'instructions. Une fonction retourne un seul et unique résultat: il peut être non
+		défini, ou une valeur unique. Puis pour exécuter ce groupe d'instructions à chaque endroit du programme qu'il en a besoin, le programmeur n'a plus qu'à
+		écrire le nom de la fonction et les paramètres qui lui sont nécessaires: on dit qu'on <em>appelle</em> une fonction lorsqu'on l'exécute.</p>
+<p>Pour utiliser une fonction, ça se passe toujours en deux étapes:</p>
+<ol>
+<li>Déclaration de la fonction, avec le mot-clé <code>def</code>. Elle est unique, et doit toujours être déclarée avant la seconde étape</li>
+<li>Utilisation de la fonction, on dit aussi appel ou exécution de la fonction. On peut appeler une fonction autant de fois que nécessaire dans notre
+			programme, après la définition de la fonction.
+		</li>
+</ol>
+<img alt="" src="img/cm1/fonction définition.png"/>
+<img alt="" src="img/cm1/fonction appel boite noire.png"/>
+<p>Les fonctions ont plusieurs avantages:</p>
+<ul>
+<li>En un seul nom, en une seule action, on peut exécuter une série d'autres instructions.
+			<br/>
+			(en tout cas visuellement on ne voit qu'une action écrite, mais la machine doit toujours exécuter toutes les instructions contenues dans la fonction
+			à chacun de ses appels)
+		</li>
+<li>On évite de recopier les mêmes instructions encore et encore, quand on a besoin defaire les mêms actions.</li>
+<li>Avec les paramètres, on peut influer sur le comportement de la fonction, ou la faire travailler avec d'autres données.</li>
+</ul>
+<p>Par exemple, le code ci-dessous déclare une fonction nommée <code>ma_fonction</code>, qui prend deux paramètres nommés <code>param1</code> et <code>param2</code>.
+		Puis on exécute <code>ma_fonction</code> avec la valeur <code>8</code> pour <code>param1</code>, et la chaîne de caractères <code>"Bonjour"</code> pour
+		<code>param2</code>. Après son exécution, la valeur qu'elle retourne est assignée à la variable <code>ma_variable</code>.</p>
+<pre><code class="language-python">
+		def ma_fonction(param1, param2):
+			instruction
+			instruction
+			instruction
+			...
+			return résultat
+
+		ma_variable = ma_fonction(8, "Bonjour")
+	</code></pre>
+<p>En plus de pouvoir définir et appeler ses propres fonctions, le programmeur peut aussi faire appel à des fonctions prédéfinies, que le langage inclut
+		d'avance, afin d'étendre encore l'ensemble des instructions possibles. Par exemple <code>print()</code>, <code>input()</code>, ou encore
+		<code>str()</code>.</p>
+
+
+
+
+
+		<div class="nav_arrows">
+			<hr>
+			
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="groupes.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+					<a href="td1.html">Page suivante →</a>
+				
+				</span>
+		</div>
+		
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

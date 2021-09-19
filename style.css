@@ -1,0 +1,279 @@
+:root {
+	--links-base-color: hsla(220, 80%, 60%, 1);
+}
+
+body {
+	/*background-color: antiquewhite;*/
+	background-color: white;
+	font-family: sans-serif;
+	/*font-family: serif;*/
+	/*font-family: 'Handlee', cursive;*/
+	color: hsla(0, 0%, 0%, .8);
+	/*font-size: 110%;*/
+	margin: 0;
+	/*scrollbar-color: hsl(200,50%, 50%) hsla(200,50%, 50%, 0.2);*/
+	/*-webkit-scrollbar-color: hsl(200,50%, 50%) hsla(200,50%, 50%, 0.2);*/
+	/*-ms-scrollbar-color: hsl(200,50%, 50%) hsla(200,50%, 50%, 0.2);*/
+	/*scrollbar-width: 5px;*/
+}
+
+a {
+	color: var(--links-base-color);
+
+}
+
+a:visited {
+	color: hsla(220, 80%, 30%, 1);
+}
+
+
+#side_nav_bar a:visited {
+	color: var(--links-base-color);
+}
+
+a:hover, a:visited:hover, #side_nav_bar a:visited:hover {
+	/*color: hsla(150, 50%, 50%, 1);*/
+	color: #73aa24;
+	text-decoration-color: var(--links-base-color);
+}
+
+#conteneur {
+	/*max-width: 110em;*/
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+}
+
+#side_nav_bar {
+	width: 15vw;
+	height: 100vh;
+	overflow: auto;
+	padding: .5em 1em 0 .5em;
+	box-sizing: border-box;
+}
+
+#contenu {
+	width: 50vw;
+	height: 100vh;
+	overflow: auto;
+	padding: 0 1em 0 1em;
+	box-sizing: border-box;
+}
+
+#interactive_code_conteneur {
+	width: 35vw;
+	height: 100vh;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+#contenu img {
+	max-width: 100%;
+	display: block;
+}
+
+p, ol, ul, li {
+	max-width: 40em;
+	text-align: justify;
+	line-height: 1.3em;
+}
+
+ol, ul, li {
+	box-sizing: border-box;
+}
+
+p {
+	column-count: 1;
+	hyphens: auto;
+}
+
+li {
+	margin-bottom: 1em;
+}
+
+code {
+	font-size: 120%;
+}
+
+pre {
+	/*max-width: 1000px;*/
+	min-width: 20em;
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	overflow: auto;
+}
+
+/* Défait le CSS de prism */
+pre[class*="language-"] {
+	margin: 0;
+	padding: 1em 1em;
+	overflow: auto;
+}
+
+.affichage_console {
+	background-color: hsla(0, 0%, 0%, 0.8);
+	color: hsl(0, 0%, 100%);
+	padding: 1em;
+	margin: 0;
+}
+
+.légende_placée_en_haut {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+#side_nav_bar .h {
+	padding-bottom: 1em;
+	display: flex;
+	flex-direction: row;
+
+}
+
+#side_nav_bar .ballot_box {
+	/*margin: 0 1em 0 0em;*/
+	font-weight: normal;
+}
+
+#side_nav_bar .page_actuelle {
+	/*margin-bottom: 1em;*/
+	font-weight: bold;
+	border-left: 2px solid var(--links-base-color);
+}
+
+#side_nav_bar .h1 a {
+	margin-left: 1em;
+}
+
+#side_nav_bar .h2 a {
+	margin-left: 2em;
+}
+
+#side_nav_bar .h3 a {
+	margin-left: 3em;
+}
+
+#side_nav_bar .h4 a {
+	margin-left: 4em;
+}
+
+#side_nav_bar .h5 a {
+	margin-left: 5em;
+}
+
+#side_nav_bar .h6 a {
+	margin-left: 6em;
+}
+
+/*.exercices div, .exercice {*/
+.exercice {
+	/*background-color: hsla(200, 100%, 50%, .2);*/
+	padding: 1em;
+	margin: 1em 0em;
+}
+
+.exercice.noté {
+	background-color: hsla(50, 100%, 50%, .3);
+	display: inline-block;
+}
+
+.objectifs_chapitre {
+	/*font-weight: bold;*/
+	/*font-family: serif;*/
+	opacity: .75;
+}
+
+.correction, .correction_lien_à_cliquer {
+	color: hsl(88, 100%, 27%);
+}
+
+.correction {
+	/*border: solid hsla(88, 100%, 21%, 0.1);*/
+	/*border-width: 0 0 0 .5em;*/
+	margin: 0 0 0 2em;
+	/*padding: 0 0 0 .5em;*/
+}
+
+.correction_hidden {
+	display: none;
+}
+
+.correction_lien_à_cliquer {
+	text-decoration: underline;
+	font-weight: bold;
+	cursor: pointer;
+	transition: font-size 200ms;
+}
+
+.correction_lien_à_cliquer:hover {
+	font-size: larger;
+}
+
+
+/*.exercice div.difficulté1 h2:before {*/
+/*	content: "🌱 ";*/
+/*}*/
+
+/*.exercice div.noté_difficulté1 h2:before {*/
+/*	content: "🐍 ";*/
+/*}*/
+/*.exercice div.noté_difficulté2 h2:before {*/
+/*	content: "🐍🐍 ";*/
+/*}*/
+
+a.correction:before {
+	content: "✔ ";
+}
+
+
+@media only screen and (max-width: 70em) {
+	#conteneur {
+		flex-direction: column;
+	}
+
+	#side_nav_bar {
+		/*width: 100vw;*/
+		width: calc(100vw - (100vw - 100%)); /* taille du viewport - largeur de la scrollbar verticale */
+		height: auto;
+		padding: 1em 1em 0 1em;
+	}
+
+	#contenu {
+		/*width: 100vw;*/
+		width: calc(100vw - (100vw - 100%));
+		height: auto;
+		padding: 0 .5em;
+	}
+
+	#interactive_code_conteneur {
+		/*width: 100vw;*/
+		width: calc(100vw - (100vw - 100%));
+		height: 30em;
+	}
+}
+
+@media only print {
+	#conteneur {
+		flex-direction: column;
+	}
+
+	#side_nav_bar {
+		width: 100%;
+		height: auto;
+		padding: 1em 1em 0 1em;
+	}
+
+	#contenu {
+		width: 100%;
+		height: auto;
+		padding: 0 .5em;
+	}
+
+	#interactive_code_conteneur {
+		display: none;
+	}
+
+	.nav_arrows {
+		display: none;
+	}
+}

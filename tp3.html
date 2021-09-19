@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>✏️ TP 3 - Calculatrice niv.4 ✔️ | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<link rel="icon" href="img/favicon.svg">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="hsl(200,50%, 50%)" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90">
+		en Python
+	</text>
+</svg>
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="index.html#Introduction">
+					Introduction
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="groupes.html#Groupes de TD / TP">
+					Groupes de TD / TP
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cm1.html#📖 Cours 1: rappels">
+					📖 Cours 1: rappels
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="td1.html#✏️ TD 1 - Calculatrice niv.1 ✔️">
+					✏️ TD 1 - Calculatrice niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp1.html#✏️ TP 1 - Calculatrice niv.2 ✔️">
+					✏️ TP 1 - Calculatrice niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp2.html#✏️ TP 2 - Calculatrice niv.3 ✔️">
+					✏️ TP 2 - Calculatrice niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="page_actuelle h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#✏️ TP 3 - Calculatrice niv.4 ✔️">
+					✏️ TP 3 - Calculatrice niv.4 ✔️
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Exercice 1">
+					Exercice 1
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Exercice 2">
+					Exercice 2
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Exercice 3">
+					Exercice 3
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Exercice 4">
+					Exercice 4
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Exercice 5">
+					Exercice 5
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Exercice 6">
+					Exercice 6
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm2.html#📖 Cours 2: Programmation orientée objets">
+					📖 Cours 2: Programmation orientée objets
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td2.html#✏️ TD 2 - Prog. objets niv.1 ✔️">
+					✏️ TD 2 - Prog. objets niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp4.html#✏️ TP 4 - Prog. objets niv.2 ✔️">
+					✏️ TP 4 - Prog. objets niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp5.html#✏️ TP 5 - Prog. objets niv.3 ✔️">
+					✏️ TP 5 - Prog. objets niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp6.html#✏️ TP 6 - Prog. objets niv.4 ✔️">
+					✏️ TP 6 - Prog. objets niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp7.html#✏️ TP 7 - Prog. objets niv.5 ✔️">
+					✏️ TP 7 - Prog. objets niv.5 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm3.html#📖 Cours 3: fonctionnalités de Python">
+					📖 Cours 3: fonctionnalités de Python
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td3.html#✏️ TD 3 ✔️">
+					✏️ TD 3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm4.html#📖 Cours 4: rappels et compléments">
+					📖 Cours 4: rappels et compléments
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp8.html#✏️ TP 8 ✔️">
+					✏️ TP 8 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp9.html#✏️ TP 9 - Jeu du pendu niv.1">
+					✏️ TP 9 - Jeu du pendu niv.1
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="exos_notes.html#📝 Exercices notés">
+					📝 Exercices notés
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cc1_2021.html#📝 Contrôle continu 1">
+					📝 Contrôle continu 1
+				</a>
+			</div>
+	
+
+	</div>
+	<div id="contenu">
+		
+
+		<div class="nav_arrows">
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="tp2.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+					<a href="cm2.html">Page suivante →</a>
+				
+				</span>
+		</div>
+		</div>
+		<hr>
+
+		
+	<h1 data-nb="7" id="✏️ TP 3 - Calculatrice niv.4 ✔️">✏️ TP 3 - Calculatrice niv.4 ✔️</h1>
+<div class="exercice">
+<h2 data-nb="7.1" id="Exercice 1">Exercice 1</h2>
+<p>On veut rendre notre programme plus sophistiqué, en permettant à l'utilisateur d'entrer directement une expression simple du type: nombre1 opération
+			nombre2. Exemples:
+			<br/>
+			10.3 + 4
+			<br/>
+			5 - 8
+			<br/>
+			74 * 2.08
+			<br/>
+			100.81 / 41
+		</p>
+<p>Mais pour y arriver, on doit réviser quelques notions, donc faisons-le sur des choses plus simples avant tout. Commençons par la manipulation de
+			tableaux / listes (ces deux termes sont synonymes). Il vous faudra vous souvenir du cours du 1er semestre sur les listes.</p>
+<ol>
+<li>Déclarez un tableau qui contient deux éléments: 5 et 10, et stockez-le dans une variable. Affichez-le en entier, en une seule action.</li>
+<li>Puis ajoutez-y le int 15, en utilisant deux façons de faire différentes.</li>
+<li>Sans utiliser de boucle, affichez les 3 éléments du tableau individuellement (un par un) dans la console, c'est à dire chacun sur une ligne à
+				l'affichage.
+			</li>
+<li>Faites de même, mais avec une boucle <code>for</code>.</li>
+<li>Faites de même avec une boucle <code>while</code>.</li>
+<li>Créez un second tableau qui contient les deux chaînes "Coucou" et "Bonjour", et stockez-le dans une variable.</li>
+<li>A l'aide d'une boucle <code>for</code>, ajoutez un par un chaque élément du second tableau à la fin du premier tableau.</li>
+<li>Faites de même, mais en une seule action.</li>
+</ol>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				# 1
+				tableau = [5, 10]
+				print(tableau)
+
+				# 2
+				tableau.append(15) #&lt;= meilleure option
+				tableau.extend([15])
+				tableau = tableau + [15] #&lt;= 3ème méthode possible
+
+				# 3
+				print(tableau[0])
+				print(tableau[1])
+				print(tableau[2])
+
+				# 4
+				for element in tableau:
+					print(element)
+
+				# 5
+				i = 0
+				while i &lt; len(tableau):
+					print(tableau[i])
+					i += 1
+
+				# 6
+				tableau2 = ["Coucou", "Bonjour"]
+
+				# 7
+				for element in tableau2:
+					tableau.append(element)
+
+				# 8
+				tableau.extend(tableau2)
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Question 2: ajouter un élément dans un tableau ne signifie pas ré-écrire le tableau littéralement et y ajouter l'élément, comme ceci: <code>tableau
+					= [5, 10, 15]</code>. Certes <code>15</code> est ajouté dans le tableau, mais vous déclarez ainsi un <em>second</em> tableau avec tous les
+					éléments précédents, simplement pour pouvoir y ajouter un nouvel élément. Comment ferez-vous si le tableau contient un milliard d'éléments?
+					Comment ferez-vous si vous ne connaissez pas les éléments à l'avance car ils auront été remplis par plusieurs utilisateurs, ou les valeurs
+					proviendraient de sources de données extérieures (données d'un inventaire de magasin avec des milliers de produits par exemple).
+				</li>
+<li>Question 2: la méthode <code>append()</code> est la meilleure approche pour ajouter un seul élément à la fin d'une liste. La méthode <code>extend()</code>
+					est mieux adaptée pour concaténer deux listes, c'est à dire les mettre bout-à-bout. Ici même si on ne veut ajouter qu'<em>un seul</em>
+					élément, il doit tout de même être mis dans une liste (la liste <code>[15]</code>) pour <code>extend()</code>. Les méthodes
+					<code>append()</code> et <code>extend()</code> <strong>modifient bien la liste</strong> sur laquelle on les appelle, elles ne retournent
+					aucun résultat. Enfin l'option <code>tableau = tableau + [15]</code> est la moins bonne car Python évalue l'expression (l'opérateur +), qui
+					résulte en une <strong>nouvelle</strong> liste qui consiste en une copie de la première concaténée de la seconde. Les deux listes originales
+					sont ensuite automatiquement supprimées si plus aucune variable ne pointe vers elles. La copie et la suppression de listes qui contiennent
+					beaucoup d'éléments (centaines de milliers ou plus) va donner du travail inutile à la machine, et l'utilisateur risque de devoir attendre
+					sans comprendre pourquoi.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="7.2" id="Exercice 2">Exercice 2</h2>
+<p>Poursuivons nos révisions, sur les chaînes cette fois.</p>
+<ol>
+<li>Déclarez une variable qui pointe sur la chaine "Bonjour".</li>
+<li>A l'aide d'une boucle <code>for</code>, affichez chaque lettre de la chaîne sur une ligne chacune.</li>
+<li>Faites de même avec une boucle <code>while</code>.</li>
+</ol>
+<p>On va explorer la méthode <code>split()</code> des chaînes. Une <em>méthode</em> est une fonction, mais qu'on appelle sur un objet, comme on le verra
+			bientôt avec la programmation orientée objets. La méthode <code>split()</code> permet de découper une chaîne en plusieurs sous-chaînes, en précisant
+			en paramètre un caractère séparateur. Attention une chaîne ne peut être modifiée, on obtient le résultat sous forme de nouvelles chaines, mais
+			l'originale n'est jamais modifiée.</p>
+<p>Par exemple <code>"Bon jour".split(" ")</code> retourne la liste <code>["Bon", "jour"]</code>, car le séparateur étant le caractère espace, on
+			obtient deux sous-chaînes. Elles sont retournées dans le bon ordre "Bon" d'abord et "jour" en second.</p>
+<ol start="4">
+<li>Essayez la méthode split sur la chaine <code>"plusieurs;champs;séparés;par;point-virgule"</code>, avec pour séparateur le caractère
+				point-virgule.
+			</li>
+<li>Essayez avec le caractère espace comme séparateur, et voyez ce que ça donne.
+			</li>
+</ol>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				# 1
+				chaine = "Bonjour"
+
+				# 2
+				for c in chaine:
+					print(c)
+
+				# 3
+				i = 0
+				while i &lt; len(chaine):
+					print(chaine[i])
+					i += 1
+
+				# 4
+				résultat_de_split = "plusieurs;champs;séparés;par;point-virgule".split(";")
+				print(résultat_de_split)
+				# ↑ affiche: ['plusieurs', 'champs', 'séparés', 'par', 'point-virgule']
+
+				résultat_de_split = "plusieurs;champs;séparés;par;point-virgule".split(" ")
+				print(résultat_de_split)
+				# ↑ affiche: ['plusieurs;champs;séparés;par;point-virgule']
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Le résultat de <code>split()</code> est toujours une liste, même si celle-ci ne contient qu'un seul élément dans le cas où la chaîne
+					n'aurait pas pu être coupée en plusieurs morceaux, si le caractère séparateur spécifié en paramètre de <code>split()</code> n'existe pas
+					dans la chaîne.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="7.3" id="Exercice 3">Exercice 3</h2>
+<p>Reprenons notre programmation d'une calculatrice, on veut rendre notre programme plus sophistiqué, en permettant à l'utilisateur d'entrer directement
+			une expression simple du type: nombre1 opération nombre2. Exemples:
+			<br/>
+			10.3 + 4
+			<br/>
+			5 - 8
+			<br/>
+			74 * 2.08
+			<br/>
+			100.81 / 41.
+		</p>
+<p>L'utilisateur doit entrer exactement un caractère espace entre les nombres et l'opération, on ne considère pas les cas où l'utilisateur rentre des
+			espaces en trop. On ne considère pas non plus pour le moment les cas où l'utilisateur fait des erreurs dans son expression simple, comme par exemple
+			ne rentre pas une opération supportée, ne rentre pas un nombre, etc... </p>
+<p>A la fin affichez simplement sur une nouvelle ligne le signe "=" suivi du résultat. Inutile de ré-afficher l'expression du calcul, puisque
+			l'utilisateur l'aura déjà entrée en entier. Par exemple:
+			<br/>
+<code>Entrez une expression simple: 5 + 6</code>
+<br/>
+<code>= 11</code>
+</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				expression = input("Entrez une expression simple: ")
+				éléments = expression.split(" ")
+				nb1 = float(éléments[0])
+				op = éléments[1]
+				nb2 = float(éléments[2])
+
+				if op == "+":
+					print("=", nb1 + nb2)
+				elif op == "-":
+					print("=", nb1 - nb2)
+				elif op == "/":
+					print("=", nb1 / nb2)
+				else:
+					print("=", nb1 * nb2)
+			</code></pre>
+<p>Remarques:</p>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="7.4" id="Exercice 4">Exercice 4</h2>
+<p>A partir de la solution précédente, considérer les cas où l'utilisateur fait des erreurs dans les nombres. Redemander d'entrer l'expression entiere
+			tant que l'un des deux nombres n'en est pas un.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				nb_est_correct = False
+				while not nb_est_correct:
+					try:
+						expression = input("Entrez une expression simple: ")
+						éléments = expression.split(" ")
+						nb1 = float(éléments[0])
+						op = éléments[1]
+						nb2 = float(éléments[2])
+						nb_est_correct = True
+					except:
+						print("Vous avez entré un mauvais nombre.")
+
+				if op == "+":
+					print("=", nb1 + nb2)
+				elif op == "-":
+					print("=", nb1 - nb2)
+				elif op == "/":
+					print("=", nb1 / nb2)
+				else:
+					print("=", nb1 * nb2)
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>Pourquoi dans le bloc <code>except</code> on peut écrire <code>print("Vous avez entré un mauvais nombre.")</code>? Comment peut-on être
+					sûr que le bloc <code>except</code> sera exécuté quand l'utilisateur aura entré un mauvais nombre?</p>
+<p>Parce que dans le bloc <code>try</code> correspondant (donc celui juste au dessus), seules les fonctions <code>float()</code> peuvent
+						provoquer des erreurs à l'exécution quand leur paramètre ne représente pas un nombre, et donc le <code>except</code> sert uniquement à
+						gérer ces cas d'erreurs.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="7.5" id="Exercice 5">Exercice 5</h2>
+<p>A partir de la solution précédente, considérer les cas où l'utilisateur n'entre pas une opération supportée (+, -, *, /). Redemander d'entrer
+			l'expression entiere tant que l'opération entrée est incorrecte.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				nb_est_correct = False
+				while not nb_est_correct:
+					try:
+						expression = input("Entrez une expression simple: ")
+						éléments = expression.split(" ")
+						nb1 = float(éléments[0])
+						op = éléments[1]
+						if op not in ["+", "-", "/", "*"]:
+							print("Opération non reconnue: ", op)
+							continue
+						nb2 = float(éléments[2])
+						nb_est_correct = True
+					except:
+						print("Vous avez entré un mauvais nombre.")
+
+				if op == "+":
+					print("=", nb1 + nb2)
+				elif op == "-":
+					print("=", nb1 - nb2)
+				elif op == "/":
+					print("=", nb1 / nb2)
+				else:
+					print("=", nb1 * nb2)
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Vous devez vous souvenir de ce que fait <code>continue</code>: cette instruction ne peut se mettre que dans une boucle (donc
+					<code>while</code> ou <code>for</code>), et dès qu'elle est exécutée, la boucle est immédiatement relancée pour la prochaine itération. Le
+					reste des instructions de la boucle qui auraient dû être exécutées sont ignorées.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="7.6" id="Exercice 6">Exercice 6</h2>
+<p>A partir de la solution précédente, considérer les cas où l'utilisateur ajoute des espaces en trop (mais il / elle doit toujours entrer au moins <em>un</em>
+			espace entre opérandes et opérateurs). Vous ne devez pas afficher un message d'erreur, mais ignorer les espaces en trop, et faire le bon calcul
+			malgré tout. Prendre aussi en compte les espaces en trop au début et à la fin de l'expression de l'utilisateur. Mais on considère toujours que
+			l'utilisateur rentre le bon nombre d'éléments, qui est 3, et dans le bon ordre (nb1, opération, nb2). </p>
+<p>Exemples d'expressions avec des espaces en trop, mais quand même considérées correctes par notre calculatrice:
+			<br/>
+<code>"   5.0   + 1  "</code>
+<br/>
+<code>" 8 /  9.1   "</code>
+</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				nb_est_correct = False
+				while not nb_est_correct:
+					try:
+						expression = input("Entrez une expression simple: ")
+						éléments = expression.split(" ")
+						éléments_corrects = []
+						# on enlève les espaces en trop avant tout
+						for el in éléments:
+							if el != "":
+								éléments_corrects.append(el)
+						nb1 = float(éléments_corrects[0])
+						op = éléments_corrects[1]
+						if op not in ["+", "-", "/", "*"]:
+							print("Opération non reconnue: ", op)
+							continue
+						nb2 = float(éléments_corrects[2])
+						nb_est_correct = True
+					except:
+						print("Vous avez entré un mauvais nombre.")
+
+				if op == "+":
+					print("=", nb1 + nb2)
+				elif op == "-":
+					print("=", nb1 - nb2)
+				elif op == "/":
+					print("=", nb1 / nb2)
+				else:
+					print("=", nb1 * nb2)
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>l'approche de la solution c'est éliminer les caractères espaces en trop, pour cela on crée une seconde liste
+					<code>éléments_corrects</code> qui contiendra 3 éléments: juste les deux nombres et l'opérateur entre les deux. Puis on analyse la liste des
+					éléments retournés par la méthode <code>split()</code> exécutée sur l'expression entrée par l'utilisateur.</p>
+<p>Dans la boucle <code>for el in éléments</code> on ignore les chaînes vides, elles sont créées par <code>split()</code> car étant donné
+						qu'on a spécifié le caractère espace comme séparateur, <code>split()</code> considère qu'entre deux espaces il y a une chaîne vide, dans
+						la chaîne de l'expression de l'utilisateur..</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+		<div class="nav_arrows">
+			<hr>
+			
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="tp2.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+					<a href="cm2.html">Page suivante →</a>
+				
+				</span>
+		</div>
+		
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

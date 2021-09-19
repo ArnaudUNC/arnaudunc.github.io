@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>✏️ TD 1 - Calculatrice niv.1 ✔️ | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<link rel="icon" href="img/favicon.svg">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="hsl(200,50%, 50%)" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90">
+		en Python
+	</text>
+</svg>
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="index.html#Introduction">
+					Introduction
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="groupes.html#Groupes de TD / TP">
+					Groupes de TD / TP
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cm1.html#📖 Cours 1: rappels">
+					📖 Cours 1: rappels
+				</a>
+			</div>
+	
+
+	
+			<div class="page_actuelle h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#✏️ TD 1 - Calculatrice niv.1 ✔️">
+					✏️ TD 1 - Calculatrice niv.1 ✔️
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 1">
+					Question 1
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 2">
+					Question 2
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 3">
+					Question 3
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 4">
+					Question 4
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 5">
+					Question 5
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 6">
+					Question 6
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 7">
+					Question 7
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 8">
+					Question 8
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 9">
+					Question 9
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Question 10">
+					Question 10
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp1.html#✏️ TP 1 - Calculatrice niv.2 ✔️">
+					✏️ TP 1 - Calculatrice niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp2.html#✏️ TP 2 - Calculatrice niv.3 ✔️">
+					✏️ TP 2 - Calculatrice niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp3.html#✏️ TP 3 - Calculatrice niv.4 ✔️">
+					✏️ TP 3 - Calculatrice niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm2.html#📖 Cours 2: Programmation orientée objets">
+					📖 Cours 2: Programmation orientée objets
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td2.html#✏️ TD 2 - Prog. objets niv.1 ✔️">
+					✏️ TD 2 - Prog. objets niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp4.html#✏️ TP 4 - Prog. objets niv.2 ✔️">
+					✏️ TP 4 - Prog. objets niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp5.html#✏️ TP 5 - Prog. objets niv.3 ✔️">
+					✏️ TP 5 - Prog. objets niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp6.html#✏️ TP 6 - Prog. objets niv.4 ✔️">
+					✏️ TP 6 - Prog. objets niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp7.html#✏️ TP 7 - Prog. objets niv.5 ✔️">
+					✏️ TP 7 - Prog. objets niv.5 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm3.html#📖 Cours 3: fonctionnalités de Python">
+					📖 Cours 3: fonctionnalités de Python
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="td3.html#✏️ TD 3 ✔️">
+					✏️ TD 3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cm4.html#📖 Cours 4: rappels et compléments">
+					📖 Cours 4: rappels et compléments
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp8.html#✏️ TP 8 ✔️">
+					✏️ TP 8 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="tp9.html#✏️ TP 9 - Jeu du pendu niv.1">
+					✏️ TP 9 - Jeu du pendu niv.1
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="exos_notes.html#📝 Exercices notés">
+					📝 Exercices notés
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="cc1_2021.html#📝 Contrôle continu 1">
+					📝 Contrôle continu 1
+				</a>
+			</div>
+	
+
+	</div>
+	<div id="contenu">
+		
+
+		<div class="nav_arrows">
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="cm1.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+					<a href="tp1.html">Page suivante →</a>
+				
+				</span>
+		</div>
+		</div>
+		<hr>
+
+		
+	<h1 data-nb="4" id="✏️ TD 1 - Calculatrice niv.1 ✔️">✏️ TD 1 - Calculatrice niv.1 ✔️</h1>
+<div class="exercice">
+<h2 data-nb="4.1" id="Question 1">Question 1</h2>
+<p>Afficher la chaîne "Bonjour" dans la console</p>
+<div class="correction">
+<pre><code class="language-python">
+				print("Bonjour")
+			</code></pre>
+<pre class="affichage_console"><code>
+Bonjour
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Le caractère <em>&gt;</em> dans la console représente le "prompt". Quand il apparaît, c'est que le programme a terminé son exécution.
+				</li>
+<li><code>print</code> est le nom de la fonction, et elle est déjà définie dans Python, c'est pour ça qu'on peut l'utiliser directement sans
+					avoir à la définir nous-même. Python contient de nombreuses fonctions pré-définies très utiles.
+				</li>
+<li><code>print()</code> (avec les parenthèses en plus) est un appel de la fonction. <code>print</code> tout court, sans parenthèses, est juste
+					le nom de la fonction, c'est un identifiant, mais pas un appel
+				</li>
+<li>"Bonjour" est une valeur littérale de type <code>str</code>. C'est aussi le paramètre EFFECTIF (concret) de l'appel à <code>print()</code>.
+					Les paramètres ne sont dits "formels" que lors de la <em>définition</em> d'une fonction (avec le mot-clé <code>def</code>). Lors de <em>l'appel</em>
+					on lui passe forcément des paramètres dits "effectifs".
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.2" id="Question 2">Question 2</h2>
+<p>Afficher le int 100 dans la console</p>
+<div class="correction">
+<pre><code class="language-python">
+				print(100)
+			</code></pre>
+<pre class="affichage_console"><code class="">
+100
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><code>100</code> est une valeur littérale de type <code>int</code>.</li>
+<li>La fonction <code>print()</code> accepte comme paramètre une valeur de n'importe quel type de donnée, elle affichera toujours quelque chose
+					dans la console lors de l'éxécution du programme. Pour les types simples tels que <code>str</code> ou <code>int</code>, <code>print()</code>
+					affiche leur valeur littérale. Pour les valeurs de types plus complexes, comme ceux qu'on définira plus tard par exemple,
+					<code>print()</code> affichera une représentation moins utile par défaut.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.3" id="Question 3">Question 3</h2>
+<p>Afficher la chaîne "Bonjour" suivie du int 100, sur la même ligne, avec un seul appel à la fonction print(). On veut deux façons de faire (deux
+			versions) différentes.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				print("Bonjour", 100)
+				print("Bonjour " + str(100))
+			</code></pre>
+<pre class="affichage_console"><code>
+Bonjour 100
+Bonjour 100
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Dans la première version, on passe deux paramètres à <code>print()</code>, qui est un exemple de fonction qui accepte un nombre variable de
+					paramètres (0, 1, 2...).
+				</li>
+<li>Dans la seconde version, on passe un seul paramètre à <code>print()</code>. Il s'agit d'une expression constituée de l'opérateur de
+					concaténation de chaînes <code>+</code>, entouré donc de 2 <code>str</code> de chaque côté.
+				</li>
+<li>La concaténation ne fonctionne que entre <code>str</code> et <code>str</code>, il faut donc convertir le <code>int</code> 100 en
+					<code>str</code> grâce à la fonction <code>str()</code>, qui prend un paramètre de n'importe quel type, et retournera sa valeur sous forme
+					de <code>str</code>.
+				</li>
+<li>Il faut un espace à la fin du second <code>"Bonjour "</code>, entre le <em>r</em> et <em>"</em>, pour ne pas avoir le 100 collé au <em>Bonjour</em>
+					à l'affichage. Le premier <code>"Bonjour"</code> n'a pas besoin de cet espace car par défaut <code>print()</code> ajoute un espace à
+					l'affichage entre chaque paramètre.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.4" id="Question 4">Question 4</h2>
+<p>Demander à l'utilisateur d'entrer du texte dans la console, en lui affichant un message explicatif. Une seule ligne de code est suffisante.
+			L'affichage doit se faire sur une seule ligne.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				input("Entrez du texte: ")
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez du texte: Toto
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Dans l'affichage, l'utilisateur a entré <em>Toto</em> au clavier, puis appuyé sur la touche "Entrée" pour confirmer son choix.
+				</li>
+<li>Un appel à la fonction prédéfinie <code>input()</code> est bloquant, ça signifie que le programme est en pause et <code>input()</code> ne se
+					termine pas, tant que l'utilisateur n'a pas appuyé sur la touche "Entrée".
+				</li>
+<li>Le paramètre passé à <code>input()</code> est le message qui est affiché dans la console avant de laisser l'utilisateur écrire au clavier,
+					sur la même ligne.
+				</li>
+<li>Les caractères <em>deux points</em> et <em>espace</em> à la fin de <code>"Entrez du texte: "</code> sont nécessaires pour que le texte de
+					l'utilisateur ne soit pas collé au message explicatif, comme ceci par exemple <code>Entrez du texteToto</code>.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.5" id="Question 5">Question 5</h2>
+<p>Même question, mais en plus affichez ensuite sur une seconde ligne dans la console, ce que l'utilisateur aura entré au clavier. Avant d'afficher le
+			texte de l'utilisateur, on veut lire sur la même ligne: "Vous avez écrit:"</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				texte_utilisateur = input("Entrez du texte: ")
+				print("Vous avez écrit:", texte_utilisateur)
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez du texte: Toto
+Vous avez écrit: Toto
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><code>texte_utilisateur</code> est une variable, on la crée à la première ligne, et on l'initialise avec la valeur que retourne <code>input()</code>.
+				</li>
+<li>La valeur de retour de <code>input()</code> est toujours de type <code>str</code>, et est le texte que l'utilisateur a entré au clavier.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.6" id="Question 6">Question 6</h2>
+<p>Même question que la précédente, mais au lieu d'entrer du texte, demandez à l'utilisateur d'entrer un nombre entier. Affichez ce nombre ensuite. On
+			ne considère pas les cas d'erreur où l'utilisateur ne rentrerait pas un nombre.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				texte_utilisateur = input("Entrez un nombre: ")
+				nb_utilisateur = int(texte_utilisateur)
+				print("Votre nombre:", nb_utilisateur)
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez un nombre: 5
+Votre nombre: 5
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Sur la ligne 2, le type <code>int</code> est utilisé comme fonction, et permet de convertir le paramètre passé sous forme de
+					<code>str</code>, en <code>int</code> comme valeur de retour.
+				</li>
+<li>La fonction <code>int()</code> peut provoquer une erreur si on ne donne pas un NOMBRE sous forme de <code>str</code>, en paramètre.
+				</li>
+<li>La variable <code>nb_utilisateur</code> contient le texte de l'utilisateur mais converti en <code>int</code>.</li>
+<li><p>Une version plus courte aurait pu être:</p>
+<pre class="line-numbers"><code class="language-python">
+						texte_utilisateur = input("Entrez un nombre: ")
+						print("Votre nombre:", int(texte_utilisateur))
+					</code></pre>
+<p>Ou encore plus courte:</p>
+<pre class="line-numbers"><code class="language-python">
+						print("Votre nombre:", int(input("Entrez un nombre: ")))
+					</code></pre>
+<p>Mais il faut trouver un équilibre entre la lisibilité du code et sa longueur. Un code trop long ou trop court est difficile à lire, donc
+						à comprendre. Un code difficile à comprendre est susceptible de contenir davantage de bugs, il faut donc favoriser la lisibilité du
+						code.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.7" id="Question 7">Question 7</h2>
+<p>Même question que la précédente, mais cette fois en cas d'erreur, on affiche un message à l'utilisateur, et le programme s'arrête. Si aucune erreur,
+			le programme fait la même chose que le précédent.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				texte_utilisateur = input("Entrez un nombre: ")
+				try:
+					nb_utilisateur = int(texte_utilisateur)
+					print("Votre nombre:", nb_utilisateur)
+				except:
+					print(texte_utilisateur, "n'est pas un nombre.")
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez un nombre: 5
+Votre nombre: 5
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez un nombre: u
+u n'est pas un nombre.
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>On utilise ici le mécanisme des <em>exceptions</em>, qui permet au développeur de gérer les erreurs qu'on appelle "exceptions". Au lieu
+					d'avoir une erreur affichée en rouge dans la console (que l'utilisateur ne comprendra pas), et que notre programme se termine brutalement,
+					on utilise les blocs <code>try:</code> et <code>except:</code>.
+				</li>
+<li>Le système des exceptions est utilisé dans beaucoup d'autres langages.</li>
+<li><p>Dans un bloc <code>try:</code> dès qu'une ligne de code provoque une exception, le reste du <code>try:</code> est ignoré, et c'est le
+					bloc <code>except:</code> qui commence alors à être exécuté. Ainsi la ligne 4 ne s'excute QUE SI la ligne 3 s'exécute correctement, ce qui
+					est très important, car si la ligne 3 ne s'exécute pas correctement la variable <code>nb_utilisateur</code> n'existerait pas, et on ne
+					pourrait donc y faire référence à la ligne 4, on aurait une erreur de type <code>NameError</code>.</p>
+<p>Donc on ne DOIT PAS faire ceci:</p>
+<pre class="line-numbers"><code class="language-python">
+						texte_utilisateur = input("Entrez un nombre: ")
+						try:
+							nb_utilisateur = int(texte_utilisateur)
+							# on a déplacé la ligne ici à la fin ↓
+						except:
+							print(texte_utilisateur, "n'est pas un nombre.")
+						# ERREUR la ligne dessous est toujours exécutée,
+						# car située après le try-except.
+						# Hors elle dépend du bon déroulement de la 3 :(
+						print("Votre nombre:", nb_utilisateur)
+					</code></pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.8" id="Question 8">Question 8</h2>
+<p>Même question que la précédente, mais cette fois on demande DEUX nombres à l'utilisateur, puis on affiche leur somme. On ignore les erreurs pour le
+			moment (utilisateur n'entre pas un nombre).</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				nb1 = int(input("Ecrire nombre 1: "))
+				nb2 = int(input("Ecrire nombre 2: "))
+				somme = nb1 + nb2
+				print("Somme:", somme)
+			</code></pre>
+<pre class="affichage_console"><code>
+Ecrire nombre 1: 4
+Ecrire nombre 2: 3
+Somme: 7
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>👿 J'ai vu plusieurs étudiants faire ce genre de chose dans leurs programmes:</p>
+<pre class="line-numbers"><code class="language-python">
+						# OMG 😱
+						nb1 = input("Entrez nombre 1: ") and nb2 = input("Entrez nombre 2: ")
+					</code></pre>
+<p>Le problème ici est l'utilisation du <code>and</code> qui ne sert CERTAINEMENT PAS à enchaîner les actions. Le mot "and" signifie "et" an
+						anglais certes, mais vous vous laissez piéger car vous l'interprétez comme "faire ceci ET PUIS faire cela ET PUIS faire ça...". </p>
+<p>Pour faire des actions supplémentaires, il suffit de sauter une ligne: une ligne une action.</p>
+<pre class="line-numbers"><code class="language-python">
+						# Mieux 😌
+						nb1 = input("Entrez nombre 1: ")
+						nb2 = input("Entrez nombre 2: ")
+					</code></pre>
+<p><code>and</code> est un opérateur booléen, tout comme <code>or</code>, <code>not</code>, <code>==</code>, <code>&lt;</code>,
+						<code>&gt;</code>, etc... Révisez-les si vous les avez oubliés.</p>
+</li>
+<li>On appelle ici <code>int()</code> directement sur la valeur de retour de <code>input()</code>, sans stocker le texte de l'utilisateur dans
+					une variable intermédiaire comme dans les questions précédentes. C'est plus court et concis, mais vous pouvez utiliser la version que vous
+					préférez.
+				</li>
+<li>
+<p>Version plus courte:</p>
+<pre class="line-numbers"><code class="language-python">
+						nb1 = int(input("Ecrire nombre 1: "))
+						nb2 = int(input("Ecrire nombre 2: "))
+						print("Somme:", nb1 + nb2)
+					</code></pre>
+</li>
+<li>
+<p>Si on utilise plutôt la concaténation dans le <code>print()</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+						nb1 = int(input("Ecrire nombre 1: "))
+						nb2 = int(input("Ecrire nombre 2: "))
+						print("Somme: " + str(nb1 + nb2))
+					</code></pre>
+</li>
+<li>
+<p>On peut tout faire sur une seule ligne de code, mais ce genre d'écriture n'est PAS récommandée, c'est trop peu lisible:</p>
+<pre class="line-numbers"><code class="language-python">
+						print("Somme:", int(input("Ecrire nombre 1: ")) + int(input("Ecrire nombre 2: ")))
+					</code></pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.9" id="Question 9">Question 9</h2>
+<p>Même question que la précédente, en prenant en compte les erreurs. Si l'utilisateur n'entre pas un nombre pour le 1er ou 2ème nombre, on affiche un
+			message et le programme s'arrête. Si aucune erreur, le programme fait la même chose que le précédent: affiche la somme.</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				try:
+					nb1 = int(input("Ecrire nombre 1: "))
+					nb2 = int(input("Ecrire nombre 2: "))
+					somme = nb1 + nb2
+					print("Somme:", somme)
+				except:
+					print("Un des deux nombres n'est pas correct.")
+			</code></pre>
+<pre class="affichage_console"><code>
+Ecrire nombre 1: 4
+Ecrire nombre 2: 3
+Somme: 7
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Ecrire nombre 1: a
+Un des deux nombres n'est pas correct.
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Ecrire nombre 1: 5
+Ecrire nombre 2: a
+Un des deux nombres n'est pas correct.
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>La ligne 5 dépend de la 4 par la variable <code>somme</code>. La ligne 4 dépend des lignes 3 et 2 par les variables <code>nb1</code> et
+					<code>nb2</code>. Donc elles doivent toutes être dans le <code>try:</code>.
+				</li>
+</ul>
+</div>
+</div>
+<div class="exercice">
+<h2 data-nb="4.10" id="Question 10">Question 10</h2>
+<p>Partant de la correction de l'exercice précédent, demander en plus à l'utilisateur l'opération qu'il / elle souhaite réaliser sur ses deux nombres:
+			addition, soustraction, multiplication ou division. Afficher le résultat de l'opération demandée sous la forme suivante: valeur du nombre 1, suivie
+			de l'opération (+, -, / ou *), suivie de la valeur du nombre 2, =, et enfin la valeur du résultat. Exemples: <em>5 - 3 = 2</em> ou encore <em>30 / 3
+				= 10</em>. Toujours prendre en compte les erreurs (utilisateur n'a pas entré un nombre pour le 1er ou le 2eme nombre).</p>
+<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				try:
+					nb1 = int(input("Entrez nombre 1: "))
+					nb2 = int(input("Entrez nombre 2: "))
+					op = input("Operation? (+,-,*,/): ")
+					if op == "+":
+						print(nb1, op, nb2, "=", nb1 + nb2)
+					elif op == "-":
+						print(nb1, op, nb2, "=", nb1 - nb2)
+					elif op == "*":
+						print(nb1, op, nb2, "=", nb1 * nb2)
+					elif op == "/":
+						print(nb1, op, nb2, "=", nb1 / nb2)
+					else:
+						print("Opération inconnue: ", op)
+				except:
+					print("Un des 2 nombres est incorrect.")
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 4
+Entrez nombre 2: 3
+Operation? (+,-,*,/): +
+4 + 3 = 7
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 4
+Entrez nombre 2: 3
+Operation? (+,-,*,/): -
+4 - 3 = 1
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 4
+Entrez nombre 2: 3
+Operation? (+,-,*,/): *
+4 * 3 = 12
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 4
+Entrez nombre 2: 3
+Operation? (+,-,*,/): /
+4 / 3 = 1.3333333333333333
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 4
+Entrez nombre 2: 3
+Operation? (+,-,*,/): m
+Opération inconnue:  m
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 5
+Entrez nombre 2: m
+Un des 2 nombres est incorrect.
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>👿 Il ne faut pas confondre <code>=</code> et <code>==</code>, ils n'ont rien à voir!!!</p>
+<p><code>=</code> est une instruction, c'est une action, elle sert à affecter une valeur sous forme d'expression (forcément à droite du
+						<code>=</code>) à un identifiant/une variable (forcément à gauche du <code>=</code>).</p>
+<p>Exemple: <code>ma_variable = (5 + 8) * 4</code></p>
+<p><code>=</code> ne retourne AUCUNE valeur, ce n'est PAS une expression et donc ne peut PAS apparaître dans une expression.</p>
+<p><code>==</code> est un opérateur binaire booléen, qui compare si la valeur de l'opérande de gauche (une expression de n'importe quel
+						type) est égale à la valeur de l'opérande de droite (également une expression de n'importe quel type).</p>
+<p>Exemple: <code>(5+2) == (6+1)</code></p>
+<p>Si les deux valeurs sont égales, alors l'opérateur == vaut <code>True</code>, sinon il vaut <code>False</code>. == forme donc une
+						expression, et peut ainsi apparaître dans des expressions plus grandes.</p>
+</li>
+<li><p>On utilise <code>elif</code> au lieu de <code>else:</code> suivi de <code>if:</code>. Cette écriture convient bien quand on a des else-if
+					à la suite comme dans cet exemple. Avec des else-if classiques les indentations successives et les sauts de ligne rendent la lecture du code
+					difficile.</p>
+</li>
+<li>
+<p>Voici ce que ça donnerait avec des else-if classiques, l'écriture est plus longue mais les deux programmes font exactement la même
+						chose:</p>
+<pre class="line-numbers"><code class="language-python">
+						try:
+							nb1 = int(input("Entrez nombre 1: "))
+							nb2 = int(input("Entrez nombre 2: "))
+							op = input("Operation? (+,-,*,/): ")
+							if op == "+":
+								print(nb1, op, nb2, "=", nb1 + nb2)
+							else:
+								if op == "-":
+									print(nb1, op, nb2, "=", nb1 - nb2)
+								else:
+									if op == "*":
+										print(nb1, op, nb2, "=", nb1 * nb2)
+									else:
+										if op == "/":
+											print(nb1, op, nb2, "=", nb1 / nb2)
+										else:
+											print("Opération inconnue: ", op)
+						except:
+							print("Un des 2 nombres est incorrect.")
+					</code></pre>
+</li>
+</ul>
+</div>
+</div>
+
+
+		<div class="nav_arrows">
+			<hr>
+			
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="cm1.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+					<a href="tp1.html">Page suivante →</a>
+				
+				</span>
+		</div>
+		
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
