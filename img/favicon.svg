@@ -12,8 +12,8 @@
 		text-anchor: middle;
 		font-size: 11pt;
 	</style>
-	<rect fill="hsl(000,50%, 50%)" x="0" y="0" width="100" height="100"></rect>
-<!--	<rect fill="hsl(200,50%, 50%)" x="0" y="0" width="100" height="100"></rect>-->
+<!--	<rect fill="hsl(000,50%, 50%)" x="0" y="0" width="100" height="100"></rect>-->
+	<rect fill="hsl(200,50%, 50%)" x="0" y="0" width="100" height="100"></rect>
 	<text x="50" y="75" style="font-size: 50pt;" id="t">
 		🐍
 	</text>
