@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>📝 Contrôle continu 2 | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="hsl(200,50%, 50%)" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90">
+		en Python
+	</text>
+</svg>
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="index.html#Introduction">
+					Introduction
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="groupes.html#Groupes de TD / TP">
+					Groupes de TD / TP
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cm1.html#📖 Cours 1: rappels">
+					📖 Cours 1: rappels
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="td1.html#✏️ TD 1 - Calculatrice niv.1 ✔️">
+					✏️ TD 1 - Calculatrice niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp1.html#✏️ TP 1 - Calculatrice niv.2 ✔️">
+					✏️ TP 1 - Calculatrice niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp2.html#✏️ TP 2 - Calculatrice niv.3 ✔️">
+					✏️ TP 2 - Calculatrice niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp3.html#✏️ TP 3 - Calculatrice niv.4 ✔️">
+					✏️ TP 3 - Calculatrice niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cm2.html#📖 Cours 2: Programmation orientée objets">
+					📖 Cours 2: Programmation orientée objets
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="td2.html#✏️ TD 2 - Prog. objets niv.1 ✔️">
+					✏️ TD 2 - Prog. objets niv.1 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp4.html#✏️ TP 4 - Prog. objets niv.2 ✔️">
+					✏️ TP 4 - Prog. objets niv.2 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp5.html#✏️ TP 5 - Prog. objets niv.3 ✔️">
+					✏️ TP 5 - Prog. objets niv.3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp6.html#✏️ TP 6 - Prog. objets niv.4 ✔️">
+					✏️ TP 6 - Prog. objets niv.4 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp7.html#✏️ TP 7 - Prog. objets niv.5 ✔️">
+					✏️ TP 7 - Prog. objets niv.5 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cm3.html#📖 Cours 3: fonctionnalités de Python">
+					📖 Cours 3: fonctionnalités de Python
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="td3.html#✏️ TD 3 ✔️">
+					✏️ TD 3 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cm4.html#📖 Cours 4: rappels et compléments">
+					📖 Cours 4: rappels et compléments
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp8.html#✏️ TP 8 ✔️">
+					✏️ TP 8 ✔️
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp9.html#✏️ TP 9 - Jeu du pendu niv.1">
+					✏️ TP 9 - Jeu du pendu niv.1
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp10.html#✏️ TP 10 - Jeu du pendu niv.2">
+					✏️ TP 10 - Jeu du pendu niv.2
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="tp11.html#✏️ TP 11 - Jeu du pendu niv.3">
+					✏️ TP 11 - Jeu du pendu niv.3
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="exos_notes.html#📝 Exercices notés">
+					📝 Exercices notés
+				</a>
+			</div>
+	
+
+	
+			<div class="h h1">
+				<!--span class="ballot_box">☒</span-->
+				<a href="cc1_2021.html#📝 Contrôle continu 1">
+					📝 Contrôle continu 1
+				</a>
+			</div>
+	
+
+	
+			<div class="page_actuelle h h1">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#📝 Contrôle continu 2">
+					📝 Contrôle continu 2
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Classe Ampoule">
+					Classe Ampoule
+				</a>
+			</div>
+			<div class="page_actuelle h h2">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Classe Réfrigérateur">
+					Classe Réfrigérateur
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Constructeur">
+					Constructeur
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Unité de vitesse de variation de température">
+					Unité de vitesse de variation de température
+				</a>
+			</div>
+			<div class="page_actuelle h h3">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Méthodes">
+					Méthodes
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Branchement sur prise électrique (point 5)">
+					Branchement sur prise électrique (point 5)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Porte (point 6)">
+					Porte (point 6)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Thermostat (point 7)">
+					Thermostat (point 7)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Ampoule (point 8)">
+					Ampoule (point 8)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Ajout d'aliments (points 9, 10, 11, 12, 16)">
+					Ajout d'aliments (points 9, 10, 11, 12, 16)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Retrait d'aliments (points 13, 14, 15, 17)">
+					Retrait d'aliments (points 13, 14, 15, 17)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Avoir la liste des aliments (points 16, 17)">
+					Avoir la liste des aliments (points 16, 17)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Avoir le volume total des aliments (point 18)">
+					Avoir le volume total des aliments (point 18)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Avoir la température moyenne pondérée des aliments (points 19, 20)">
+					Avoir la température moyenne pondérée des aliments (points 19, 20)
+				</a>
+			</div>
+			<div class="page_actuelle h h4">
+				<!--span class="ballot_box">☐</span-->
+				<a href="#Passer le temps (points 21 à 27)">
+					Passer le temps (points 21 à 27)
+				</a>
+			</div>
+	
+
+	</div>
+	<div id="contenu">
+		
+
+		<div class="nav_arrows">
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="cc1_2021.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+				</span>
+		</div>
+		</div>
+		<hr>
+
+		
+	<h1 data-nb="23" id="📝 Contrôle continu 2">📝 Contrôle continu 2</h1>
+<div class="exercice">
+<ul>
+<li><strong>Date début:</strong> mardi 26 octobre 2021</li>
+<li><strong>Date limite pour rendre:</strong> mercredi 3 novembre 2021 à 23h59</li>
+<li><strong>A rendre sur Moodle:</strong> soumettre uniquement votre unique fichier .py, dans l'onglet <em>évaluations</em> du cours d'algo. et
+				prog. 2 en Python.
+			</li>
+<li><strong>Retard possible:</strong> non.</li>
+</ul>
+<p>C'est un exercice à faire SEUL(E), la triche sera <strong>activement</strong> recherchée et sanctionnée par un zéro à toutes les copies identiques
+			même si seuls certains morceaux de code sont identiques.</p>
+<p>Ce CC va permettre d'évaluer vos connaissances spécifiquement dans les notions de base en programmation objet en Python, avec un peu de calcul
+			également. Vous allez écrire 2 classes qui permettent de représenter des ampoules électriques, et des réfrigérateurs.</p>
+<img alt="" src="img/cc2/ampoule.jpg" style="display: inline"/>
+<img alt="" src="img/cc2/réfrigérateur.jpg" style="display: inline"/>
+<div style="color:red;">
+<p>Voici ce qui doit être strictement respecté comme demandé dans les consignes (sinon les points ne seront pas comptés):</p>
+<p>Vous devez créer 2 classes:</p>
+<ul>
+<li>Une classe <code>Ampoule</code>, qui a 3 méthodes (constructeur inclus)</li>
+<li>Une classe <code>Réfrigérateur</code>, qui a 17 méthodes (constructeur inclus)</li>
+</ul>
+<p>Le tout dans UN SEUL module (un seul fichier .py):</p>
+<ul>
+<li>le nom que vous donnez à vos classes et à chaque méthode doivent être EXACTEMENT ceux demandés, au caractère prêt: majuscule/minuscule,
+					accents ou pas.
+				</li>
+<li>le <strong>nombre</strong> et <strong>l'ordre</strong> des paramètres pour chaque méthode doivent être EXACTEMENT comme demandés</li>
+<li>la valeur de retour de chaque méthode doit respecter ce qui est demandé</li>
+<li>en règle générale tenez-vous en uniquement à ce qui est demandé, ni plus ni moins. Vous serez noté sur le respect scrupuleux du "contrat" de
+					chaque méthode (nom, params, actions, et valeurs de retour)
+				</li>
+<li>aucun code en dehors des classes n'est demandé</li>
+</ul>
+</div>
+<div style="color:green;">
+<p>Et voici là où vous êtes libres de faire comme vous voulez:</p>
+<ul>
+<li>le nom du module (fichier .py) n'importe pas</li>
+<li>l'ordre des méthodes n'importe pas</li>
+<li>le <em>nom</em> de chaque paramètre des méthodes n'importe pas</li>
+<li>comment chaque méthode fait ce qu'elle doit n'importe pas, tant qu'elle le fait correctement</li>
+</ul>
+</div>
+<p>Les classes et méthodes sont demandées dans aucun ordre particulier, donc faites-les dans l'ordre que vous préférez, même si certaines dépendent
+			d'autres.</p>
+<p>Voici les points sur lesquels vous serez évalués:</p>
+<h2 data-nb="23.1" id="Classe Ampoule">Classe Ampoule</h2>
+<p>Une ampoule peut potentiellement briller un certain nombre d'heures au maximum (en cumulé, pas forcément en une seule fois), et ce nombre maximum est
+			spécifié comme premier et unique paramètre du constructeur (types <code>float</code> ou <code>int</code>) <strong>(point 1)</strong>.</p>
+<p>Une ampoule a une méthode <code>briller_pendant_durée</code> qui lui permet de briller pendant un certain nombre de <strong>secondes</strong>
+			spécifié en unique paramètre (types <code>float</code> ou <code>int</code>).</p>
+<ul>
+<li>Si elle a pu briller une certaine durée (une certaine fraction d'heures) car elle n'avait pas dépassé son nombre maximal d'heures, alors cette
+				méthode retourne la durée (en heures, types <code>float</code> ou <code>int</code>) qu'elle a pu briller <strong>(point 2)</strong>, sachant que
+				jamais une ampoule ne peut briller plus que son maximum.
+			</li>
+<li>
+				Si elle n'as pas pu briller du tout car elle avait déjà atteint son maximum d'heures avant l'appel de la méthode, la méthode retourne 0 <strong>(point
+				3)</strong>.
+			</li>
+</ul>
+<p>Pour savoir combien de temps à briller il reste a une ampoule, créer la méthode <code>avoir_heures_restantes</code>, qui ne prend aucun paramètre, et
+			qui retourne le nombre <strong>d'heures</strong> de "vie" qu'il reste à l'ampoule (type <code>float</code>). <strong>(points 2 et 3)</strong></p>
+<h2 data-nb="23.2" id="Classe Réfrigérateur">Classe Réfrigérateur</h2>
+<h3 data-nb="23.2.1" id="Constructeur">Constructeur</h3>
+<p>Le constructeur <strong>(point 4)</strong> prend 4 paramètres dans cet ordre:</p>
+<ol>
+<li>le volume intérieur du réfrigérateur, en litres (types <code>float</code> ou <code>int</code>)</li>
+<li>la vitesse de <strong>refroidissement</strong> des aliments à l'intérieur du réfrigrateur quand celui-ci est <strong>fermé et allumé</strong>.
+				L'unité est expliquée ci-dessous (types <code>float</code> ou <code>int</code>)
+			</li>
+<li>la vitesse de <strong>réchauffement</strong> des aliments à l'intérieur du réfrigrateur quand celui-ci est <strong>fermé mais éteint</strong>.
+				L'unité est expliquée ci-dessous (types <code>float</code> ou <code>int</code>)
+			</li>
+<li>le thermostat, c'est à dire la température visée, en degrés celsius (types <code>float</code> ou <code>int</code>)</li>
+</ol>
+<h3 data-nb="23.2.2" id="Unité de vitesse de variation de température">Unité de vitesse de variation de température</h3>
+<p>Une partie de votre travail consiste à comprendre l'unité de la vitesse de variation de température, afin de pouvoir faire les calculs adequats plus
+			tard, dans les méthodes de la classe <code>Réfrigérateur</code>.</p>
+<p>Pour mesurer une <em>vitesse</em> à laquelle les aliments changent de température, on va utiliser une unité qui dépend:</p>
+<ul>
+<li>du poids de l'aliment, en kilogrammes</li>
+<li>de la variation de la température, en degrés celsius</li>
+<li>du temps pendant lequel la variation se déroule, en heures</li>
+</ul>
+<p>Plus un aliment est lourd (pour une même durée et variation de température) plus il met de temps à changer de température, donc le poids ralenti la
+			vitesse de variation de la tempréature. Plus la variation de température est élevée (pour un même poids et même durée), plus la vitesse de variation
+			est élevée. Et enfin plus le temps accordé au changement de température est elevé (pour une même variation et même poids), plus la variation sera
+			importante.</p>
+<p>Exemples pour une vitesse de <em>réchauffement</em> de 10:</p>
+<ul>
+<li>1kg d'aliment monte de 10 degrés celsius en 1 heure</li>
+<li>500g d'aliment montent de 20 degrés en 1 heure</li>
+<li>2kg d'aliment montent de 5 degrés en 1 heure</li>
+<li>1kg d'aliment monte de 5 degrés celsius en 30 minutes</li>
+<li>1kg d'aliment monte de 20 degrés celsius en 2 heures</li>
+<li>2kg d'aliment montent de 10 degrés celsius en 2 heures</li>
+</ul>
+<p>La température baisse si on parle de vitesse de <em>refroidissement</em>, <strong>dans ce cas la vitesse est négative</strong> (par exemple -10 au
+			lieu de 10).</p>
+<h3 data-nb="23.2.3" id="Méthodes">Méthodes</h3>
+<h4 data-nb="23.2.3.1" id="Branchement sur prise électrique (point 5)">Branchement sur prise électrique (point 5)</h4>
+<p>Un réfrigérateur peut être branché sur une prise électrique ou non. Initialement un réfrigérateur doit être débranché. Créer 3 méthodes:</p>
+<ul>
+<li><code>brancher</code>, sans paramètre, sans résultat, qui branche le réfrigérateur</li>
+<li><code>débrancher</code>, sans paramètre, sans résultat, qui débranche le réfrigérateur</li>
+<li><code>est_branché</code>, sans paramètre, qui retourne un <code>bool</code>, vrai si le réfrigérateur est branché, faux sinon</li>
+</ul>
+<h4 data-nb="23.2.3.2" id="Porte (point 6)">Porte (point 6)</h4>
+<p>La porte d'un réfrigérateur peut être ouverte ou fermée. Initialement la porte doit être fermée. Créer 3 méthodes: </p>
+<ul>
+<li><code>ouvrir_porte</code>, sans paramètre, sans résultat, qui ouvre le réfrigérateur</li>
+<li><code>fermer_porte</code>, sans paramètre, sans résultat, qui ferme le réfrigérateur</li>
+<li><code>porte_est_fermée</code>, sans paramètre, qui retourne un <code>bool</code>, vrai si le réfrigérateur est fermé, faux sinon</li>
+</ul>
+<h4 data-nb="23.2.3.3" id="Thermostat (point 7)">Thermostat (point 7)</h4>
+<p>Le thermostat d'un réfrigérateur peut être obtenu ou changé. Créer 2 méthodes: </p>
+<ul>
+<li><code>définir_thermostat</code>, sans résultat, qui prend un paramètre (type <code>float</code>) qui doit être le nouveau thermostat en degrés
+				celsius, c'est à dire la nouvelle température à atteindre à l'intérieur du réfrigérateur.
+			</li>
+<li><code>avoir_thermostat</code>, sans paramètre, qui retourne la valeur du thermostat en degrés celsius (type <code>float</code>)</li>
+</ul>
+<h4 data-nb="23.2.3.4" id="Ampoule (point 8)">Ampoule (point 8)</h4>
+<p>Un réfrigérateur a une apoule pour éclairer son intérieur losque la porte est ouverte. Initialement un réfrigérateur n'a pas d'ampoule installée.
+			L'ampoule d'un réfrigérateur peut être obtenue ou changée. Créer 2 méthodes: </p>
+<ul>
+<li><code>changer_ampoule</code>, sans résultat, qui prend un paramètre (type <code>Ampoule</code>) qui doit être la nouvelle ampoule du
+				réfrigérateur.
+			</li>
+<li><code>avoir_ampoule</code>, sans paramètre, qui retourne l'ampoule actuellement utilisée dans le réfrigérateur (type <code>Ampoule</code>)</li>
+</ul>
+<h4 data-nb="23.2.3.5" id="Ajout d'aliments (points 9, 10, 11, 12, 16)">Ajout d'aliments (points 9, 10, 11, 12, 16)</h4>
+<p>Créer une méthode <code>ajouter_aliment</code>. Elle prend 4 paramètres dans cet ordre:</p>
+<ol>
+<li>Le nom de l'aliment à ajouter (type <code>str</code>)</li>
+<li>Le volume (en litres) de l'aliment à ajouter (types <code>float</code> ou <code>int</code>)</li>
+<li>La température (en degrés celsius) de l'aliment au moment de l'ajout (types <code>float</code> ou <code>int</code>)</li>
+<li>Le poids (en kilogrammes) de l'aliment (types <code>float</code> ou <code>int</code>)</li>
+</ol>
+<p>La méthode retourne:</p>
+<ul>
+<li><strong>(point 9)</strong> le <code>int</code> 1 si la porte est fermée, dans ce cas l'ajout n'est pas fait</li>
+<li><strong>(points 10 et 16)</strong> le <code>int</code> 0 si l'ajout a pu se faire sans problèmes</li>
+<li><strong>(point 11)</strong> le <code>int</code> 3 si un aliment déjà dans le réfrigérateur a le même nom que le nouvel aliment, dans ce cas
+				l'ajout n'est pas fait
+			</li>
+<li><strong>(point 12)</strong> le <code>int</code> 2 s'il n'y a plus de place dans le réfrigérateur car l'aliment ajouté est trop volumineux par
+				rapport à l'espace disponible restant à l'intérieur, dans ce cas l'ajout n'est pas fait
+			</li>
+</ul>
+<h4 data-nb="23.2.3.6" id="Retrait d'aliments (points 13, 14, 15, 17)">Retrait d'aliments (points 13, 14, 15, 17)</h4>
+<p>Créer une méthode <code>retirer_aliment</code>. Elle prend 1 paramètre qui est le nom (type <code>str</code>) de l'aliment à retirer de l'intérieur
+			du réfrigérateur.</p>
+<p>La méthode retourne:</p>
+<ul>
+<li><strong>(point 13)</strong> le <code>int</code> 1 si la porte est fermée, dans ce cas le retrait n'est pas fait</li>
+<li><strong>(point 15)</strong> le <code>int</code> 2 si l'aliment spécifié n'existe pas dans le réfrigérateur
+			</li>
+<li><strong>(points 17 et 14)</strong> le <code>int</code> 0 si le retrait a pu se faire sans problème</li>
+</ul>
+<h4 data-nb="23.2.3.7" id="Avoir la liste des aliments (points 16, 17)">Avoir la liste des aliments (points 16, 17)</h4>
+<p>Créer une méthode <code>avoir_liste_aliments</code>, qui ne prend aucun paramètre.</p>
+<p>Elle retourne une liste (type <code>list</code>) de tuples (type <code>tuple</code>), un tuple par aliment. Chaque tuple contient 4 éléments dans cet
+			ordre:</p>
+<ol>
+<li>le nom de l'aliment (type <code>str</code>)</li>
+<li>le volume de l'aliment, en litres (types <code>int</code> ou <code>float</code>)</li>
+<li>la température de l'aliment au moment du retrait, en degrés celsius (types <code>int</code> ou <code>float</code>)</li>
+<li>le poids de l'aliment, en kilogrammes (types <code>int</code> ou <code>float</code>)</li>
+</ol>
+<h4 data-nb="23.2.3.8" id="Avoir le volume total des aliments (point 18)">Avoir le volume total des aliments (point 18)</h4>
+<p>Créer une méthode <code>avoir_volume_total_occupé</code>. Elle ne prend aucun paramètre, et retourne le volume (en litres, types <code>int</code> ou
+			<code>float</code>) cumulé de tous les aliments à l'intérieur du réfrigérateur.</p>
+<h4 data-nb="23.2.3.9" id="Avoir la température moyenne pondérée des aliments (points 19, 20)">Avoir la température moyenne pondérée des aliments (points 19, 20)</h4>
+<p>Créer une méthode <code>avoir_température_moyenne_aliments</code>. Elle ne prend aucun paramètre, et retourne la températures (en degrés celsius,
+			types <code>int</code> ou <code>float</code>) de tous les aliments à l'intérieur du réfrigérateur. La moyenne doit être pondérée par le poids de
+			chaque aliment</p>
+<h4 data-nb="23.2.3.10" id="Passer le temps (points 21 à 27)">Passer le temps (points 21 à 27)</h4>
+<p>Créer une méthode <code>passer_temps</code>. Elle ne retourne aucun résultat. Elle prend 2 paramètres dans cet ordre:</p>
+<ol>
+<li>La durée en secondes à faire passer (types <code>float</code> ou <code>int</code>)</li>
+<li>La température ambiante extérieure en degrés celsius (types <code>float</code> ou <code>int</code>)</li>
+</ol>
+<p>La méthode doit calculer la nouvelle température de chaque aliment, et le cas échéant faire briller l'ampoule. Cela dépend de plusieurs facteurs:</p>
+<ul>
+<li><strong>(point 21)</strong> si la porte du réfrigérateur est fermée et celui-ci est branché, il faut refroidir chaque aliment selon la puissance
+				de refroidissement. <strong>(point 22)</strong> Un aliment ne peut être refroidi plus bas que la température minimale visée par le
+				réfrigérateur.
+			</li>
+<li><strong>(point 23)</strong> si la porte du réfrigérateur est fermée mais celui-ci est débranché, il faut réchauffer chaque aliment selon la
+				vitesse de réchauffement spécifiée comme paramètre du constructeur. <strong>(point 24)</strong> Un aliment ne peut être réchauffé plus que la
+				température ambiante extérieure.
+			</li>
+<li><strong>(point 25)</strong> si la porte du réfrigérateur est ouverte, que celui-ci soit branché ou pas, il faut réchauffer chaque aliment selon
+				une vitesse de réchauffement fixe de 6 (voir <a href="#unité">plus haut pour l'unité</a>), qui est ce qu'on considère être la vitesse de
+				variation de température de l'air extérieur. <strong>(point 26)</strong> Un aliment ne peut être réchauffé au-delà de la température ambiante
+				extérieure.
+			</li>
+<li><strong>(point 27)</strong> si la porte du réfrigérateur est ouverte, et si celui-ci est branché, l'ampoule doit briller lorsque le temps passe.
+			</li>
+</ul>
+<p>Pour rester simple dans les calculs, on ne considère que les cas où les aliments sont plus chauds que l'intérieur du frigo quand ils doivent être
+			refroidis, et plus frais que l'air extérieur quand ils doivent être réchauffés.</p>
+</div>
+
+
+		<div class="nav_arrows">
+			<hr>
+			
+		<div style="display: flex; flex-direction: row; justify-content: space-between; padding: 1em 0em;">
+				<span>
+					
+						<a href="cc1_2021.html">← Page précédente</a>
+					
+				</span>
+			
+				<span style="padding: 0 .5em;">
+						<a href="index.html">1ère page</a>
+					</span>
+			
+			<span>
+				
+				</span>
+		</div>
+		
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
