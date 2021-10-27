@@ -405,21 +405,22 @@
 			d'autres.</p>
 <p>Voici les points sur lesquels vous serez évalués:</p>
 <h2 data-nb="23.1" id="Classe Ampoule">Classe Ampoule</h2>
-<p>Une ampoule peut potentiellement briller un certain nombre d'heures au maximum (en cumulé, pas forcément en une seule fois), et ce nombre maximum est
-			spécifié comme premier et unique paramètre du constructeur (types <code>float</code> ou <code>int</code>) <strong>(point 1)</strong>.</p>
+<p>Une ampoule peut potentiellement briller un certain nombre d'<strong>heures</strong> au maximum (en cumulé, pas forcément en une seule fois), et ce
+			nombre maximum est spécifié comme premier et unique paramètre du constructeur (types <code>float</code> ou <code>int</code>) <strong>(point
+				1)</strong>.</p>
 <p>Une ampoule a une méthode <code>briller_pendant_durée</code> qui lui permet de briller pendant un certain nombre de <strong>secondes</strong>
 			spécifié en unique paramètre (types <code>float</code> ou <code>int</code>).</p>
 <ul>
 <li>Si elle a pu briller une certaine durée (une certaine fraction d'heures) car elle n'avait pas dépassé son nombre maximal d'heures, alors cette
-				méthode retourne la durée (en heures, types <code>float</code> ou <code>int</code>) qu'elle a pu briller <strong>(point 2)</strong>, sachant que
-				jamais une ampoule ne peut briller plus que son maximum.
+				méthode retourne la durée (en heures, types <code>float</code> ou <code>int</code>) qu'elle a pu briller lors de l'appel de cette fonction (pas
+				en cumulé) <strong>(point 2)</strong>, sachant que jamais une ampoule ne peut briller plus que son maximum d'heures de vie.
 			</li>
 <li>
 				Si elle n'as pas pu briller du tout car elle avait déjà atteint son maximum d'heures avant l'appel de la méthode, la méthode retourne 0 <strong>(point
 				3)</strong>.
 			</li>
 </ul>
-<p>Pour savoir combien de temps à briller il reste a une ampoule, créer la méthode <code>avoir_heures_restantes</code>, qui ne prend aucun paramètre, et
+<p>Pour savoir combien de temps à briller il reste à une ampoule, créer la méthode <code>avoir_heures_restantes</code>, qui ne prend aucun paramètre, et
 			qui retourne le nombre <strong>d'heures</strong> de "vie" qu'il reste à l'ampoule (type <code>float</code>). <strong>(points 2 et 3)</strong></p>
 <h2 data-nb="23.2" id="Classe Réfrigérateur">Classe Réfrigérateur</h2>
 <h3 data-nb="23.2.1" id="Constructeur">Constructeur</h3>
@@ -434,6 +435,9 @@
 			</li>
 <li>le thermostat, c'est à dire la température visée, en degrés celsius (types <code>float</code> ou <code>int</code>)</li>
 </ol>
+
+		
+		<div id="unité"></div>
 <h3 data-nb="23.2.2" id="Unité de vitesse de variation de température">Unité de vitesse de variation de température</h3>
 <p>Une partie de votre travail consiste à comprendre l'unité de la vitesse de variation de température, afin de pouvoir faire les calculs adequats plus
 			tard, dans les méthodes de la classe <code>Réfrigérateur</code>.</p>
@@ -444,7 +448,7 @@
 <li>du temps pendant lequel la variation se déroule, en heures</li>
 </ul>
 <p>Plus un aliment est lourd (pour une même durée et variation de température) plus il met de temps à changer de température, donc le poids ralenti la
-			vitesse de variation de la tempréature. Plus la variation de température est élevée (pour un même poids et même durée), plus la vitesse de variation
+			vitesse de variation de la température. Plus la variation de température est élevée (pour un même poids et même durée), plus la vitesse de variation
 			est élevée. Et enfin plus le temps accordé au changement de température est elevé (pour une même variation et même poids), plus la variation sera
 			importante.</p>
 <p>Exemples pour une vitesse de <em>réchauffement</em> de 10:</p>
@@ -482,7 +486,7 @@
 <li><code>avoir_thermostat</code>, sans paramètre, qui retourne la valeur du thermostat en degrés celsius (type <code>float</code>)</li>
 </ul>
 <h4 data-nb="23.2.3.4" id="Ampoule (point 8)">Ampoule (point 8)</h4>
-<p>Un réfrigérateur a une apoule pour éclairer son intérieur losque la porte est ouverte. Initialement un réfrigérateur n'a pas d'ampoule installée.
+<p>Un réfrigérateur a une apoule pour éclairer son intérieur lorsque la porte est ouverte. Initialement un réfrigérateur n'a pas d'ampoule installée.
 			L'ampoule d'un réfrigérateur peut être obtenue ou changée. Créer 2 méthodes: </p>
 <ul>
 <li><code>changer_ampoule</code>, sans résultat, qui prend un paramètre (type <code>Ampoule</code>) qui doit être la nouvelle ampoule du
