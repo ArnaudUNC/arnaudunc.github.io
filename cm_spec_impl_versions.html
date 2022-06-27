@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Spécification, implémentations et versions | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Par Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✏️ TD - Calculatrice niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp3.html">
+				✏️ TP - Calculatrice niv.4
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="2" id="Spécification, implémentations et versions">Spécification, implémentations et versions</h1>
+<h2 data-nb="2.1" id="Python est une spécification">Python est une spécification</h2>
+<p>
+		Python est une spécification (on peut aussi dire norme ou standard), qui explique comment le langage doit fonctionner, toutes ses règles, et donc au
+		final comment s’en servir pour écrire nos propres programmes. Apprendre à programmer en Python revient à apprendre sa spécification. </p>
+<p>
+		Cependant une spécification n’est au final qu’un ensemble de règles, ça n’est pas concret, pour pouvoir programmer en Python il faut utiliser des
+		versions concrètes de la spécification, c’est à dire des programmes écrits spécifiquement dans le but de lire et exécuter des programmes Python. On
+		appelle ces programmes des implémentations de Python. </p>
+<p>
+		Ces implémentations auront des caractéristiques différentes, des avantages et des inconvénients qui feront qu’elles correspondront mieux dans certaines
+		situations (aucune n’étant parfaite), comme par exemple être compatible avec d’autres langages, être plus rapide, etc. Comme elles respectent (du mieux
+		possible) le standard Python, cela facilite grandement la vie du développeur Python, qui peut utiliser son savoir et son expertise plus ou moins
+		indépendamment de l’implémentation de Python utilisée. Elles ont quelques différences, qui sont permises tant qu’elles ne vont pas à l’encontre du
+		standard de Python. </p>
+
+	
+	<h2 data-nb="2.2" id="Les implémentations de la spécification Python">Les implémentations de la spécification Python</h2>
+<p>
+		L’implémentation principale dite de référence est CPython. Elle s’appelle ainsi car elle programmée avec le langage C et est celle par défaut quand on
+		parle de Python. C’est celle qu’on télécharge et qu’on installe depuis le site officiel de Python <a href="https://www.python.org/">https://www.python.org/</a>,
+		et c’est de loin la plus utilisée, et que je conseille d’utiliser pour ce cours. Elle a les avantages suivants:</p>
+<ul>
+<li><p>La plus à jour car c’est elle qui contient généralement les dernières évolutions du langage.</p></li>
+<li><p>La mieux maintenue: elle est très stable, souvent corrigée pour les bugs.</p></li>
+</ul>
+<p>
+		Quelques autres versions (liste non exhaustive): </p>
+<ul>
+<li><p><a href="http://www.jython.org/">Jython</a>: Python implémenté en Java. Cette implémentation peut être utilisée comme langage de script pour les
+			applications Java ou pour créer des applications utilisant des bibliothèques Java. Elle est également souvent utilisée pour créer des tests de
+			bibliothèques Java.</p>
+</li>
+<li><p><a href="https://pythonnet.github.io/">Python pour .NET</a>: Cette implémentation utilise en fait l’implémentation CPython, mais c’est une
+			application .NET et permet un accès aux bibliothèques .NET.</p></li>
+<li><p><a href="http://ironpython.net/">IronPython</a>: Un autre Python pour .NET. Contrairement à Python.NET, il s’agit d’une implémentation Python
+			complète qui génère du code intermédiaire (IL) .NET et compile le code Python directement en assemblages .NET. Il a été créé par Jim Hugunin, le
+			programmeur à l’origine de Jython.</p></li>
+<p>Lorsqu’on parle de <em>Python</em>, on fait normalement référence à la spécification. Si on veut parler de CPython, on doit le dire explicitement en
+			utilisant le nom <em>CPython</em> et pas <em>Python</em>. Mais étant donné que CPython est l’implémentation par défaut, en pratique le terme <em>Python</em>
+			inclut à la fois la spécification ainsi que CPython.</p>
+</ul>
+
+	
+	<h2 data-nb="2.3" id="Fonctionnement de l'implémentation CPython">Fonctionnement de l'implémentation CPython</h2>
+<p>CPython est un programme exécutable qui fonctionne de la manière suivante:</p>
+<img alt="" src="img/cm_spec_impl_versions/cpython_fonctionnement.png"/>
+<p>
+		CPython peut obtenir le code:</p>
+<ul>
+<li><p>depuis un fichier, cela peut se faire de plusieurs façon:</p>
+<ul>
+<li><p>par double-clic sur un fichier <code>.py</code> si le système d’exploitation est configuré pour ouvrir ce type de fichier avec
+					l’exécutable Python. Une console sera ouverte si nécessaire pendant l’exécution, mais sera fermée automatiquement à la fin du programme, ce
+					qui est problématique pour les programmes qui ont besoin d’une console car on n’aura pas le temps de lire les affichages</p></li>
+<li><p>par la console avec la commande <code>python mon_fichier.py</code></p></li>
+<li><p>par un autre programme qui va le faire pour nous indirectement</p></li>
+</ul>
+</li>
+<li><p>depuis la console en mode interactif, ce qu’on appelle l’interpréteur de commandes Python, c’est à dire en exécutant la commande
+			<code>python</code> dans une console.</p></li>
+</ul>
+<p>
+		L’exécutable va utiliser les services du système d’exploitation pour effectuer les actions que le code Python souhaite réaliser pendant son exécution.
+		Par exemple gérer la mémoire, gérer des fichiers, établir des connexions réseau, afficher des choses dans la console, demander du texte à l’utilisateur
+		dans la console, gérer des éléments d’interface utilisateur (fenêtre, boutons…), … </p>
+<p>
+		Et enfin le système d’exploitation communique avec le matériel physique pour effectuer les actions. </p>
+<p>
+		Dans Windows, l’emplacement du fichier exécutable de CPython est spécifié au moment de l’installation, par défaut il devrait se situer dans <code>C:\Program
+		Files\Python(version)\python.exe</code>. Dans Linux et MacOS il y a plusieurs façons d’installer CPython, mais la version par défaut installée par le
+		système d’exploitation devrait être dans <code>/usr/bin/python</code>, cela dépend de nombreux facteurs, donc à vérifier. </p>
+
+	
+	<h2 data-nb="2.4" id="Un langage qui évolue: les versions de Python">Un langage qui évolue: les versions de Python</h2>
+<p>
+		Python la spécification tout comme Cpython sont développés en continu (corrections de bugs et ajout de fonctionnalités) par de nombreuses personnes,
+		dont l'équipe centrale la Python Software Foundation, qui coordonne tous les efforts de développement. C'est pour cela qu'il y a de nouvelles versions
+		de Python qui sortent régulièrement. </p>
+<p>
+		Chaque version est de la forme 2.7.1, ou 3.9.2 par exemple.</p>
+<ul>
+<li><p>le premier chiffre est la génération</p></li>
+<li><p>le second la version majeure</p></li>
+<li><p>le troisième la version mineure de correction de bugs. (spécifique à CPython)</p></li>
+</ul>
+<img alt="" src="img/cm_spec_impl_versions/cpython_versions.png"/>
+<p>
+		La génération est une grande catégorie de versions majeures. La génération actuelle est la 3, la 2 étant vieille de plus de 10 ans et sur le point de
+		devenir obsolète. Vous ne devez démarrer aucun nouveau projet de développement Python dans une version de génération 2, à moins d'avoir de bonnes
+		raisons, telles que par exemple pour exécuter du code sur des vieilles machines sur lesquelles seul Python 2 est disponible, ou pour étendre un vieux
+		programme de génération 2. </p>
+<p>
+		La version majeure marque, par rapport à la version précédente, l'apparition de nouvelles fonctionnalités, des changements, améliorations, et parfois
+		des suppressions de fonctionnalités jugées obsolètes. Dans la grande majorité des cas, une mise à jour majeure de Python n'entraîne aucun problème pour
+		tout programme Python qui a été développé pour la version majeure précédente (de même génération), mais il faut quand même bien lire les nouveautés de
+		la nouvelle version avant de faire la mise à jour de Python. Parfois certaines précautions sont documentées et sont à prendre, au risque de voir des
+		bugs apparaître dans vos programmes avec la nouvelle version majeure de Python. Le rythme de développement est typiquement une version majeure nouvelle
+		tous les 1 à 2 ans. </p>
+<p>
+		La version mineure ne marque aucun ajout, modification ou suppression de fonctionnalité, mais apporte des corrections de bugs et vulnérabilités de
+		sécurité, pour la version majeure correspondante. Vous pouvez donc faire la mise à jour de Python sans souci. </p>
+<p>
+		Chaque version majeure est officiellement supportée pour une certaine durée, en général quelques années, ce qui signifie qu'elle recevra des corrections
+		de bugs par la sortie régulières de versions mineures. Passé ce délai, plus aucune version mineure ne sera développée. </p>
+<p>En règle générale, on utilise la version la plus récente de Python, il faut donc faire une mise à jour quand c'est nécessaire. Ce cours porte sur la
+		version de Python qui est précisée en haut de la barre de navigation. Les fonctionnalités de Python que ce cours couvre ont été introduites pour la
+		majorité il y a longtemps, sans avoir besoin de la toute dernière version de Python pour en bénéficier.</p>
+
+	
+	<h2 data-nb="2.5" id="Pour résumer">Pour résumer</h2>
+<p>Python est une spécification dont l’implémentation principale est CPython qu’on utilise par défaut. D’autres implémentations existent mais sont utilisées
+		dans des situations particulières. Les termes Python et CPython sont utilisés de façon interchangeable en pratique. Python évolue avec de nouvelles
+		versions qui sortent régulièrement.</p>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mémoire et modèle de données | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Par Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✏️ TD - Calculatrice niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp3.html">
+				✏️ TP - Calculatrice niv.4
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="4" id="Mémoire et modèle de données">Mémoire et modèle de données</h1>
+
+
+
+
+	
+	<h2 data-nb="4.2" id="Objets">Objets</h2>
+<p>Toute forme de donnée en Python est représentée par des <strong>objets</strong>, que ça soit les nombres, les chaînes de caractères, les listes, les
+		tuples etc... Même les fonctions sont représentées sous forme d'objets.</p>
+<p>Par exemple le <code>int</code> <code>5</code> est un objet, tout comme la <code>str</code> <code>"bonjour"</code>, le <code>bool</code>
+<code>True</code> ou la liste <code>[3, 10, 8]</code>.</p>
+<p>Les objets existent dans un espace mémoire qui leur est réservé.</p>
+<p>Voici donc conceptuellement comment les données d'un programme en Python sont représentées</p>
+<img alt="" src="img/memoire_modele_donnees/objets_simples.png"/>
+<p>Le terme <em>objet</em> fait référence à la <em>Programmation Orientée Objet</em> (POO), qu’on appelle aussi <em>Programmation Objet</em> (PO), qui est
+		une façon de représenter et manipuler les données dans un programme. On verra plus tard un peu plus en détail, pour l'instant retenons que cette
+		approche a ses avantages et inconvénients, mais un avantage est qu’elle imite la façon d’un être humain de penser et conceptualiser les choses, et non
+		pas comme une machine représente les données dans sa mémoire. Avec la programmation objets, la machine s’adapte à l’Homme, et pas l’inverse. </p>
+<p>Un désavantage de l’approche objets est une abstraction plus élevée dans la manière de représenter les donnée dans un programme, ce qui demande un effort
+		ce conception de la part du développeur plus important par rapport à une représentation plus proche de celle de la machine. En général le bénéfice de la
+		PO est plus important que son coût, mais un équilibre doit être maintenu entre bénéfice et coût.</p>
+
+	
+	<h2 data-nb="4.3" id="Types, classes et valeurs">Types, classes et valeurs</h2>
+<p>Chaque objet a un <strong>type</strong>, et une <strong>valeur</strong>. Le type détermine les valeurs possibles que l'objet pourra avoir, par exemple un
+		objet de type <code>int</code> peut avoir la valeur <code>5</code>, ou s'il est de type <code>str</code> il peut avoir la valeur <code>"Bonjour</code>.
+		Le type détermine aussi les opérations possibles sur cet objet, par exemple faire une addition si c'est un <code>int</code>, le mettre en majuscule pour
+		une <code>str</code>, ou avoir sa longueur si c'est un <code>list</code>. Le type d'un objet est définitif et ne peux être changé. Sa valeur par contre
+		peut être ou ne pas être modifiable, ça va dépendre du type de l'ojet, on verra ça plus en détails plus bas.</p>
+<p>Ainsi, notre représentation des données d'un programme en Python devient:</p>
+<img alt="" src="img/memoire_modele_donnees/objets_types_valeurs.png"/>
+<p>Notez qu'on écrit les valeurs avec leur forme littérale, par exemple <code>"Bonjour"</code>, c'est une façon d'écrire facile pour un être humain à la
+		fois pour lire et écrire, mais Python représente les données sous sa propre forme interne, avec des bits et des octets. En tant qu'utilisateur de Python
+		nous n'avons en général pas à nous soucier des détails internes de comment Python représente les données techniquement dans la mémoire de l'ordinateur.
+		Il est cependant utile de comprendre comment tout cela fonctionne dans son ensemble.</p>
+	
+	<table>
+<tr>
+<td style="padding:1em;"><strong>Valeur littérale en Python</strong></td>
+<td style="padding:1em;"><strong>Représentation binaire réelle en mémoire</strong></td>
+</tr>
+<tr>
+<td style="padding:1em;">"Bonjour"</td>
+<td style="padding:1em;">0010011...01110101</td>
+</tr>
+<tr>
+<td style="padding:1em;">5</td>
+<td style="padding:1em;">1010011...10111</td>
+</tr>
+</table>
+<p>On peut obtenir le type d'un objet avec la fonction <code>type()</code>, qui prend en paramètre n'importe quel objet, et retourne son type sous forme
+		également d'un objet qui représente ce type, car les types eux-mêmes sont aussi représentés par des objets. En programmation objet on appelle un type
+		une <strong>classe</strong>, ou <strong>class</strong> en anglais. Les mots <em>type</em> et <em>classe</em> sont synonymes.</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; type(5)
+		&lt;class 'int'&gt;
+
+		&gt;&gt;&gt; type("Bonjour")
+		&lt;class 'str'&gt;
+
+		&gt;&gt;&gt; type(-3.2)
+		&lt;class 'float'&gt;
+
+		&gt;&gt;&gt; type(False)
+		&lt;class 'bool'&gt;
+	</code></pre>
+<p>On peut aussi avoir le type des objets types eux-mêmes, en appelant <code>type()</code> sur un objet résultat d'un autre appel à <code>type()</code>:</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; type(type(5))
+		&lt;class 'type'&gt;
+
+		&gt;&gt;&gt; type(type("Bonjour"))
+		&lt;class 'type'&gt;
+
+		&gt;&gt;&gt; type(type(-3.2))
+		&lt;class 'type'&gt;
+
+		&gt;&gt;&gt; type(type(False))
+		&lt;class 'type'&gt;
+
+		&gt;&gt;&gt; type(type(type(False)))
+		&lt;class 'type'&gt;
+	</code></pre>
+<p>On peut voir ↑ que tous les types sont représentés par des objets de type <em>type</em> (qui n'ont pas forcément la même valeur en revanche, s'ils
+		représentent des types différents). Le type <em>type</em> lui-même est un objet qui a lui-même pour type, il est de son propre type.</p>
+<p>Une classe, comme toute donnée, est représentée en mémoire réellement par des bits et octets, Python la représente sous forme d'objet, et quand on
+		souhaite la représenter sous forme de texte, par défaut Python met le mot <code>class</code> suivi du nom de la classe entre simples guillemets, le tout
+		entouré des caractères <code>&lt;</code> et <code>&gt;</code>, par exemple <code>&lt;class 'int'&gt;</code></p>
+<p>Pour savoir si deux objets ont le même type, on peut comparer la valeur de leurs types correspondants avec l'opérateur <code>==</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; type(5) == type(10)
+		True
+
+		&gt;&gt;&gt; type(5) == type("Bonjour")
+		False
+	</code></pre>
+
+	
+	<h2 data-nb="4.4" id="Variables / identifiants">Variables / identifiants</h2>
+<p>Une variable en Python est appelée <em>identifiant</em>, ce sont des synonymes, mais le terme préféré est <em>identifiant</em>. Un identifiant ne
+		contient pas de valeur, ne contient pas d'objet, mais <em>pointe vers</em> un objet, on dit aussi qu'un identifiant <em>fait référence</em> à un objet,
+		ou <em>rérérence</em> un objet.</p>
+<p>Les identifiants sont créés et modifiés à l'aide de l'instruction d'affectation <code>=</code>. Ils existent dans un espace mémoire séparé de celui des
+		objets.</p>
+<p>Prenons par exemple la ligne suivante, et voyons ce que Python fait avec les identifiants et objets:</p>
+<pre><code class="language-python">
+		a = 5
+	</code></pre>
+<p>1 - Au tout début la mémoire est vide. Nous avons deux espaces, celui des objets, et celui des identifiants:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_1.png"/>
+<p>2 - L'expression à droite du <code>=</code> est évaluée. Elle peut être complexe, ou simple comme dans cet exemple, puisqu'il s'agit d'un unique littéral
+		<code>int</code>. L'objet qui a pour valeur le résultat de cette expression, ainsi que le type correspondant, est créé, donc ici un objet ayant pour
+		type <code>int</code> et pour valeur <code>5</code>:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_2.png"/>
+<p>3 - L'identifiant <code>a</code> est créé, puisqu'il n'existe pas encore:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_3.png"/>
+<p>4 - <code>a</code> est modifié pour pointer vers l'objet à droite du <code>=</code>:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_4.png"/>
+<p>Si ensuite on fait:</p>
+<pre><code class="language-python">
+		a = 1 + 1
+	</code></pre>
+<p>5 - L'expression à droite du <code>=</code> est évaluée, un nouvel objet est créé qui a pour valeur le résultat de cette expression ainsi que le type
+		correspondant, donc ici un objet ayant pour type <code>int</code> et pour valeur <code>2</code>:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_5.png"/>
+<p>6 - <code>a</code> est modifié pour pointer vers l'objet à droite du <code>=</code>. De plus, le mécanisme de <em>garbage collector</em> qu'on verra plus
+		en détails ensuite nettoie automatiquement la mémoire, et supprime l'objet qui n'est plus accessible par aucun identifiant:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_6.png"/>
+<p>Les identifiants peuvent être supprimés manuellement à l'aide de l'instruction <code>del</code> (diminutif de <em>delete</em> qui veut dire
+		<em>supprimer</em> en anglais). On verra plus tard qu'ils sont la majorité du temps supprimés automatiquement par les <em>namespaces</em>, on n'a
+		généralement pas à s'occuper nous-mêmes de la destruction des identifiants. Mais si on fait:</p>
+<pre><code class="language-python">
+		del a
+	</code></pre>
+<p>7 - <code>a</code> est supprimé:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_7.png"/>
+<p>8 - L'objet n'est plus référencé par aucun identifiant, le garbage collector le supprime automatiquement:</p>
+<img alt="" src="img/memoire_modele_donnees/identifiant_creation_1.png"/>
+
+	
+	<h2 data-nb="4.5" id="Identité">Identité</h2>
+<p>Tout objet en Python a une identité représentée par un nombre entier, qui doit lui être unique au sein d'un programme en cours d'exécution. L'identité
+		d'un objet est définitive et ne peux être changée. Ainsi, notre représentation des données d'un programme en Python devient:</p>
+<img alt="" src="img/memoire_modele_donnees/objets_type_val_et_id.png"/>
+<p>Plusieurs objets peuvent avoir la même identité, mais ils ne doivent pas exister en même temps. Par exemple si pendant l'exécution d'un programme un
+		objet a l'identité 10, aucun autre objet ne peut avoir l'identité 10 tant qu'il existe. Quand cet objet est détruit, alors à ce moment l'identifiant 10
+		peu à nouveau être utilisé par un nouvel objet, qui sera probablement d'un type et avec une valeur différente du précédent qui avait la même
+		identité.</p>
+<img alt="" src="img/memoire_modele_donnees/objets_id_timeline.png"/>
+<p>Pour obtenir l'identité de tout objet, on utilise la fonction <code>id()</code>, qui prend n'importe quel objet en paramètre, et retourne son identifiant
+		sous forme de <code>int</code>. En CPython, l'identifiant d'un objet est son adresse en mémoire. Cette adresse dépend de nombreux facteurs qui sont en
+		dehors de notre contrôle, et qui ne sont pas importants pour nous, car c'est Python qui gère la mémoire pour nous, il est donc normal que les adresses
+		mémoire des objets varient d'une exécution du programme à une autre, même si le programme fait exactement la même chose à chaque fois.</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; id(5)
+		1997577388400
+
+		&gt;&gt;&gt; a = "Bonjour"
+		&gt;&gt;&gt; id(a)
+		1997648895024
+	</code></pre>
+<p>Pour savoir si deux objets sont en fait le même objet, on utilise l'opérateur binaire <code>is</code> qui vaut <code>True</code> si les objets à droite
+		et à gauche sont le même objet, <code>False</code> sinon. Dans l'exemple suivant on a deux identifiants <code>a</code> et <code>b</code> qui référencent
+		le même objet de type <code>int</code> qui a pour valeur <code>5</code>, <code>is</code> permet de le confirmer:</p>
+<img alt="" src="img/memoire_modele_donnees/operateur_is_exemple.png"/>
+<pre><code class="language-python">
+		&gt;&gt;&gt; a = 5
+		&gt;&gt;&gt; b = a
+		&gt;&gt;&gt; a is b
+		True
+	</code></pre>
+<p><code>is</code> est équivalent à comparer les identités des deux objets avec l'opérateur <code>==</code>:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; a = 5
+		&gt;&gt;&gt; b = a
+		&gt;&gt;&gt; a is b
+		True
+
+		&gt;&gt;&gt; id(a)
+		1997577388400
+		&gt;&gt;&gt; id(b)
+		1997577388400
+		&gt;&gt;&gt; id(a) == id(b)
+		True
+	</code></pre>
+<p>Pour savoir si deux objets ont le même type, on a vu qu'on peut comparer leurs types avec l'opérateur <code>==</code> mais c'est encore plus précis avec
+		l'opérateur <code>is</code> car on vérifie que leur type ont la même valeur car ils sont le MÊME objet (souvenez-vous les types sont aussi représentés
+		par des objets):</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; type(5) == type(10)
+		True
+
+		&gt;&gt;&gt; type(5) is type(10)
+		True
+	</code></pre>
+
+	
+	<h2 data-nb="4.6" id="Les types builtin, mutables et immutables">Les types <em>builtin</em>, mutables et immutables</h2>
+<p>On appelle les types <em>builtin</em> tous les types qui sont définis dans Python directement (en particulier dans le module <code>builtins</code>, mais
+		pas uniquement), en opposition à ceux définis par nous-même ou par des bibliothèques de code externes à Python.</p>
+<p>La valeur des objets de certains types PEUT changer au cours de leur existence, on dit de ces objets qu'ils sont <em>mutables</em> (de l'anglais <em>mutable</em>)
+		ou plus rarement <em>muables</em>. Au contraire les objets dont le type interdit le changement de valeur au cours de leur existence sont dits <em>immuables</em>
+		ou <em>immutables</em> (de l'anglais <em>immutable</em>). On peut aussi qualifier les types eux-mêmes de <em>mutable</em> ou <em>immutable</em>, ça
+		revient au même.</p>
+<p> Jusqu'à présent dans ce cours, vous n'avez vu que des types builtin, qui sont:</p>
+<ul>
+<li><p><code>NoneType</code> dont l'unique valeur est None, qui représente l'absence de valeur, immutable</p></li>
+<li><p><code>int</code> pour les nombres entiers, immutable</p></li>
+<li><p><code>float</code> pour les nombres réels, immutable</p></li>
+<li><p><code>str</code> pour les chaînes de caractères, immutable</p></li>
+<li><p><code>bool</code> pour les booléens, immutable</p></li>
+<li><p><code>tuple</code> pour les tuples, immutable</p></li>
+<li><p><code>list</code> pour les listes, mutable (le seul type mutable que vous connaissez)</p></li>
+</ul>
+<p>Vous avez aussi vu deux autres types sans forcément réaliser qu'il s'agit aussi de types:</p>
+<ul>
+<li><p><code>range</code> dont les objets décrivent des intervalles d'entiers, immutable</p></li>
+<li><p><code>function</code> dont les objets contiennent le code des fonctions, immutable</p></li>
+</ul>
+<p>Et nous avons vu type un supplémentaire dans cette partie du cours, qui est le type <em>type</em> lui-même:</p>
+<ul>
+<li><p><code>type</code> dont les objets contiennent les types eux-mêmes, immutable</p></li>
+</ul>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

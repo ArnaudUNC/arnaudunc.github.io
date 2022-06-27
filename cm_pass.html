@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Introduction | Algo et prog 2 en Python</title>
+	<title>L'instruction pass | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -66,35 +66,35 @@
 
 
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="index.html">
 				Introduction
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_spec_impl_versions.html">
 				Spécification, implémentations et versions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_methodes_exec.html">
 				Façons d'exécuter un programme Python
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_memoire_donnees.html">
 				Mémoire et modèle de données
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cm_pass.html">
 				L'instruction pass
@@ -185,31 +185,39 @@
 
 		
 	
-	<h1 data-nb="1" id="Introduction">Introduction</h1>
-<p>Vous pouvez enregistrer l'adresse web (URL) de ce site (dans un marque-page, sur papier, ou la retenir) pour pouvoir y revenir rapidement sans passer à
-		chaque fois par Moodle.</p>
-<h2 data-nb="1.1" id="Objectifs">Objectifs</h2>
-<p>Ce cours est la suite directe de <em>Algorithmique et programmation 1 en Python</em>, et s'appuie sur tout ce que vous y avez vu. Vous allez consolider
-		et approfondir vos connaissances à la fois en algorithmique ET en Python, afin de savoir résoudre des problèmes plus complexes que dans le cours
-		précédent.</p>
-<h2 data-nb="1.2" id="Volume horaire">Volume horaire</h2>
-<p>4 heures de cours
-		<br/>
-		(CM - Cours Magistral - Introduction des concepts).
-	</p>
-<p>6 heures de TD
-		<br/>
-		(TD - Travaux Dirigés - Exercices simples).
-	</p>
-<p>22 heures de TP
-		<br/>
-		(TP - Travaux Pratiques - Exercices plus avancés).
-	</p>
-<h2 data-nb="1.3" id="Evaluation et seconde chance">Evaluation et seconde chance</h2>
-<p>3 contrôles (CC - Contrôle Continu) étalés sur toute la durée de cette matière.</p>
-<p>Seconde chance: on ignore la moins bonne note. La note finale pour cette matière sera donc la moyenne des deux meilleures notes sur les trois.</p>
-<h2 data-nb="1.4" id="Groupes de TD et TP">Groupes de TD et TP</h2>
-	(à venir)
+	<h1 data-nb="5" id="L'instruction pass">L'instruction pass</h1>
+<p>L'instruction <code>pass</code> ne fait rien. Elle est utile pour satisfaire certaines règles syntaxiques de Python, spécifiquement quand un bloc de code
+		est nécessaire mais qu'il doit être vide, à ce moment <code>pass</code> est utile car un bloc de code doit avoir au moins une ligne. Par exemple si on a
+		un <code>if-else</code> qui doit être vide, on ne peut pas écrire: </p>
+<pre><code class="language-python">
+		if True:
+		else:
+	</code></pre>
+<p>On aura une <code>SyntaxError</code>. Il faudra écrire:</p>
+<pre><code class="language-python">
+		if True:
+			pass
+		else:
+			pass
+	</code></pre>
+<p>Il en sera de même pour les boucles <code>for</code> vides:</p>
+<pre><code class="language-python">
+		for i in range(10):
+			pass
+	</code></pre>
+<p>Les boucles <code>while</code> vides:</p>
+<pre><code class="language-python">
+		while True:
+			pass
+	</code></pre>
+<p>Les fonctions vides:</p>
+<pre><code class="language-python">
+		def fonction_vide():
+			pass
+	</code></pre>
+<p>Et partout ailleurs où un bloc vide est nécessaire. On peut avoir besoin d'un bloc vide pour diverses raisons, par exemple lorsqu'on souhaite ajouter une
+		structure (if, fonction, boucle, etc...) mais pas encore sa logique, pour se rappeler de le faire plus tard à cet endroit précis.</p>
+<p><code>pass</code> n'a aucun impact sur les performances du programme, au-delà de son rôle syntaxique elle est ignorée par Python.</p>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

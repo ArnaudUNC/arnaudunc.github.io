@@ -1,5 +1,9 @@
+/* Variables globales */
 :root {
-	--links-base-color: hsla(220, 80%, 60%, 1);
+	--bleu-python-clair: #4B8BBE;
+	--bleu-python-sombre: #306998;
+	--jaune-python-clair: #FFE873;
+	--jaune-python-sombre: #FFD43B;
 }
 
 body {
@@ -7,9 +11,11 @@ body {
 	background-color: white;
 	font-family: sans-serif;
 	/*font-family: serif;*/
+	/*font-size: 100%;*/
+	/*font-size: 110%;*/
 	/*font-family: 'Handlee', cursive;*/
 	color: hsla(0, 0%, 0%, .8);
-	/*font-size: 110%;*/
+
 	margin: 0;
 	/*scrollbar-color: hsl(200,50%, 50%) hsla(200,50%, 50%, 0.2);*/
 	/*-webkit-scrollbar-color: hsl(200,50%, 50%) hsla(200,50%, 50%, 0.2);*/
@@ -17,24 +23,44 @@ body {
 	/*scrollbar-width: 5px;*/
 }
 
-a {
-	color: var(--links-base-color);
-
+a, a:visited {
+	color: var(--bleu-python-clair);
 }
 
-a:visited {
-	color: hsla(220, 80%, 30%, 1);
+/****************** TITRES ******************/
+h1, .h1 a, .h1 a:visited {
+	/*font-family: sans-serif;*/
+	color: var(--bleu-python-clair);
+	text-decoration: underline;
+	text-decoration-color: var(--jaune-python-clair);
+	text-decoration-thickness: 15%;
 }
 
-
-#side_nav_bar a:visited {
-	color: var(--links-base-color);
+h2, .h2 a, .h2 a:visited {
+	/*font-family: sans-serif;*/
+	color: var(--bleu-python-clair);
+	text-decoration: underline;
+	text-decoration-color: var(--jaune-python-clair);
+	text-decoration-thickness: 10%;
 }
+
+h3, .h3 a, .h3 a:visited {
+	/*font-family: sans-serif;*/
+	color: var(--bleu-python-clair);
+	text-decoration: none;
+	text-decoration-color: var(--jaune-python-clair);
+	text-decoration-thickness: 10%;
+}
+
+/****************** FIN TITRES ******************/
+/*#side_nav_bar a:visited {*/
+/*	color: var(--links-base-color);*/
+/*}*/
 
 a:hover, a:visited:hover, #side_nav_bar a:visited:hover {
-	/*color: hsla(150, 50%, 50%, 1);*/
-	color: #73aa24;
-	text-decoration-color: var(--links-base-color);
+	color: var(--bleu-python-sombre);
+	text-decoration-color: var(--jaune-python-sombre);
+	text-decoration-thickness: 20%;
 }
 
 #conteneur {
@@ -44,13 +70,7 @@ a:hover, a:visited:hover, #side_nav_bar a:visited:hover {
 	flex-direction: row;
 }
 
-#side_nav_bar {
-	width: 15vw;
-	height: 100vh;
-	overflow: auto;
-	padding: .5em 1em 0 .5em;
-	box-sizing: border-box;
-}
+
 
 #contenu {
 	width: 50vw;
@@ -74,7 +94,7 @@ a:hover, a:visited:hover, #side_nav_bar a:visited:hover {
 
 p, ol, ul, li {
 	max-width: 40em;
-	text-align: justify;
+	text-align: left;
 	line-height: 1.3em;
 }
 
@@ -85,6 +105,8 @@ ol, ul, li {
 p {
 	column-count: 1;
 	hyphens: auto;
+	/*font-family: serif;*/
+	/*font-size: 105%;*/
 }
 
 li {
@@ -104,12 +126,16 @@ pre {
 	overflow: auto;
 }
 
-/* Défait le CSS de prism */
+/****************** PRSIME CSS override ******************/
 pre[class*="language-"] {
 	margin: 0;
 	padding: 1em 1em;
 	overflow: auto;
+	background-color: hsla(0, 0%, 0%, .04);
+	border-radius: .8em;
 }
+
+/****************** Fin de PRSIME CSS override ******************/
 
 .affichage_console {
 	background-color: hsla(0, 0%, 0%, 0.8);
@@ -121,6 +147,14 @@ pre[class*="language-"] {
 .légende_placée_en_haut {
 	margin-bottom: 0;
 	padding-bottom: 0;
+}
+/****************** Barre de navigation ******************/
+#side_nav_bar {
+	width: 15vw;
+	height: 100vh;
+	overflow: auto;
+	padding: .5em 1em 0 .5em;
+	box-sizing: border-box;
 }
 
 #side_nav_bar .h {
@@ -138,7 +172,7 @@ pre[class*="language-"] {
 #side_nav_bar .page_actuelle {
 	/*margin-bottom: 1em;*/
 	font-weight: bold;
-	border-left: 2px solid var(--links-base-color);
+	/*border-left: 2px solid var(--links-base-color);*/
 }
 
 #side_nav_bar .h1 a {
@@ -164,7 +198,7 @@ pre[class*="language-"] {
 #side_nav_bar .h6 a {
 	margin-left: 6em;
 }
-
+/****************** Fin Barre de navigation ******************/
 /*.exercices div, .exercice {*/
 .exercice {
 	/*background-color: hsla(200, 100%, 50%, .2);*/

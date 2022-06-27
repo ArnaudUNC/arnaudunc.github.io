@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Les séquences | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Par Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✏️ TD - Calculatrice niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp3.html">
+				✏️ TP - Calculatrice niv.4
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="9" id="Les séquences">Les séquences</h1>
+<p>Une séquence est un type de données qui représente une suite ordonnée et finie de N éléments indicés de 0 à N-1, et qui supporte certaines opérations qui
+		sont détaillées dans cette page. Il existe plusieurs types built-in qui sont des séquences, comme par exemple:</p>
+<ul>
+<li><p><code>str</code>, suite ordonnée de caractères (immutable)</p></li>
+<li><p><code>list</code>, suite ordonnée d'éléments de n'importe quel type (mutable)</p></li>
+<li><p><code>tuple</code>, suite ordonnée d'éléments de n'importe quel type (immutable)</p></li>
+<li><p><code>range</code>, suite ordonnée d'entiers (immutable)</p></li>
+</ul>
+<p>On peut aussi créer des nouveaux types séquences personnalisés si on souhaite.</p>
+
+	
+	<h2 data-nb="9.1" id="Indexation">Indexation</h2>
+<p>Un élément d'une séquence peut être obtenu avec les crochets, on appelle ce mécanisme l'indexation, le premier élément étant à l'indice zéro, et le
+		dernier à l'indice N-1 si la séquence est de longueur N:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = [10, 20, 30]
+		&gt;&gt;&gt; L[0]
+		10
+		&gt;&gt;&gt; L[1]
+		20
+		&gt;&gt;&gt; L[2]
+		30
+		&gt;&gt;&gt; range(10)[5]
+		5
+	</code></pre>
+<p>Essayer d'obtenir un élément au-delà du dernier indice, c'est-à-dire à partir de N inclus et au-delà, provoquera une erreur de type
+		<code>IndexError</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = [10, 20, 30]
+		&gt;&gt;&gt; L[3]
+		IndexError
+		&gt;&gt;&gt; L[4]
+		IndexError
+	</code></pre>
+<p>Les indices négatifs sont supportés car les séquences sont doublement indexées. Une première fois positivement en partant du début de la séquence à 0
+		jusqu'à la fin de la séquence à N-1. Et une seconde fois négativement du début de la séquence à -N jusqu'à la fin de la séquence à -1. Exemple pour la
+		<code>str</code> <code>"bonjour"</code> (mais cela vaut pour tous les types séquences):</p>
+<style>
+		table {
+			border-collapse: collapse;
+		}
+
+		tr, td {
+			border: 1px solid black;
+			padding: .5em;
+		}
+	</style>
+<div style="text-align: center; font-size: large;">
+<table>
+<tr style="font-family: monospace; font-size: xx-large">
+<td></td>
+<td>"</td>
+<td>B</td>
+<td>o</td>
+<td>n</td>
+<td>j</td>
+<td>o</td>
+<td>u</td>
+<td>r</td>
+<td>"</td>
+</tr>
+<tr style="color:#555">
+<td>Indices positifs</td>
+<td></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr style="color:#555">
+<td>Indices négatifs</td>
+<td></td>
+<td>-7</td>
+<td>-6</td>
+<td>-5</td>
+<td>-4</td>
+<td>-3</td>
+<td>-2</td>
+<td>-1</td>
+<td></td>
+</tr>
+</table>
+</div>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; "Bonjour"[0]
+		'B'
+		&gt;&gt;&gt; "Bonjour"[-1]
+		'r'
+		&gt;&gt;&gt; "Bonjour"[-2]
+		'u'
+		&gt;&gt;&gt; "Bonjour"[-7]
+		'B
+		&gt;&gt;&gt; "Bonjour"[-8]
+		IndexError
+	</code></pre>
+<p>On peut voir ↑ que les valeurs négatives plus petites que -N provoquent des <code>IndexError</code>.</p>
+
+	
+	<h2 data-nb="9.2" id="Slices">Slices</h2>
+<p>Les <em>slices</em> sont une version plus sophitiquée de l'indexation, car elle permettent non pas d'obtenir un objet à un indice de la séquence, mais
+		une portion de la séquence entre deux indices.</p>
+<p>La version la plus simple des slices prend deux indices, séparés par le caractère deux-points. Le premier indice est celui de début inclus, le second est
+		celui de fin exclu:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; S = "Bonjour"
+		&gt;&gt;&gt; S[0:3]
+		'Bon'
+		&gt;&gt;&gt; S[3:6]
+		'jou'
+	</code></pre>
+<p>Quand un slice a des indices qui n'ont pas de sens, comme par exemple le premier est plus grand que le second, ou bien des indices qui sortent des
+		limites de la séquence, cela ne provoque pas d'erreur mais retourne une séquence vide (du même type):</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; S = "Bonjour"
+		&gt;&gt;&gt; S[3:3]
+		''
+		&gt;&gt;&gt; S[6:3]
+		''
+		&gt;&gt;&gt; S[100:200]
+		''
+	</code></pre>
+<p>Si les indices couvrent une portion de la séquence mais dépassent aussi les limites, alors le slice retourne uniquement cette portion de la séquence:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; S = "Bonjour"
+		&gt;&gt;&gt; S[5:200]
+		'ur'
+	</code></pre>
+<p>On peut ne pas mettre le premier indice, dans ce cas ça signifie qu'on souhaite que la séquence résultat commence au début. Ça signifie zéro, mais pas
+		forcément, comme on va le voir ensuite. On peut aussi ne pas mettre le second indice, dans ce cas ça signifie qu'on souhaite que la séquence résultat se
+		termine à la fin de la séquence. Ça signifie N si la séquence est de longueur N, mais pas forcément, comme on va aussi le voir ensuite. Si on ne
+		spécifie ni le premier ni le second indice, on obtient une nouvelle séquence identique à l'originale.</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = [10, 20, 30, 40, 50]
+		&gt;&gt;&gt; L[:3]
+		[10, 20, 30]
+		&gt;&gt;&gt; L[3:]
+		[40, 50]
+		&gt;&gt;&gt; L2 = L[:]
+		&gt;&gt;&gt; L2
+		[10, 20, 30, 40, 50]
+		&gt;&gt;&gt; L2 is L1
+		False
+	</code></pre>
+<p>Attention: quand on fait une copie d'une liste avec le slice [:], il s'agit d'une copie superficielle, c'est à dire les références dans la nouvelle liste
+		pointent toutes vers les mêmes objets que ceux pointés par les références dans la liste originale, les objets pointés ne sont pas dupliqués. On appelle
+		cela une copie superficielle ou en anglais <em>shallow copy</em>, en opposition à copie profonde, ou <em>deep copy</em> où tous les objets sont
+		dupliqués de façon récursive. Pour plus de détails voir la partie du cours sur le modèle de données de Python.</p>
+<p>On peut rajouter un troisième nombre entier qui servira de pas. Si on ne le précise pas, il est de 1 par défaut. Il peut être une autre valeur, y compris
+		une valeur négative, dans ce cas l'indice de début doit être plus grand que celui de fin:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; S = "Bonjour"
+		&gt;&gt;&gt; S[0:5:2]
+		'Bno'
+		&gt;&gt;&gt; S[0:5:3]
+		'Bj'
+		&gt;&gt;&gt; S[5:0:-1]
+		'uojno'
+		&gt;&gt;&gt; S[5::-1]
+		'uojnoB'
+		&gt;&gt;&gt; S[::-1]
+		'ruojnoB'
+	</code></pre>
+<p>Notez que quand on compte en négatif ↑ l'indice de début 5 est toujours inclus et celui de fin 0 est exclu. La séquence résultat s'arrête à l'indice 1
+		quand on précise le dernier indice étant 0, alors que si on ne précise pas l'indice de fin cette fois-ci 0 est inclus.</p>
+<p>Les slices peuvent utiliser les indices négatifs. Le fonctionnement reste le même, cependant quand on ne met pas l'indice de début le slice le remplace
+		par -N contrairement à 0 pour les indices positifs. Quand on ne met pas l'indice de fin le slice le remplace par 0 contrairement à N pour les indices
+		positifs.:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; S = "Bonjour"
+		&gt;&gt;&gt; S[-4:-1]
+		'jou'
+		&gt;&gt;&gt; S[-4:]
+		'jour'
+		&gt;&gt;&gt; S[-4:0]
+		''
+		&gt;&gt;&gt; S[:-1]
+		'Bonjou'
+		&gt;&gt;&gt; S[-7:-1]
+		'Bonjou'
+	</code></pre>
+<p>(Étrangement <code>S[-4:0]</code> ne donne pas la même chose que <code>S[-4:]</code>, pourtant ça devrait. Je ne sais pas expliquer ce comportement, si
+		quelqu'un a la réponse j'aimerais la connaître.)</p>
+<p>Enfin, on peut utiliser des indices négatifs avec des pas négatifs:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; S = "Bonjour"
+		&gt;&gt;&gt; S[-2:-5:-1]
+		'uoj'
+		&gt;&gt;&gt; S[:-5:-1]
+		'ruoj'
+		&gt;&gt;&gt; S[-2::-1]
+		'uojnoB'
+	</code></pre>
+
+	
+	<h2 data-nb="9.3" id="len()">len()</h2>
+<p>On peut obtenir la longueur d'une séquence avec la fonction built-in <code>len()</code>, diminutif du mot anglais <em>length</em> qui veut dire <em>longueur</em>.
+	</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; len("Bonjour")
+		7
+		&gt;&gt;&gt; len([True, 5.1, 30])
+		3
+		&gt;&gt;&gt; len((True, 5.1, 30))
+		3
+		&gt;&gt;&gt; len(range(10))
+		10
+	</code></pre>
+
+	
+	<h2 data-nb="9.4" id="Test d'appartenance avec in">Test d'appartenance avec <code>in</code></h2>
+<p>Pour savoir si la séquence contient un objet ayant une certaine valeur on utilise l'opérateur <code>in</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; 'B' in 'Bonjour'
+		True
+		&gt;&gt;&gt; 'b' in 'Bonjour'
+		False
+		&gt;&gt;&gt; 20 in [10, 20, 30]
+		True
+		&gt;&gt;&gt; 5 in range(10)
+		True
+		&gt;&gt;&gt; 10 in range(10)
+		False
+	</code></pre>
+<p>Remarquez que pour les <code>str</code> on peut tester si une sous-chaîne est présente dans une chaîne:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; 'Bon' in 'Bonjour'
+		True
+		&gt;&gt;&gt; 'jour' in 'Bonjour'
+		True
+		&gt;&gt;&gt; 'soir' in 'Bonjour'
+		False
+	</code></pre>
+
+	
+	<h2 data-nb="9.5" id="Suppression d'élément avec del">Suppression d'élément avec <code>del</code></h2>
+<p>On peut supprimer des indices, pour les séquences mutables uniquement (par exemples les <code>list</code>, mais pas les <code>str</code> ou les <code>tuples</code>):
+	</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = [10, 20, 30]
+		&gt;&gt;&gt; del L[1]
+		&gt;&gt;&gt; L
+		[10, 30]
+	</code></pre>
+
+	
+	<h2 data-nb="9.6" id="Concaténation avec +">Concaténation avec <code>+</code></h2>
+<p>Permet de mettre bout-à-bout plusieurs séquences. Le résultat est aussi une séquence de même type:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; "Bonjour " + "à tous"
+		'Bonjour à tous'
+
+		&gt;&gt;&gt; (10, 20) + (100, 200)
+		(10, 20, 100, 200)
+	</code></pre>
+<p>La séquence résultat est un tout nouvel objet, indépendant de ceux utilisés pour faire la concaténation:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L1 = [10, 20, 30]
+		&gt;&gt;&gt; L2 = [100, 200, 300]
+		&gt;&gt;&gt; L3 = L1 + L2
+		&gt;&gt;&gt; L3
+		[10, 20, 30, 100, 200, 300]
+		&gt;&gt;&gt; L1
+		[10, 20, 30]
+		&gt;&gt;&gt; L2
+		[100, 200, 300]
+		&gt;&gt;&gt; L3 is L1
+		False
+		&gt;&gt;&gt; L3 is L2
+		False
+	</code></pre>
+<p>Pour les listes qui sont mutables, la méthode <code>extend()</code> fait la même chose que l'opérateur <code>+</code> entre listes, mais ne crée pas de
+		nouvel objet, la méthode modifie la liste directement, ce qui est plus efficace en terme de mémoire et vitesse d'exécution:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L1 = [10, 20, 30]
+		&gt;&gt;&gt; L2 = [100, 200, 300]
+		&gt;&gt;&gt; L1.extend(L2)
+		&gt;&gt;&gt; L1
+		[10, 20, 30, 100, 200, 300]
+		&gt;&gt;&gt; L2
+		[100, 200, 300]
+	</code></pre>
+<p>Le type <code>range</code> ne supporte pas cette opération.</p>
+
+	
+	<h2 data-nb="9.7" id="Multiplication par un nombre avec *">Multiplication par un nombre avec <code>*</code></h2>
+<p>Assez similaire à l'opérateur <code>+</code> cet opérateur permet de répéter une séquence autant de fois que nécessaire. La séquence résultat sera un
+		nouvel objet indépendant de l'original:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L1 = [10, 20, 30]
+		&gt;&gt;&gt; L2 = L1 * 3
+		&gt;&gt;&gt; L2
+		[10, 20, 30, 10, 20, 30, 10, 20, 30]
+
+		&gt;&gt;&gt; L2 is L1
+		False
+	</code></pre>
+<p>Le type <code>range</code> ne supporte pas cette opération.</p>
+
+	
+	<h2 data-nb="9.8" id="Méthode index()">Méthode <code>index()</code></h2>
+<p>Elle prend n'importe quel objet en paramètre, et retourne l'indice du premier objet de la séquence dont la valeur est égale à celle de l'objet en
+		paramètre. Si la séquence ne contient pas un tel objet de valeur égale, la méthode provoque une <code>ValueError</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = ["a", -5, True, -5]
+		&gt;&gt;&gt; L.index("a")
+		0
+		&gt;&gt;&gt; L.index(-5)
+		1
+		&gt;&gt;&gt; L.index(True)
+		2
+		&gt;&gt;&gt; L.index("Coucou")
+		ValueError
+	</code></pre>
+
+	
+	<h2 data-nb="9.9" id="Méthode count()">Méthode <code>count()</code></h2>
+<p>Elle prend n'importe quel objet en paramètre, et retourne le nombre de fois qu'un objet de la séquence est de valeur égale à celle de l'objet en
+		paramètre.:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = ["a", -5, True, -5]
+		&gt;&gt;&gt; L.count("a")
+		1
+		&gt;&gt;&gt; L.count(-5)
+		2
+		&gt;&gt;&gt; L.count("Coucou")
+		0
+	</code></pre>
+
+	
+	<h2 data-nb="9.10" id="Support des fonctions min() et max()">Support des fonctions <code>min()</code> et <code>max()</code></h2>
+<p>Ces deux fonctions built-in permettent d'avoir l'objet d'une séquence dont la valeur est considérée la plus petite ou la plus grande parmi tous ceux dans
+		la séquence.</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = [50, -10, 30]
+		&gt;&gt;&gt; min(L)
+		-10
+		&gt;&gt;&gt; max(L)
+		50
+	</code></pre>
+<p>La notion de plus grand et plus petit varie d'un type à un autre, par exemple entre nombres c'est la comparaison numérique qui nous est familière, tandis
+		qu'entre chaînes de caractères ce sont d'autres règles qui s'appliquent pour savoir laquelle est plus petite ou plus grande. En général ce sont les
+		nombres qui nous intéressent. Quoi qu'il en soit, quand les valeurs peuvent être comparées entre elles, alors on peut savoir laquelle est la plus grande
+		ou la plus petite. Par exemple pour une liste de <code>str</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = ["Salut", "Coucou", "Bonjour"]
+		&gt;&gt;&gt; min(L)
+		'Bonjour'
+		&gt;&gt;&gt; max(L)
+		'Salut'
+	</code></pre>
+
+	
+	<h2 data-nb="9.11" id="Support de la fonction reversed()">Support de la fonction <code>reversed()</code></h2>
+<p>Avec cette fonction on peut inverser une séquence qu'on passe en paramètre, la fonction nous renvoie un objet de type <code>iterator</code> qu'on verra
+		plus loins dans ce cours. Cet objet n'est PAS une séquence, il ne supporte donc pas les opérations listées sur cette page. Cependant on peut le
+		transformer facilement en <code>list</code> en le passant en paramètre à la fonction <code>list()</code> qui nous renvoie la liste contenant tous les
+		objets de cet <code>iterator</code> inversé:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; r = reversed("Bonjour")
+		&gt;&gt;&gt; r
+		&lt;reversed object at 0x000001D11D29BDC0&gt;
+		&gt;&gt;&gt; r[0]
+		TypeError: 'reversed' object is not subscriptable
+		&gt;&gt;&gt; list(r)
+		['r', 'u', 'o', 'j', 'n', 'o', 'B']
+	</code></pre>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

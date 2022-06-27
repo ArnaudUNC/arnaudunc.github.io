@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Les exceptions | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Par Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✏️ TD - Calculatrice niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp3.html">
+				✏️ TP - Calculatrice niv.4
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="8" id="Les exceptions">Les exceptions</h1>
+<p>Jusqu'ici, lorsqu'on a des erreurs dans nos programmes, on se contente de es lire, de les comprendre, et enfin de corriger la source du problème. Il y a
+		au moins deux types d'erreurs à distinguer : les erreurs de syntaxe et les exceptions.</p>
+
+	
+	<h2 data-nb="8.1" id="Erreurs de syntaxe">Erreurs de syntaxe</h2>
+<p>Les erreurs de syntaxe, qui sont des erreurs d'analyse du code, sont peut-être celles que vous rencontrez le plus souvent lorsque vous êtes encore en
+		phase d'apprentissage de Python. Ces erreurs arrivent quand vous avez mal écrit le code Python, votre code ne suit pas strictement la syntaxe de Python.
+		Elles sont en général faciles à corriger.</p>
+<p>Par exemple le fichier <code>mon_fichier.py</code> contient le code ci-dessous avec une erreur de syntaxe:</p>
+<pre><code class="language-python">
+		if 0 &lt; 1
+			print("Coucou")
+	</code></pre>
+<pre class="affichage_console"><code>
+File "C:\Users\Arnaud\Desktop\mon_fichier.py", line 1
+    if 0 &lt; 1
+            ^
+SyntaxError: expected ':'</code></pre>
+<p>L'analyseur syntaxique de Python indique le fichier exact et la ligne concernés par l'erreur et affiche une petite « flèche » pointant vers le premier
+		endroit de la ligne où l'erreur a été détectée. Dans cet exemple la flèche et le texte d'erreur indiquent qu'il manque deux points (':').</p>
+
+	
+	<h2 data-nb="8.2" id="Exceptions">Exceptions</h2>
+<p>Même si une instruction ou une expression est syntaxiquement correcte, elle peut générer une erreur lors de son exécution. Les erreurs détectées durant
+		l'exécution sont appelées des exceptions et ne sont pas toujours fatales : nous apprendrons bientôt comment les traiter dans vos programmes. La plupart
+		des exceptions toutefois ne sont pas prises en charge par les programmes, ce qui génère des messages d'erreurs de ce genre :</p>
+<pre><code class="language-python">
+		1 / 0
+	</code></pre>
+<pre class="affichage_console"><code>
+Traceback (most recent call last):
+  File "C:\Users\Arnaud\Desktop\mon_fichier.py", line 2, in &lt;module&gt;
+    1 / 0
+ZeroDivisionError: division by zero</code></pre>
+<p></p>
+<pre><code class="language-python">
+		a + 1
+	</code></pre>
+<pre class="affichage_console"><code>
+Traceback (most recent call last):
+  File "C:\Users\Arnaud\Desktop\mon_fichier.py", line 2, in &lt;module&gt;
+    a + 1
+NameError: name 'a' is not defined</code></pre>
+<p></p>
+<pre><code class="language-python">
+		"1" + 1
+	</code></pre>
+<pre class="affichage_console"><code>
+Traceback (most recent call last):
+  File "C:\Users\Arnaud\Desktop\mon_fichier.py", line 2, in &lt;module&gt;
+    "1" + 1
+TypeError: can only concatenate str (not "int") to str</code></pre>
+<p>La dernière ligne du message d'erreur explique brievement quelle est l'erreur. Les exceptions peuvent être de différents types, et ce type est indiqué
+		juste avant le message : dans ces exemple les types des erreurs sont <code>ZeroDivisionError</code>, <code>NameError</code> et <code>TypeError</code>.
+		Le type est aussi la classe de l'exception.</p>
+
+	
+	<h2 data-nb="8.3" id="Gestion des exceptions avec try-except">Gestion des exceptions avec <code>try-except</code></h2>
+<p>Il est possible d'écrire des programmes qui prennent en charge les types d'exceptions qu'on souhaite, pour ensuite faire les actions qui s'imposent dans
+		le cas où elles surviennent, grâce à la structure <code>try-except</code>. Exemple:</p>
+<pre class="line-numbers"><code class="language-python">
+		print("Avant")
+		try:
+			1 / 0
+			print("La division a fonctionné")
+		except ZeroDivisionError:
+			print("Une division par zéro a eu lieu, ouille!")
+		print("Après")
+	</code></pre>
+<pre class="affichage_console"><code>Avant
+Une division par zéro a eu lieu, ouille!
+Après</code></pre>
+<p>Remarquez ↑ que la ligne 3 n'a pas été exécutée, car la 2 a provoqué une <code>ZeroDivisionError</code>. Par contre la ligne 5 a été exécutée. Maintenant
+		si on fait:</p>
+<pre class="line-numbers"><code class="language-python">
+		print("Avant")
+		try:
+			1 / 1
+			print("La division a fonctionné")
+		except ZeroDivisionError:
+			print("Une division par zéro a eu lieu, ouille!")
+		print("Après")
+	</code></pre>
+<pre class="affichage_console"><code>Avant
+La division a fonctionné
+Après</code></pre>
+<p>Maintenant ↑ la ligne 3 a été exécutée mais pas la 5, car la division de la ligne 2 n'a provoqué aucune erreur.</p>
+<p>On peut avoir plusieurs <code>except</code>, comme ceci:</p>
+<pre class="line-numbers"><code class="language-python">
+		try:
+			1 / 1
+			print("La division a fonctionné")
+			a - 1
+			print("La soustraction a fonctionné")
+			"1" + 1
+			print("L'addition a fonctionné")
+			a.methode_inexistante()
+			print("L'appel de méthode a réussi")
+		except ZeroDivisionError:
+			print("Une division par zéro a eu lieu, ouille!")
+		except NameError:
+			print("Ben alors, on a oublié de définir l'identifiant a?")
+		except TypeError:
+			print("On ne concatène pas une chaîne avec un entier, il faut convertir d'abord!")
+	</code></pre>
+<pre class="affichage_console"><code>La division a fonctionné
+Ben alors, on a oublié de définir l'identifiant a?</code></pre>
+<p>Si on définit l'identifiant <code>a</code> avant de l'utiliser (on peut le faire avant ou dans le bloc <code>try</code>):</p>
+<pre class="line-numbers"><code class="language-python">
+		a = 2
+		try:
+			1 / 1
+			print("La division a fonctionné")
+			a - 1
+			print("La soustraction a fonctionné")
+			"1" + 1
+			print("L'addition a fonctionné")
+			a.methode_inexistante()
+			print("L'appel de méthode a réussi")
+		except ZeroDivisionError:
+			print("Une division par zéro a eu lieu, ouille!")
+		except NameError:
+			print("Ben alors, on a oublié de définir l'identifiant a?")
+		except TypeError:
+			print("On ne concatène pas une chaîne avec un entier, il faut convertir d'abord!")
+	</code></pre>
+<pre class="affichage_console"><code>La division a fonctionné
+La soustraction a fonctionné
+On ne concatène pas une chaîne avec un entier, il faut convertir d'abord!</code></pre>
+<p>Et si on fait fonctionner la concaténation, on obtient:</p>
+<pre class="line-numbers"><code class="language-python">
+		a = 2
+		try:
+			1 / 1
+			print("La division a fonctionné")
+			a - 1
+			print("La soustraction a fonctionné")
+			"1" + str(1)
+			print("L'addition a fonctionné")
+			a.methode_inexistante()
+			print("L'appel de méthode a réussi")
+		except ZeroDivisionError:
+			print("Une division par zéro a eu lieu, ouille!")
+		except NameError:
+			print("Ben alors, on a oublié de définir l'identifiant a?")
+		except TypeError:
+			print("On ne concatène pas une chaîne avec un entier, il faut convertir d'abord!")
+	</code></pre>
+<pre class="affichage_console"><code>La division a fonctionné
+La soustraction a fonctionné
+L'addition a fonctionné
+Traceback (most recent call last):
+  File "C:\Users\Arnaud\Desktop\mon_fichier.py", line 9, in &lt;module&gt;
+    a.methode_inexistante()
+AttributeError: 'int' object has no attribute 'methode_inexistante'</code></pre>
+<p>Comme aucun <code>except</code> ne correspond au type d'exception <code>AttributeError</code>, alors l'exception n'est pas gérée par notre programme, qui
+		crashe, car l'objet référencé par <code>a</code> est de type <code>int</code>, et tout objet de ce type n'a pas de méthode
+		<code>methode_inexistante()</code>.</p>
+<p>On peut ajouter un <code>except</code> générique qui prend en charge toutes les exceptions peu importe leur type. Les <code>except</code> spécifiques
+		sont prioritaires: si une exception intervient dans le <code>try</code> et qu'elle n'est pas listée parmi les <code>except</code> spécifiques, c'est le
+		<code>except</code> générique qui est utilisé. L'ordre des <code>except</code> dans une structure <code>try-except</code> n'a pas d'importance.</p>
+<pre class="line-numbers"><code class="language-python">
+		a = 2
+		try:
+			1 / 1
+			print("La division a fonctionné")
+			a - 1
+			print("La soustraction a fonctionné")
+			"1" + str(1)
+			print("L'addition a fonctionné")
+			a.methode_inexistante()
+			print("L'appel de méthode a réussi")
+		except ZeroDivisionError:
+			print("Une division par zéro a eu lieu, ouille!")
+		except NameError:
+			print("Ben alors, on a oublié de définir l'identifiant a?")
+		except TypeError:
+			print("On ne concatène pas une chaîne avec un entier, il faut convertir d'abord!")
+		except:
+			print("Une erreur d'un autre type est apparue... que faire?")
+	</code></pre>
+<pre class="affichage_console"><code>La division a fonctionné
+La soustraction a fonctionné
+L'addition a fonctionné
+Une erreur d'un autre type est apparue... que faire?</code></pre>
+<p>L'instruction try fonctionne comme ceci :</p>
+<ul>
+<li><p>premièrement, le bloc de code du <code>try</code> (instruction(s) placée(s) entre les mots-clés <code>try</code> et <code>except</code>) est
+			exécuté.</p></li>
+<li><p>si aucune exception n'intervient, les clauses <code>except</code> sont ignorées et le <code>try-except</code> est terminé.</p></li>
+<li><p>si une exception intervient pendant l'exécution de la clause <code>try</code>, <strong>le reste</strong> de cette clause est ignoré. Si le type
+			d'exception levée correspond à un nom indiqué après les mots-clés <code>except</code>, la clause <code>except</code> correspondante est exécutée,
+			puis l'exécution continue après le <code>try-except</code>.</p></li>
+<li><p>si une exception intervient et ne correspond à aucune exception mentionnée dans la clause <code>except</code>, elle est transmise à l'instruction
+			<code>try</code> de niveau supérieur (dans le cas où le <code>try</code> est dans une fonction, mais on ne verra pas cette situation) ; si aucun
+			gestionnaire d'exception n'est trouvé, il s'agit d'une exception non gérée et l'exécution s'arrête avec le message de l'exception.</p></li>
+</ul>
+<p>Une structure <code>try-except</code> peut comporter plusieurs clauses <code>except</code> pour permettre la prise en charge de différentes exceptions.
+		Mais un seul <code>except</code>, au plus, sera exécuté. Les <code>except</code> ne prennent en charge que les exceptions qui interviennent dans la
+		clause <code>try</code> correspondante</p>
+
+
+	
+	<h2 data-nb="8.4" id="if-else VS try-except">if-else VS try-except</h2>
+<p>Il ne faut pas confondre les deux.</p>
+<p><code>if-else</code> sert à différentier deux situations différentes à partir du test d'une condition, et à agir en conséquence, au cours du déroulement
+		<strong>normal</strong> du programme.</p>
+<p><code>try-except</code> en revanche sert à différentier deux situations non pas à partir d'un test, mais la situation où le programme se déroule sans
+		erreur, et la situation où le programme rencontre une erreur.</p>
+	
+	
+	
+	
+	
+
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Introduction | Algo et prog 2 en Python</title>
+	<title>Iterable unpacking | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -66,77 +66,77 @@
 
 
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="index.html">
 				Introduction
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_spec_impl_versions.html">
 				Spécification, implémentations et versions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_methodes_exec.html">
 				Façons d'exécuter un programme Python
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_memoire_donnees.html">
 				Mémoire et modèle de données
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_pass.html">
 				L'instruction pass
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_prog_objets.html">
 				Programmation objets
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_namespaces_modules.html">
 				Namespaces et modules
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_exceptions.html">
 				Les exceptions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_sequences.html">
 				Les séquences
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterables.html">
 				Iterables, iterators
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cm_iterable_unpacking.html">
 				Iterable unpacking
@@ -185,31 +185,134 @@
 
 		
 	
-	<h1 data-nb="1" id="Introduction">Introduction</h1>
-<p>Vous pouvez enregistrer l'adresse web (URL) de ce site (dans un marque-page, sur papier, ou la retenir) pour pouvoir y revenir rapidement sans passer à
-		chaque fois par Moodle.</p>
-<h2 data-nb="1.1" id="Objectifs">Objectifs</h2>
-<p>Ce cours est la suite directe de <em>Algorithmique et programmation 1 en Python</em>, et s'appuie sur tout ce que vous y avez vu. Vous allez consolider
-		et approfondir vos connaissances à la fois en algorithmique ET en Python, afin de savoir résoudre des problèmes plus complexes que dans le cours
-		précédent.</p>
-<h2 data-nb="1.2" id="Volume horaire">Volume horaire</h2>
-<p>4 heures de cours
-		<br/>
-		(CM - Cours Magistral - Introduction des concepts).
+	<h1 data-nb="11" id="Iterable unpacking">Iterable unpacking</h1>
+
+	
+
+	<p>On appelle <em>iterable unpacking</em> (on peut dire aussi <em>tuple unpacking</em>) une opération qui consiste à affecter à plusieurs variables en même
+		temps contenues dans un tuple ou une slite le contenu d'un iterable, le tout en une seule opération d'affectation. Exemple:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; (a, b, c) = (10, 20, 30)
+		&gt;&gt;&gt; a
+		10
+		&gt;&gt;&gt; b
+		20
+		&gt;&gt;&gt; c
+		30
+	</code></pre>
+<p>Les tuples pouvant s'écrire sans parenthèses (à part dans certaines circonstances où les parenthèses sont utiles pour délimiter le tuple, comme lorsqu'il
+		est passé en paramètre d'une fonction), on peut aussi écrire des 2 façons équivalentes ci-dessous:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; a, b, c = (10, 20, 30)
+		&gt;&gt;&gt; a, b, c = 10, 20, 30
+	</code></pre>
+<p>A gauche du signe <code>=</code> peut être une liste également, dans ce cas les crochets sont obligatoires (sinon ça serait un tuple par défaut):</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; [a, b, c] = 10, 20, 30
+	</code></pre>
+<p>A droit du signe <code>=</code> peut être n'importe quel <code>iterable</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; a, b, c = [10, 20, 30]
+		&gt;&gt;&gt; a, b, c = range(3)
+		&gt;&gt;&gt; a
+		0
+		&gt;&gt;&gt; b
+		1
+		&gt;&gt;&gt; c
+		2
+		&gt;&gt;&gt; a, b, c = "hey"
+		&gt;&gt;&gt; a
+		'h'
+		&gt;&gt;&gt; b
+		'e'
+		&gt;&gt;&gt; c
+		'y'
+	</code></pre>
+<p>L'iterable à droit du signe <code>=</code> peut contenir des éléments plus complexes, cela ne change rien au mécanisme d'unpacking, par exemple un tuple
+		de tuples:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; a, b, c = (10, 20), (30, 40), (50, 60)
+		&gt;&gt;&gt; a
+		(10, 20)
+		&gt;&gt;&gt; b
+		(30, 40)
+		&gt;&gt;&gt; c
+		(50, 60)
+	</code></pre>
+<p>S'il y a trop ou pas assez de valeurs à "unpacker" (si on peut transformer le mot anglais <em>unpack</em> en verbe français), on a une erreur explicite:
 	</p>
-<p>6 heures de TD
-		<br/>
-		(TD - Travaux Dirigés - Exercices simples).
-	</p>
-<p>22 heures de TP
-		<br/>
-		(TP - Travaux Pratiques - Exercices plus avancés).
-	</p>
-<h2 data-nb="1.3" id="Evaluation et seconde chance">Evaluation et seconde chance</h2>
-<p>3 contrôles (CC - Contrôle Continu) étalés sur toute la durée de cette matière.</p>
-<p>Seconde chance: on ignore la moins bonne note. La note finale pour cette matière sera donc la moyenne des deux meilleures notes sur les trois.</p>
-<h2 data-nb="1.4" id="Groupes de TD et TP">Groupes de TD et TP</h2>
-	(à venir)
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; a, b = 1, 2, 3
+		ValueError: too many values to unpack (expected 2)
+
+		&gt;&gt;&gt; a, b, c = 1, 2
+		ValueError: not enough values to unpack (expected 3, got 2)
+	</code></pre>
+<h2 data-nb="11.1" id="Opérateur *">Opérateur *</h2>
+<p>Dans le cas précédent où il y a trop de valeurs, on peut utiliser l'opérateur <code>*</code>. Dans ce contexte cet opérateur s'appelle <em>l'opérateur
+		d'unpacking</em>, il permet d'assigner plusieurs valeurs à une seule variable, cela est possible en faisant pointer cette variable vers une nouvelle
+		liste qui contiendra toutes les valeurs correspondantes. Le terme exact en Python pour cet opérateur est <em>starred expression</em> (expression
+		étoilée). Exemple:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; a, *b = 1, 2, 3
+		&gt;&gt;&gt; a
+		1
+		&gt;&gt;&gt; b
+		[2, 3]
+
+		&gt;&gt;&gt; a, b, *c = 1, 2, 3
+		&gt;&gt;&gt; a
+		1
+		&gt;&gt;&gt; b
+		2
+		&gt;&gt;&gt; c
+		[3]
+
+		&gt;&gt;&gt; *a, = 1, 2, 3
+		&gt;&gt;&gt; a
+		[1, 2, 3]
+	</code></pre>
+<p>Dans le dernier exemple ↑ on écrit <code>*a, = 1, 2, 3</code> et non pas <code>*a = 1, 2, 3</code> car c'est imposé par la syntaxe des littéraux pour les
+		tuples: un tuple contenant un seul élément doit obligatoirement avoir une virgule avant la fin, sinon on pourrait confondre avec les parenthèses de
+		priorité des opérations si le tuple a des parenthèses, ou bien avec une expression hors d'un tuple si le tuple n'a pas de parenthèses.</p>
+<p>Les variables sans <code>*</code> sont prioritaires sur celle avec <code>*</code>, de sorte que l'* ne "capte" pas toutes les valeurs, par exemple:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; *a, b = 1, 2, 3
+		&gt;&gt;&gt; a
+		[1, 2]
+		&gt;&gt;&gt; b
+		3
+
+		&gt;&gt;&gt; a, *b, c = 1, 2, 3
+		&gt;&gt;&gt; a
+		1
+		&gt;&gt;&gt; b
+		[2]
+		&gt;&gt;&gt; c
+		3
+
+		&gt;&gt;&gt; a, *b, c = 1, 2, 3, 4
+		&gt;&gt;&gt; a
+		1
+		&gt;&gt;&gt; b
+		[2, 3]
+		&gt;&gt;&gt; c
+		4
+
+		&gt;&gt;&gt; a, *b, c = 1, 2
+		&gt;&gt;&gt; a
+		1
+		&gt;&gt;&gt; b
+		[]
+		&gt;&gt;&gt; c
+		2
+	</code></pre>
+<p>Il est impossible d'utiliser plusieurs <code>*</code> dans une même expression:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; *a, *b = 1, 2, 3
+		SyntaxError: multiple starred expressions in assignment
+	</code></pre>
+<p>La fonctionnalité d'iterable unpacking est utile en soi, mais aussi dans certaines situations particulières que nous verrons plus loin dans ce cours.</p>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

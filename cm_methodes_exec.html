@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Façons d'exécuter un programme Python | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Par Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✏️ TD - Calculatrice niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp3.html">
+				✏️ TP - Calculatrice niv.4
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="3" id="Façons d'exécuter un programme Python">Façons d'exécuter un programme Python</h1>
+<p>Python est supporté sur plusieurs plateformes (Windows, Mac, Linux, et d'autres systèmes), sous de nombreuses formes, et de nombreux outils pour coder
+		existent, il n'est donc pas toujours facile de s'y retrouver. Voyons les façons les plus courantes d'installer et de programmer dans ce langage.</p>
+
+	
+	<h2 data-nb="3.1" id="Sur votre propre ordinateur">Sur votre propre ordinateur</h2>
+<p>La façon classique de programmer en Python est en l'installant sur votre ordinateur. Et le plus courant est d'installer CPython.</p>
+<p>Python n'est pas forcément installé sur tous les PC de l'UNC, cette approche est donc conseillée uniquement pour ceux qui viennent avec leur ordinateur
+		portable ou bien pour ceux qui veulent installer Python sur leur ordinateur de maison.</p>
+
+	
+	<h3 data-nb="3.1.1" id="Windows">Windows</h3>
+<p>Il faut télécharger <a href="https://www.python.org/">l'installeur officiel</a>. Pour chaque version de Python il y a plusieurs sous-versions que vous
+		pouvez télécharger par exemple 32 ou 64 bit, ARM, ou encore "embeddable package". Ce qu'il vous faut est la version "Windows installer (64 bit)", et
+		c'est la version par défaut que la page d'accueil du site propose. Puis vous suivez les étapes de l'installation mais choisissez une installation
+		personnalisée afin d'être sûr d'avoir au minimum les options suivantes:</p>
+<img alt="" src="img/cm_methodes_exec/install_windows_1.png"/>
+<p>Pour le dossier d'installation ↓ laissez celui par défaut, mais surtout cochez l'option pour ajouter Python aux variables d'environnement, ça permettra à
+		la commande <code>python</code> d'être reconnue dans la console de Windows. Si cette option n'a pas été cochée lors de l'installation vous pouvez
+		toujours gérer les variables d'environnement manuellement, mais ça demandera de savoir le faire.</p>
+<p>Il est aussi utile ↓ de cocher l'option pour créer les raccourcis dans le menu démarrer de Windows.</p>
+<img alt="" src="img/cm_methodes_exec/install_windows_2.png"/>
+<p>Une fois l'installation terminée vérifiez qu'elle a été faite correctement en ouvrant une <em>Invite de commandes</em> ou un <em>Terminal</em> (depuis le
+		menu démarrer), et si vous lancez la commande <strong><code>python</code></strong> vous devriez avoir quelque chose comme ceci:</p>
+<img alt="" src="img/cm_methodes_exec/console_windows_python.png"/>
+
+	
+	<h3 data-nb="3.1.2" id="MacOS">MacOS</h3>
+<p>Sur MacOS Python 2.7 est installé par défaut, mais comme on l'a vu précédemment cette version est obsolète, il faut donc installer vous-même une version
+		plus récente. Par <a href="https://www.python.org/">l'installeur officiel</a>. Vous pouvez aussi installer Python par un outil plus flexible comme <a href="https://github.com/pyenv/pyenv">pyenv</a> ou par un gestionnaire de paquets comme sur Linux, tel que <a href="https://brew.sh/">homebrew</a>.</p>
+<p>La documentation de Python donne des <a href="https://docs.python.org/3/using/mac.html">informations supplémentaires</a> pour les utilisateurs de MacOS.
+	</p>
+
+	
+	<h3 data-nb="3.1.3" id="Linux">Linux</h3>
+<p>Pour Linux on peut passer par le gestionnaire de paquets officiel de la distribution, tel que <code>apt-get</code> pour les distributions basées sur
+		Debian, comme Ubuntu, ou <code>pacman</code> sur Arch Linux etc... Ou bien vous pouvez installer Python par un outil plus flexible comme <a href="https://github.com/pyenv/pyenv">pyenv</a>.</p>
+
+	
+	<h3 data-nb="3.1.4" id="Editeurs de code">Editeurs de code</h3>
+<p>Je recommande au niveau débutant d'utiliser des éditeurs de code simples associés à la console pour lancer vos programmes. Cela permet de maîtriser les
+		bases, et de ne pas être encombré, alourdi de fonctionnalités, de menus, de boutons et d'affichages dans tous les sens, qui certes facilitent la vie
+		d'un développeur Python confirmé, mais qui auront plus de risque de perdre et ralentir un développeur novice. Les éditeurs simples sont également bien
+		plus faciles, rapides et légers pour installer et exécuter.</p>
+<p>Sur Windows vous avez <a href="https://notepad-plus-plus.org/">Notepad++</a> qui a un look ancien mais qui est toujours activement développé, ou <a href="https://www.sublimetext.com/">Sublime Text</a> qui est plus moderne dans son design. Sur Linux vous avez aussi Sublime Text</p>
+<p>Vous pouvez éditer votre code à l'aide d'un éditeur de texte simple ( , ...) ou avancé (<a href="https://code.visualstudio.com/" target="_blank">Microsoft
+		Visual Studio Code</a>, <a href="https://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>...), mais SURTOUT PAS un éditeur de texte riche tel que
+		Microsoft Word, qui sont destinés à éditer visuellement des documents, et pas du code. Tous les outils sont majoritairement gratuits, certains peuvent
+		être payants, ou avoir des fonctionnalités payantes.</p>
+
+
+
+
+
+	
+	<h2 data-nb="3.2" id="Sur horizon">Sur horizon</h2>
+<p>Comme pour le premier semestre, vous pouvez exécuter Python depuis un serveur à l'UNC. Dans ce cas vous n'avez pas à installer Python sur votre propre
+		machine, car il sera exécuté sur une autre machine, située dans les locaux de l'UNC. Vous y accédez de deux façons différentes:</p>
+<ul>
+<li><p>Par un logiciel qu'on appelle <em>Client Horizon</em>, que vous pouvez <a href="https://customerconnect.vmware.com/en/downloads/info/slug/desktop_end_user_computing/vmware_horizon_clients/horizon_8#win64">télécharger</a>
+			et installer, puis en se connectant sur <code>https://horizon.unc.nc</code> (il est important de mettre le <em>https://</em>).</p></li>
+<li><p>Par une interface web, c'est à dire à travers un navigateur web tel que Chrome, Edge, Safari ou Firefox, puis en allant à l'adresse <code>https://horizon.unc.nc</code>
+			(il est important de mettre le <em>https://</em>). L'interface web ressemble beaucoup à la version client, mais est plus lente et potentiellement
+			moins stable. </p></li>
+</ul>
+
+
+
+
+	
+	<h2 data-nb="3.3" id="Sur Replit">Sur Replit</h2>
+<p>Vous pouvez aussi développer en Python grâce au service en ligne <a href="https://replit.com">replit.com</a>. Dans cette configuration, replit nous sert
+		à tout: éditeur de code, gestion de projet, et exécution du code.</p>
+<p>Pour coder avec replit:</p>
+<p>1) Aller sur <a href="https://replit.com">replit.com</a> et créer un compte (gratuit)</p>
+<p>2) ↓ Une fois identifié avec votre compte, créer ce qu'ils appellent un <em>repl</em>, c'est-à-dire un projet de code, en utilisant les boutons suivants:
+	</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_1.png"/>
+<p>3) ↓ Choisir le langage que vous voulez utiliser donc Python, et donner un nom descriptif qui vous permettra de facilement retrouver votre projet plus
+		tard:</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_2.png"/>
+<p>4) ↓ Vous retrouverez votre repl (votre projet) parmi la liste de tous vos repl, accessible ici. Vous pourrez les organiser en dossiers, les renommer et
+		les supprimer:</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_3.png"/>
+<p>5) ↓ Une fois votre repl ouvert, vous verrez trois zones: . </p>
+<ul>
+<li><p>à gauche la liste de vos fichiers (vous pouvez ignorer la partie "Packager files" pour ce cours). <code>main.py</code> est le fichier par défaut,
+			il est obligatoire, et est le point d'entrée de votre programme, c'est à dire le fichier qui sera exécuté à chaque fois que vous voudrez lancer
+			votre programme.</p></li>
+<li><p>Au centre se trouve l'éditeur de code avec des onglets qui correspondent à vos fichiers ouverts.</p></li>
+<li><p>À droite deux invites de commandes: l'une est nommée <em>console</em> et sert à la fois d'interpréteur de commandes Python et d'affichage pour
+			votre programme. L'autre invite de commandes est nommée <em>shell</em> et est l'invite de commandes du système d'exploitation sous-jacent (Linux).
+		</p></li>
+</ul>
+<p>En haut se trouve le bouton <em>Run</em> qui va exécuter votre programme, il va lancer le fichier <code>main.py</code>.</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_4.png"/>
+<p>6) ↓ Vous pouvez ajouter des fichiers avec ce bouton. Nommez votre fichier, et si vous créez un fichier Python, n'oubliez pas d'ajouter l'extension
+		<code>.py</code>, ce n'est pas automatique.</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_5.png"/>
+<p>7) ↓ Dans les options vous pouvez changer l'agencement visuel des différentes zones (<em>side-by-side</em> c'est-à-dire côte-à-côte ou <em>stacked</em>
+		empilées). Vous pouvez aussi choisir si vous voulez des caractères espaces ou tabulations pour l'indentation de votre code (Python recommande des
+		espaces, personnellement je préfère les tabulations). Et enfin vous pouvez changer la taille visuelle des indentations (nombre de caractères espace ou
+		taille des tabulations), mais 4 est une bonne valeur par défaut.</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_6.png"/>
+<p>8) ↓ Si vous cliquez encore sur l'icône de la zone de gauche qui est ouverte (par exemple l'icône de fichier si vous voyez la liste de vos fichiers), la
+		zone de gauche va se réduire, utile quand vous manquez d'espace à l'écran.</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_7.png"/>
+<p>9) ↓ Chaque fichier a un menu qui permet de faire certaines actions sur lui, comme par exemple le télécharger, le renommer, le supprimer. Ce menu est
+		accessible en cliquant sur les 3 points verticaux près du nom du fichier.</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_8.png"/>
+<p>10) ↓ Un autre menu général pour la gestion des fichiers est accessible avec les 3 points verticaux ici. Vous pouvez uploader des fichiers locaux vers
+		votre repl, ou télécharger tous vos fichiers du repl en une seule fois dans un fichier compressé <code>.zip</code>.</p>
+<img alt="" src="img/cm_methodes_exec/replit_creation_repl_9.png"/>
+<h3 data-nb="3.3.1" id="Fonctionnement schématique de replit">Fonctionnement schématique de replit</h3>
+<img alt="" src="img/cm1/replit fonctionnement.png"/>
+<p>Cette approche a les avantages suivants:</p>
+<ul>
+<li>Extrême facilité d'utilisation: nous n'avons rien à télécharger, installer ou configurer, ce qui est vraiment très pratique.</li>
+<li>Très grande disponibilité: comme tout se passe en ligne, seule une connexion internet est nécessaire. On peut ainsi développer de n'importe quel
+			appareil: pc, tablettes, et même smartphones.
+		</li>
+<li>Très facile de partager son code avec d'autres personnes</li>
+</ul>
+<p>Cette approche a les désavantages suivants:</p>
+<ul>
+<li>Dépendance sur un service tiers et une connexion internet: si replit ou le réseau sont indisponibles pour une raison quelconque, plus rien n'est
+			possible. De plus replit a des fonctionnalités payantes, et pourrait le devenir entièrement.
+		</li>
+<li>Aucune configuration possible: on ne peut utiliser l'éditeur de code qu'on veut, ou la version exacte de Python qu'on veut, aucun contrôle sur les
+			bibliothèques de code disponibles.
+		</li>
+<li>Performances réduites: Python s'éxecute sur les serveurs de replit, qui sont probablement moins puissants qu'une machine ordinaire, pour des raisons
+			de coût. De plus il y a un délai entre le moment où appuie sur le bouton pour exécuter, et le moment où on voit les résultats à l'écran, à cause du
+			délai normal du réseau.
+		</li>
+<li>Certaines fonctionnalités de Python sont indisponibles: développement d'interfaces utilisateur, utilisation de matériel spécifique comme accès à la
+			carte graphique pour des calculs haute performance, intégration dans un projet plus grand, etc...
+		</li>
+</ul>
+<p>Replit est destiné avant tout à l'apprentissage, et n'est définitivement pas la façon classique de développer!</p>
+
+
+	
+	
+	
+	
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

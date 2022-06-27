@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TD - Calculatrice niv.1 | Algo et prog 2 en Python</title>
+	<title>Techniques avancées sur les boucles | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -143,14 +143,14 @@
 			</a>
 		</div>
 
-		<div class=" h h1">
-			<!--span class="ballot_box">☒</span-->
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
 			<a href="cm_boucles_avancees.html">
 				Techniques avancées sur les boucles
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
+		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td1.html">
 				✏️ TD - Calculatrice niv.1
@@ -184,102 +184,163 @@
 
 
 		
-	<h1 data-nb="13" id="✏️ TD - Calculatrice niv.1">✏️ TD - Calculatrice niv.1</h1>
 	
+	<h1 data-nb="12" id="Techniques avancées sur les boucles">Techniques avancées sur les boucles</h1>
+<p>
+		Les techniques suivantes vont compléter vos connaissances des boucles et des listes en Python. Elles sont très souvent utilisées, et sont donc
+		essentielles.</p>
 
 	
-	<h2 data-nb="13.1" id="Révisions affichage">Révisions affichage</h2>
-<div class="exercice">
-<h3 data-nb="13.1.1" id="Question 1">Question 1</h3>
-<p>Afficher la chaîne "Bonjour" dans la console</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.1.2" id="Question 2">Question 2</h3>
-<p>Afficher le int 100 dans la console</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.1.3" id="Question 3">Question 3</h3>
-<p>Afficher la chaîne "Bonjour" suivie du int 100, sur la même ligne, avec un seul appel à la fonction print(). On veut deux façons de faire (deux
-			versions) différentes.</p>
-		
-	</div>
+	<h2 data-nb="12.1" id="break">break</h2>
+<p>
+		L’instruction <code>break</code> quand elle est exécutée stoppe la boucle <code>for</code> ou <code>while</code> dans laquelle elle se situe. La
+		condition d’arrêt de la boucle n’est pas évaluée, la boucle se termine tout simplement à l’endroit même du break, et le fil d’exécution du programme se
+		poursuit avec ce qui suit la boucle.</p>
+<p>Exemple: si on boucle de 0 à 9, mais qu'on fait un break à 3, la boucle s'arrêtera à 3:</p>
+<pre><code class="language-python">
+		for i in range(10):
+			print(i)
+			if i == 3:
+				break
+	</code></pre>
+<p>Affichage:</p>
+<pre><code>0
+1
+2
+3</code></pre>
+<p><code>break</code> ne stoppe QUE la boucle dans laquelle elle se situe DIRECTEMENT, pas une boucle extérieure dans le cas des boucles imbriquées. Par
+		exemple:</p>
+<pre><code class="language-python">
+		for i in range(5):
+			for j in range(5):
+				break
+	</code></pre>
+<p>Dans ce code ↑ à chaque itération de la première boucle (avec <code>i</code>) la seconde boucle (avec <code>j</code>) n'a jamais l'occasion d'aller
+		jusqu'au bout car elle est stoppée dès sa première itération. Cependant la première boucle va jusqu'au bout.</p>
+<p><code>break</code> en dehors d'une boucle provoque une <code>SyntaxError</code>.</p>
 
 	
-	<h2 data-nb="13.2" id="Révisions fonctions">Révisions fonctions</h2>
-<div class="exercice">
-<h3 data-nb="13.2.1" id="Question 4">Question 4</h3>
-<p>Créer une fonction <strong>vide</strong>, puis l'exécuter 3 fois de suite.</p>
-</div>
-<div class="exercice">
-<h3 data-nb="13.2.2" id="Question 5">Question 5</h3>
-<p>Créer une fonction qui <strong>AFFICHE</strong> <code>"Bonjour"</code> et ne renvoie rien, puis l'exécuter 3 fois de suite de façon à voir affiché
-			dans la console 3x <em>Bonjour</em>.</p>
-<p>Que se passe-t'il si on affiche le résultat d'un <strong>appel</strong> à la fonction? Pourquoi?</p>
-</div>
-<div class="exercice">
-<h3 data-nb="13.2.3" id="Question 6">Question 6</h3>
-<p>Créer une fonction qui ne fait que <strong>RETOURNER</strong> <code>"Bonjour"</code>, puis l'exécuter 3 fois de suite de façon à voir affiché dans la
-			console 3x <em>Bonjour</em>.</p>
-</div>
-<div class="exercice">
-<h3 data-nb="13.2.4" id="Question 7">Question 7</h3>
-<p>Créer une fonction <strong>RETOURNE</strong> <code>"Bonjour"</code> suivi d'un prénom sous qui sera passé en paramètre sous forme de <code>str</code>,
-			puis l'exécuter 3 fois de suite avec 3 prénoms différents de façon à voir affiché dans la console 3x <em>Bonjour</em> et un prénom différent à
-			chaque fois.</p>
-</div>
+	<h2 data-nb="12.2" id="continue">continue</h2>
+<p>
+		Cette instruction lorsqu'elle est exécutée dans une boucle permet de passer directement à l’itération suivante. L’itération actuelle est simplement
+		stoppée exactement à l’endroit du <code>continue</code>, et la boucle continue avec l’itération suivante de façon classique, c'est à dire que
+		l'incrémentation est faite dans le cas d'une boucle <code>for</code>, le test d'arrêt de la boucle est effectué, puis l'itération suivante démarre (sauf
+		si le test d'arrêt évalue à <code>False</code>). </p>
+<p>Par exemple, cette boucle ↓ va de 0 à 9, mais à chaque itération, si <code>i</code> n'est pas égal 5, on "continue", donc la boucle ne fait pas le <code>print()</code>
+		et passe à l'itération suivante. Le seul cas où le <code>print()</code> peut être exécuté est quand <code>i</code> vaut 5:</p>
+<pre><code class="language-python">
+		for i in range(10):
+			if i != 5:
+				continue
+			print(i)
+	</code></pre>
+<p>Affichage:</p>
+<p><code>5</code></p>
+<p>Tout comme pour <code>break</code>, <code>continue</code> n'affecte QUE la boucle dans laquelle elle se situe DIRECTEMENT, et pas d'éventuelles boucles
+		extérieures. En dehors d'une boucle, <code>continue</code> provoque aussi une <code>SyntaxError</code>.</p>
 
 	
-	<h2 data-nb="13.3" id="Révisions entrées au clavier">Révisions entrées au clavier</h2>
-<p>On n'utilise plus de fonctions pour les questions suivantes, donc elles se font en dehors de toute fonction.</p>
-<div class="exercice">
-<h3 data-nb="13.3.1" id="Question 8">Question 8</h3>
-<p>Demander à l'utilisateur d'entrer du texte dans la console, en lui affichant un message explicatif. Une seule ligne de code est suffisante.
-			L'affichage doit se faire sur une seule ligne.</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.3.2" id="Question 9">Question 9</h3>
-<p>Même question, mais en plus affichez ensuite sur une seconde ligne dans la console, ce que l'utilisateur aura entré au clavier. Avant d'afficher le
-			texte de l'utilisateur, on veut lire sur la même ligne: "Vous avez écrit:"</p>
-		
-	</div>
+	<h2 data-nb="12.3" id="enumerate()">enumerate()</h2>
+<p>Lorsqu’on boucle sur une séquence avec une boucle <code>for</code>, et qu’on a besoin d’avoir à la fois l’indice actuel, et sa valeur correspondante, on
+		utilise la fonction <code>enumerate()</code> comme ceci (remarquer que la boucle for supporte l'unpacking d'iterables): </p>
+<pre><code class="language-python">
+		for indice, valeur in enumerate([10, 20, 30]):
+			print(indice, valeur)
+	</code></pre>
+<p>Affichage:</p>
+<pre><code>0 10
+1 20
+2 30</code></pre>
+<p><code>enumerate()</code> prend un <code>iterable</code> en paramètre, et retourne un objet de type <code>enumerate</code>, qui est un type d'<code>iterator</code>
+		et donc utilisable par la boucle <code>for</code>. Chaque élément de cet <code>iterator</code> est un tuple contenant deux valeurs: en premier l'indice
+		sous forme de <code>int</code>, et en second l'élément correspondant dans l'<code>iterable</code> passé en paramètre.</p>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; e = enumerate([10, 20, 30])
+		&gt;&gt;&gt; e
+		&lt;enumerate object at 0x000001D11D28ABC0&gt;
+		&gt;&gt;&gt; next(e)
+		(0, 10)
+		&gt;&gt;&gt; next(e)
+		(1, 20)
+		&gt;&gt;&gt; next(e)
+		(2, 30)
+		&gt;&gt;&gt; next(e)
+		StopIteration
+	</code></pre>
 
 	
-	<h2 data-nb="13.4" id="Révision conversion de types et exceptions">Révision conversion de types et exceptions</h2>
-<div class="exercice">
-<h3 data-nb="13.4.1" id="Question 10">Question 10</h3>
-<p>Même question que la précédente, mais au lieu d'entrer du texte, demandez à l'utilisateur d'entrer un nombre entier. Affichez ce nombre ensuite. On
-			ne considère pas les cas d'erreur où l'utilisateur ne rentrerait pas un nombre.</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.4.2" id="Question 11">Question 11</h3>
-<p>Même question que la précédente, mais cette fois en cas d'erreur, on affiche un message à l'utilisateur, et le programme s'arrête. Si aucune erreur,
-			le programme fait la même chose que le précédent.</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.4.3" id="Question 12">Question 12</h3>
-<p>Même question que la précédente, mais cette fois on demande DEUX nombres à l'utilisateur, puis on affiche leur somme. On ignore les erreurs pour le
-			moment (utilisateur n'entre pas un nombre).</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.4.4" id="Question 13">Question 13</h3>
-<p>Même question que la précédente, en prenant en compte les erreurs. Si l'utilisateur n'entre pas un nombre pour le 1er ou 2ème nombre, on affiche un
-			message et le programme s'arrête. Si aucune erreur, le programme fait la même chose que le précédent: affiche la somme.</p>
-		
-	</div>
-<div class="exercice">
-<h3 data-nb="13.4.5" id="Question 14">Question 14</h3>
-<p>Partant de la correction de l'exercice précédent, demander en plus à l'utilisateur l'opération qu'il / elle souhaite réaliser sur ses deux nombres:
-			addition, soustraction, multiplication ou division. Afficher le résultat de l'opération demandée sous la forme suivante: valeur du nombre 1, suivie
-			de l'opération (+, -, / ou *), suivie de la valeur du nombre 2, =, et enfin la valeur du résultat. Exemples: <em>5 - 3 = 2</em> ou encore <em>30 / 3
-				= 10</em>. Toujours prendre en compte les erreurs (utilisateur n'a pas entré un nombre pour le 1er ou le 2eme nombre).</p>
-		
-	</div>
+	<h2 data-nb="12.4" id="zip()">zip()</h2>
+<p>Lorsqu’on veut boucler sur plusieurs <code>iterables</code> en même temps, on utilise <code>zip()</code> comme ceci:</p>
+<pre><code class="language-python">
+		L1 = [10, 20, 30]
+		L2 = ['Salut', 'à', 'vous']
+		L3 = [5, 6, 7]
+		for val1, val2, val3 in zip(L1, L2, L3):
+			print(val1, val2, val3)
+	</code></pre>
+<p>Affichage:</p>
+<pre><code>10 Salut 5
+20 à 6
+30 vous 7
+</code></pre>
+<p><code>zip()</code> prend un ou plusieurs <code>iterables</code> en paramètre, et retourne un objet de type <code>zip</code>, qui est un type d<code>iterator</code>.
+		Chaque élément de cet <code>iterator</code> est un tuple. A chaque itération, ce tuple contiendra autant d'élements que d'itérables passés en paramètre.
+		Le 1er élément du tuple sera l'élément à la position actuelle dans le premier <code>iterable</code>, le 2nd élément du tuple sera l'élément à la
+		position actuelle dans le second <code>iterable</code>, et ainsi de suite.</p>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; z = zip([10, 20, 30], ['Salut', 'à', 'vous'], [5, 6, 7])
+		&gt;&gt;&gt; z
+		&lt;zip object at 0x000001D11D28ABC0&gt;
+		&gt;&gt;&gt; next(z)
+		(10, 'Salut', 5)
+		&gt;&gt;&gt; next(z)
+		(20, 'à', 6)
+		&gt;&gt;&gt; next(z)
+		(30, 'vous', 7)
+		&gt;&gt;&gt; next(z)
+		StopIteration
+	</code></pre>
+<p>Par défaut <code>zip()</code> s'arrête quand l'<code>iterable</code> le plus court a été parcouru, les éléments restants dans les autres seront ignorés.
+	</p>
+
+	
+	<h2 data-nb="12.5" id="reversed()">reversed()</h2>
+<p>Prend un <code>iterable</code> en paramètre, et retourne un <code>iterator</code> qui renverra les mêmes valeurs mais en ordre inverse.</p>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; r = reversed([10, 20, 30])
+		&gt;&gt;&gt; r
+		&lt;list_reverseiterator object at 0x000001D11D23DF60&gt;
+		&gt;&gt;&gt; next(r)
+		30
+		&gt;&gt;&gt; next(r)
+		20
+		&gt;&gt;&gt; next(r)
+		10
+		&gt;&gt;&gt; next(r)
+		StopIteration
+	</code></pre>
+
+	
+	<h2 data-nb="12.6" id="else sur les boucles">else sur les boucles</h2>
+<p>Une clause <code>else</code> facultative peut être ajoutée sur les boucles. Elle SERA exécutée lorsque la boucle sera terminée "naturellement", c'est à
+		dire quand <code>for</code> aura parcouru son <code>iterable</code> en entier, ou quand la condition du <code>while</code> deviendra <code>False</code>.
+		Le <code>else</code> ne SERA PAS exécuté si la boucle est terminée par un <code>break</code>.</p>
+<pre><code class="language-python">
+		for i in range(3):
+			if i == 5:
+				break
+		else:
+			print('5 non trouvé')
+	</code></pre>
+<p>Affichage:</p>
+<p><code>5 non trouvé</code></p>
+<p>Ce mécanisme est rarement utilisé, mais peut être utile dans certaines situations, par exemple lorsqu’on recherche une valeur précise dans un <code>iterable</code>.
+		Si on la trouve on fait un <code>break</code>, on considère que la boucle a fait son travail, et le programme se poursuit après la boucle (et son <code>else</code>
+		associé qui sera ignoré). Sinon (la boucle n'a pas trouvé l'élément voulu) on prend les mesures nécessaires dans le <code>else</code>.</p>
+
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
