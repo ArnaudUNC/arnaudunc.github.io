@@ -190,10 +190,10 @@
 	
 	<div class="exercice">
 <h2 data-nb="14.1" id="Question 1">Question 1</h2>
-<p>Partant de la solution à la question 10 du TD 1, on veut maintenant en plus forcer l'utilisateur à entrer des nombres, et pas juste stopper le
-			programme avec un message dans le cas contraire. Pour cela, demander à l'utilisateur le 1er nombre indéfiniment tant qu'il / elle n'a pas entré un
-			nombre correct, en précisant bien à chaque fois ce qui est attendu, et afficher à chaque fois l'erreur (texte entré n'est pas un nombre). Faire de
-			même pour le second nombre.</p>
+<p>Partant de la solution de la dernière question du TD précédent, on veut maintenant en plus forcer l'utilisateur à entrer des nombres, et pas juste
+			stopper le programme avec un message dans le cas contraire. Pour cela, demander à l'utilisateur le 1er nombre indéfiniment tant qu'il / elle n'a pas
+			entré un nombre correct, en précisant bien à chaque fois ce qui est attendu, et afficher à chaque fois l'erreur (texte entré n'est pas un nombre).
+			Faire de même pour le second nombre.</p>
 <p>On veut aussi que l'utilisateur puisse entrer des nombres à virgule, comme par exemple 2.5, 8.04, etc...</p>
 		
 			<div class="correction">
@@ -486,6 +486,318 @@ Operation? (+,-,*,/): +
 &gt;</code></pre>
 </li>
 </ul>
+</div>
+		
+	</div>
+	
+	<div class="exercice">
+<h2 data-nb="14.3" id="Question 3">Question 3</h2>
+<p>Partant de la solution de l'exercice précédent, forcer l'utilisateur à ne pouvoir entrer que l'une des 4 opérations autorisées: addition,
+			soustraction, division, multiplication.</p>
+<p>S'il / elle entre n'importe quoi d'autre, le programme affiche un message d'erreur adapté, et redemande encore et encore l'opération, jusqu'à ce que
+			celle-ci soit l'une de celles permises.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def avoir_nombre_utilisateur(message):
+						nb_est_correct = False
+						while not nb_est_correct:
+							txt_utilisateur = input(message)
+							try:
+								nombre = float(txt_utilisateur)
+								nb_est_correct = True
+							except:
+								print(txt_utilisateur, "n'est pas un nombre")
+						return nombre
+
+
+					# Obtenir nombres
+					nb1 = avoir_nombre_utilisateur("Nombre 1: ")
+					nb2 = avoir_nombre_utilisateur("Nombre 2: ")
+
+					# Obtenir op
+					opération_est_correcte = False
+					while not opération_est_correcte:
+						op = input("Opération (+,-,*,/): ")
+						# ↓ L'opérateur booléen "in" renvoit True ou False.
+						# True si ce qui est à sa gauche EST DANS la séquence à sa droite,
+						# donc ici si op est égal à n'importe lequel des éléments de la liste.
+						opération_est_correcte = op in ["+", "-", "/", "*", ]
+						if not opération_est_correcte:
+							print(op, "n'est pas une opération supportée")
+
+					# Calculer et afficher résultat
+					if op == "+":
+						print(nb1, "+", nb2, "=", nb1 + nb2)
+					elif op == "-":
+						print(nb1, "-", nb2, "=", nb1 - nb2)
+					elif op == "/":
+						print(nb1, "/", nb2, "=", nb1 / nb2)
+					else:
+						print(nb1, "*", nb2, "=", nb1 * nb2)
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>Ne pas confondre le <code>try-except</code> avec le <code>if-else</code>.</p>
+<p><code>if-else</code> sert à faire telle ou telle action selon une condition, par exemple si l'utilisateur n'a pas entré une opération
+							supportée (+,-,/,*). </p>
+<p><code>try-except</code> sert à garder le contrôle sur l'exécution du programme en cas d'erreur (erreur au sens exécution impossible
+							par Python, pas une erreur du point de vue de l'utilisateur), par exemple si on tente de transformer en <code>int</code> ou <code>float</code>
+							le texte de l'utilisateur.</p>
+</li>
+<li><p>Comment savoir s'il faut utiliser <code>try-except</code> ou <code>if-else</code>?</p>
+<p>Si un morceau de code que vous voulez exécuter peut provoquer des erreurs qui sont affichées en rouge dans la console, et qui
+							stoppent le programme, il faut un <code>try-except</code> pour intercepter l'erreur si elle survient, et vous permettre de continuer
+							l'exécution du programme.</p>
+<p>Si le code ne provoque pas d'erreur potentiellement, mais que vous voulez faire des actions différentes selon une condition, alors
+							utiliser un <code>if-else</code>. </p></li>
+<li><p>Une version alternative de <code>op in ["+", "-", "/", "*", ]</code> pourrait être:</p>
+<pre><code class="language-python">
+						opération_est_correcte = op == "+" or op == "-" or op == "/" or op == "*"
+					</code></pre>
+</li>
+</ul>
+</div>
+		
+	</div>
+
+
+	
+	<div class="exercice">
+<h2 data-nb="14.4" id="Question 4">Question 4</h2>
+<p>Partant de la solution de l'exercice précédent, répéter l'ensemble du programme indéfiniment, pour permettre à l'utilisateur de faire autant de
+			calculs qu'il / elle souhaite.</p>
+<p>A chaque fois qu'un calcul a été réalisé, demander à l'utilisateur s'il / elle souhaite continuer ou arrêter. Si l'utilisateur décide d'arrêter, le
+			programme se termine. Sinon il recommence en demandant à nouveaux deux nombre, l'opération et affiche le résultat.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				def avoir_nombre_utilisateur(message):
+					nb_est_correct = False
+					while not nb_est_correct:
+						txt_utilisateur = input(message)
+						try:
+							nombre = float(txt_utilisateur)
+							nb_est_correct = True
+						except:
+							print(txt_utilisateur, "n'est pas un nombre")
+					return nombre
+
+				# Boucle pour répéter les calculs
+				utilisateur_veut_continuer = True
+				while utilisateur_veut_continuer:
+					nb1 = avoir_nombre_utilisateur("Nombre 1: ")
+					nb2 = avoir_nombre_utilisateur("Nombre 2: ")
+
+					opération_est_correcte = False
+					while not opération_est_correcte:
+						op = input("Opération (+,-,*,/): ")
+						opération_est_correcte = op in ["+", "-", "/", "*", ]
+						if not opération_est_correcte:
+							print(op, "n'est pas une opération supportée")
+
+					if op == "+":
+						print(nb1, "+", nb2, "=", nb1 + nb2)
+					elif op == "-":
+						print(nb1, "-", nb2, "=", nb1 - nb2)
+					elif op == "/":
+						print(nb1, "/", nb2, "=", nb1 / nb2)
+					else:
+						print(nb1, "*", nb2, "=", nb1 * nb2)
+
+					# Demander utilisateur si veut continuer
+					réponse_utilisateur = input("Faire nouveau calcul? (o pour oui): ")
+					utilisateur_veut_continuer = réponse_utilisateur == "o"
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>Sur la dernière ligne, ne pas confondre <code>=</code> avec <code>==</code>.</p>
+<p><code>==</code> est un opérateur booléen, qui vaut <code>True</code> quand les deux éléments à gauche et à droite sont égaux. Sur
+							cette ligne de code en particulier, <code>==</code> est exécuté en premier, et vaut <code>True</code> si
+							<code>réponse_utilisateur</code> est égal à <code>"o"</code>, <code>False</code> sinon.</p>
+<p><code>=</code> est l'instruction d'affectation de valeur à une variable, et sera exécuté APRÈS le <code>==</code>, c'est à dire la
+							variable <code>utilisateur_veut_continuer</code> prendra la valeur du résultat du test <code>==</code> (c'est à dire
+							<code>True</code> ou <code>False</code>).</p>
+</li>
+</ul>
+</div>
+		
+	</div>
+	
+	<div class="exercice">
+<h2 data-nb="14.5" id="Question 5">Question 5</h2>
+<p>Partant de la solution de l'exercice précédent, on veut rendre le code plus lisible et simple à comprendre. On n'ajoute aucune nouvelle
+			fonctionnalité du point de vue de l'utilisateur, on adapte le code pour l'améliorer.</p>
+<p>Mettre dans une fonction tout le code qui sert à un seul calcul, et donc PAS le code qui sert à répéter les calculs si l'utilisateur souhaite en
+			faire d'autres. Utiliser / exécuter ensuite cette fonction avec le code qui répète les caluls.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def avoir_nombre_utilisateur(message):
+						nb_est_correct = False
+						while not nb_est_correct:
+							txt_utilisateur = input(message)
+							try:
+								nombre = float(txt_utilisateur)
+								nb_est_correct = True
+							except:
+								print(txt_utilisateur, "n'est pas un nombre")
+						return nombre
+
+
+					# Définition de notre seconde fonction
+					def faire_calcul_utilisateur():
+						nb1 = avoir_nombre_utilisateur("Nombre 1: ")
+
+						opération_est_correcte = False
+						while not opération_est_correcte:
+							op = input("Opération (+,-,*,/): ")
+							opération_est_correcte = op in ["+", "-", "/", "*", ]
+							if not opération_est_correcte:
+								print(op, "n'est pas une opération supportée")
+
+						nb2 = avoir_nombre_utilisateur("Nombre 2: ")
+
+						if op == "+":
+							print(nb1, "+", nb2, "=", nb1 + nb2)
+						elif op == "-":
+							print(nb1, "-", nb2, "=", nb1 - nb2)
+						elif op == "/":
+							print(nb1, "/", nb2, "=", nb1 / nb2)
+						else:
+							print(nb1, "*", nb2, "=", nb1 * nb2)
+
+
+					utilisateur_veut_continuer = True
+					while utilisateur_veut_continuer:
+
+						# Appel de la fonction
+						faire_calcul_utilisateur()
+
+						réponse_utilisateur = input("Faire nouveau calcul? (o pour oui): ")
+						utilisateur_veut_continuer = réponse_utilisateur == "o"
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>On exécute notre fonction <code>avoir_nombre_utilisateur</code> dans notre seconde fonction <code>faire_calcul_utilisateur</code>. Il
+						est fréquent en programmation d'utiliser nos fonctions dans d'autres de nos fonctions.
+					</li>
+<li><p>La fonction <code>avoir_nombre_utilisateur</code> retourne un résultat avec l'instruction <code>return</code>. En revanche la
+						fonction <code>faire_calcul_utilisateur</code> ne retourne aucun résultat, car c'est ce qu'on souhaite: qu'elle fasse tout le travail de
+						demander les nombres et l'opérateur à l'utilisateur et lui affiche le résultat. On a décidé que la fonction ne sert pas à renvoyer un
+						quelconque résultat, seul nous importe qu'elle fasse ce qu'elle doit faire.</p>
+<p>Dans notre boucle <code>while</code> tout en bas, on veut juste appeler la fonction, et qu'elle fasse <em>elle-même</em> tout le
+							calcul et l'affichage. Dans ce cas, un <code>return</code> dans la fonction est inutile.</p>
+<p>Rappelez-vous cependant que même si on n'écrit aucun <code>return</code>, une fonction retourne quand même <code>None</code> par
+							défaut. </p></li>
+</ul>
+</div>
+		
+	</div>
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	<div class="exercice">
+<h2 data-nb="14.7" id="Question 6">Question 6</h2>
+<p>On ne va pas ajouter de nouvelle fonctionnalité à notre programme, mais on va utiliser une autre approche que les exceptions (qui sont l'approche
+			idéale dans le contexte de cet exercice) pour savoir si un nombre entré par l'utilisateur est correct ou pas.</p>
+<p>Copiez-collez la fonction qui vous sert à obtenir un nombre de l'utilisateur, afin d'avoir une copie et de garder l'originale intacte. Dans cette
+			copie, que vous renommerez avec un nom adapté, n'utilisez plus les exceptions. Testez "à la main" (par votre propre code) si le texte entré est un
+			nombre correct (à virgule ou entier, et avec signe négatif présent ou pas). Vous aurez besoin de connaître <code>break</code> et
+			<code>continue</code> pour vous faciliter la tâche, à lire dans le cours, partie sur les boucles avancées.</p>
+<p>Attention cette modification ne doit pas changer le comportement de la fonction, c'est-à-dire si le texte entré n'est pas un nombre, il faut le
+			redemander encore à l'utilisateur jusqu'à ce qu'un nombre correct soit entré.</p>
+<p>Utilisez votre nouvelle fonction dans votre programme pour la tester.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def avoir_nombre_utilisateur_exceptions(message):
+						nb_est_correct = False
+						while not nb_est_correct:
+							txt_utilisateur = input(message)
+							try:
+								nombre = float(txt_utilisateur)
+								nb_est_correct = True
+							except:
+								print(txt_utilisateur, "n'est pas un nombre")
+						return nombre
+
+					def avoir_nombre_utilisateur_verif_manuelle(message):
+						txt_utilisateur_est_un_nombre = False
+						while not txt_utilisateur_est_un_nombre:
+							txt_utilisateur = input(message)
+							indice_départ = 0
+							signe = txt_utilisateur[indice_départ]
+							virgule_rencontrée = False
+							if signe == "-":
+								indice_départ += 1
+							txt_utilisateur_est_un_nombre = True
+							for i in range(indice_départ, len(txt_utilisateur)):
+								c = txt_utilisateur[i]
+								if c == ".":
+									if not virgule_rencontrée:
+										virgule_rencontrée = True
+									else:
+										print(txt_utilisateur, "n'est pas un nombre")
+										txt_utilisateur_est_un_nombre = False
+										break
+								elif c not in "0123456789":
+									print(txt_utilisateur, "n'est pas un nombre")
+									txt_utilisateur_est_un_nombre = False
+									break
+
+						return float(txt_utilisateur)
+
+
+					# Définition de notre seconde fonction
+					def faire_calcul_utilisateur():
+						nb1 = avoir_nombre_utilisateur_verif_manuelle("Nombre 1: ")
+
+						opération_est_correcte = False
+						while not opération_est_correcte:
+							op = input("Opération (+,-,*,/): ")
+							opération_est_correcte = op in ["+", "-", "/", "*", ]
+							if not opération_est_correcte:
+								print(op, "n'est pas une opération supportée")
+
+						nb2 = avoir_nombre_utilisateur_verif_manuelle("Nombre 2: ")
+
+						if op == "+":
+							print(nb1, "+", nb2, "=", nb1 + nb2)
+						elif op == "-":
+							print(nb1, "-", nb2, "=", nb1 - nb2)
+						elif op == "/":
+							print(nb1, "/", nb2, "=", nb1 / nb2)
+						else:
+							print(nb1, "*", nb2, "=", nb1 * nb2)
+
+
+					utilisateur_veut_continuer = True
+					while utilisateur_veut_continuer:
+						# Appel de la fonction
+						faire_calcul_utilisateur()
+
+						réponse_utilisateur = input("Faire nouveau calcul? (o pour oui): ")
+						utilisateur_veut_continuer = réponse_utilisateur == "o"
+				</code></pre>
 </div>
 		
 	</div>
