@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>L'instruction pass | Algo et prog 2 en Python</title>
+	<title>Compréhension de listes et dictionnaires | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -94,77 +94,77 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_pass.html">
 				L'instruction pass
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_prog_objets.html">
 				Programmation objets
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_namespaces_modules.html">
 				Namespaces et modules
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_exceptions.html">
 				Les exceptions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_sequences.html">
 				Les séquences
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterables.html">
 				Iterables, iterators
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterable_unpacking.html">
 				Iterable unpacking
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_boucles_avancees.html">
 				Techniques avancées sur les boucles
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_fonc_params.html">
 				Fonctions et paramètres
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_dict_set.html">
 				Hash et dictionnaires
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cm_compr_listes.html">
 				Compréhension de listes et dictionnaires
@@ -220,39 +220,53 @@
 
 		
 	
-	<h1 data-nb="5" id="L'instruction pass">L'instruction pass</h1>
-<p>L'instruction <code>pass</code> ne fait rien. Elle est utile pour satisfaire certaines règles syntaxiques de Python, spécifiquement quand un bloc de code
-		est nécessaire mais qu'il doit être vide, à ce moment <code>pass</code> est utile car un bloc de code doit avoir au moins une ligne. Par exemple si on a
-		un <code>if-else</code> qui doit être vide, on ne peut pas écrire: </p>
+	<h1 data-nb="15" id="Compréhension de listes et dictionnaires">Compréhension de listes et dictionnaires</h1>
+<h2 data-nb="15.1" id="Listes">Listes</h2>
+<p>Une compréhension de liste est une facilité d'écriture qui permet de créer des listes de façon concise, donc en écrivant très peu de code. Typiquement on
+		s'en sert pour créer des listes dont chaque élément est le résultat d'une opération appliquée à chaque élément d'un autre <code>iterable</code>.</p>
+<p>Prenons un exemple. On veut créer une liste de nombres entre 0 et 9 élevés au carré. De façon classique, sans compréhension, on ferait:</p>
 <pre><code class="language-python">
-		if True:
-		else:
+		carrés = []
+		for x in range(10):
+			carrés.append(x**2)
+		print(carrés)
 	</code></pre>
-<p>On aura une <code>SyntaxError</code>. Il faudra écrire:</p>
+<p>Affichage:</p>
+<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
+<p>Avec une compréhension de liste, on peut écrire:</p>
 <pre><code class="language-python">
-		if True:
-			pass
-		else:
-			pass
+		carrés = [x**2 for x in range(10)]
+		print(carrés)
 	</code></pre>
-<p>Il en sera de même pour les boucles <code>for</code> vides:</p>
+<p>Affichage:</p>
+<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
+<p>Notez que cette écriture est plus courte. Un autre bénéfice est que la variable <code>x</code> est "locale" à la compréhension, elle n'existe plus après
+		son exécution, ce qui est une bonne chose, contrairement à la boucle <code>for</code> qui a créé <code>x</code> qui existe encore après la boucle.</p>
+<p>Une compréhension est une expression, elle s'évalue donc à une seule valeur, et est d'un certain type, qui dans le cas d'une compréhension de liste sera
+		le type <code>list</code>. On peut lire cette compréhension <code>[x**2 for x in range(10)]</code> de la manière suivante: "une nouvelle liste qui
+		contient x élevé à la puissance 2 pour chaque x dans l'intervalle 0 inclus à 10 exclu".</p>
+<p>On peut aussi ne considérer que certains éléments avec un <code>if</code> facultatif et une expression booléenne.</p>
 <pre><code class="language-python">
-		for i in range(10):
-			pass
+		L = [-4, -2, 0, 2, 4]
+		carrés = [x for x in L if x &gt;= 0]
+		print(carrés)
 	</code></pre>
-<p>Les boucles <code>while</code> vides:</p>
+<p>Affichage:</p>
+<p><code>[0, 2, 4]</code></p>
+<p>On lit cette compréhension <code>[x for x in L if x &gt;= 0]</code> de la manière suivante: "une nouvelle liste qui contient x pour chaque x dans L si x est
+		plus grand ou égal à zéro".</p>
+
+	
+	
+
+	<h2 data-nb="15.3" id="Dictionnaires">Dictionnaires</h2>
+<p>Ils supportent aussi l'écriture concise sous forme de compréhension. Par exemple:</p>
 <pre><code class="language-python">
-		while True:
-			pass
+		d = {x: x**2 for x in (2, 4, 6)}
+		print(d)
 	</code></pre>
-<p>Les fonctions vides:</p>
-<pre><code class="language-python">
-		def fonction_vide():
-			pass
-	</code></pre>
-<p>Et partout ailleurs où un bloc vide est nécessaire. On peut avoir besoin d'un bloc vide pour diverses raisons, par exemple lorsqu'on souhaite ajouter une
-		structure (if, fonction, boucle, etc...) mais pas encore sa logique, pour se rappeler de le faire plus tard à cet endroit précis.</p>
-<p><code>pass</code> n'a aucun impact sur les performances du programme, au-delà de son rôle syntaxique elle est ignorée par Python.</p>
+<p>Affichage:</p>
+<p><code>{2: 4, 4: 16, 6: 36}</code></p>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

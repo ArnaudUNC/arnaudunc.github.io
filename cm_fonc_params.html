@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>L'instruction pass | Algo et prog 2 en Python</title>
+	<title>Fonctions et paramètres | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -94,63 +94,63 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_pass.html">
 				L'instruction pass
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_prog_objets.html">
 				Programmation objets
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_namespaces_modules.html">
 				Namespaces et modules
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_exceptions.html">
 				Les exceptions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_sequences.html">
 				Les séquences
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterables.html">
 				Iterables, iterators
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterable_unpacking.html">
 				Iterable unpacking
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_boucles_avancees.html">
 				Techniques avancées sur les boucles
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cm_fonc_params.html">
 				Fonctions et paramètres
@@ -220,39 +220,224 @@
 
 		
 	
-	<h1 data-nb="5" id="L'instruction pass">L'instruction pass</h1>
-<p>L'instruction <code>pass</code> ne fait rien. Elle est utile pour satisfaire certaines règles syntaxiques de Python, spécifiquement quand un bloc de code
-		est nécessaire mais qu'il doit être vide, à ce moment <code>pass</code> est utile car un bloc de code doit avoir au moins une ligne. Par exemple si on a
-		un <code>if-else</code> qui doit être vide, on ne peut pas écrire: </p>
+	<h1 data-nb="13" id="Fonctions et paramètres">Fonctions et paramètres</h1>
+
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	<h2 data-nb="13.1" id="Valeur par défaut des paramètres">Valeur par défaut des paramètres</h2>
+<p>On les déclare ainsi:</p>
 <pre><code class="language-python">
-		if True:
-		else:
+		def f(p1, p2=10):
+			pass
+
+		# p2 vaut 15
+		f(5, 15)
+
+		# p2 n'est pas spécifié, alors il vaut 10, sa valeur par défaut
+		f(5)
 	</code></pre>
-<p>On aura une <code>SyntaxError</code>. Il faudra écrire:</p>
+<p>Quand un paramètre a une valeur par défaut, il devient facultatif de le préciser lors d'un appel de la fonction, et lorsqu'on les précise leur ordre est
+		sans importance. Les paramètres sans valeur par défaut restent obligatoires lors de l'appel.</p>
+<p>Les paramètres qui ont une valeur par défaut doivent être placés <strong>APRES</strong> ceux qui n'ont pas de valeur par défaut, aussi bien lors de la
+		déclaration de la fonction, que lors de l'appel de la fonction.</p>
+
+	
+	<h2 data-nb="13.2" id="Passage de paramètres par leur nom">Passage de paramètres par leur nom</h2>
+<p>Au moment de l’appel d’une fonction, on peut donner la valeur d’un paramètre en spécifiant son nom également, au lieu de uniquement sa valeur, on les
+		appelle alors des <strong><em>paramètres nommés</em></strong>, <em>named parameters</em> ou <strong><em>keyword arguments</em> </strong>en anglais. On
+		appelle <strong><em>paramètres positionnels</em></strong> ou <em>positional arguments</em> les paramètres passés de façon classique.</p>
 <pre><code class="language-python">
-		if True:
+		def f(p1, p2, p3):
 			pass
-		else:
-			pass
+
+		# ↓ L'ordre des paramètres nommés n'est pas important
+		f(p2=50, p3=8, p1=2)
+
+		# ↓ ERREUR: il est interdit de spécifier plusieurs fois le même paramètre
+		# Ici p1 est donné 2 fois
+		f(p2=50, p3=8, p1=2, p1=10)
 	</code></pre>
-<p>Il en sera de même pour les boucles <code>for</code> vides:</p>
+<p>On peut donner à la fois des paramètres positionnels et des paramètres nommés. Dans ce cas, les paramètres positionnels doivent être listés en premier,
+		et les paramètres nommés ensuite. L'ordre des paramètres positionnels reste important:</p>
 <pre><code class="language-python">
-		for i in range(10):
+		def f(p1, p2, p3, p4):
 			pass
+
+		# ↓ OK
+		# p1 vaut 50, p2 vaut 8
+		f(50, 8, p4=2, p3=10)
+
+		# ↓ ERREUR: les paramètres nommés doivent être passés APRES les non nommés.
+		# Ici p4=2 est avant 8, ça devrait être l'inverse.
+		f(50, p4=2, 8, p3=10)
+
+		# ↓ ERREUR: p1 est donné deux fois!
+		# p1 vaut 50, puis on dit aussi qu'il vaut 10...
+		f(50, 8, p4=2, p3=10, p1=10)
 	</code></pre>
-<p>Les boucles <code>while</code> vides:</p>
+
+	
+	<h2 data-nb="13.3" id="Nombre variable de paramètres positionnés">Nombre variable de paramètres positionnés</h2>
+<p>Cette option est rarement utilisée. On peut spécifier dans la définition d’une fonction un paramètre spécial précédé de *, comme ceci:</p>
 <pre><code class="language-python">
-		while True:
-			pass
+		def f(arg1, arg2=8, *args):
+			print('arg1=', arg1)
+			print('arg2=', arg2)
+			for p in args:
+				print('args', p)
+
+		f(10, 12, 20, 40)
 	</code></pre>
-<p>Les fonctions vides:</p>
+<p>Affichage:</p>
+<pre><code class="language-python-console">
+		arg1= 10
+		arg2= 12
+		args 20
+		args 40
+	</code></pre>
+<p>Ce paramètre spécial, nommé paramètre variadique, qui référencera une liste au moment de l'exécution de la fonction, est placé en dernier dans la liste
+		des paramètres, dans la définition de la fonction, ou juste avant le paramètre ** quand il est présent. Il va englober lors de l’appel tous les
+		paramètres positionnels, à partir de sa position dans la définition de la fonction. Tous les paramètres suivants lors de l’appel ne peuvent être que des
+		paramètres nommés.</p>
+<p>On le nomme par défaut <em>args</em>, pour <em>arguments</em>, mais il peut avoir n'importe quel nom, c'est la présence de l'étoile qui compte.</p>
+
+	
+	<h2 data-nb="13.4" id="Nombre variable de paramètres nommés">Nombre variable de paramètres nommés</h2>
+<p>Cette option est également rarement utilisée. On peut spécifier dans la définition d’une fonction un paramètre spécial précédé de **, comme ceci:</p>
 <pre><code class="language-python">
-		def fonction_vide():
-			pass
+		def f(arg1, arg2=8, **kwargs):
+			print('arg1=', arg1)
+			print('arg2=', arg2)
+			for clé, valeur in kwargs.items():
+				print('kwargs', clé, valeur)
+
+		f(10, arg2=20, truc='bidule', a='b')
 	</code></pre>
-<p>Et partout ailleurs où un bloc vide est nécessaire. On peut avoir besoin d'un bloc vide pour diverses raisons, par exemple lorsqu'on souhaite ajouter une
-		structure (if, fonction, boucle, etc...) mais pas encore sa logique, pour se rappeler de le faire plus tard à cet endroit précis.</p>
-<p><code>pass</code> n'a aucun impact sur les performances du programme, au-delà de son rôle syntaxique elle est ignorée par Python.</p>
+<p>Affichage:</p>
+<pre><code class="language-python-console">
+		arg1= 10
+		arg2= 20
+		kwargs truc bidule
+		kwargs a b
+	</code></pre>
+<p>Ce paramètre référencera un dictionnaire au moment de l'appel, qui contiendra pour clés tous les paramètres nommés avec leur valeur associée, autres que
+		ceux déclarés formellement dans la définition de la fonction. Il doit forcément être le dernier paramètre d’une fonction, quand il est présent.</p>
+<p>Le nom <em><strong>kwargs</strong></em> est souvent employé, car il signifie en anglais “keyword arguments”, ce qui signifie arguments (ou paramètre,
+		c’est pareil) par mot-clé, ou argument nommé. Mais il peut être nommé comme on veut, c'est la présence de la double étoile qui compte.</p>
+
+	
+	<h2 data-nb="13.5" id="La portée des variables">La portée des variables</h2>
+<h3 data-nb="13.5.1" id="Variables globales">Variables globales</h3>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<p>Les variables globales sont accessibles en lecture dans les fonctions, mais pas en écriture:</p>
+<pre><code class="language-python">
+		var_globale = 10
+
+		def une_fonction():
+			# Lit var_globale
+			print(var_globale) # Affiche 10
+	</code></pre>
+<pre><code class="language-python">
+		var_globale = 10
+
+		def une_fonction():
+			var_globale = 8
+			# Ne modifie pas var_globale
+			# mais créé une nouvelle variable LOCALE qui s'appelle aussi var_globale
+
+	</code></pre>
+<p>Pour modifier une variable globale depuis une fonction, il faut utiliser le mot-clé <code>global</code> comme ceci:</p>
+<pre><code class="language-python">
+		var_globale = 10
+
+		def une_fonction():
+			global var_globale
+			var_globale = 8
+			# La variable globale est bien modifiée
+	</code></pre>
+
+	
+	<h3 data-nb="13.5.3" id="Dans les fonctions: les variables locales">Dans les fonctions: les variables locales</h3>
+<p>Les variables déclarées / créées dans les fonctions sont appelées variables locales. Les paramètres des fonctions sont aussi des variables locales,
+		créées automatiquement et initialisées avec les valeurs effectives lors de l'appel de la fonction. Les variables locales n'existent que pendant
+		l'execution de la fonction dans laquelle elles sont déclarées. </p>
+<p>Ici on parle bien des indetifiants, et pas des objets qu'elles référencent, qu'il ne faut pas confondre. Par exemple si vous créez une liste dans une
+		fonction, la stockez dans une variable locale L, puis retournez L, la variable L n'existe plus lorsque la fonction a fini son execution, mais la liste
+		si, et peut être utilisée ensuite en dehors de la fonction au travers d'autres variables.</p>
+<p>La fonction <code>locals()</code> retourne la liste de toutes les variables locales et leur valeur associée, dans le contexte dans lequel
+		<code>locals()</code> est appelée, dans une fonction, ou en dehors. Si appelée en dehors d'une fonction, elle se comporte comme <code>globals()</code>.
+	</p>
+
+
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

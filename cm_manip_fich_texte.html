@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>L'instruction pass | Algo et prog 2 en Python</title>
+	<title>Manipulation de fichiers texte | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -94,84 +94,84 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_pass.html">
 				L'instruction pass
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_prog_objets.html">
 				Programmation objets
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_namespaces_modules.html">
 				Namespaces et modules
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_exceptions.html">
 				Les exceptions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_sequences.html">
 				Les séquences
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterables.html">
 				Iterables, iterators
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_iterable_unpacking.html">
 				Iterable unpacking
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_boucles_avancees.html">
 				Techniques avancées sur les boucles
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_fonc_params.html">
 				Fonctions et paramètres
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_dict_set.html">
 				Hash et dictionnaires
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_compr_listes.html">
 				Compréhension de listes et dictionnaires
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cm_manip_fich_texte.html">
 				Manipulation de fichiers texte
@@ -219,40 +219,81 @@
 
 
 		
-	
-	<h1 data-nb="5" id="L'instruction pass">L'instruction pass</h1>
-<p>L'instruction <code>pass</code> ne fait rien. Elle est utile pour satisfaire certaines règles syntaxiques de Python, spécifiquement quand un bloc de code
-		est nécessaire mais qu'il doit être vide, à ce moment <code>pass</code> est utile car un bloc de code doit avoir au moins une ligne. Par exemple si on a
-		un <code>if-else</code> qui doit être vide, on ne peut pas écrire: </p>
+	<h1 data-nb="16" id="Manipulation de fichiers texte">Manipulation de fichiers texte</h1>
+<p>La fonction built-in <code>open()</code> renvoie un objet de type fichier et est le plus souvent utilisée avec deux arguments positionnels et un argument
+		nommé:</p>
 <pre><code class="language-python">
-		if True:
-		else:
+		open(filename, mode='r', encoding=None)
 	</code></pre>
-<p>On aura une <code>SyntaxError</code>. Il faudra écrire:</p>
+<p>Exemple:</p>
 <pre><code class="language-python">
-		if True:
-			pass
-		else:
-			pass
+		f = open('workfile', 'w', encoding="utf-8")
 	</code></pre>
-<p>Il en sera de même pour les boucles <code>for</code> vides:</p>
+<p>Le premier argument est une chaîne contenant le chemin et le nom du fichier. Le deuxième argument est une autre chaîne contenant quelques caractères
+		décrivant la façon dont le fichier est utilisé. <code>mode</code> peut être <code>'r'</code> quand le fichier n'est accédé qu'en lecture,
+		<code>'w'</code> en écriture seulement (un fichier existant portant le même nom sera alors écrasé) et <code>'a'</code> ouvre le fichier en mode ajout
+		(toute donnée écrite dans le fichier est automatiquement ajoutée à la fin). <code>'r+'</code> ouvre le fichier en mode lecture/écriture. L'argument
+		<code>mode</code> est optionnel, sa valeur par défaut est <code>'r'</code>.</p>
+<p>Normalement, les fichiers sont ouverts en <strong>mode texte</strong>, c'est-à-dire que vous lisez et écrivez des chaînes de caractères depuis et dans ce
+		fichier, suivant un encodage donné via le paramètre <code>encoding</code>. Si <code>encoding</code> n'est pas spécifié, l'encodage par défaut dépend de
+		la plateforme. UTF-8 étant le standard moderne par défaut, spécifier <code>encoding="utf-8"</code> est recommandé à moins que vous ne sachiez que vous
+		devez utiliser un autre encodage. L’ajout d’un <code>'b'</code> au mode ouvre le fichier en <strong>mode binaire</strong>. Les données en mode binaire
+		sont lues et écrites sous forme d’objets de type <code>bytes</code>. Vous ne pouvez pas spécifier encoding lorsque vous ouvrez un fichier en mode
+		binaire.</p>
+<p>En mode texte, le comportement par défaut, à la lecture, est de convertir les fin de lignes spécifiques à la plateforme (\n sur Unix, \r\n sur Windows,
+		etc.) en simples \n. Lors de l'écriture, le comportement par défaut est d'appliquer l'opération inverse : les \n sont convertis dans leur équivalent sur
+		la plateforme courante. Ces modifications effectuées automatiquement sont normales pour du texte, mais détérioreraient des données binaires contenues
+		dans un fichier de type JPEG ou EXE. Soyez particulièrement attentifs à ouvrir ces fichiers binaires en mode binaire.</p>
+<p>Vous devez appeler la méthode <strong><code>close()</code></strong> de l'objet fichier pour le fermer, et ainsi immédiatement libérer les ressources
+		qu'il utilise. Après la fermeture du fichier toute tentative d'utilisation de l'objet fichier (lecture ou écriture) échoue systématiquement.</p>
+<h2 data-nb="16.1" id="Méthodes des objets fichiers">Méthodes des objets fichiers</h2>
+<p>Dans les exemples de code suivant on suppose qu'un objet fichier référencé par l'identifiant <code>f</code> a déjà été créé.</p>
+<p>Pour lire le contenu d'un fichier, appelez <strong><code>f.read(taille)</code></strong>, cette dernière lit une certaine quantité de données et la
+		renvoie sous forme de chaîne (en mode texte) ou d'objet bytes (en mode binaire). <code>taille</code> est un argument numérique facultatif. Lorsque
+		<code>taille</code> est omis ou négatif, la totalité du contenu du fichier sera lue et renvoyée, attention donc à ne pas lire des fichiers plus grands
+		que la quantité de mémoire disponible, sinon une exception sera lancée. Si <code>taille</code> référence un entier positif, au maximum
+		<code>taille</code> caractères (en mode texte) ou <code>taille</code> octets (en mode binaire) sont lus et renvoyés. Si la fin du fichier est atteinte,
+		<code>f.read()</code> renvoie une chaîne vide.</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; f.read()
+		'Ceci est le contenu complet du fichier texte.\n'
+
+		&gt;&gt;&gt; f.read()
+		''
+	</code></pre>
+<p><strong><code>f.readline()</code></strong> lit une seule ligne du fichier. Un caractère de fin de ligne (\n) est laissé à la fin de la chaîne. Si <code>f.readline()</code>
+		renvoie une chaîne vide, c'est que la fin du fichier a été atteinte, alors qu'une ligne vide est représentée par <code>'\n'</code> (une chaîne de
+		caractères ne contenant qu'une fin de ligne).</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; f.readline()
+		'Première ligne du fichier texte.\n'
+
+		&gt;&gt;&gt; f.readline()
+		'Seconde et dernière ligne'
+
+		&gt;&gt;&gt; f.readline()
+		''
+	</code></pre>
+<p>Pour lire ligne par ligne, vous pouvez aussi boucler sur l'objet fichier. C'est plus efficace en termes de gestion mémoire, plus rapide et donne un code
+		plus simple :</p>
 <pre><code class="language-python">
-		for i in range(10):
-			pass
+		for ligne_de_texte in f:
+			print(ligne_de_texte, end='')
 	</code></pre>
-<p>Les boucles <code>while</code> vides:</p>
-<pre><code class="language-python">
-		while True:
-			pass
+<p>Affichage:</p>
+<pre><code class="language-python-console">
+		Première ligne du fichier texte.
+		Seconde et dernière ligne
 	</code></pre>
-<p>Les fonctions vides:</p>
-<pre><code class="language-python">
-		def fonction_vide():
-			pass
+<p>Pour construire une liste avec toutes les lignes d'un fichier, il est aussi possible d'utiliser <strong><code>list(f)</code></strong> ou <strong><code>f.readlines()</code></strong>.
+	</p>
+<p><code><strong>f.write(chaine)</strong></code> écrit le contenu de chaine dans le fichier et renvoie le nombre de caractères écrits.</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; f.write('Du texte\n')
+		9
 	</code></pre>
-<p>Et partout ailleurs où un bloc vide est nécessaire. On peut avoir besoin d'un bloc vide pour diverses raisons, par exemple lorsqu'on souhaite ajouter une
-		structure (if, fonction, boucle, etc...) mais pas encore sa logique, pour se rappeler de le faire plus tard à cet endroit précis.</p>
-<p><code>pass</code> n'a aucun impact sur les performances du programme, au-delà de son rôle syntaxique elle est ignorée par Python.</p>
+<p>Les fichiers disposent de méthodes supplémentaires. Consultez la référence de la bibliothèque standard pour avoir un guide complet des objets
+		fichiers.</p>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
