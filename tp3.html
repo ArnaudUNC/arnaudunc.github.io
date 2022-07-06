@@ -222,7 +222,49 @@
 	<h1 data-nb="20" id="✏️ TP - Calculatrice niv.4">✏️ TP - Calculatrice niv.4</h1>
 	
 
-	<p>(à venir)</p>
+	
+	<div class="exercice">
+<h2 data-nb="20.1" id="Question 1">Question 1</h2>
+<p>Permettre de calculer des expressions qui comportent plusieurs opérateurs + - * et /. Respecter l'ordre des priorités des opérations. Un espace au
+			minimum doit être présent entre les opérateurs et les opérandes. Demander à l'utilisateur s'il veut continuer ou pas de faire des calculs à chaque
+			résultat affiché. Afficher un message d'erreur approprié quand une expression est mal formée.</p>
+<p>Exemples d'expressions reconnues par cette version de la calculatrice:</p>
+<ul>
+<li><p>5 (résultat 5)</p></li>
+<li><p>5 + 5 (résultat 10)</p></li>
+<li><p>5 +     5 (résultat 10)</p></li>
+<li><p>5 + 5 * 2 (résultat 15)</p></li>
+<li><p>5 + 5 * 2 - 1 (résultat 14)</p></li>
+</ul>
+<p>Exemples d'expressions NON reconnues:</p>
+<ul>
+<li><p>+</p></li>
+<li><p>+ 5</p></li>
+<li><p>5 5</p></li>
+<li><p>5+5</p></li>
+<li><p>5 +5</p></li>
+<li><p>5 + + 5</p></li>
+</ul>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="20.2" id="Question 2">Question 2</h2>
+<p>L'utilisateur doit pouvoir en plus utiliser les fonctions <code>cos</code>, <code>sin</code> et <code>tan</code> du module <code>math</code>, dans
+			ses expressions. Les paramètres des fonctions <code>cos</code> <code>sin</code> et <code>tan</code> doivent être des valeurs simples, pas des
+			sous-expressions.</p>
+<p>Exemples d'expressions reconnues par cette version de la calculatrice:</p>
+<ul>
+<li><p>cos(1) (résultat 0.5403023058681398)</p></li>
+<li><p>cos(3.1416) + 2 * 3 (résultat 5.000000000026985)</p></li>
+</ul>
+<p>Exemples d'expressions NON reconnues:</p>
+<ul>
+<li><p>cos(2 + 3)</p></li>
+</ul>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

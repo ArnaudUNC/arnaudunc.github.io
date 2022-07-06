@@ -188,21 +188,21 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2
+				✏️ TP - Calculatrice niv.2
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
-				✏️ TP 2 - Calculatrice niv.3
+				✏️ TP - Calculatrice niv.3
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp3.html">
-				✏️ TP 3 - Calculatrice niv.4
+				✏️ TP - Calculatrice niv.4
 			</a>
 		</div>
 
@@ -215,202 +215,330 @@
 
 	</div>
 	<div id="contenu">
-		
 
 
-		
+
+
 	<h1 data-nb="21" id="✏️ TD 2 - Prog. objets niv.1">✏️ TD 2 - Prog. objets niv.1</h1>
-<div class="exercice">
+
+
+
+	<div class="exercice">
 <h2 data-nb="21.1" id="Question 1">Question 1</h2>
 <p>Créer une classe <code>Personnage</code>, vide.</p>
 <p>Puis créer deux instances de cette classe, et les mettre chacune "dans" une variable (les assigner à une variable).</p>
 <p>Exécuter votre programme et vérifier qu'il ne provoque pas d'erreurs.</p>
-<div class="correction">
+
+			<div class="correction">
 <pre class="line-numbers"><code class="language-python">
-				# On nomme toujours une classe avec une majuscule en
-				# première lettre.
-				# Personnage est au singulier car la classe décrit UN SEUL
-				# personnage. La classe est le modèle pour chaque objet.
-				class Personnage:
-					# bloc vide, donc on utilise pass
-					pass
+					# On nomme toujours une classe avec une majuscule en
+					# première lettre.
+					# Personnage est au singulier car la classe décrit UN SEUL
+					# personnage. La classe est le modèle pour chaque objet.
+					class Personnage:
+						# bloc vide, donc on utilise pass
+						pass
 
-					# On ne déclare rien dans la classe:
-					# ni constructeur ni méthode.
-
-
-				# ↓ Appelle le constructeur par défaut de la classe,
-				# car aucun n'a été défini explicitement. Le constructeur
-				# par défaut ne fait rien de spécial.
-				# L'objet est créé en mémoire, puis on fait pointer
-				# la variable "perso1" vers lui.
-				perso1 = Personnage()
+						# On ne déclare rien dans la classe:
+						# ni constructeur ni méthode.
 
 
-				# ↓ On fait de même pour un nouvel objet de la classe
-				# Personnage, avec une nouvelle variable.
-				perso2 = Personnage()
-			</code></pre>
+					# ↓ Appelle le constructeur par défaut de la classe,
+					# car aucun n'a été défini explicitement. Le constructeur
+					# par défaut ne fait rien de spécial.
+					# L'objet est créé en mémoire, puis on fait pointer
+					# la variable "perso1" vers lui.
+					perso1 = Personnage()
+
+
+					# ↓ On fait de même pour un nouvel objet de la classe
+					# Personnage, avec une nouvelle variable.
+					perso2 = Personnage()
+				</code></pre>
 <p>Remarques:</p>
 <ul>
 <li><code>pass</code> est une <strong>instruction</strong> qui ne fait rien d'autre que de passer à la ligne suivante lors de son exécution.
-					Elle sert à avoir un bloc d'instruction "vide" (qui ne fait rien), car il est interdit dans la syntaxe de Python d'avoir zéro ligne pour un
-					bloc. Il en faut au moins une, <code>pass</code> est donc utile dans ce cas. Un bloc de code est un ensemble de lignes de code, par exemple
-					dans une fonction (et donc une méthode aussi), un <code>if</code>, un <code>else</code>, un <code>try</code>, un <code>except</code>, une
-					boucle <code>for</code>, une boucle <code>while</code>, ou une classe.
-				</li>
+						Elle sert à avoir un bloc d'instruction "vide" (qui ne fait rien), car il est interdit dans la syntaxe de Python d'avoir zéro ligne pour
+						un bloc. Il en faut au moins une, <code>pass</code> est donc utile dans ce cas. Un bloc de code est un ensemble de lignes de code, par
+						exemple dans une fonction (et donc une méthode aussi), un <code>if</code>, un <code>else</code>, un <code>try</code>, un
+						<code>except</code>, une boucle <code>for</code>, une boucle <code>while</code>, ou une classe.
+					</li>
 <li><code>pass</code> n'est PAS une expression, elle n'a aucune valeur. Ne pas confondre <code>pass</code> avec <code>None</code>.</li>
 </ul>
 </div>
-</div>
-<div class="exercice">
+
+	</div>
+
+
+	<div class="exercice">
 <h2 data-nb="21.2" id="Question 2">Question 2</h2>
 <p>Ajouter une méthode <code>saluer</code>, qui ne fait qu'afficher "Bonjour, je suis un personnage" dans la console.</p>
 <p>Appeler la méthode <code>saluer</code> des deux objets.</p>
 <p>Exécuter votre programme et vérifier qu'il ne provoque pas d'erreurs, et qu'il affiche bien les salutations des deux personnages.</p>
-<div class="correction">
+
+			<div class="correction">
 <pre class="line-numbers"><code class="language-python">
-				class Personnage:
+					class Personnage:
 
-					# ↓ Méthode "saluer".
-					# Ne pas oublier le paramètre obligatoire "self"
-					def saluer(self):
-						print("Bonjour, je suis un personnage")
+						# ↓ Méthode "saluer".
+						# Ne pas oublier le paramètre obligatoire "self"
+						def saluer(self):
+							print("Bonjour, je suis un personnage")
 
-				perso1 = Personnage()
-				perso2 = Personnage()
+					perso1 = Personnage()
+					perso2 = Personnage()
 
-				# ↓ Le paramètre "self" n'est pas mis à l'appel,
-				# il s'agit en fait de l'objet sur lequel est appelé la méthode,
-				# soit perso1, puis perso2 sur la seconde ligne.
-				perso1.saluer()
-				perso2.saluer()
-			</code></pre>
+					# ↓ Le paramètre "self" n'est pas mis à l'appel,
+					# il s'agit en fait de l'objet sur lequel est appelé la méthode,
+					# soit perso1, puis perso2 sur la seconde ligne.
+					perso1.saluer()
+					perso2.saluer()
+				</code></pre>
 <pre class="affichage_console"><code class="">
 Bonjour, je suis un personnage
-Bonjour, je suis un personnage
-&gt;</code></pre>
+Bonjour, je suis un personnage</code></pre>
 <p>Remarques:</p>
 <ul>
 <li>On a retiré l'instruction <code>pass</code> précédemment dans la classe, car elle nest plus utile, en effet la classe n'est plus vide
-					puisqu'elle contient désormais une méthode.
-				</li>
+						puisqu'elle contient désormais une méthode.
+					</li>
 <li><code>self</code> est obligatoire comme premier paramètre de chaque méthode. Au moment de l'appel cependant on ne le précise pas. Il
-					représente l'objet sur lequel la méthode est exécutée, au moment de l'appel.
-				</li>
+						représente l'objet sur lequel la méthode est exécutée, au moment de l'appel.
+					</li>
 </ul>
 </div>
-</div>
-<div class="exercice">
+
+	</div>
+
+
+	<div class="exercice">
 <h2 data-nb="21.3" id="Question 3">Question 3</h2>
 <p>Ajouter le constructeur, qui est vide et ne fait rien de spécial.</p>
 <p>Exécuter votre programme et vérifier qu'il ne provoque pas d'erreurs.</p>
-<div class="correction">
+
+			<div class="correction">
 <pre class="line-numbers"><code class="language-python">
-				class Personnage:
+					class Personnage:
 
-					# Ce nom spécial "__init__" (avec DOUBLE _ autour de "init")
-					# permet à Python de reconnaître que cette méthode est le constructeur.
-					# Encore une fois "self" est obligatoire en 1er paramètre.
-					def __init__(self):
-						pass
+						# Ce nom spécial "__init__" (avec DOUBLE _ autour de "init")
+						# permet à Python de reconnaître que cette méthode est le constructeur.
+						# Encore une fois "self" est obligatoire en 1er paramètre.
+						def __init__(self):
+							pass
 
-					def saluer(self):
-						print("Bonjour, je suis un personnage")
+						def saluer(self):
+							print("Bonjour, je suis un personnage")
 
 
-				perso1 = Personnage()
-				perso2 = Personnage()
+					perso1 = Personnage()
+					perso2 = Personnage()
 
-				perso1.saluer()
-				perso2.saluer()
-			</code></pre>
+					perso1.saluer()
+					perso2.saluer()
+				</code></pre>
 <pre class="affichage_console"><code class="">
 Bonjour, je suis un personnage
-Bonjour, je suis un personnage
-&gt;</code></pre>
+Bonjour, je suis un personnage</code></pre>
 <p>Remarques:</p>
 <ul>
 <li>On a désormais remplacé le constructeur par défaut des questions précédentes par le notre. Certes notre constructeur est vide et ne fait
-					rien de spécial non plus, mais on va pouvoir faire des choses grâce à lui lors de la création d'instances de la classe Personnage, dans les
-					questions suivantes.
-				</li>
+						rien de spécial non plus, mais on va pouvoir faire des choses grâce à lui lors de la création d'instances de la classe Personnage, dans
+						les questions suivantes.
+					</li>
 <li>Puisque le constructeur est vide pour le moment, on doit y mettre l'instruction <code>pass</code> dedans.</li>
 </ul>
 </div>
-</div>
-<div class="exercice">
+
+	</div>
+
+
+	<div class="exercice">
 <h2 data-nb="21.4" id="Question 4">Question 4</h2>
 <p>Ajouter l'attribut <code>nom</code> à chaque instance, et lui donner une valeur initiale de votre choix, qui sera la même pour toutes les instances,
 			par exemple "Toto".</p>
 <p>La méthode <code>saluer</code> doit désormais afficher "Bonjour, je suis ", suivi du nom du personnage. Par exemple "Bonjour, je suis Toto"</p>
 <p>Exécuter votre programme et vérifier qu'il affiche bien le bon résultat, c'est à dire chacun dit bonjour avec le même nom.</p>
-<div class="correction">
+
+			<div class="correction">
 <pre class="line-numbers"><code class="language-python">
-				class Personnage:
+					class Personnage:
 
-					def __init__(self):
-						# ↓ On crée un nouvel attribut "nom", que chaque instance aura.
-						# Cet attribut aura toujours "Toto" comme valeur initiale,
-						# pour tous les futurs objets de cette classe.
-						self.nom = "Toto"
+						def __init__(self):
+							# ↓ On crée un nouvel attribut "nom", que chaque instance aura.
+							# Cet attribut aura toujours "Toto" comme valeur initiale,
+							# pour tous les futurs objets de cette classe.
+							self.nom = "Toto"
 
-					def saluer(self):
-						# ↓ On utilise l'attribut "nom" de l'objet en cours
-						# qui est représenté par "self".
-						print("Bonjour, je suis", self.nom)
+						def saluer(self):
+							# ↓ On utilise l'attribut "nom" de l'objet en cours
+							# qui est représenté par "self".
+							print("Bonjour, je suis", self.nom)
 
 
-				perso1 = Personnage()
-				perso2 = Personnage()
+					perso1 = Personnage()
+					perso2 = Personnage()
 
-				perso1.saluer()
-				perso2.saluer()
-			</code></pre>
+					perso1.saluer()
+					perso2.saluer()
+				</code></pre>
 <pre class="affichage_console"><code class="">
 Bonjour, je suis Toto
-Bonjour, je suis Toto
-&gt;</code></pre>
+Bonjour, je suis Toto</code></pre>
 <p>Remarques:</p>
 </div>
-</div>
-<div class="exercice">
+
+	</div>
+
+
+	<div class="exercice">
 <h2 data-nb="21.5" id="Question 5">Question 5</h2>
 <p>Permettre de personnaliser le nom de chaque personnage, en passant le nom en paramètre du constructeur.</p>
 <p>Donner un nom différent à chacun des deux personnage instanciés.</p>
 <p>Exécuter votre programme et vérifier qu'il affiche bien le bon résultat, c'est à dire chacun dit bonjour avec un nom différent.</p>
-<div class="correction">
+
+			<div class="correction">
 <pre class="line-numbers"><code class="language-python">
-				class Personnage:
+					class Personnage:
 
-					# ↓ Notre constructeur a un nouveau paramètre "nom_initial".
-					# Il faudra le préciser à l'appel, coontrairement à "self".
-					def __init__(self, nom_initial):
-						# ↓ On donne au nouvel attribut "nom" la valeur du param "nom_initial".
-						# Ainsi cela permet de donner un nom différent à chaque personnage,
-						# lors de leur création.
-						self.nom = nom_initial
+						# ↓ Notre constructeur a un nouveau paramètre "nom_initial".
+						# Il faudra le préciser à l'appel, coontrairement à "self".
+						def __init__(self, nom_initial):
+							# ↓ On donne au nouvel attribut "nom" la valeur du param "nom_initial".
+							# Ainsi cela permet de donner un nom différent à chaque personnage,
+							# lors de leur création.
+							self.nom = nom_initial
 
-					def saluer(self):
-						print("Bonjour, je suis", self.nom)
+						def saluer(self):
+							print("Bonjour, je suis", self.nom)
 
 
-				# ↓ C'est lors de l'instanciation qu'on donne le nom de chaque nouveau perso.
-				perso1 = Personnage("Toto")
-				perso2 = Personnage("Titi")
+					# ↓ C'est lors de l'instanciation qu'on donne le nom de chaque nouveau perso.
+					perso1 = Personnage("Toto")
+					perso2 = Personnage("Titi")
 
-				perso1.saluer()
-				perso2.saluer()
-
-			</code></pre>
+					perso1.saluer()
+					perso2.saluer()
+				</code></pre>
 <pre class="affichage_console"><code class="">
 Bonjour, je suis Toto
-Bonjour, je suis Titi
-&gt;</code></pre>
-<p>Remarques:</p>
-</div>
+Bonjour, je suis Titi</code></pre>
 </div>
 
+	</div>
+
+
+	<div class="exercice">
+<h2 data-nb="21.6" id="Question 6">Question 6</h2>
+<p>Créer une classe qui représente une témpérature.</p>
+<p>Elle a un constructeur qui prend en paramètre une température sous forme de float, et un paramètre qui précise sous forme de str l'unité de la
+			température passée en paramètre. On considérera les degrés celsius, fahrenheit et en kelvin. (voir internet pour les formules de conversion)</p>
+<p>Elle a une méthode celsius qui ne prend aucun paramètre et retourne sous forme de float la température en degrés celsius.</p>
+<p>Elle a une méthode fahrenheit qui ne prend aucun paramètre et retourne sous forme de float la température en degrés fahrenheit.</p>
+<p>Elle a une méthode kelvin qui ne prend aucun paramètre et retourne sous forme de float la température en unité kelvin.</p>
+<p>Elle a une méthode provoque_glace qui ne prend aucun paramètre et retourne True si cette témpérature est inférieure ou égale à celle nécessaire pour
+			geler l'eau, False sinon.</p>
+<p>Elle a une méthode provoque_ébullition() qui ne prend aucun paramètre et retourne True si cette témpérature est supérieure ou égale à celle
+			nécessaire pour bouillir l'eau, False sinon.</p>
+
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Temperature:
+						def __init__(self, valeur, unité):
+							if unité == "celsius":
+								self.valeur_celsius = valeur
+								self.valeur_fahrenheit = 9/5*valeur + 32
+								self.valeur_kelvin = valeur + 273.15
+							elif unité == "fahrenheit":
+								self.valeur_celsius = (valeur - 32)/1.8
+								self.valeur_fahrenheit = valeur
+								self.valeur_kelvin = 5/9*(valeur-32)+273.15
+							elif unité == "kelvin":
+								self.valeur_celsius = valeur - 273.15
+								self.valeur_fahrenheit = 9/5*(valeur - 273.15) + 32
+								self.valeur_kelvin = valeur
+
+						def celsius(self):
+							return self.valeur_celsius
+
+						def fahrenheit(self):
+							return self.valeur_fahrenheit
+
+						def kelvin(self):
+							return self.valeur_kelvin
+
+						def provoque_glace(self):
+							return self.celsius() &lt;= 0
+
+						def provoque_ébullition(self):
+							return self.celsius() &gt;= 100
+				</code></pre>
+</div>
+
+	</div>
+
+
+	<div class="exercice">
+<h2 data-nb="21.7" id="Question 7">Question 7</h2>
+<p>Créer une classe Bouilloire qui représente une bouilloire électrique. Elle a un constructeur qui prend deux paramètres: une puissance de chauffage
+			sous forme de float, dont l'unité est en calories par secondes, et un volume sous forme de float, en litres, qui est le volume maximal de la
+			bouilloire. On considère qu'une bouilloire est vide au départ, sa température initiale n'a donc pas d'importance. Une bouilloire doit représenter
+			dans son code la température de l'eau qu'elle contient sous forme d'un objet de type Température (voir question précédente).</p>
+<p>Elle a une méthode vider, qui ne prend aucun paramètre, ne retourne rien, et vide toute l'eau déjà dans la bouilloire.</p>
+<p>Elle a une méthode remplir qui prend un volume d'eau en paramètre sous forme de float, en litres, et une température de l'eau avec laquelle on
+			remplit la bouilloire sous forme d'objet Température. Le nouveau volume s'additionne à celui déjà dans la bouilloire, et les deux températures
+			(celle de l'eau déjà présente dedans, et celle de l'eau nouvelle à ajouter) sont utilisées pour calculer la moyenne pondérée qui sera la température
+			de toute l'eau une fois dans la bouilloire. La bouilloire ne doit pas être remplie au-delà de sa capacité. L'eau en surplus, s'il y en a, est
+			ignorée. Attention à bien prendre en compte uniquement l'eau versée dedans pour le calcul de la température finale. La méthode retourne la quantité
+			d'eau qui a pu être effectivement versée dans la bouilloire.</p>
+<p>Elle a une méthode avoir_température qui ne prend aucun paramètre et retourne la température sous forme d'objet Température (voir question
+			précédente). Si la bouilloire est vide cette méthode retourne -1.</p>
+<p>Elle a une méthode chauffer, qui augmente la température de son eau à celle de l'ébullition de l'eau, qui ne prend aucun paramètre et retourne le
+			temps (en secondes) qui lui a été nécessaire pour chauffer toute son eau. Si la bouilloire est vide cette méthode retourne -1.</p>
+
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Bouilloire:
+						def __init__(self, puissance, volume_max_litres):
+							self.volume_max_litres = volume_max_litres
+							self.volume_eau_litres = 0
+							self.puissance_cal_par_s = puissance
+							self.température: Temperature = None
+
+						def vider(self):
+							self.volume_eau_litres = 0
+							self.température = None
+
+						def remplir(self, volume_à_ajouter, temp_eau):
+							ancien_volume = self.volume_eau_litres
+							self.volume_eau_litres = min(self.volume_max_litres, self.volume_eau_litres + volume_à_ajouter)
+							volume_ajouté = self.volume_eau_litres - ancien_volume
+							if self.température:
+								assert ancien_volume != 0
+								pourcent_ancien_volume = ancien_volume / self.volume_eau_litres
+								pourcent_volume_ajouté = volume_ajouté / self.volume_eau_litres
+								nouvelle_temp_celsius = self.température.celsius() * pourcent_ancien_volume + temp_eau.celsius() * pourcent_volume_ajouté
+								self.température = Temperature(nouvelle_temp_celsius, "celsius")
+							else:
+								assert ancien_volume == 0
+								self.température = temp_eau
+							return volume_ajouté
+
+						def avoir_température(self):
+							if self.température:
+								return self.température
+							return -1
+
+						def chauffer(self):
+							if self.volume_eau_litres &lt;= 0:
+								return -1
+							degrés_à_chauffer = 100 - self.température.celsius()
+							assert degrés_à_chauffer &gt;= 0
+							self.température = Temperature(100, "celsius")
+							return self.volume_eau_litres * 1000 / self.puissance_cal_par_s * degrés_à_chauffer
+				</code></pre>
+</div>
+
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

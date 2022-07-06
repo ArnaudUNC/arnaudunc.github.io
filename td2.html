@@ -267,6 +267,43 @@
 		
 	</div>
 
+	
+	<div class="exercice">
+<h2 data-nb="21.6" id="Question 6">Question 6</h2>
+<p>Créer une classe qui représente une témpérature.</p>
+<p>Elle a un constructeur qui prend en paramètre une température sous forme de float, et un paramètre qui précise sous forme de str l'unité de la
+			température passée en paramètre. On considérera les degrés celsius, fahrenheit et en kelvin. (voir internet pour les formules de conversion)</p>
+<p>Elle a une méthode celsius qui ne prend aucun paramètre et retourne sous forme de float la température en degrés celsius.</p>
+<p>Elle a une méthode fahrenheit qui ne prend aucun paramètre et retourne sous forme de float la température en degrés fahrenheit.</p>
+<p>Elle a une méthode kelvin qui ne prend aucun paramètre et retourne sous forme de float la température en unité kelvin.</p>
+<p>Elle a une méthode provoque_glace qui ne prend aucun paramètre et retourne True si cette témpérature est inférieure ou égale à celle nécessaire pour
+			geler l'eau, False sinon.</p>
+<p>Elle a une méthode provoque_ébullition() qui ne prend aucun paramètre et retourne True si cette témpérature est supérieure ou égale à celle
+			nécessaire pour bouillir l'eau, False sinon.</p>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="21.7" id="Question 7">Question 7</h2>
+<p>Créer une classe Bouilloire qui représente une bouilloire électrique. Elle a un constructeur qui prend deux paramètres: une puissance de chauffage
+			sous forme de float, dont l'unité est en calories par secondes, et un volume sous forme de float, en litres, qui est le volume maximal de la
+			bouilloire. On considère qu'une bouilloire est vide au départ, sa température initiale n'a donc pas d'importance. Une bouilloire doit représenter
+			dans son code la température de l'eau qu'elle contient sous forme d'un objet de type Température (voir question précédente).</p>
+<p>Elle a une méthode vider, qui ne prend aucun paramètre, ne retourne rien, et vide toute l'eau déjà dans la bouilloire.</p>
+<p>Elle a une méthode remplir qui prend un volume d'eau en paramètre sous forme de float, en litres, et une température de l'eau avec laquelle on
+			remplit la bouilloire sous forme d'objet Température. Le nouveau volume s'additionne à celui déjà dans la bouilloire, et les deux températures
+			(celle de l'eau déjà présente dedans, et celle de l'eau nouvelle à ajouter) sont utilisées pour calculer la moyenne pondérée qui sera la température
+			de toute l'eau une fois dans la bouilloire. La bouilloire ne doit pas être remplie au-delà de sa capacité. L'eau en surplus, s'il y en a, est
+			ignorée. Attention à bien prendre en compte uniquement l'eau versée dedans pour le calcul de la température finale. La méthode retourne la quantité
+			d'eau qui a pu être effectivement versée dans la bouilloire.</p>
+<p>Elle a une méthode avoir_température qui ne prend aucun paramètre et retourne la température sous forme d'objet Température (voir question
+			précédente). Si la bouilloire est vide cette méthode retourne -1.</p>
+<p>Elle a une méthode chauffer, qui augmente la température de son eau à celle de l'ébullition de l'eau, qui ne prend aucun paramètre et retourne le
+			temps (en secondes) qui lui a été nécessaire pour chauffer toute son eau. Si la bouilloire est vide cette méthode retourne -1.</p>
+		
+	</div>
+
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
 
