@@ -181,7 +181,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
-				✏️ TD 1 - Calculatrice niv.1
+				✍️ TD 1 - Calculatrice niv.1
 			</a>
 		</div>
 
@@ -189,6 +189,13 @@
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
 			</a>
 		</div>
 
@@ -208,15 +215,22 @@
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
-			<a href="td2.html">
-				✏️ TD 2 - Prog. objets niv.1
+			<a href="td3.html">
+				✍️ TD 3
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
-			<a href="td3.html">
-				✏️ TD 3
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp5.html">
+				✏️ TP 5 - Prog. objets niv.3
 			</a>
 		</div>
 
@@ -226,12 +240,12 @@
 
 
 		
-	<h1 data-nb="20" id="✏️ TP 3 - Calculatrice niv.4">✏️ TP 3 - Calculatrice niv.4</h1>
+	<h1 data-nb="21" id="✏️ TP 3 - Calculatrice niv.4">✏️ TP 3 - Calculatrice niv.4</h1>
 	
 
 	
 	<div class="exercice">
-<h2 data-nb="20.1" id="Question 1">Question 1</h2>
+<h2 data-nb="21.1" id="Question 1">Question 1</h2>
 <p>Permettre de calculer des expressions qui comportent plusieurs opérateurs + - * et /. Respecter l'ordre des priorités des opérations. Un espace au
 			minimum doit être présent entre les opérateurs et les opérandes. Demander à l'utilisateur s'il veut continuer ou pas de faire des calculs à chaque
 			résultat affiché. Afficher un message d'erreur approprié quand une expression est mal formée.</p>
@@ -253,11 +267,68 @@
 <li><p>5 + + 5</p></li>
 </ul>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def calculer_expression(expr):
+						termes = expr.split()
+						for i, terme in enumerate(termes):
+							try:
+								termes[i] = float(terme)
+							except ValueError:
+								if terme not in "+-*/":
+									print("Mauvaise expression:", terme, "n'est pas reconnu comme une opération ou valeur valide.")
+									return
+						# Première passe avec * et /
+						i = 0
+						while i &lt; len(termes):
+							terme = termes[i]
+							if type(terme) is str and terme in "*/":
+								try:
+									if terme == "*":
+										termes[i] = termes[i - 1] * termes[i + 1]
+									else:
+										termes[i] = termes[i - 1] / termes[i + 1]
+									del termes[i + 1]
+									del termes[i - 1]
+								except:
+									print("Mauvaise expression: impossible de calculer", terme)
+									return
+								i = i - 2
+							i += 1
+						# Seconde passe avec + et -
+						i = 0
+						while i &lt; len(termes):
+							terme = termes[i]
+							if type(terme) is str and terme in "-+":
+								try:
+									if terme == "+":
+										termes[i] = termes[i - 1] + termes[i + 1]
+									else:
+										termes[i] = termes[i - 1] - termes[i + 1]
+									del termes[i + 1]
+									del termes[i - 1]
+								except:
+									print("Mauvaise expression: impossible de calculer", terme)
+									return
+								i = i - 2
+							i += 1
+						if len(termes) &gt; 1:
+							print("Mauvaise expressions: trop d'opérandes")
+							return
+						return termes[0]
+
+					doit_continuer_calculs = True
+					while doit_continuer_calculs:
+						print(calculer_expression(input("Expression: ")))
+						doit_continuer_calculs = input("Continuer? (n pour non): ") != "n"
+				</code></pre>
+</div>
+		
 	</div>
 
 	
 	<div class="exercice">
-<h2 data-nb="20.2" id="Question 2">Question 2</h2>
+<h2 data-nb="21.2" id="Question 2">Question 2</h2>
 <p>L'utilisateur doit pouvoir en plus utiliser les fonctions <code>cos</code>, <code>sin</code> et <code>tan</code> du module <code>math</code>, dans
 			ses expressions. Les paramètres des fonctions <code>cos</code> <code>sin</code> et <code>tan</code> doivent être des valeurs simples, pas des
 			sous-expressions.</p>
@@ -270,6 +341,81 @@
 <ul>
 <li><p>cos(2 + 3)</p></li>
 </ul>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					import math
+
+					def calculer_expression(expr):
+						termes = expr.split()
+						for i, terme in enumerate(termes):
+							try:
+								termes[i] = float(terme)
+							except ValueError:
+								if terme not in "+-*/":
+									if not terme.startswith("sin(") and not terme.startswith("cos(") and not terme.startswith("tan("):
+										print("Mauvaise expression:", terme, "n'est pas reconnu comme une opération ou valeur valide.")
+										return
+						# passe sin cos tan
+						i = 0
+						while i &lt; len(termes):
+							terme = termes[i]
+							if type(terme) is str and (terme.startswith("sin(") or terme.startswith("cos(") or terme.startswith("tan(")):
+								try:
+									if terme.startswith("sin("):
+										termes[i] = math.sin(float(terme[4:-1]))
+									elif terme.startswith("cos("):
+										termes[i] = math.cos(float(terme[4:-1]))
+									else:
+										termes[i] = math.tan(float(terme[4:-1]))
+								except ValueError:
+									print("Mauvaise expression:", terme, "n'est pas reconnu comme une opération ou valeur valide.")
+							i += 1
+						# passe * et /
+						i = 0
+						while i &lt; len(termes):
+							terme = termes[i]
+							if type(terme) is str and terme in "*/":
+								try:
+									if terme == "*":
+										termes[i] = termes[i - 1] * termes[i + 1]
+									else:
+										termes[i] = termes[i - 1] / termes[i + 1]
+									del termes[i + 1]
+									del termes[i - 1]
+								except:
+									print("Mauvaise expression: impossible de calculer", terme)
+									return
+								i = i - 2
+							i += 1
+						# passe + et -
+						i = 0
+						while i &lt; len(termes):
+							terme = termes[i]
+							if type(terme) is str and terme in "-+":
+								try:
+									if terme == "+":
+										termes[i] = termes[i - 1] + termes[i + 1]
+									else:
+										termes[i] = termes[i - 1] - termes[i + 1]
+									del termes[i + 1]
+									del termes[i - 1]
+								except:
+									print("Mauvaise expression: impossible de calculer", terme)
+									return
+								i = i - 2
+							i += 1
+						if len(termes) &gt; 1:
+							print("Mauvaise expressions: trop d'opérandes")
+							return
+						return termes[0]
+
+					doit_continuer_calculs = True
+					while doit_continuer_calculs:
+						print(calculer_expression(input("Expression: ")))
+						doit_continuer_calculs = input("Continuer? (n pour non): ") != "n"
+				</code></pre>
+</div>
 		
 	</div>
 

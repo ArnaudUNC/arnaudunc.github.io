@@ -181,7 +181,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
-				✏️ TD 1 - Calculatrice niv.1
+				✍️ TD 1 - Calculatrice niv.1
 			</a>
 		</div>
 
@@ -189,6 +189,13 @@
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
 			</a>
 		</div>
 
@@ -208,15 +215,22 @@
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
-			<a href="td2.html">
-				✏️ TD 2 - Prog. objets niv.1
+			<a href="td3.html">
+				✍️ TD 3
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
-			<a href="td3.html">
-				✏️ TD 3
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp5.html">
+				✏️ TP 5 - Prog. objets niv.3
 			</a>
 		</div>
 
@@ -226,12 +240,12 @@
 
 
 		
-	<h1 data-nb="19" id="✏️ TP 2 - Calculatrice niv.3">✏️ TP 2 - Calculatrice niv.3</h1>
+	<h1 data-nb="20" id="✏️ TP 2 - Calculatrice niv.3">✏️ TP 2 - Calculatrice niv.3</h1>
 	
 
 	
 	<div class="exercice">
-<h2 data-nb="19.1" id="Question 1">Question 1</h2>
+<h2 data-nb="20.1" id="Question 1">Question 1</h2>
 <p>On veut rendre notre programme plus sophistiqué, en permettant à l'utilisateur d'entrer directement une expression simple du type: nombre1 opération
 			nombre2. Exemples:
 			<br/>
@@ -258,12 +272,70 @@
 <li>Faites de même, mais en une seule action.</li>
 </ol>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# 1
+					tableau = [5, 10]
+					print(tableau)
+
+					# 2
+					tableau.append(15) #&lt;= meilleure option
+					tableau.extend([15])
+					tableau = tableau + [15] #&lt;= 3ème méthode possible
+
+					# 3
+					print(tableau[0])
+					print(tableau[1])
+					print(tableau[2])
+
+					# 4
+					for element in tableau:
+						print(element)
+
+					# 5
+					i = 0
+					while i &lt; len(tableau):
+						print(tableau[i])
+						i += 1
+
+					# 6
+					tableau2 = ["Coucou", "Bonjour"]
+
+					# 7
+					for element in tableau2:
+						tableau.append(element)
+
+					# 8
+					tableau.extend(tableau2)
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Question 2: ajouter un élément dans un tableau ne signifie pas ré-écrire le tableau littéralement et y ajouter l'élément, comme ceci:
+						<code>tableau = [5, 10, 15]</code>. Certes <code>15</code> est ajouté dans le tableau, mais vous déclarez ainsi un <em>second</em>
+						tableau avec tous les éléments précédents, simplement pour pouvoir y ajouter un nouvel élément. Comment ferez-vous si le tableau
+						contient un milliard d'éléments? Comment ferez-vous si vous ne connaissez pas les éléments à l'avance car ils auront été remplis par
+						plusieurs utilisateurs, ou les valeurs proviendraient de sources de données extérieures (données d'un inventaire de magasin avec des
+						milliers de produits par exemple).
+					</li>
+<li>Question 2: la méthode <code>append()</code> est la meilleure approche pour ajouter un seul élément à la fin d'une liste. La méthode
+						<code>extend()</code> est mieux adaptée pour concaténer deux listes, c'est à dire les mettre bout-à-bout. Ici même si on ne veut ajouter
+						qu'<em>un seul</em> élément, il doit tout de même être mis dans une liste (la liste <code>[15]</code>) pour <code>extend()</code>. Les
+						méthodes <code>append()</code> et <code>extend()</code> <strong>modifient bien la liste</strong> sur laquelle on les appelle, elles ne
+						retournent aucun résultat. Enfin l'option <code>tableau = tableau + [15]</code> est la moins bonne car Python évalue l'expression
+						(l'opérateur +), qui résulte en une <strong>nouvelle</strong> liste qui consiste en une copie de la première concaténée de la seconde.
+						Les deux listes originales sont ensuite automatiquement supprimées si plus aucune variable ne pointe vers elles. La copie et la
+						suppression de listes qui contiennent beaucoup d'éléments (centaines de milliers ou plus) va donner du travail inutile à la machine, et
+						l'utilisateur risque de devoir attendre sans comprendre pourquoi.
+					</li>
+</ul>
+</div>
+		
 	</div>
 
 
 	
 	<div class="exercice">
-<h2 data-nb="19.2" id="Question 2">Question 2</h2>
+<h2 data-nb="20.2" id="Question 2">Question 2</h2>
 <p>Poursuivons nos révisions, sur les chaînes cette fois.</p>
 <ol>
 <li>Déclarez une variable qui pointe sur la chaine "Bonjour".</li>
@@ -283,12 +355,45 @@
 			</li>
 </ol>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# 1
+					chaine = "Bonjour"
+
+					# 2
+					for c in chaine:
+						print(c)
+
+					# 3
+					i = 0
+					while i &lt; len(chaine):
+						print(chaine[i])
+						i += 1
+
+					# 4
+					résultat_de_split = "plusieurs;champs;séparés;par;point-virgule".split(";")
+					print(résultat_de_split)
+					# ↑ affiche: ['plusieurs', 'champs', 'séparés', 'par', 'point-virgule']
+
+					résultat_de_split = "plusieurs;champs;séparés;par;point-virgule".split(" ")
+					print(résultat_de_split)
+					# ↑ affiche: ['plusieurs;champs;séparés;par;point-virgule']
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Le résultat de <code>split()</code> est toujours une liste, même si celle-ci ne contient qu'un seul élément dans le cas où la chaîne
+						n'aurait pas pu être coupée en plusieurs morceaux, si le caractère séparateur spécifié en paramètre de <code>split()</code> n'existe pas
+						dans la chaîne.
+					</li>
+</ul>
+</div>
+		
 	</div>
 
 
 	
 	<div class="exercice">
-<h2 data-nb="19.3" id="Question 3">Question 3</h2>
+<h2 data-nb="20.3" id="Question 3">Question 3</h2>
 <p>Reprenons notre programmation d'une calculatrice, on veut rendre notre programme plus sophistiqué, en permettant à l'utilisateur d'entrer directement
 			une expression simple du type: nombre1 opération nombre2. Exemples:
 			<br/>
@@ -311,28 +416,116 @@
 <code>= 11</code>
 </p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					expression = input("Entrez une expression simple: ")
+					éléments = expression.split(" ")
+					nb1 = float(éléments[0])
+					op = éléments[1]
+					nb2 = float(éléments[2])
+
+					if op == "+":
+						print("=", nb1 + nb2)
+					elif op == "-":
+						print("=", nb1 - nb2)
+					elif op == "/":
+						print("=", nb1 / nb2)
+					else:
+						print("=", nb1 * nb2)
+				</code></pre>
+</div>
+		
 	</div>
 
 	
 	<div class="exercice">
-<h2 data-nb="19.4" id="Question 4">Question 4</h2>
+<h2 data-nb="20.4" id="Question 4">Question 4</h2>
 <p>A partir de la solution précédente, considérer les cas où l'utilisateur fait des erreurs dans les nombres. Redemander d'entrer l'expression entiere
 			tant que l'un des deux nombres n'en est pas un.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					nb_est_correct = False
+					while not nb_est_correct:
+						try:
+							expression = input("Entrez une expression simple: ")
+							éléments = expression.split(" ")
+							nb1 = float(éléments[0])
+							op = éléments[1]
+							nb2 = float(éléments[2])
+							nb_est_correct = True
+						except:
+							print("Vous avez entré un mauvais nombre.")
+
+					if op == "+":
+						print("=", nb1 + nb2)
+					elif op == "-":
+						print("=", nb1 - nb2)
+					elif op == "/":
+						print("=", nb1 / nb2)
+					else:
+						print("=", nb1 * nb2)
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>Pourquoi dans le bloc <code>except</code> on peut écrire <code>print("Vous avez entré un mauvais nombre.")</code>? Comment peut-on
+						être sûr que le bloc <code>except</code> sera exécuté quand l'utilisateur aura entré un mauvais nombre?</p>
+<p>Parce que dans le bloc <code>try</code> correspondant (donc celui juste au dessus), seules les fonctions <code>float()</code> peuvent
+							provoquer des erreurs à l'exécution quand leur paramètre ne représente pas un nombre, et donc le <code>except</code> sert uniquement
+							à gérer ces cas d'erreurs.</p>
+</li>
+</ul>
+</div>
+		
 	</div>
 
 	
 	<div class="exercice">
-<h2 data-nb="19.5" id="Question 5">Question 5</h2>
+<h2 data-nb="20.5" id="Question 5">Question 5</h2>
 <p>A partir de la solution précédente, considérer les cas où l'utilisateur n'entre pas une opération supportée (+, -, *, /). Redemander d'entrer
 			l'expression entiere tant que l'opération entrée est incorrecte.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					nb_est_correct = False
+					while not nb_est_correct:
+						try:
+							expression = input("Entrez une expression simple: ")
+							éléments = expression.split(" ")
+							nb1 = float(éléments[0])
+							op = éléments[1]
+							if op not in ["+", "-", "/", "*"]:
+								print("Opération non reconnue: ", op)
+								continue
+							nb2 = float(éléments[2])
+							nb_est_correct = True
+						except:
+							print("Vous avez entré un mauvais nombre.")
+
+					if op == "+":
+						print("=", nb1 + nb2)
+					elif op == "-":
+						print("=", nb1 - nb2)
+					elif op == "/":
+						print("=", nb1 / nb2)
+					else:
+						print("=", nb1 * nb2)
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Vous devez vous souvenir de ce que fait <code>continue</code>: cette instruction ne peut se mettre que dans une boucle (donc
+						<code>while</code> ou <code>for</code>), et dès qu'elle est exécutée, la boucle est immédiatement relancée pour la prochaine itération.
+						Le reste des instructions de la boucle qui auraient dû être exécutées sont ignorées.
+					</li>
+</ul>
+</div>
 		
 	</div>
 
 
 	
 	<div class="exercice">
-<h2 data-nb="19.6" id="Question 6">Question 6</h2>
+<h2 data-nb="20.6" id="Question 6">Question 6</h2>
 <p>A partir de la solution précédente, considérer les cas où l'utilisateur ajoute des espaces en trop (mais il / elle doit toujours entrer au moins <em>un</em>
 			espace entre opérandes et opérateurs). Vous ne devez pas afficher un message d'erreur, mais ignorer les espaces en trop, et faire le bon calcul
 			malgré tout. Prendre aussi en compte les espaces en trop au début et à la fin de l'expression de l'utilisateur. Mais on considère toujours que
@@ -343,6 +536,49 @@
 <br/>
 <code>" 8 /  9.1   "</code>
 </p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					nb_est_correct = False
+					while not nb_est_correct:
+						try:
+							expression = input("Entrez une expression simple: ")
+							éléments = expression.split(" ")
+							éléments_corrects = []
+							# on enlève les espaces en trop avant tout
+							for el in éléments:
+								if el != "":
+									éléments_corrects.append(el)
+							nb1 = float(éléments_corrects[0])
+							op = éléments_corrects[1]
+							if op not in ["+", "-", "/", "*"]:
+								print("Opération non reconnue: ", op)
+								continue
+							nb2 = float(éléments_corrects[2])
+							nb_est_correct = True
+						except:
+							print("Vous avez entré un mauvais nombre.")
+
+					if op == "+":
+						print("=", nb1 + nb2)
+					elif op == "-":
+						print("=", nb1 - nb2)
+					elif op == "/":
+						print("=", nb1 / nb2)
+					else:
+						print("=", nb1 * nb2)
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>l'approche de la solution c'est éliminer les caractères espaces en trop, pour cela on crée une seconde liste
+						<code>éléments_corrects</code> qui contiendra 3 éléments: juste les deux nombres et l'opérateur entre les deux. Puis on analyse la liste
+						des éléments retournés par la méthode <code>split()</code> exécutée sur l'expression entrée par l'utilisateur.</p>
+<p>Dans la boucle <code>for el in éléments</code> on ignore les chaînes vides, elles sont créées par <code>split()</code> car étant
+							donné qu'on a spécifié le caractère espace comme séparateur, <code>split()</code> considère qu'entre deux espaces il y a une chaîne
+							vide, dans la chaîne de l'expression de l'utilisateur..</p>
+</li>
+</ul>
+</div>
 		
 	</div>
 
