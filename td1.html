@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✍️ TD 1 - Calculatrice niv.1 | Algo et prog 2 en Python</title>
+	<title>✍️ TD 1 - Calculatrice niv.1 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -181,35 +181,35 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td1.html">
-				✍️ TD 1 - Calculatrice niv.1
+				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2
+				✏️ TP 1 - Calculatrice niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td2.html">
-				✍️ TD 2 - Prog. objets niv.1
+				✍️ TD 2 - Prog. objets niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp2.html">
-				✏️ TP 2 - Calculatrice niv.3
+				✏️ TP 2 - Calculatrice niv.3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp3.html">
-				✏️ TP 3 - Calculatrice niv.4
+				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
@@ -234,13 +234,27 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp6.html">
+				✏️ TP 6 - Prog. objets niv.4
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
 
 
 		
-	<h1 data-nb="17" id="✍️ TD 1 - Calculatrice niv.1">✍️ TD 1 - Calculatrice niv.1</h1>
+	<h1 data-nb="17" id="✍️ TD 1 - Calculatrice niv.1 ✔️">✍️ TD 1 - Calculatrice niv.1 ✔️</h1>
 	
 
 	
@@ -254,8 +268,7 @@
 				print("Bonjour")
 			</code></pre>
 <pre class="affichage_console"><code>
-Bonjour
-&gt;</code></pre>
+Bonjour</code></pre>
 <p>Remarques:</p>
 <ul>
 <li>Le caractère <em>&gt;</em> dans la console représente le "prompt". Quand il apparaît, c'est que le programme a terminé son exécution.
@@ -283,8 +296,7 @@ Bonjour
 				print(100)
 			</code></pre>
 <pre class="affichage_console"><code class="">
-100
-&gt;</code></pre>
+100</code></pre>
 <p>Remarques:</p>
 <ul>
 <li><code>100</code> est une valeur littérale de type <code>int</code>.</li>
@@ -308,9 +320,8 @@ Bonjour
 					print("Bonjour " + str(100))
 				</code></pre>
 <pre class="affichage_console"><code>
-	Bonjour 100
-	Bonjour 100
-	&gt;</code></pre>
+Bonjour 100
+Bonjour 100</code></pre>
 <p>Remarques:</p>
 <ul>
 <li>Dans la première version, on passe deux paramètres à <code>print()</code>, qui est un exemple de fonction qui accepte un nombre variable
@@ -337,28 +348,117 @@ Bonjour
 <div class="exercice">
 <h3 data-nb="17.2.1" id="Question 4">Question 4</h3>
 <p>Créer une fonction <strong>vide</strong>, puis l'exécuter 3 fois de suite.</p>
-<p>(Correction à venir)</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def ma_fonction():
+						pass
+
+					ma_fonction()
+					ma_fonction()
+					ma_fonction()
+				</code></pre>
+<p>L'instruction <code>pass</code> permet d'avoir un bloc de code vide, le corps d'une fonction étant un bloc de code, il doit au moins avoir
+					une ligne à l'intérieur, c'est une obligation de la syntaxe de Python.</p>
+<p>Une erreur très fréquente que font les débutants et ceux qui ne comprennent pas le fonctionnement des fonctions est d'appeler
+					systématiquement la fonction <code>print()</code> en lui passant pour paramètre un appel à notre fonction, c'est à dire <code>print(ma_fonction())</code>.
+					Dans ce cas, vous ne comprenez pas qu'un appel de fonction n'a rien à voir avec l'affichage grâce à <code>print()</code>. L'affichage sert à
+					voir des choses apparaître dans la console, mais il peut se passer de nombreuses choses dans un programme qu'on n'a pas besoin d'afficher
+					tout le temps, par exemple l'appel d'une fonction.</p>
 </div>
-<div class="exercice">
+		
+	</div>
+
+	
+	<div class="exercice">
 <h3 data-nb="17.2.2" id="Question 5">Question 5</h3>
 <p>Créer une fonction qui <strong>AFFICHE</strong> <code>"Bonjour"</code> et ne renvoie rien, puis l'exécuter 3 fois de suite de façon à voir affiché
 			dans la console 3x <em>Bonjour</em>.</p>
 <p>Que se passe-t'il si on affiche le résultat d'un <strong>appel</strong> à la fonction? Pourquoi?</p>
-<p>(Correction à venir)</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def ma_fonction():
+						print("Bonjour")
+
+					ma_fonction()
+					ma_fonction()
+					ma_fonction()
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour
+Bonjour
+Bonjour</code></pre>
+<p>Remarquez qu'encore une fois on ne fait pas <code>print(ma_fonction())</code> puisque la fonction contient <strong>déjà</strong> un appel à
+					<code>print()</code>. Si on fait quand même <code>print(ma_fonction())</code> on verra d'abord s'afficher <code>Bonjour</code>, parce que
+					l'appel de la fonction est évalué en premier, puis la fonction retourne <code>None</code>, rappelez-vous une fonction retourne toujours un
+					et un seul objet. Si la fonction ne contient aucune instruction <code>return</code>, par défaut elle retourne l'objet <code>None</code>. Et
+					donc c'est cet objet que <code>print()</code> va afficher, on verra ainsi affiché <code>None</code> dans la console sous le
+					<code>Bonjour</code> précédent.</p>
 </div>
-<div class="exercice">
+		
+	</div>
+
+	
+	<div class="exercice">
 <h3 data-nb="17.2.3" id="Question 6">Question 6</h3>
 <p>Créer une fonction qui ne fait que <strong>RETOURNER</strong> <code>"Bonjour"</code>, puis l'exécuter 3 fois de suite de façon à voir affiché dans la
 			console 3x <em>Bonjour</em>.</p>
-<p>(Correction à venir)</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def ma_fonction():
+						return "Bonjour"
+
+					print(ma_fonction())
+					print(ma_fonction())
+					print(ma_fonction())
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour
+Bonjour
+Bonjour</code></pre>
+<p>Cette fois-ci, la fonction n'affiche rien lors de son exécution, donc on DOIT faire <code>print(ma_fonction())</code>. Il ne faut pas
+					confondre AFFICHER et RETOURNER, ce sont deux choses qui n'ont ABSOLUMENT rien à voir. Afficher affiche tout simplement, vous affichez ce
+					que vous voulez, en passant des paramètres à la fonction <code>print()</code>. Tandis que "retourner" est un mécanisme des fonctions qui
+					leur permet de se terminer tout en donnant un résultat au code qui l'a appelée. Ce code peut ensuite faire ce qu'il veut de ce résultat, des
+					nouveaux calculs dessus: le stocker dans une base de données, dans un fichier, l'envoyer par le réseau, ou dans le cas de cet exercice
+					l'afficher.</p>
 </div>
-<div class="exercice">
+		
+	</div>
+
+	
+	<div class="exercice">
 <h3 data-nb="17.2.4" id="Question 7">Question 7</h3>
 <p>Créer une fonction qui <strong>RETOURNE</strong> <code>"Bonjour"</code> suivi d'un prénom qui sera passé en paramètre sous forme de <code>str</code>,
 			puis l'exécuter 3 fois de suite avec 3 prénoms différents de façon à voir affiché dans la console 3x <em>Bonjour</em> et un prénom différent à
 			chaque fois.</p>
-<p>(Correction à venir)</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def ma_fonction(prénom):
+						return "Bonjour " + prénom
+
+					print(ma_fonction("Alice"))
+					print(ma_fonction("Toto"))
+					print(ma_fonction("Bidule"))
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour Alice
+Bonjour Toto
+Bonjour Bidule</code></pre>
+<p><code>return</code> n'est pas une fonction, mais une instruction, donc remarquez qu'on n'écrit pas <code>return()</code> avec des
+					parenthèses.</p>
+<p>Une fonction retourne TOUJOURS UN et UN SEUL objet lorsqu'elle a fini son execution par <code>return</code>. Si aucun <code>return</code>
+					n'est présent dans son code, la fonction fait quand même <code>return None</code> par défaut implicitement après qu'elle a exécuté sa
+					dernière ligne de code. Cela implique que ce qui suit <code>return</code> est une expression qui peut être aussi longue qu'on veut, elle
+					s'évalue à un seul objet au final, et c'est cet objet que <code>return</code> va retourner. Dans cet exercice il s'agira de l'objet de type
+					<code>str</code> résultat de la concaténation entre deux autres objets <code>str</code> (<code>"Bonjour "</code> et l'objet passé en
+					paramètre).</p>
 </div>
+		
+	</div>
 
 	
 	<h2 data-nb="17.3" id="Révisions entrées au clavier">Révisions entrées au clavier</h2>

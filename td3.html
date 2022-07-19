@@ -181,35 +181,35 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
-				✍️ TD 1 - Calculatrice niv.1
+				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2
+				✏️ TP 1 - Calculatrice niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="td2.html">
-				✍️ TD 2 - Prog. objets niv.1
+				✍️ TD 2 - Prog. objets niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
-				✏️ TP 2 - Calculatrice niv.3
+				✏️ TP 2 - Calculatrice niv.3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp3.html">
-				✏️ TP 3 - Calculatrice niv.4
+				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
@@ -234,6 +234,20 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp6.html">
+				✏️ TP 6 - Prog. objets niv.4
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
@@ -255,6 +269,27 @@
 <li>Depuis le module <code>main</code>, afficher la variable <code>salutation</code> de <code>mon_module</code>.</li>
 </ol>
 		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>mon_module.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					# __name__ est une variable pré-existante dans TOUT module,
+					# qui contient automatiquement le nom du module.
+					salutation = "Bonjour depuis " + __name__
+				</code></pre>
+<p class="légende_placée_en_haut">Fichier <code>main.py</code> (dans le même dossier que <code>mon_module.py</code>):</p>
+<pre class="line-numbers"><code class="language-python">
+					# ↓ On ne met PAS .py après le nom du module.
+					import mon_module
+					# ↓ On peut accéder ainsi aux variables globales de mon_module
+					# (globales signifie définies en dehors de toute fonction, classe ou autre structure)
+					print(mon_module.salutation)
+				</code></pre>
+<p>Si on exécute <code>main.py</code> (ce qui est le cas quand on appuie sur le bouton "Run" dans replit), on obtient:</p>
+<pre class="affichage_console"><code>
+	Bonjour depuis mon_module
+	&gt;</code></pre>
+</div>
+		
 	</div>
 
 
@@ -266,6 +301,26 @@
 			lors de son exécution affiche la variable <code>salutation</code>.</p>
 <p>Depuis le module <code>main</code>, ne plus afficher la variable <code>salutation</code> directement, mais exécuter
 			<code>afficher_salutation()</code> de <code>mon_module</code>.</p>
+		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>mon_module.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					salutation = "Bonjour depuis " + __name__
+
+					def afficher_salutation():
+						print(salutation)
+				</code></pre>
+<p class="légende_placée_en_haut">Fichier <code>main.py</code> (dans le même dossier que <code>mon_module.py</code>):</p>
+<pre class="line-numbers"><code class="language-python">
+					import mon_module
+					# ↓ On peut appeler une fonction de mon_module
+					mon_module.afficher_salutation()
+				</code></pre>
+<p>Si on exécute <code>main.py</code> (ce qui est le cas quand on appuie sur le bouton "Run" dans replit), on obtient:</p>
+<pre class="affichage_console"><code>
+	Bonjour depuis mon_module
+	&gt;</code></pre>
+</div>
 		
 	</div>
 
@@ -284,17 +339,61 @@
 <li>
 				Exécuter depuis l'onglet "Shell" le module <code>main</code>. Vérifiez que vous obtenez bien la même chose qu'avec Run.
 				
+					<div class="correction">
+						Ecrire dans le shell la commande: <code>python main.py</code>. Puis appuyer sur la touche <em>Entrée</em>.
+						<pre class="affichage_console"><code>
+	Bonjour depuis mon_module
+	&gt;</code></pre>
+</div>
+				
 			</li>
 <li>Exécuter depuis l'onglet "Shell" le module <code>mon_module</code> (astuce: avec le curseur qui clignote dans le shell, appuyer une ou plusieurs
 				fois sur la touche du clavier "flêche du haut" vous permet de remonter dans l'historique des commandes que vous avez entrées précédemment). Vous
 				ne devriez rien voir s'afficher, pourquoi?
 				
+					<div class="correction">
+<p>Ecrire dans le shell la commande: <code>python mon_module.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<p>Rien de spécial ne s'affiche dans le shell.</p>
+</div>
+				
 			</li>
 <li>Maintenant en bas de <code>mon_module</code>, ajouter un appel à <code>afficher_salutation()</code>, et re-exécuter <code>mon_module</code>
 				depuis le shell. Vous devriez voir la salutation un peu différente. Que voyez-vous, et pourquoi?
 				
+					<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>mon_module.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+							salutation = "Bonjour depuis " + __name__
+
+							def afficher_salutation():
+								print(salutation)
+
+							# ↓ On a rajouté cet appel
+							afficher_salutation()
+						</code></pre>
+<p>Ecrire dans le shell la commande: <code>python mon_module.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<pre class="affichage_console"><code>
+	Bonjour depuis __main__
+	&gt;</code></pre>
+<p>Le nom du module est <code>__main__</code> désormais parce que c'est le nom que Python donne automatiquement au module qui est
+							exécuté en premier, celui par lequel on lance le programme tout entier. Jusqu'à présent dans replit, le fichier qui a toujours été
+							exécuté en premier a été <code>main.py</code>, mais Python n'oblige en rien cela, c'est juste une convention de replit. Tout module,
+							c'est à dire tout fichier .py, peut être exécuté directement par la commande Python.</p>
+</div>
+				
 			</li>
 <li>Exécuter à nouveau <code>main</code>, quelque chose a également changé par rapport à la question 2. Qu'est-ce, et pourquoi?
+				
+					<div class="correction">
+<p>Ecrire dans le shell la commande: <code>python main.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<pre class="affichage_console"><code>
+	Bonjour depuis mon_module
+	Bonjour depuis mon_module
+	&gt;</code></pre>
+<p>On voit DEUX affichages désormais. Le premier est parce que lorsqu'on importe <code>mon_module</code> il est exécuté, donc y compris
+							l'appel à <code>afficher_salutation()</code> qu'on a rajouté à la question précédente. Puis le second affichage est parce que dans
+							<code>main.py</code> on fait aussi un appel à <code>mon_module.afficher_salutation()</code>.</p>
+</div>
 				
 			</li>
 <li><p>Adapter le code dans <code>mon_module</code> pour faire en sorte que:</p>
@@ -304,6 +403,32 @@
 </li>
 </ol>
 <p>(si la salutation est différente dans les 2 cas, c'est normal et on n'en tient pas compte)</p>
+				
+					<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>mon_module.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+							salutation = "Bonjour depuis " + __name__
+
+							def afficher_salutation():
+								print(salutation)
+
+							# ↓ On a rajouté le "if". Le test est: si le nom du module est égal à la str
+							# "__main__", cela signifie alors que le module est exécuté directement par la commande
+							# python, et alors on exécute la fonction afficher_salutation.
+							# Sinon ça signifie que le module est exécuté par importation depuis un autre module,
+							# et dans ce cas on ne fait rien de spécial.
+							if __name__ == "__main__":
+								afficher_salutation()
+						</code></pre>
+<p>Ecrire dans le shell la commande: <code>python mon_module.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<pre class="affichage_console"><code>
+	Bonjour depuis __main__
+	&gt;</code></pre>
+<p>Ecrire dans le shell la commande: <code>python main.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<pre class="affichage_console"><code>
+	Bonjour depuis mon_module
+	&gt;</code></pre>
+</div>
 				
 			</li>
 </ol>
@@ -330,6 +455,61 @@
 <li>Vider entièrement <code>dico_2</code> de tout son contenu en une seule action.</li>
 <li>Afficher une nouvelle fois les deux dictionnaires chacun sur une ligne, et vérifier que les suppressions ont bien eu lieu.</li>
 </ol>
+		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>main.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					# 1
+					dico_1 = {}
+
+					# 2
+					dico_1["une clé"] = "sa valeur"
+
+					# 3
+					dico_1[8.2] = "autre valeur"
+
+					# 4
+					dico_1[True] = 50
+
+					# 5
+					print("q5:", dico_1["une clé"])
+					print("q5:", dico_1[8.2])
+					print("q5:", dico_1[True])
+
+					# 6
+					for clé, valeur in dico_1.items():
+						print("q6:", clé, "=", valeur)
+
+					# 7
+					dico_2 = {"une clé": "sa valeur", 8.2: "autre valeur", True: 50}
+
+					# 8, 9
+					print("q9 dico_1:", dico_1)
+					print("q9 dico_2:", dico_2)
+
+					# 10
+					del dico_1[8.2]
+
+					# 11
+					dico_2.clear()
+
+					# 12
+					print("q12 dico_1:", dico_1)
+					print("q12 dico_2:", dico_2)
+				</code></pre>
+<pre class="affichage_console"><code>
+	q5: sa valeur
+	q5: autre valeur
+	q5: 50
+	q6: une clé = sa valeur
+	q6: 8.2 = autre valeur
+	q6: True = 50
+	q9 dico_1: {'une clé': 'sa valeur', 8.2: 'autre valeur', True: 50}
+	q9 dico_2: {'une clé': 'sa valeur', 8.2: 'autre valeur', True: 50}
+	q12 dico_1: {'une clé': 'sa valeur', True: 50}
+	q12 dico_2: {}
+	&gt;</code></pre>
+</div>
 		
 	</div>
 
@@ -361,6 +541,49 @@
 <li>"Bonjour. Je m'appelle Toto. Et vous? <strong>D'où venez-vous?</strong></li>
 <li>"<strong>Salut</strong>. Je m'appelle <strong>Titi</strong>. Et vous? <strong>D'où venez-vous?</strong></li>
 </ol>
+		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>main.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					# Deux paramètres ont une valeur par défaut, ce qui permettra de ne pas les
+					# spécifier au moment de l'appel de la fonction si leur valeur par défaut convient.
+					def dire_bonjour(introduction, nom="Toto", question="Quel est votre nom?"):
+						print(introduction + ". Je m'appelle " + nom + ". Et vous? " + question)
+
+					# 1 ↓ On utilise la valeur par défaut des paramètres nom et question
+					dire_bonjour("Bonjour")
+					# Forme alternative
+					# ↓ On peut nommer même les paramètres sans valeur par défaut si on le souhaite
+					# dire_bonjour(introduction="Bonjour")
+
+					# 2 ↓ On spécifie une autre valeur que celle par défaut pour le paramètre nom
+					# mais on utilise toujours la valeur par défaut du paramètre question.
+					dire_bonjour("Bonjour", "Titi")
+					# Formes alternatives
+					# dire_bonjour("Bonjour", nom="Titi")
+					# dire_bonjour(introduction="Bonjour", nom="Titi")
+					# ↓ L'ordre des paramètres nommés ne compte pas
+					# dire_bonjour(nom="Titi", introduction="Bonjour")
+
+					# 3
+					dire_bonjour("Bonjour", question="D'où venez-vous?")
+					# Forme alternative
+					# dire_bonjour(introduction="Bonjour", question="D'où venez-vous?")
+
+					# 4
+					dire_bonjour("Salut", "Titi", "D'où venez-vous?")
+					# Forme alternative
+					# ↓ L'ordre des paramètres nommés ne compte pas,
+					# mais il reste primordial pour ceux non nommés.
+					# dire_bonjour("Salut", question="D'où venez-vous?", nom="Titi")
+				</code></pre>
+<pre class="affichage_console"><code>
+	Bonjour. Je m'appelle Toto. Et vous? Quel est votre nom?
+	Bonjour. Je m'appelle Titi. Et vous? Quel est votre nom?
+	Bonjour. Je m'appelle Toto. Et vous? D'où venez-vous?
+	Salut. Je m'appelle Titi. Et vous? D'où venez-vous?
+	&gt;</code></pre>
+</div>
 		
 	</div>
 
@@ -397,6 +620,103 @@
 <li>La variable globale <code>mon_module.a</code> a-t'elle été modifiée? Pourquoi?</li>
 </ol>
 		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>main.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					var_1 = 10
+					var_2 = "cool"
+					def hello(a, b):
+						# ↓ Cette variable est locale, et est différente de la globale var_1
+						var_1 = 1
+						print("Variables locales dans hello:", locals())
+
+					print("Variables globales dans main AVANT l'appel à hello():", globals())
+
+					hello(5, 6)
+					print("Variables globales dans main APRÈS l'appel à hello():", globals())
+				</code></pre>
+<p>Ecrire dans le shell la commande: <code>python main.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<pre class="affichage_console"><code>
+	Variables globales dans main <strong>AVANT</strong> l'appel à hello(): {
+		'__name__': '__main__', '__doc__': None, '__package__': None,
+		'__loader__': &lt;_frozen_importlib_external.SourceFileLoader object at 0x7f128c8ea7c0&gt;,
+		'__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+		'__file__': 'main.py', '__cached__': None,
+		<span style="background-color:hsla(150, 50%, 50%, 0.5)"><strong>'var_1': 10</strong>, 'var_2': 'cool', 'hello': &lt;function hello at 0x7f128b281820&gt;</span>
+		}
+	Variables locales dans hello: {
+		<span style="background-color:hsla(150, 50%, 50%, 0.5)">'a': 5, 'b': 6, <strong>'var_1': 1</strong></span>
+		}
+	Variables globales dans main <strong>APRÈS</strong> l'appel à hello(): {
+		'__name__': '__main__', '__doc__': None, '__package__': None,
+		'__loader__': &lt;_frozen_importlib_external.SourceFileLoader object at 0x7f128c8ea7c0&gt;,
+		'__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+		'__file__': 'main.py', '__cached__': None,
+		<span style="background-color:hsla(150, 50%, 50%, 0.5)"><strong>'var_1': 10</strong>, 'var_2': 'cool', 'hello': &lt;function hello at 0x7f128b281820&gt;</span>
+		}
+	&gt;</code></pre>
+<p>(↑ L'affichage a été un peu formatté pour mieux voir l'information qui nous intéresse)</p>
+<p>On peut voir que la fonction <code>hello()</code> a 3 variables locales: <code>a</code>, <code>b</code> et <code>var_1</code>. Et on note
+					aussi que <code>var_1</code> dans <code>hello()</code> vaut 1, mais <code>var_1</code> globale vaut toujours 10, preuve que ce sont deux
+					variables différentes, même si elles ont le même nom, elles n'existent pas dans le même espace de nommage.</p>
+<p>Remarquez aussi que les paramètres <code>a</code> et <code>b</code> sont aussi considérés comme des variables locales au sein de leur
+					fonction. </p>
+<hr/>
+<p class="légende_placée_en_haut">Fichier <code>mon_module.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					a = 20
+					b = False
+
+					def bidule(x, y):
+						# ↓ On déclare qu'on veut modifier la variable globale a depuis l'intérieur de la fonction
+						# grâce au mot-clé "global". Si on aurait écrit directement a = ..., alors ça créerait une variable locale a.
+						global a
+						aa = 30
+						a = x + y +aa
+						print("Variables locales dans bidule:", locals())
+
+					print("Variables globales dans mon_module AVANT l'appel à bidule():", globals())
+
+					bidule(5, 6)
+					print("Variables globales dans mon_module APRÈS l'appel à bidule():", globals())
+				</code></pre>
+<p>Ecrire dans le shell la commande: <code>python mon_module.py</code>. Puis appuyer sur la touche <em>Entrée</em>.</p>
+<pre class="affichage_console"><code>
+	Variables globales dans mon_module AVANT l'appel à bidule(): {
+		'__name__': '__main__', '__doc__': None, '__package__': None,
+		'__loader__': &lt;_frozen_importlib_external.SourceFileLoader object at 0x7f44b41867c0&gt;,
+		'__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+		'__file__': 'mon_module.py', '__cached__': None,
+		<span style="background-color:hsla(150, 50%, 50%, 0.5)"><strong>'a': 20</strong>, 'b': False, 'bidule': &lt;function bidule at 0x7f44b2b1dca0&gt;</span>
+		}
+	Variables locales dans bidule: {
+		<span style="background-color:hsla(150, 50%, 50%, 0.5)">'x': 5, 'y': 6, 'aa': 30</span>
+		}
+	Variables globales dans mon_module APRÈS l'appel à bidule(): {
+		'__name__': '__main__', '__doc__': None, '__package__': None,
+		'__loader__': &lt;_frozen_importlib_external.SourceFileLoader object at 0x7f44b41867c0&gt;,
+		'__spec__': None, '__annotations__': {}, '__builtins__': &lt;module 'builtins' (built-in)&gt;,
+		'__file__': 'mon_module.py', '__cached__': None,
+		<span style="background-color:hsla(150, 50%, 50%, 0.5)"><strong>'a': 41</strong>, 'b': False, 'bidule': &lt;function bidule at 0x7f44b2b1dca0&gt;</span>
+		}
+	&gt;</code></pre>
+<p>(↑ L'affichage a été un peu formatté pour mieux voir l'information qui nous intéresse)</p>
+<p>On remarque qu'après l'appel à <code>bidule()</code> la variable globale <code>a</code> a bien été modifiée, et que celle-ci n'apparaît pas
+					dans liste des variables <em>locales</em> à <code>bidule()</code>.</p>
+<hr/>
+<p>Pour répondre aux questions de l'exercice:</p>
+<p>9. Lors de l'appel à <code>main.hello()</code> on voit les identifiants "a", "b" et "var_1", et c'est normal car tous trois sont des
+					variables locales, et c'est ce qu'on voulait afficher avec l'appel à la fonction prédéfinie <code>locals()</code>.</p>
+<p>10. Non la variable globale <code>main.var_1</code> n'a pas été modifiée lors de l'appel à <code>main.hello()</code> et c'est normal, car
+					toute variable globale est accessible en lecture depuis l'intérieur d'une fonction, mais pas en écriture. Lorsqu'on tente de modifier une
+					variable globale depuis l'intérieur d'une fonction cela crée automatiquement une variable locale portant le même nom que la globale.</p>
+<p>11. Lors de l'appel à <code>mon_module.bidule()</code> on voit les identifiants "x", "y" et "aa", et c'est normal car tous trois sont des
+					variables locales, et c'est ce qu'on voulait afficher avec l'appel à la fonction prédéfinie <code>locals()</code>. On ne voit pas la
+					variable <code>a</code> car c'est une variable globale.</p>
+<p>12. Oui <code>a</code> a été modifiée lors de l'appel à <code>mon_module.bidule()</code> car on l'a bien déclarée comme variable globale à
+					l'intérieur de la fonction avant de la modifier.</p>
+</div>
+		
 	</div>
 
 	
@@ -428,6 +748,57 @@
 			</li>
 </ol>
 		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>main.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					liste_globale = []
+
+					def ajout_liste(valeur):
+						liste_globale.append(valeur)
+
+					# 3
+					ajout_liste("Coucou")
+					ajout_liste("Bonjour")
+					print(liste_globale)
+
+					nb_global = 0
+					def ajout_nombre_1(nb):
+						global nb_global
+						nb_global += nb
+					def ajout_nombre_2(nb):
+						return nb_global + nb
+
+					print("1:", nb_global)
+					# 7
+					ajout_nombre_1(1)
+					print("2:", nb_global)
+					# 8
+					nb_global = ajout_nombre_2(1)
+					print("3:", nb_global)
+				</code></pre>
+<pre class="affichage_console"><code>
+	['Coucou', 'Bonjour']
+	1: 0
+	2: 1
+	3: 2
+	&gt;</code></pre>
+<p>8. <code>ajout_nombre_2()</code> utilise la variable globale <code>nb_global</code> mais ne la modifie pas. <code>ajout_nombre_1()</code> par
+					contre la modifie (avec <code>+=</code>), donc il faut utiliser le mot-clé <code>global</code>. Comme <code>ajout_nombre_2()</code> ne
+					modifie pas <code>nb_global</code>, si on veut le faire on est obligé de le faire en dehors de la fonction, comme à la ligne 23 par exemple,
+					contrairement à <code>ajout_nombre_1()</code> lors de son appel à la ligne 20.</p>
+<p>9. Les deux fonctions <code>ajout_liste()</code> et <code>ajout_nombre_1()</code> semblent faire la même chose: elles modifient la valeur des
+					variables globales, non? FAUX! Ils y a une GROSSE différence entre les deux.</p>
+<p>Remarquez que le mot-clé <code>global</code> dans <code>ajout_liste()</code> n'est pas présent, hors on voit dans l'affichage que <code>liste_globale</code>
+					est bien modifiée lors des appels à la fonction. Il est primordial de comprendre que <code>ajout_liste()</code> ne modifie pas la VARIABLE,
+					mais l'OBJET pointé par la variable à travers sa méthode <code>append()</code>. <code>liste_globale</code> pointe toujours vers la même
+					liste en mémoire, la variable n'est donc pas modifiée, mais l'objet liste lui s'est modifié en s'ajoutant un nouvel élément.</p>
+<p>Aurait-on pu faire pareil avec <code>ajout_nombre_1()</code>? Ne pas modifier la variable mais plutôt l'objet nombre vers lequel il pointe?
+					Non, car rappelez-vous, une liste (de type <code>list</code>) est muable, mais les objets de type <code>int</code> et <code>float</code>
+					sont immuables, ils ne peuvent donc jamais être modifiés. Si on veut qu'une variable pointe vers un nombre différent, on ne modifie pas
+					l'objet en question contrairement à une liste, mais on fait pointer la variable vers un tout autre objet nombre en mémoire, avec
+					l'instruction <code>=</code>. </p>
+</div>
+		
 	</div>
 
 	
@@ -447,6 +818,46 @@
 				racine cubique?
 			</li>
 </ol>
+		
+			<div class="correction">
+<p class="légende_placée_en_haut">Fichier <code>main.py</code>:</p>
+<pre class="line-numbers"><code class="language-python">
+					# 1
+					import math
+					# 2
+					print("2:", math.pi)
+					# 3
+					# ↓ On peut facilement le calculer soi-même sans passer par cette fonction. Comment?
+					print("3:", math.degrees(math.pi))
+					# 4
+					# ↓ On peut facilement le calculer soi-même sans passer par cette fonction. Comment?
+					print("4:", math.radians(180))
+					# 5
+					# ↓ Le résultat se rapproche de zéro, mais n'est pas exactement zéro.
+					# Cela est dû à la représentation interne des nombres à virgules qui a une précision limitée.
+					print("5:", math.cos(math.pi/2))
+					print("5:", math.sin(math.pi/2))
+					# 6
+					print("6:", math.pow(2, 3))
+					print("6:", 2**3) # cette version est plus courte et revient au même
+					# 7
+					print("7:", math.sqrt(16))
+					print("7:", 16**0.5) # cette version est plus courte et revient au même
+					print("7:", 8**(1/3)) # pour avoir la racine cubique on fait puissance 1/3
+				</code></pre>
+<pre class="affichage_console"><code>
+	2: 3.141592653589793
+	3: 180.0
+	4: 3.141592653589793
+	5: 6.123233995736766e-17
+	5: 1.0
+	6: 8.0
+	6: 8
+	7: 4.0
+	7: 4.0
+	7: 2.0
+	&gt;</code></pre>
+</div>
 		
 	</div>
 
