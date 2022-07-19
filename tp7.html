@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>✏️ TP 7 - Prog. objets niv.5 | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Par Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp3.html">
+				✏️ TP 3 - Calculatrice niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td3.html">
+				✍️ TD 3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp5.html">
+				✏️ TP 5 - Prog. objets niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp6.html">
+				✏️ TP 6 - Prog. objets niv.4
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	<h1 data-nb="26" id="✏️ TP 7 - Prog. objets niv.5">✏️ TP 7 - Prog. objets niv.5</h1>
+	
+
+	<p>Ce TP est la suite directe du TP 6.</p>
+
+	
+	<div class="exercice">
+<h2 data-nb="26.1" id="Question 1">Question 1</h2>
+<p>Il est temps d'ajouter quelques ennemis sur notre Terrain. Ils ne font rien, et ne bloquent pas le joueur pour le moment, mais ils sont affichés.</p>
+<video controls="" preload="none" src="img/tp6/q4.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li>Le Terrain et le Jeu doivent avoir chacun leur propre liste des Personnages ennemis: le Terrain pour pouvoir les dessiner, et le Jeu pour les
+				faire saluer et ainsi afficher leurs détails (nom, vie etc...). Donc ajouter les attributs là il faut. Les ennemis doivent être ajoutés <em>après</em>
+				l'instanciation du Jeu et du Terrain. Si on ajoute un ennemi au Terrain, attention à l'ajouter également au Jeu, pour que le dessin du terrain
+				<em>et</em> les salutations correspondent bien.
+			</li>
+<li>La création d'une méthode <code>avoir_ennemi_a_position()</code> dans la classe Terrain devrait vous aider. Elle prend en paramètres (en plus de
+				<code>self</code>) le x et y d'une case sur laquelle vous souhaitez savoir si un ennemi s'y trouve, et la méthode renvoie le premier ennemi sur
+				la case en question s'il y en a un ou plusieurs, <code>None</code> sinon. Elle sera utile pour dessiner le Terrain, et dans la classe Personnage
+				plus tard.
+			</li>
+<li>Pour vérifier que ça fonctionne: ajouter 2 ennemis au terrain, chacun avec un nom et un symbole différent pour leur affichage sur le terrain,
+				vous les voyez dans le Terrain, vous voyez leur salutation à chacun, et le joueur peut passer à travers.
+			</li>
+</ol>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="26.2" id="Question 2">Question 2</h2>
+<p>Désormais le joueur peut attaquer et tuer les ennemis en se déplaçant vers eux. Les dégâts sont affichés pendant une ou deux secondes. Le jeu
+			s'arrête lorsque tous les ennemis sont vaincus et un message de victoire est affiché. Si le joueur quitte avant, le message de game over est
+			affiché.</p>
+<video controls="" preload="none" src="img/tp6/q5.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li>Faites en sorte que les ennemis bloquent le joueur. Cela peut être fait dans la méthode de déplacement dans la classe Personnage, et vous pouvez
+				aussi utiliser la méthode <code>avoir_ennemi_a_position()</code> de la classe Terrain pour facilement avoir l'ennemi (s'il y en a un) qui se
+				trouve sur la case de destination du perso joueur quand celui-ci se déplace.
+			</li>
+<li>Le perso joueur attaque les ennemis vivants qui se trouve sur son chemin, mais ignore les morts.</li>
+<li>L'affichage des dégâts est effacé à chaque tour (à cause de <code>os.system()</code>) et il est donc impossible de lire ce qui se passe (quel
+				perso attaque qui). Pour corriger ça, utiliser la fonction <code>sleep()</code> du module <code>time</code>. Elle prend un paramètre: le nombre
+				de secondes à attendre. Quand cette fonction est appelée, le programme se met en pause pour la durée demandée, puis reprend à la ligne suivante
+				de l'appel de la fonction.
+			</li>
+<li>Les Personnages morts sont affichés différemment sur le Terrain par rapport à quand ils sont vivants, donc il vous faut un second caractère
+				d'affichage pour chaque perso.
+			</li>
+<li>Afficher un message de victoire ou de game over à la fin de la partie, selon comment le jeu se termine. De plus, en cas de victoire, attention à
+				bien afficher tout correctement pour le dernier affichage du Terrain: tous les ennemis sont bien affichés comme morts sur le Terrain et dans
+				leur salutation.
+			</li>
+</ol>
+		
+	</div>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
