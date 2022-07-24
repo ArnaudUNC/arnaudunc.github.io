@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 5 - Prog. objets niv.3 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 5 - Prog. objets niv.3 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -223,14 +223,14 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp4.html">
-				✏️ TP 4 - Prog. objets niv.2
+				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp5.html">
-				✏️ TP 5 - Prog. objets niv.3
+				✏️ TP 5 - Prog. objets niv.3 ✔️
 			</a>
 		</div>
 
@@ -254,7 +254,7 @@
 
 
 		
-	<h1 data-nb="24" id="✏️ TP 5 - Prog. objets niv.3">✏️ TP 5 - Prog. objets niv.3</h1>
+	<h1 data-nb="24" id="✏️ TP 5 - Prog. objets niv.3 ✔️">✏️ TP 5 - Prog. objets niv.3 ✔️</h1>
 	
 
 	<p>Ce TP est la suite directe du TP 4.</p>
@@ -272,6 +272,61 @@
 <p>Ces 3 attributs doivent être spécifiés lors de la création de chaque terrain, donc leur valeur initiale doit être spécifiée en paramètre du
 			constructeur.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ Nouvelle classe
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							# ↓ L'attribut perso pointera vers un objet instance de Personnage
+							self.perso = perso
+
+					# ↓ Rien de changé par rapport à la question précédente
+					class Personnage:
+						def __init__(self, nom_initial, pv_max):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -283,6 +338,63 @@
 <p>On veut aussi donner à chaque personnage la capacité de se dessiner. Pour cela chaque perso retient simplement un caractère qui le représente. Ce
 			caractère sera dans <em>l'attribut</em> <code>char_apparence</code>, et sa valeur initiale doit être passée en <em>paramètre</em> du constructeur,
 			pour qu'on puisse spécifier le caractère de chaque perso au moment de leur création. </p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ Rien de changé par rapport à la question précédente
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+
+					class Personnage:
+						# ↓ On a modifié le constructeur
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -313,6 +425,77 @@
 <p>Dans la console, les lignes sont bien plus hautes que la largeur d'un caractère, ce qui risque de donner un aspect "écrasé" horizontalement à votre
 			terrain. Pour contre-balancer ça, ajoutez un caractère espace après le caractère de chaque case (y compri celle où se trouve le perso), comme dans
 			l'exemple montré.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+						# ↓ On a ajouté cette méthode
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.char_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+					# ↓ Rien de changé par rapport à la question précédente
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+					# ↓ On instancie et on dessine un terrain et son perso
+					perso1 = Personnage("Toto", 100, "@", 2, 1)
+					terrain = Terrain(15, 10, perso1)
+					terrain.dessiner()
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -347,6 +530,107 @@ Bonjour, je suis Toto: vie= 100/100. Position=(0,0)
 <p>Créer une instance de Jeu, et le démarrer. Vous devriez avoir un résultat comme celui-ci:</p>
 <video controls="" preload="none" src="img/tp5/tp5 q4 crf30.mp4"></video>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ Aucune modification
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.char_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+
+						# ↓ Modifié
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								# ↓ Quand une ligne est trop longue visuellement en Python,
+								# on peut la couper avec le caractère \ suivi d'un saut de ligne.
+								# Un saut de ligne seul est interdit.
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					# ↓ Ajouté nouvelle classe
+					class Jeu:
+						def __init__(self, terrain, perso_heros):
+							self.terrain = terrain
+							self.perso_heros = perso_heros
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								self.terrain.dessiner()
+								self.perso_heros.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso_heros.position[0] -= 1
+								elif action_utilisateur == "d":
+									self.perso_heros.position[0] += 1
+								elif action_utilisateur == "z":
+									self.perso_heros.position[1] -= 1
+								elif action_utilisateur == "s":
+									self.perso_heros.position[1] += 1
+
+
+					perso1 = Personnage("Toto", 100, "@", 2, 1)
+					terrain = Terrain(15, 10, perso1)
+					# ↓ Création d'une instance de Jeu
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -363,6 +647,109 @@ Bonjour, je suis Toto: vie= 100/100. Position=(0,0)
 			pour "Operating System", système d'exploitation en anglais, et il fait partie de la bibliothèque standard de Python.</p>
 <p>Appelez "clear" au bon endroit de votre code pour obtenir ceci:</p>
 <video controls="" preload="none" src="img/tp5/tp5 q5 crf30.mp4"></video>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ On doit importer le module os pour avoir accès à sa fonction "system",
+					# qu'on utilise plus bas dans la méthode "démarrer()" de la classe "Jeu".
+					import os
+
+					# ↓ Aucune modification
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.char_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+					# ↓ Aucune modification
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+
+					class Jeu:
+						def __init__(self, terrain, perso_heros):
+							self.terrain = terrain
+							self.perso_heros = perso_heros
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								# ↓ Ajouté ces 2 lignes
+								# os.system("cls")  # si exécuté avec windows
+								os.system("clear") # si exécuté avec linux / mac (replit fonctionne avec linux)
+								self.terrain.dessiner()
+								self.perso_heros.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso_heros.position[0] -= 1
+								elif action_utilisateur == "d":
+									self.perso_heros.position[0] += 1
+								elif action_utilisateur == "z":
+									self.perso_heros.position[1] -= 1
+								elif action_utilisateur == "s":
+									self.perso_heros.position[1] += 1
+
+
+					perso1 = Personnage("Toto", 100, "@", 2, 1)
+					terrain = Terrain(15, 10, perso1)
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+</div>
 		
 	</div>
 

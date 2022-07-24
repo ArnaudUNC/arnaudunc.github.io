@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 4 - Prog. objets niv.2 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 4 - Prog. objets niv.2 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -223,14 +223,14 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp4.html">
-				✏️ TP 4 - Prog. objets niv.2
+				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp5.html">
-				✏️ TP 5 - Prog. objets niv.3
+				✏️ TP 5 - Prog. objets niv.3 ✔️
 			</a>
 		</div>
 
@@ -254,7 +254,7 @@
 
 
 		
-	<h1 data-nb="23" id="✏️ TP 4 - Prog. objets niv.2">✏️ TP 4 - Prog. objets niv.2</h1>
+	<h1 data-nb="23" id="✏️ TP 4 - Prog. objets niv.2 ✔️">✏️ TP 4 - Prog. objets niv.2 ✔️</h1>
 	
 
 	<p>Ce TP est la suite directe du TD 2, la partie sur les personnages.</p>
@@ -268,6 +268,29 @@
 			vie est 50"</p>
 <p>Exécuter votre programme et vérifier qu'il affiche bien le bon résultat, c'est à dire chacun dit bonjour avec un nom différent, et affiche la même
 			vie.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Personnage:
+						def __init__(self, nom_initial):
+							self.nom = nom_initial
+							# ↓ ajout de l'attribut "points_de_vie"
+							self.points_de_vie = 50
+
+						def saluer(self):
+							# ↓ affichage des points de vie dans la salutation
+							print("Bonjour, je suis", self.nom, ". Ma vie est", self.points_de_vie)
+
+					perso1 = Personnage("Toto")
+					perso2 = Personnage("Titi")
+
+					perso1.saluer()
+					perso2.saluer()
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour, je suis Toto . Ma vie est 50
+Bonjour, je suis Titi . Ma vie est 50</code></pre>
+</div>
 		
 	</div>
 
@@ -283,6 +306,71 @@
 <li>un personnage ne peut se soigner par cette méthode</li>
 </ul>
 <p>Tenter de blesser un de vos personnages, avec comme dégâts 20, puis -20, puis 100, puis -200.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Personnage:
+						def __init__(self, nom_initial):
+							self.nom = nom_initial
+							self.points_de_vie = 50
+
+						def saluer(self):
+							# ↓ Si le perso a des points de vie strictement positifs,
+							# donc s'il est vivant:
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie)
+							else:
+								# Sinon, il est mort.
+								print(self.nom, "est mort")
+
+						def blesser(self, points_de_dégâts):
+							# Si les points de dégâts à infliger sont strictement positifs:
+							if points_de_dégâts &gt; 0:
+								# ↓ On retient la vie avant les dégats, pour l'affichage plus bas
+								vie_avant_dégâts = self.points_de_vie
+								# ↓ On applique les dégâts
+								self.points_de_vie -= points_de_dégâts
+								# Si la vie est devenue négative:
+								if self.points_de_vie &lt; 0:
+									# ↓ On ramène la vie à zéro
+									self.points_de_vie = 0
+									# ↓ On affiche les dégâts réels, qui sont la vie du perso
+									# avant de subir les dégâts demandés
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									# ↓ Cet affichage correspond au cas où la vie du perso est toujours &gt;0
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								# Sinon, ici dans ce ce bloc "else",
+								# ça veut dire que les points de vie sont négatifs ou égaux à zéro.
+								print("Dégâts négatifs ou zéro interdits pour", self.nom,
+									"(", points_de_dégâts, ")")
+
+					perso = Personnage("Titi")
+
+					perso.saluer()
+					# ↓ On blesse Titi de 10 points
+					perso.blesser(10)
+					# ↓ On vérifie la vie de Titi a baissé de 10 points
+					perso.saluer()
+					# ↓ On essaye de blesser Titi de -10 points, ce qui doit être impossible
+					perso.blesser(-10)
+					# ↓ On vérifie que la vie de Titi n'a pas changé
+					perso.saluer()
+					# ↓ On tue Titi, on vérifie que le bon nombre de dégats sont infligés (40)
+					perso.blesser(100)
+					# ↓ On vérifie que Titi est mort
+					perso.saluer()
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour, je suis Titi ma vie est 50
+Titi subit 10 dégâts
+Bonjour, je suis Titi ma vie est 40
+Dégâts négatifs ou zéro interdits pour Titi ( -10 )
+Bonjour, je suis Titi ma vie est 40
+Titi subit 40 dégâts
+Titi est mort</code></pre>
+</div>
 		
 	</div>
 
@@ -300,6 +388,77 @@
 <p>Tentez de soigner un de vos personnages, avec comme soins 20, puis -20, puis 100, puis -200.</p>
 <p>Blessez un de vos personnages avec 100 points de dégâts, et tentez de le soigner de 100 points de vie.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Personnage:
+						def __init__(self, nom_initial):
+							self.nom = nom_initial
+							self.points_de_vie = 50
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								# ↓ l'instruction return termine l'execution de la fonction immédiatement.
+								# Si on ne specifie pas de valeur de retour, None est retourné par défaut.
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							self.points_de_vie += points_de_soin
+							print(self.nom, "est soigné de", points_de_soin, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+
+					perso1 = Personnage("Toto")
+					perso1.saluer()
+					# ↓ Toto aura 50 + 20 = 70 points de vie après cet appel
+					perso1.soigner(20)
+					# ↓ Normalement impossible, donc la vie de Toto ne devrait pas bouger
+					perso1.soigner(-20)
+					# ↓ Toto aura 70 + 100 = 170 points de vie après cet appel
+					perso1.soigner(100)
+					# ↓ Normalement impossible, donc la vie de Toto ne devrait pas bouger
+					perso1.soigner(-200)
+					perso1.saluer()
+
+					perso2 = Personnage("Titi")
+					perso2.saluer()
+					# ↓ On tue Titi
+					perso2.blesser(100)
+					# ↓ Impossible de soigner et ressuciter Titi, il doit rester mort
+					perso2.soigner(100)
+					perso2.saluer()
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour, je suis Toto ma vie est 50
+Toto est soigné de 20 points
+Soins négatifs, impossible
+Toto est soigné de 100 points
+Soins négatifs, impossible
+Bonjour, je suis Toto ma vie est 170
+Bonjour, je suis Titi ma vie est 50
+Titi subit 50 dégâts
+Impossible de soigner un perso mort
+Titi est mort</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -312,6 +471,68 @@
 <p>Veiller à ce qu'un personnage ne peut être soigné au-delà de sa vie maximale. Blessez un de vos personnages, sans le tuer, puis soignez-le
 			<em>plus</em> qu'il n'a été blessé. Vérifiez qu'il est impossible de le soigner au-delà de sa vie maximale.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Personnage:
+						# ↓ On a ajouté un paramètre (pv_max) au constructeur,
+						# donc désormais il faudra spécifier la vie d'un perso au moment de sa création.
+						def __init__(self, nom_initial, pv_max):
+							self.nom = nom_initial
+							# ↓ On créé et initialise les deux attributs à la même valeur
+							self.points_de_vie = self.points_de_vie_max = pv_max
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								# ↓ On a ajouté l'affichage des points de vie max
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							# ↓ On vérifie dans le code ci-dessous qu'on ne dépasse jamais la vie max,
+							# et que l'affichage indique uniquement les véritables soins effectués,
+							# et pas juste les points de soin demandés.
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+					# ↓ On spécifie la vie maximum de Toto à 100, et il commence avec sa vie à 100 également
+					perso1 = Personnage("Toto", 100)
+					perso1.saluer()
+					perso1.blesser(20)
+					# ↓ Toto n'est soigné que de 20 points de vie au lieu de 40, pour ne pas dépasser sa vie max
+					perso1.soigner(40)
+					perso1.saluer()
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour, je suis Toto ma vie est 100 / 100
+Toto subit 20 dégâts
+Toto est soigné de 20 points
+Bonjour, je suis Toto ma vie est 100 / 100</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -321,6 +542,74 @@
 			cible. Chaque attaque d'un personnage provoque toujours 25 points de dégâts.</p>
 <p>Lors d'une attaque, on veut lire dans la console un message qui dit que le personnage attaquant attaque le personnage cible pour 25 dégâts, par
 			exemple "Toto attaque Titi pour 25 dégâts". Puis sur une seconde ligne on doit lire "Titi subit 25 dégâts".</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Personnage:
+						def __init__(self, nom_initial, pv_max):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						# ↓ Cette méthode a besoin d'un paramètre qu'on nomme par exemple perso_cible,
+						# qui est le Personnage cible qui va subir l'attaque venant de l'objet représenté par self.
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							# ↓ On appelle la méthode blesser de l'objet cible, qu'on suppose être de type Personnage,
+							# et on spécifie 25 points de dégâts comme demandé dans l'énoncé de la question.
+							perso_cible.blesser(25)
+
+
+					perso1 = Personnage("Toto", 100)
+					perso2 = Personnage("Titi", 60)
+
+					perso1.saluer()
+					perso2.saluer()
+					# ↓ Appel de la méthode attaquer: c'est perso1 qui attaque perso2
+					perso1.attaquer(perso2)
+					perso1.saluer()
+					perso2.saluer()
+				</code></pre>
+<pre class="affichage_console"><code>
+Bonjour, je suis Toto ma vie est 100 / 100
+Bonjour, je suis Titi ma vie est 60 / 60
+Toto attaque Titi
+Titi subit 25 dégâts
+Bonjour, je suis Toto ma vie est 100 / 100
+Bonjour, je suis Titi ma vie est 35 / 60</code></pre>
+</div>
 		
 	</div>
 
