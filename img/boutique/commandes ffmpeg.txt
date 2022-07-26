@@ -1,0 +1,16 @@
+ffmpeg -i exo2.mp4 -vcodec libx264 -crf 30 -an exo2_crf30.mp4
+ffmpeg -i exo2_erreur_ajout_code.mp4 -vcodec libx264 -crf 30 -an exo2_erreur_ajout_code_crf30.mp4
+ffmpeg -i exo2_erreur_ajout_quantite_insufisante.mp4 -vcodec libx264 -crf 30 -an exo2_erreur_ajout_quantite_insufisante_crf30.mp4
+ffmpeg -i exo2_erreur_ajout_quantite_pas_entier.mp4 -vcodec libx264 -crf 30 -an exo2_erreur_ajout_quantite_pas_entier_crf30.mp4
+ffmpeg -i exo2_erreur_ajout_argent_insuffisant.mp4 -vcodec libx264 -crf 30 -an exo2_erreur_ajout_argent_insuffisant_crf30.mp4
+ffmpeg -i exo2_erreur_suppression_code.mp4 -vcodec libx264 -crf 30 -an exo2_erreur_suppression_code_crf30.mp4
+
+
+
+
+ffmpeg -i exo3_achat_vente.mp4 -vcodec libx264 -crf 30 -an exo3_achat_vente_crf30.mp4
+ffmpeg -i exo3_ajout_suppr_vendeur.mp4 -vcodec libx264 -crf 30 -an exo3_ajout_suppr_vendeur_crf30.mp4
+ffmpeg -i exo3_code_achat_inexistant.mp4 -vcodec libx264 -crf 30 -an exo3_code_achat_inexistant_crf30.mp4
+ffmpeg -i exo3_modif_vendeur.mp4 -vcodec libx264 -crf 30 -an exo3_modif_vendeur_crf30.mp4
+ffmpeg -i exo3_modif_produits.mp4 -vcodec libx264 -crf 30 -an exo3_modif_produits_crf30.mp4
+ffmpeg -i exo3_sauvegarde_boutique.mp4 -vcodec libx264 -crf 30 -an exo3_sauvegarde_boutique_crf30.mp4
