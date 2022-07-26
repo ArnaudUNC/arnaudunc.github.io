@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Compréhension de listes et dictionnaires | Algo et prog 2 en Python</title>
+	<title>✏️ TP 9 - Boutique niv.2 | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -164,105 +164,105 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_compr_listes.html">
 				Compréhension de listes et dictionnaires
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_manip_fich_texte.html">
 				Manipulation de fichiers texte
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
 				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td2.html">
 				✍️ TD 2 - Prog. objets niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
 				✏️ TP 2 - Calculatrice niv.3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp3.html">
 				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td3.html">
 				✍️ TD 3
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp4.html">
 				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp5.html">
 				✏️ TP 5 - Prog. objets niv.3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2022.html">
 				📝 Contrôle continu 1
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp6.html">
 				✏️ TP 6 - Prog. objets niv.4
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp7.html">
 				✏️ TP 7 - Prog. objets niv.5
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp_boutique_1.html">
 				✏️ TP 8 - Boutique niv.1
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_boutique_2.html">
 				✏️ TP 9 - Boutique niv.2
@@ -275,54 +275,75 @@
 
 
 		
-	
-	<h1 data-nb="15" id="Compréhension de listes et dictionnaires">Compréhension de listes et dictionnaires</h1>
-<h2 data-nb="15.1" id="Listes">Listes</h2>
-<p>Une compréhension de liste est une facilité d'écriture qui permet de créer des listes de façon concise, donc en écrivant très peu de code. Typiquement on
-		s'en sert pour créer des listes dont chaque élément est le résultat d'une opération appliquée à chaque élément d'un autre <code>iterable</code>.</p>
-<p>Prenons un exemple. On veut créer une liste de nombres entre 0 et 9 élevés au carré. De façon classique, sans compréhension, on ferait:</p>
-<pre><code class="language-python">
-		carrés = []
-		for x in range(10):
-			carrés.append(x**2)
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Avec une compréhension de liste, on peut écrire:</p>
-<pre><code class="language-python">
-		carrés = [x**2 for x in range(10)]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Notez que cette écriture est plus courte. Un autre bénéfice est que la variable <code>x</code> est "locale" à la compréhension, elle n'existe plus après
-		son exécution, ce qui est une bonne chose, contrairement à la boucle <code>for</code> qui a créé <code>x</code> qui existe encore après la boucle.</p>
-<p>Une compréhension est une expression, elle s'évalue donc à une seule valeur, et est d'un certain type, qui dans le cas d'une compréhension de liste sera
-		le type <code>list</code>. On peut lire cette compréhension <code>[x**2 for x in range(10)]</code> de la manière suivante: "une nouvelle liste qui
-		contient x élevé à la puissance 2 pour chaque x dans l'intervalle 0 inclus à 10 exclu".</p>
-<p>On peut aussi ne considérer que certains éléments avec un <code>if</code> facultatif et une expression booléenne.</p>
-<pre><code class="language-python">
-		L = [-4, -2, 0, 2, 4]
-		carrés = [x for x in L if x &gt;= 0]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 2, 4]</code></p>
-<p>On lit cette compréhension <code>[x for x in L if x &gt;= 0]</code> de la manière suivante: "une nouvelle liste qui contient x pour chaque x dans L si x est
-		plus grand ou égal à zéro".</p>
-
-	
+	<h1 data-nb="29" id="✏️ TP 9 - Boutique niv.2">✏️ TP 9 - Boutique niv.2</h1>
 	
 
-	<h2 data-nb="15.3" id="Dictionnaires">Dictionnaires</h2>
-<p>Ils supportent aussi l'écriture concise sous forme de compréhension. Par exemple:</p>
-<pre><code class="language-python">
-		d = {x: x**2 for x in (2, 4, 6)}
-		print(d)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>{2: 4, 4: 16, 6: 36}</code></p>
+
+	<div class="exercice">
+<h2 data-nb="29.1" id="Question 1: améliorer les couleurs des messages">Question 1: améliorer les couleurs des messages</h2>
+<p>On veut trois catégories de messages pour informer l'utilisateur, avec des couleurs différentes:</p>
+<ul>
+<li>Les messages d'erreur doivent être en rouge</li>
+<li>Les messages d'information doivent être en jaune</li>
+<li>Les messages de confirmation doivent être en vert</li>
+</ul>
+<h2 data-nb="29.2" id="Question 2: message d'erreur immédiat en cas d'achat d'un produit inexistant">Question 2: message d'erreur immédiat en cas d'achat d'un produit inexistant</h2>
+<p>Un petit détail, mais le genre qui compte beaucoup pour le confort de l'utilisateur: dans la version précédente du programme, quand on achète un
+			produit, si le code produit entré par l'utilisateur n'existe pas, le message d'erreur s'affiche APRES avoir entré la quantité à acheter. Il ne
+			faudrait même pas demander la quantité à l'utilisateur si le code est inexistant ↓</p>
+<video controls="" preload="none" src="img/boutique/exo3_code_achat_inexistant_crf30.mp4"></video>
+<h2 data-nb="29.3" id="Question 3: lettres significatives sont soulignées dans les options des menus">Question 3: lettres significatives sont soulignées dans les options des menus</h2>
+<p>A chaque fois que l'utilisateur doit faire un choix d'action, la ou les lettres qu'il doit écrire sont soulignées si elles correspondent à des
+			raccourcis. Par exemple souligner la lettre "q" dans l'option "Quitter" si l'action à entrer est "q", ce qui donne <code><span style="text-decoration: underline">Q</span>uitter</code>. Ou encore <code><span style="text-decoration: underline">S</span>upprimer <span style="text-decoration: underline">p</span>roduit</code> si l'action à entrer est "sp".</p>
+<h2 data-nb="29.4" id="Question 4: ajout sous-menu pour modification des vendeurs et leurs produits">Question 4: ajout sous-menu pour modification des vendeurs et leurs produits</h2>
+<p>En plus de faire ses achats, l'utilisateur peut prendre le rôle de gestionnaire du marché et le modifier. Cela est sans "protection" pour le moment,
+			mais libre à vous d'ajouter la demande d'un mot de passe si vous le souhaitez. Réorganisez le menu du programme en menu principal et 2 sous-menus
+			pour les achats et pour les ventes. Ajouter un sous-menu de vente qui propose les actions suivantes (les actions en elles-mêmes seront détaillées et
+			à faire dans les questions suivantes):</p>
+<ul>
+<li>Modifier les vendeurs existants</li>
+<li>Supprimer des vendeurs</li>
+<li>Ajouter des nouveaux vendeurs</li>
+</ul>
+<video controls="" preload="none" src="img/boutique/exo3_achat_vente_crf30.mp4"></video>
+<h2 data-nb="29.5" id="Question 5: ajout / suppression de vendeurs">Question 5: ajout / suppression de vendeurs</h2>
+<p>Implémenter les options pour créer des nouveaux vendeurs (sans leurs produits, ça se fera par l'option de modification d'un vendeur) et aussi pour
+			supprimer des vendeurs, avec gestion des erreurs et messages de confirmation que la modification a bien été faite ↓</p>
+<video controls="" preload="none" src="img/boutique/exo3_ajout_suppr_vendeur_crf30.mp4"></video>
+<h2 data-nb="29.6" id="Question 6: modification de vendeurs">Question 6: modification de vendeurs</h2>
+<p>Implémenter les options pour modifier des vendeurs. Ces options doivent être dans un sous-menu de modification d'un vendeur en particulier, et
+			permettent de faire les actions suivantes:</p>
+<ul>
+<li>
+<p>Modifier nom, métier et portrait d'un vendeur, avec gestion des erreurs et messages de confirmation que la modification a bien été faite
+					↓</p>
+<video controls="" preload="none" src="img/boutique/exo3_modif_vendeur_crf30.mp4"></video>
+</li>
+<li>
+<p>Ajouter et supprimer des produits pour un vendeur, avec gestion des erreurs et messages de confirmation que la modification a bien été faite
+					↓</p>
+<video controls="" preload="none" src="img/boutique/exo3_modif_produits_crf30.mp4"></video>
+</li>
+</ul>
+<h2 data-nb="29.7" id="Question 7: sauvegarde et chargement de la boutique">Question 7: sauvegarde et chargement de la boutique</h2>
+<p>Faire en sorte que la boutique soit chargée automatiquement depuis un fichier au lancement du programme, et sauvegardée automatiquement dans le même
+			fichier lorsqu'on quitte le programme.</p>
+<video controls="" preload="none" src="img/boutique/exo3_sauvegarde_boutique_crf30.mp4"></video>
+		
+		
+		
+		  
+		  
+		
+		
+		
+		
+		
+		
+		
+
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
