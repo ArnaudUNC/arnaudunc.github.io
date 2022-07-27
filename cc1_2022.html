@@ -276,7 +276,9 @@
 
 		
 	<h1 data-nb="25" id="📝 Contrôle continu 1">📝 Contrôle continu 1</h1>
-<div class="exercice">
+	
+
+	<div class="exercice">
 <ul>
 <li><strong>A faire seul ou en binôme</strong></li>
 <li><strong>Date début:</strong> mardi 26 juillet 2022</li>
@@ -438,7 +440,7 @@ ____________________________________
 <li>
 <p>(1 point) le nom des colonnes (A, B, C...) doit être centré dans les colonnes et entouré de caractères _, c'est-à-dire qu'il faut afficher
 					<br/>
-<code>|__A___| __B___|</code>
+<code>|__A___|__B___|</code>
 <br/>
 					et PAS <code>|A_____|B_____|</code>
 <br/>
@@ -465,10 +467,10 @@ ____________________________________
 <p>15 points à marquer.</p>
 <p>A la fin de ce niveau, le programme propose un menu à l'utilisateur qui lui permet de modifier la valeur de chaque cellule du tableau. Il pourra aussi
 		contrôler la largeur d'affichage des colonnes du tableau.</p>
-<video controls="" preload="none" src="img/CC1 2022/niv2.webm"></video>
 
 	
 	<h3 data-nb="25.4.1" id="1 - Le menu">1 - Le menu</h3>
+<video controls="" preload="none" src="img/CC_tableur/niv2.1.webm"></video>
 <ol>
 <li><p>(1 point) le programme affiche le tableau, puis un menu textuel, et attend le choix de l'utilisateur. Quand l'utilisateur choisit une option
 			existante, le programme exécute l'action, puis ré-affiche le tableau, le menu et attend à nouveau une action à effectuer. Il se répète ainsi tant
@@ -479,7 +481,7 @@ ____________________________________
 </ol>
 	
 	<h3 data-nb="25.4.2" id="2 - Modification des données des cellules">2 - Modification des données des cellules</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv2.2.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv2.2.webm"></video>
 <ol>
 <li><p>(1 point) à l'aide d'une option dans le menu, permettre à l'utilisateur de donner / modifier la valeur d'une cellule du tableau. On considère
 			toute valeur entrée comme une chaîne de caractères pour type de donnée, pour le moment. Le programme demande le nom d'une cellule, par exemple A1,
@@ -502,7 +504,7 @@ ____________________________________
 </ol>
 	
 	<h3 data-nb="25.4.3" id="3 - Modification de la largeur des colonnes">3 - Modification de la largeur des colonnes</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv2.3.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv2.3.webm"></video>
 <ol>
 <li><p>(1 point) ajouter une option dans le menu pour modifier la largeur <strong>par défaut</strong> de toutes les colonnes. Le programme demande une
 			largeur en caractères, et toutes les colonnes auront ensuite cette largeur (sauf celles avec une largeur spécifique, voir plus bas) tant que
@@ -539,7 +541,7 @@ ____________________________________
 
 	
 	<h3 data-nb="25.5.1" id="1 - Ajout de colonnes">1 - Ajout de colonnes</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv3.1.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv3.1.webm"></video>
 <ol>
 <li><p>(1 point) ajouter une option dans le menu pour ajouter une nouvelle colonne <strong>à la fin</strong> (après dernière colonne).</p></li>
 <li><p>(0.5 point) si lors de l'ajout d'une colonne <strong>à la fin</strong> le tableau a déjà le maximum de colonnes (voir description de ce niveau),
@@ -558,7 +560,7 @@ ____________________________________
 			ce niveau), afficher un message qui le précise, ne rien faire, et retour au menu.</p></li>
 <li><p>(1 point) quand on ajoute une colonne, peu importe où, les largeurs spécifiques des colonnes existantes sont préservées, et les nouvelles ont la
 			largeur par défaut.</p>
-<video controls="" preload="none" src="img/CC1 2022/niv3.1.9.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv3.1.9.webm"></video>
 <p>Exemple: la colonne B a une largeur spécifique de 10 et la largeur par défaut est de 6. Si on ajoute une colonne à gauche de B, l'ancienne
 				colonne B devient la colonne C, ainsi après l'ajout de la nouvelle colonne B aura une largeur de 6 et C de 10, et il sera de même pour toutes
 				les colonnes décalées. A par contre reste inchangée car elle n'est pas affectée par l'ajout de la nouvelle colonne.</p></li>
@@ -566,7 +568,7 @@ ____________________________________
 
 	
 	<h3 data-nb="25.5.2" id="2 - Suppression de colonnes">2 - Suppression de colonnes</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv3.2.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv3.2.webm"></video>
 <ol>
 <li><p>(1 point) ajouter une option dans le menu pour supprimer une colonne. Le programme demande le nom d'une colonne existante, puis la supprime.</p>
 </li>
@@ -581,7 +583,7 @@ ____________________________________
 
 	
 	<h3 data-nb="25.5.3" id="3 - Ajout de lignes">3 - Ajout de lignes</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv3.3.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv3.3.webm"></video>
 <ol>
 <li><p>(1 point) ajouter une option dans le menu pour ajouter une nouvelle ligne <strong>à la fin</strong> (après dernière ligne).</p></li>
 <li><p>(0.5 point) si lors de l'ajout d'une ligne <strong>à la fin</strong> le tableau a déjà le maximum de lignes (voir description de ce niveau),
@@ -603,7 +605,7 @@ ____________________________________
 
 	
 	<h3 data-nb="25.5.4" id="4 - Suppression de lignes">4 - Suppression de lignes</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv3.4.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv3.4.webm"></video>
 <ol>
 <li><p>(1 point) ajouter une option dans le menu pour supprimer une ligne. Le programme demande le numéro d'une ligne existante (sachant que la première
 			pour l'utilisateur est la ligne 1), puis la supprime.</p></li>
@@ -619,7 +621,7 @@ ____________________________________
 	<h2 data-nb="25.6" id="Niveau 4: sauvegarde dans des fichiers">Niveau 4: sauvegarde dans des fichiers</h2>
 <p>8 points à marquer.</p>
 <p>A la fin de ce niveau, le programme permet à l'utilisateur d'enregistrer et charger le tableau vers / depuis des fichiers .csv.</p>
-<video controls="" preload="none" src="img/CC1 2022/niv4.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv4.webm"></video>
 	
 	<h3 data-nb="25.6.1" id="1 - Sauvegarde">1 - Sauvegarde</h3>
 <ol>
@@ -663,7 +665,7 @@ ____________________________________
 		doit pouvoir écrire plusieurs opérateurs + - * / dans une même formule, et le calul se fera correctement, c'est à dire <strong>en respectant l'ordre des
 			priorités</strong>. On suppose qu'il y a toujours au moins un caractère espace entre les opérateurs et les opérandes, mais il peut y en avoir plus,
 		y compris au début et à la fin de l'expression.</p>
-<video controls="" preload="none" src="img/CC1 2022/niv5.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv5.webm"></video>
 <ol>
 <li><p>(2 points) ajouter le support des formules dans les cellules, c'est à dire que chaque cellule reconnait automatiquement quand sa valeur est une
 			formule, et elle affiche le résultat <strong>correct</strong> de sa formule. En cas d'expression invalide, afficher <code>#Err</code> dans la
@@ -692,7 +694,7 @@ ____________________________________
 
 	
 	<h3 data-nb="25.8.1" id="1 - Support des références vers des valeurs simples">1 - Support des références vers des valeurs simples</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv6.1.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv6.1.webm"></video>
 <ol>
 <li><p>(2 points) les opérandes dans les formules peuvent aussi être des noms de cellules du tableau, le calcul se fera alors en utilisant la valeur des
 			cellules ainsi référencées. On ne considère pas les cas où une cellule référencée est aussi elle-même une formule, on ne considère que les
@@ -707,7 +709,7 @@ ____________________________________
 </ol>
 	
 	<h3 data-nb="25.8.2" id="2 - Maintien des références en cas d'ajout et suppression de lignes et colonnes">2 - Maintien des références en cas d'ajout et suppression de lignes et colonnes</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv6.2.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv6.2.webm"></video>
 <p>Attention lors d'ajout / suppression de lignes et colonnes, les cellules "bougent" dans le tableau, et donc les références aux cellules doivent être
 		changées de façon à garder les formules correctes. Et une référence vers une cellule dans une ligne ou colonne supprimée devient erronée. Si les
 		formules deviennent erronées leur cellule affiche <code>#Err</code>. On ne prend pas en compte les boucles, c'est-à-dire quand deux ou plusieurs
@@ -735,7 +737,7 @@ ____________________________________
 </ol>
 	
 	<h3 data-nb="25.8.3" id="3 - Support des références vers d'autres formules">3 - Support des références vers d'autres formules</h3>
-<video controls="" preload="none" src="img/CC1 2022/niv6.3.webm"></video>
+<video controls="" preload="none" src="img/CC_tableur/niv6.3.webm"></video>
 <ol>
 <li><p>(3 points bonus) Ajouter le support des références dans une formule vers d'autres cellules de type formule, qui peuvent elles-mêmes contenir des
 			références et ainsi de suite. On ne prend toujours pas en compte les boucles (cellules qui finissent par se référencer elles-mêmes)</p></li>
