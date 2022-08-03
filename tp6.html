@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 6 - Prog. objets niv.4 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 6 - Prog. objets niv.4 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -244,7 +244,7 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp6.html">
-				✏️ TP 6 - Prog. objets niv.4
+				✏️ TP 6 - Prog. objets niv.4 ✔️
 			</a>
 		</div>
 
@@ -275,7 +275,7 @@
 
 
 		
-	<h1 data-nb="26" id="✏️ TP 6 - Prog. objets niv.4">✏️ TP 6 - Prog. objets niv.4</h1>
+	<h1 data-nb="26" id="✏️ TP 6 - Prog. objets niv.4 ✔️">✏️ TP 6 - Prog. objets niv.4 ✔️</h1>
 	
 
 	<p>Ce TP est la suite directe du TP 5.</p>
@@ -307,6 +307,126 @@
 <li>Vérifier que ça fonctionne: le perso ne devrait plus pouvoir sortir du terrain.</li>
 </ol>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					import os
+
+					class Personnage:
+						# ↓ On a ajouté le paramètre terrain, et l'attribut du même nom,
+						# ce qui permettra à chaque Personnage de savoir
+						# sur quel Terrain il existera.
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y, terrain):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+							self.terrain = terrain
+
+						# ↓ On a ajouté cette méthode
+						def déplacer(self, déplacement_x, déplacement_y):
+							if 0 &lt;= self.position[0] + déplacement_x &lt; self.terrain.taille_x:
+								self.position[0] += déplacement_x
+							if 0 &lt;= self.position[1] + déplacement_y &lt; self.terrain.taille_y:
+								self.position[1] += déplacement_y
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					class Terrain:
+						# ↓ On a retiré le paramètre perso,
+						# et initialisé l'attribut perso à None.
+						# Il faudra lui donner une valeur APRES l'instanciation du Terrain,
+						# voir en fin de programme.
+						def __init__(self, taille_x, taille_y):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = None
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									perso_présent_sur_case = False
+									if self.perso.position == [i, j]:
+										ligne += self.perso.char_apparence + " "
+										perso_présent_sur_case = True
+									if not perso_présent_sur_case:
+										ligne += "· "
+								print(ligne)
+
+
+					class Jeu:
+						def __init__(self, terrain, perso):
+							self.terrain = terrain
+							self.perso = perso
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								os.system("cls")
+								self.terrain.dessiner()
+								self.perso.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso.déplacer(-1, 0)
+								elif action_utilisateur == "d":
+									self.perso.déplacer(1, 0)
+								elif action_utilisateur == "z":
+									self.perso.déplacer(0, -1)
+								elif action_utilisateur == "s":
+									self.perso.déplacer(0, 1)
+
+
+					terrain = Terrain(5, 5)
+					perso1 = Personnage("Toto", 100, "@", 2, 1, terrain)
+					# ↓ On n'oublie pas donner une valeur à l'attribut "perso" du terrain,
+					# après la création du Personnage
+					terrain.perso = perso1
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+<p>Remarque: on est obligé de retirer le paramètre "perso" du constructeur de Terrain, car alors on aurait une situation "circulaire" impossible
+					à satisfaire: il faudrait un Terrain pour construire un Personnage, mais il faudraitt aussi le Personnage pour construire le Terrain
+					associé. Dans ce genre de situation l'une des deux entités doit être initialisée en deux temps comme dans ce cas présent.</p>
+</div>
+		
 	</div>
 
 	
@@ -333,6 +453,128 @@
 			</li>
 </ol>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					import os
+
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y, terrain):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+							self.terrain = terrain
+
+						def déplacer(self, déplacement_x, déplacement_y):
+							if 0 &lt;= self.position[0] + déplacement_x &lt; self.terrain.taille_x:
+								self.position[0] += déplacement_x
+							if 0 &lt;= self.position[1] + déplacement_y &lt; self.terrain.taille_y:
+								self.position[1] += déplacement_y
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					class Terrain:
+						def __init__(self, taille_x, taille_y):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = None
+							# ↓ Ajout du tableau à deux dimensions qui contiendra les murs.
+							# Chaque case contiendra la valeur None si pas de mur à sa position,
+							# ou le int 0 si un mur est présent.
+							# On utilise une "compréhension" de liste pour avoir un tableau 2d facilement,
+							# si vous ne savez pas ce que c'est voir le CM4, structures de données.
+							self.cases = [[None for j in range(taille_y)] for i in range(taille_x)]
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								# ↓ Maintenant on dessine aussi les murs quand ils sont présents
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.char_apparence + " "
+									elif self.cases[i][j] == 0:
+										ligne += "██"
+									else:
+										ligne += "· "
+								print(ligne)
+
+
+					class Jeu:
+						def __init__(self, terrain, perso):
+							self.terrain = terrain
+							self.perso = perso
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								os.system("cls")
+								self.terrain.dessiner()
+								self.perso.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso.déplacer(-1, 0)
+								elif action_utilisateur == "d":
+									self.perso.déplacer(1, 0)
+								elif action_utilisateur == "z":
+									self.perso.déplacer(0, -1)
+								elif action_utilisateur == "s":
+									self.perso.déplacer(0, 1)
+
+
+					terrain = Terrain(5, 5)
+					perso1 = Personnage("Toto", 100, "@", 2, 1, terrain)
+					terrain.perso = perso1
+					# ↓ On rajoute des murs "manuellement" un par un une fois le Terrain créé
+					terrain.cases[0][0] = 0
+					terrain.cases[1][0] = 0
+					terrain.cases[2][0] = 0
+					terrain.cases[2][1] = 0
+					terrain.cases[2][2] = 0
+					terrain.cases[2][3] = 0
+					terrain.cases[3][3] = 0
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -347,6 +589,156 @@
 <li>Sur votre Terrain, créez une pièce, des murs et divers obstacles.</li>
 <li>Vérifiez que le perso du joueur est bloqué par les murs.</li>
 </ol>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					import os
+
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, char_apparence, x, y, terrain):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.char_apparence = char_apparence
+							self.terrain = terrain
+
+						def déplacer(self, déplacement_x, déplacement_y):
+							nouveau_x = self.position[0] + déplacement_x
+							nouveau_y = self.position[1] + déplacement_y
+							# ↓ On rajoute cette contrainte: on teste si aucun mur à la future position du Personnage.
+							# Si on teste en dehors du Terrain (ce qui cause un IndexError) ou bien
+							# si il y a un zéro dans la future case (ce qui signifie la présence d'un mur),
+							# alors on termine immédiatement la fonction avec l'instruction "return".
+							try:
+								aucun_obstacle = self.terrain.cases[nouveau_x][nouveau_y] != 0
+							except IndexError:
+								return
+							if not aucun_obstacle:
+								return
+							if 0 &lt;= nouveau_x &lt; self.terrain.taille_x:
+								self.position[0] = nouveau_x
+							if 0 &lt;= nouveau_y &lt; self.terrain.taille_y:
+								self.position[1] = nouveau_y
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					class Terrain:
+						def __init__(self, taille_x, taille_y):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = None
+							self.cases = [[None for j in range(taille_y)] for i in range(taille_x)]
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.char_apparence + " "
+									elif self.cases[i][j] == 0:
+										ligne += "██"
+									else:
+										ligne += "· "
+								print(ligne)
+
+
+					class Jeu:
+						def __init__(self, terrain, perso: Personnage):
+							self.terrain = terrain
+							self.perso = perso
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								os.system("cls")
+								self.terrain.dessiner()
+								self.perso.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso.déplacer(-1, 0)
+								elif action_utilisateur == "d":
+									self.perso.déplacer(1, 0)
+								elif action_utilisateur == "z":
+									self.perso.déplacer(0, -1)
+								elif action_utilisateur == "s":
+									self.perso.déplacer(0, 1)
+
+
+					terrain = Terrain(10, 10)
+					perso1 = Personnage("Toto", 100, "@", 1, 1, terrain)
+					terrain.perso = perso1
+					# ↓ On place des murs pour former des obstacles un peu intéressants,
+					# comme une pièce par exemple.
+					# mur haut gauche
+					terrain.cases[0][0] = 0
+					terrain.cases[1][0] = 0
+					terrain.cases[2][0] = 0
+					terrain.cases[2][1] = 0
+					terrain.cases[2][2] = 0
+					terrain.cases[2][3] = 0
+					terrain.cases[3][3] = 0
+					# pièce en bas
+					terrain.cases[4][9] = 0
+					terrain.cases[5][9] = 0
+					terrain.cases[6][9] = 0
+					terrain.cases[7][9] = 0
+					terrain.cases[8][9] = 0
+
+					terrain.cases[4][8] = 0
+					terrain.cases[4][7] = 0
+					terrain.cases[4][6] = 0
+
+					terrain.cases[8][8] = 0
+					terrain.cases[8][7] = 0
+					terrain.cases[8][6] = 0
+
+					terrain.cases[6][6] = 0
+					terrain.cases[7][6] = 0
+
+					terrain.cases[3][7] = 0
+					terrain.cases[2][7] = 0
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+</div>
 		
 	</div>
 

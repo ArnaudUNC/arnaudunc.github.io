@@ -244,7 +244,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp6.html">
-				✏️ TP 6 - Prog. objets niv.4
+				✏️ TP 6 - Prog. objets niv.4 ✔️
 			</a>
 		</div>
 
@@ -480,6 +480,9 @@
 			var_globale = 8
 			# La variable globale est bien modifiée
 	</code></pre>
+<p>La fonction built-in <a href="https://docs.python.org/fr/3/library/functions.html?highlight=vars#globals"><code>globals()</code></a>, peu importe où elle
+		est appelée, retourne toujours un dictionnaire qui contient tous les identifiants du contexte global du module dans lequel elle est appelée et leurs
+		objets associés.</p>
 
 	
 	<h3 data-nb="13.5.3" id="Dans les fonctions: les variables locales">Dans les fonctions: les variables locales</h3>
@@ -489,7 +492,7 @@
 <p>Ici on parle bien des indetifiants, et pas des objets qu'elles référencent, qu'il ne faut pas confondre. Par exemple si vous créez une liste dans une
 		fonction, la stockez dans une variable locale L, puis retournez L, la variable L n'existe plus lorsque la fonction a fini son execution, mais la liste
 		si, et peut être utilisée ensuite en dehors de la fonction au travers d'autres variables.</p>
-<p>La fonction <code>locals()</code> retourne la liste de toutes les variables locales et leur valeur associée, dans le contexte dans lequel
+<p>La fonction <a href="https://docs.python.org/fr/3/library/functions.html#locals"><code>locals()</code></a> retourne la liste de toutes les variables locales et leur valeur associée, dans le contexte dans lequel
 		<code>locals()</code> est appelée, dans une fonction, ou en dehors. Si appelée en dehors d'une fonction, elle se comporte comme <code>globals()</code>.
 	</p>
 

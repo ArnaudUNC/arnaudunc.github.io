@@ -244,7 +244,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp6.html">
-				✏️ TP 6 - Prog. objets niv.4
+				✏️ TP 6 - Prog. objets niv.4 ✔️
 			</a>
 		</div>
 
@@ -286,8 +286,8 @@
 <p>On va créer un terrain, dans lequel les personnages seront visibles, et pourront se déplacer. Un terrain sera représenté visuellement dans la console
 			comme un tableau de caractères à deux dimensions, et on affichera sur chaque case le caractère <code>"·"</code> là où il n'y a aucun personnage, ou
 			un autre caractère là où se situera le personnage du joueur.</p>
-<p>Cela se fera grâce à une classe <code>Terrain</code>, donc créer la classe, et grâce à son constructeur, chaque instance de <code>Terrain</code>
-			devra avoir les attributs, <code>taille_x</code> et <code>taille_y</code>, qui décrivent la taille du terrain en nombre de cases sur x et y.</p>
+<p>Cela se fera grâce à une classe <code>Terrain</code>, donc créer la classe et grâce à son constructeur chaque instance de <code>Terrain</code> devra
+			avoir les attributs <code>taille_x</code> et <code>taille_y</code>, qui décrivent la taille du terrain en nombre de cases sur x et y.</p>
 <p>Pour commencer un terrain ne contiendra qu'un seul perso, donc ajouter un attribut <code>perso</code> qui permet au terrain de savoir quel perso il
 			contient.</p>
 <p>Ces 3 attributs doivent être spécifiés lors de la création de chaque terrain, donc leur valeur initiale doit être spécifiée en paramètre du
@@ -355,9 +355,9 @@
 <h2 data-nb="24.2" id="Question 2">Question 2</h2>
 <p>Il nous faut augmenter les capacités de chaque Personnage, pour qu'ils puissent avoir une position x et y. Donc ajouter pour chaque perso un <em>attribut</em>
 <code>position</code>, qui est une liste de deux <code>int</code>: le premier est la position du perso sur x, le second sur y. Ajouter le ou les
-			<em>paramètres</em> au constructeur de <code>Personnage</code> pour pouvoir spécifier la position initiale.</p>
+			paramètres au constructeur de <code>Personnage</code> pour pouvoir spécifier la position initiale.</p>
 <p>On veut aussi donner à chaque personnage la capacité de se dessiner. Pour cela chaque perso retient simplement un caractère qui le représente. Ce
-			caractère sera dans <em>l'attribut</em> <code>char_apparence</code>, et sa valeur initiale doit être passée en <em>paramètre</em> du constructeur,
+			caractère sera dans <em>l'attribut</em> <code>caractère_apparence</code>, et sa valeur initiale doit être passée en <em>paramètre</em> du constructeur,
 			pour qu'on puisse spécifier le caractère de chaque perso au moment de leur création. </p>
 		
 			<div class="correction">
@@ -372,11 +372,11 @@
 
 					class Personnage:
 						# ↓ On a modifié le constructeur
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 
 						def saluer(self):
 							if self.points_de_vie &gt; 0:
@@ -461,18 +461,18 @@
 								ligne = ""
 								for i in range(self.taille_x):
 									if self.perso.position == [i, j]:
-										ligne += self.perso.char_apparence + " "
+										ligne += self.perso.caractère_apparence + " "
 									else:
 										ligne += "· "
 								print(ligne)
 
 					# ↓ Rien de changé par rapport à la question précédente
 					class Personnage:
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 
 						def saluer(self):
 							if self.points_de_vie &gt; 0:
@@ -565,18 +565,18 @@ Bonjour, je suis Toto: vie= 100/100. Position=(0,0)
 								ligne = ""
 								for i in range(self.taille_x):
 									if self.perso.position == [i, j]:
-										ligne += self.perso.char_apparence + " "
+										ligne += self.perso.caractère_apparence + " "
 									else:
 										ligne += "· "
 								print(ligne)
 
 
 					class Personnage:
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 
 						# ↓ Modifié
 						def saluer(self):
@@ -687,18 +687,18 @@ Bonjour, je suis Toto: vie= 100/100. Position=(0,0)
 								ligne = ""
 								for i in range(self.taille_x):
 									if self.perso.position == [i, j]:
-										ligne += self.perso.char_apparence + " "
+										ligne += self.perso.caractère_apparence + " "
 									else:
 										ligne += "· "
 								print(ligne)
 
 					# ↓ Aucune modification
 					class Personnage:
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 
 						def saluer(self):
 							if self.points_de_vie &gt; 0:
