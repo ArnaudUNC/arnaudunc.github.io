@@ -315,11 +315,11 @@
 						# ↓ On a ajouté le paramètre terrain, et l'attribut du même nom,
 						# ce qui permettra à chaque Personnage de savoir
 						# sur quel Terrain il existera.
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y, terrain):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y, terrain):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 							self.terrain = terrain
 
 						# ↓ On a ajouté cette méthode
@@ -385,7 +385,7 @@
 								for i in range(self.taille_x):
 									perso_présent_sur_case = False
 									if self.perso.position == [i, j]:
-										ligne += self.perso.char_apparence + " "
+										ligne += self.perso.caractère_apparence + " "
 										perso_présent_sur_case = True
 									if not perso_présent_sur_case:
 										ligne += "· "
@@ -458,11 +458,11 @@
 					import os
 
 					class Personnage:
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y, terrain):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y, terrain):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 							self.terrain = terrain
 
 						def déplacer(self, déplacement_x, déplacement_y):
@@ -529,7 +529,7 @@
 								# ↓ Maintenant on dessine aussi les murs quand ils sont présents
 								for i in range(self.taille_x):
 									if self.perso.position == [i, j]:
-										ligne += self.perso.char_apparence + " "
+										ligne += self.perso.caractère_apparence + " "
 									elif self.cases[i][j] == 0:
 										ligne += "██"
 									else:
@@ -595,11 +595,11 @@
 					import os
 
 					class Personnage:
-						def __init__(self, nom_initial, pv_max, char_apparence, x, y, terrain):
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y, terrain):
 							self.nom = nom_initial
 							self.points_de_vie = self.points_de_vie_max = pv_max
 							self.position = [x, y]
-							self.char_apparence = char_apparence
+							self.caractère_apparence = caractère_apparence
 							self.terrain = terrain
 
 						def déplacer(self, déplacement_x, déplacement_y):
@@ -672,7 +672,7 @@
 								ligne = ""
 								for i in range(self.taille_x):
 									if self.perso.position == [i, j]:
-										ligne += self.perso.char_apparence + " "
+										ligne += self.perso.caractère_apparence + " "
 									elif self.cases[i][j] == 0:
 										ligne += "██"
 									else:
