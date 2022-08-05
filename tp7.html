@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 7 - Prog. objets niv.5 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 7 - Prog. objets niv.5 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -251,7 +251,7 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp7.html">
-				✏️ TP 7 - Prog. objets niv.5
+				✏️ TP 7 - Prog. objets niv.5 ✔️
 			</a>
 		</div>
 
@@ -275,7 +275,7 @@
 
 
 		
-	<h1 data-nb="27" id="✏️ TP 7 - Prog. objets niv.5">✏️ TP 7 - Prog. objets niv.5</h1>
+	<h1 data-nb="27" id="✏️ TP 7 - Prog. objets niv.5 ✔️">✏️ TP 7 - Prog. objets niv.5 ✔️</h1>
 	
 
 	<p>Ce TP est la suite directe du TP 6.</p>
@@ -301,6 +301,182 @@
 				vous les voyez dans le Terrain, vous voyez leur salutation à chacun, et le joueur peut passer à travers.
 			</li>
 </ol>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					import os
+
+					# ↓ Aucun changement dans cette classe pour cette question
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y, terrain):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.caractère_apparence = caractère_apparence
+							self.terrain = terrain
+
+						def déplacer(self, déplacement_x, déplacement_y):
+							nouveau_x = self.position[0] + déplacement_x
+							nouveau_y = self.position[1] + déplacement_y
+							try:
+								aucun_obstacle = self.terrain.cases[nouveau_x][nouveau_y] != 0
+							except IndexError:
+								return
+							if not aucun_obstacle:
+								return
+							if 0 &lt;= nouveau_x &lt; self.terrain.taille_x:
+								self.position[0] = nouveau_x
+							if 0 &lt;= nouveau_y &lt; self.terrain.taille_y:
+								self.position[1] = nouveau_y
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					class Terrain:
+						def __init__(self, taille_x, taille_y):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = None
+							# ↓ Nouvel attribut
+							self.ennemis = []
+							self.cases = [[None for j in range(taille_y)] for i in range(taille_x)]
+
+						# ↓ On a rajouté cette méthode
+						# pour pouvoir facilement avoir un ennemi dans une case du Terrain,
+						# s'il y en a un, None sinon.
+						def avoir_ennemi_a_position(self, x, y):
+							for ennemi in self.ennemis:
+								if ennemi.position[0] == x and ennemi.position[1] == y:
+									return ennemi
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									# ↓ On retrouve l'ennemi (s'il y en a un) dans la case en cours,
+									# pour pouvoir le dessiner.
+									# C'est ici qu'on décide de qui l'emporte en priorité pour être dessiné,
+									# si plusieurs entités se trouvent dans la même case: joueur, mur ou ennemi.
+									ennemi_dans_case = self.avoir_ennemi_a_position(i, j)
+									if self.perso.position == [i, j]:
+										ligne += self.perso.caractère_apparence + " "
+									elif self.cases[i][j] == 0:
+										ligne += "██"
+									elif ennemi_dans_case:
+										ligne += ennemi_dans_case.caractère_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+
+					class Jeu:
+						def __init__(self, terrain, perso):
+							self.terrain = terrain
+							self.perso = perso
+							# ↓ Nouvel attribut
+							self.ennemis = []
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								os.system("cls")
+								self.terrain.dessiner()
+								self.perso.saluer()
+								# ↓ Les ennemis doivent saluer aussi
+								# pour qu'on puisse afficher leurs informations (vie, position etc).
+								for ennemi in self.ennemis:
+									ennemi.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso.déplacer(-1, 0)
+								elif action_utilisateur == "d":
+									self.perso.déplacer(1, 0)
+								elif action_utilisateur == "z":
+									self.perso.déplacer(0, -1)
+								elif action_utilisateur == "s":
+									self.perso.déplacer(0, 1)
+
+
+					terrain = Terrain(10, 10)
+					perso1 = Personnage("Toto", 100, "@", 5, 3, terrain)
+					ennemi_1 = Personnage("Monstre 1", 40, "1", 6, 8, terrain)
+					ennemi_2 = Personnage("Monstre 2", 60, "2", 7, 1, terrain)
+					terrain.perso = perso1
+					# ↓ On ajoute 2 ennemis sur le terrain
+					terrain.ennemis.append(ennemi_1)
+					terrain.ennemis.append(ennemi_2)
+					# mur haut gauche
+					terrain.cases[0][0] = 0
+					terrain.cases[1][0] = 0
+					terrain.cases[2][0] = 0
+					terrain.cases[2][1] = 0
+					terrain.cases[2][2] = 0
+					terrain.cases[2][3] = 0
+					terrain.cases[3][3] = 0
+					# pièce en bas
+					terrain.cases[4][9] = 0
+					terrain.cases[5][9] = 0
+					terrain.cases[6][9] = 0
+					terrain.cases[7][9] = 0
+					terrain.cases[8][9] = 0
+
+					terrain.cases[4][8] = 0
+					terrain.cases[4][7] = 0
+					terrain.cases[4][6] = 0
+
+					terrain.cases[8][8] = 0
+					terrain.cases[8][7] = 0
+					terrain.cases[8][6] = 0
+
+					terrain.cases[6][6] = 0
+					terrain.cases[7][6] = 0
+
+					terrain.cases[3][7] = 0
+					terrain.cases[2][7] = 0
+					jeu = Jeu(terrain, perso1)
+					# ↓ On ajoute les mêmes 2 ennemis au jeu également
+					jeu.ennemis.append(ennemi_1)
+					jeu.ennemis.append(ennemi_2)
+					jeu.démarrer()
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -331,6 +507,222 @@
 				leur salutation.
 			</li>
 </ol>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					import os
+					# ↓ On importe aussi le module "time" désormais,
+					# car on a besoin de sa fonction "sleep".
+					import time
+
+					class Personnage:
+						# ↓ Ajout du paramètre char_mort: caractère qui représentera le Personnage quand il sera mort
+						def __init__(self, nom_initial, pv_max, caractère_apparence, char_mort, x, y, terrain):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.caractère_apparence = caractère_apparence
+							# ↓ Nouvelle attribut: caractère qui représentera le Personnage quand il sera mort
+							self.char_mort = char_mort
+							self.terrain = terrain
+
+						def déplacer(self, déplacement_x, déplacement_y):
+							nouveau_x = self.position[0] + déplacement_x
+							nouveau_y = self.position[1] + déplacement_y
+							try:
+								aucun_obstacle = self.terrain.cases[nouveau_x][nouveau_y] != 0
+								# ↓ C'est ici quand vérifie les collisions avec les ennemis,
+								# et qu'on attaque l'ennemi dans la case destination, s'il y en a un.
+								ennemi_dans_destination = self.terrain.avoir_ennemi_a_position(nouveau_x, nouveau_y)
+								if ennemi_dans_destination:
+									# ↓ On attaque uniquement les ennemis vivants
+									if ennemi_dans_destination.points_de_vie &gt; 0:
+										aucun_obstacle = False
+										self.attaquer(ennemi_dans_destination)
+										# ↓ On met le programme en pause pendant 2 secondes,
+										# pour permettre au joueur de lire les messages affichés
+										# lors de l'attaque, car ils seront effacés à la prochaine
+										# itération du Jeu, à cause de l'appel à os.system("clear").
+										time.sleep(2)
+							except IndexError:
+								return
+							if not aucun_obstacle:
+								return
+							if 0 &lt;= nouveau_x &lt; self.terrain.taille_x:
+								self.position[0] = nouveau_x
+							if 0 &lt;= nouveau_y &lt; self.terrain.taille_y:
+								self.position[1] = nouveau_y
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					class Terrain:
+						def __init__(self, taille_x, taille_y):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = None
+							self.ennemis = []
+							self.cases = [[None for j in range(taille_y)] for i in range(taille_x)]
+
+						def avoir_ennemi_a_position(self, x, y):
+							for ennemi in self.ennemis:
+								if ennemi.position[0] == x and ennemi.position[1] == y:
+									return ennemi
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									ennemi_dans_case = self.avoir_ennemi_a_position(i, j)
+									if self.perso.position == [i, j]:
+										ligne += self.perso.caractère_apparence + " "
+									elif self.cases[i][j] == 0:
+										ligne += "██"
+									elif ennemi_dans_case:
+										if ennemi_dans_case.points_de_vie &gt; 0:
+											ligne += ennemi_dans_case.caractère_apparence + " "
+										else:
+											ligne += ennemi_dans_case.char_mort + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+
+					class Jeu:
+						def __init__(self, terrain, perso: Personnage):
+							self.terrain = terrain
+							self.perso = perso
+							self.ennemis = []
+
+						# ↓ On a ajouté cette méthode, car on a besoin d'afficher le jeu
+						# a deux endroits différents dans la méthode "démarrer" ci-dessous.
+						# Rappelez-vous: dès que du code similaire apparaît à au moins deux endroits
+						# de votre programme, vous devez le mettre dans une fonction/méthode, et
+						# appeler la fonction/méthode. La duplication de code est signe qu'il est
+						# "mauvais": il vous apportera très vite complexité, bugs,
+						# et difficultés à le modifier.
+						def afficher_jeu(self):
+							os.system("cls")
+							self.terrain.dessiner()
+							self.perso.saluer()
+							for ennemi in self.ennemis:
+								ennemi.saluer()
+
+						def démarrer(self):
+							action_utilisateur = ""
+							# ↓ On continue le Jeu tant que le joueur le souhaite
+							# ET qu'il y a encore au moins un ennemi en vie dans le Jeu,
+							# car on souhaite que le Jeu s'arrête et on déclare la victoire
+							# du joueur lorsque tous les ennemis sont morts.
+							au_moins_un_ennemi_vivant = True
+							while action_utilisateur != "qq" and au_moins_un_ennemi_vivant:
+								self.afficher_jeu()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso.déplacer(-1, 0)
+								elif action_utilisateur == "d":
+									self.perso.déplacer(1, 0)
+								elif action_utilisateur == "z":
+									self.perso.déplacer(0, -1)
+								elif action_utilisateur == "s":
+									self.perso.déplacer(0, 1)
+
+								# ↓ On vérifie qu'il y a encore un ennemi vivant dans le Jeu,
+								# pour savoir si on continue le jeu ou pas à la prochaine itération.
+								au_moins_un_ennemi_vivant = False
+								for ennemi in self.ennemis:
+									if ennemi.points_de_vie &gt; 0:
+										au_moins_un_ennemi_vivant = True
+										break
+							# ↓ On affiche un message différent selon que le joueur a gagné,
+							# ou quitté volontairement le jeu.
+							self.afficher_jeu()
+							if action_utilisateur == "qq":
+								print("Vous fuyez la partie? Lâche!")
+							else:
+								print("Vous êtes victorieux, gloire à vous!")
+
+
+					terrain = Terrain(10, 10)
+					# ↓ On a rajouté les caractères d'affichage en cas de mort,
+					# pour chaque Personnage, comme paramètre pour l'appel de leur constructeur.
+					perso1 = Personnage("Toto", 100, "@", "@", 5, 1, terrain)
+					ennemi_1 = Personnage("Monstre 1", 40, "1", "†", 6, 8, terrain)
+					ennemi_2 = Personnage("Monstre 2", 60, "2", "X", 7, 1, terrain)
+					terrain.perso = perso1
+					terrain.ennemis.append(ennemi_1)
+					terrain.ennemis.append(ennemi_2)
+					# mur haut gauche
+					terrain.cases[0][0] = 0
+					terrain.cases[1][0] = 0
+					terrain.cases[2][0] = 0
+					terrain.cases[2][1] = 0
+					terrain.cases[2][2] = 0
+					terrain.cases[2][3] = 0
+					terrain.cases[3][3] = 0
+					# pièce en bas
+					terrain.cases[4][9] = 0
+					terrain.cases[5][9] = 0
+					terrain.cases[6][9] = 0
+					terrain.cases[7][9] = 0
+					terrain.cases[8][9] = 0
+
+					terrain.cases[4][8] = 0
+					terrain.cases[4][7] = 0
+					terrain.cases[4][6] = 0
+
+					terrain.cases[8][8] = 0
+					terrain.cases[8][7] = 0
+					terrain.cases[8][6] = 0
+
+					terrain.cases[6][6] = 0
+					terrain.cases[7][6] = 0
+
+					terrain.cases[3][7] = 0
+					terrain.cases[2][7] = 0
+					jeu = Jeu(terrain, perso1)
+					jeu.ennemis.append(ennemi_1)
+					jeu.ennemis.append(ennemi_2)
+					jeu.démarrer()
+				</code></pre>
+</div>
 		
 	</div>
 
