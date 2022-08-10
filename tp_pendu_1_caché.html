@@ -362,13 +362,25 @@
 <ol>
 <li>un mot que le joueur est censé deviner, de type <code>str</code></li>
 <li>un ensemble (donc de type <code>set</code>) de lettres (des <code>str</code> de longueur 1), qui correspond à toutes les lettres qu'un joueur
-				aurait demandées. Pourquoi un ensemble plutôt qu'une liste? Pour éviter facilement les doublons, un <code>set</code> ne permet pas les doublons.
+				aurait demandées. Pourquoi un ensemble plutôt qu'une liste? Pour éviter facilement les doublons, un <code>set</code> interdit les doublons.
 			</li>
 </ol>
 <p>La fonction retourne un <code>bool</code>: vrai si le mot a été <em>entièrement</em> deviné, c'est-à-dire toutes ses lettres ont été demandées par le
 			joueur, faux sinon.</p>
 <p>Testez que votre fonction fonctionne avec quelques appels.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+				</code></pre>
 </div>
+		
+	</div>
 
 	
 	<div class="exercice">
@@ -382,7 +394,30 @@
 <p>Ecrire la fonction <code>afficher_mot()</code>, qui prend les mêmes 2 paramètres que la fonction de la question précédente. Elle ne renvoie aucun
 			résultat. Lorsqu'on l'appelle, elle affiche dans la console le mot avec les bonnes lettres révélées ou pas.</p>
 <p>Testez que votre fonction fonctionne avec quelques appels.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					# Question 2
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+				</code></pre>
 </div>
+		
+	</div>
 
 	
 	<div class="exercice">
@@ -397,7 +432,49 @@
 </ul>
 <p>Stockez les lettres que le joueur demande dans un <code>set</code>, et utilisez les 2 fonctions précédentes pour vous aider.</p>
 <p>Vérifiez que votre jeu fonctionne.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					# Question 2
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 3
+					mot_à_deviner = "bonjour"
+					essais_restants = 3
+					ensemble_lettres_à_révéler = set()
+					# Tant que le mot en cours n'est pas deviné et que le joueur a encore des essais à jouer
+					while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+						afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+						print("Vie restante:", essais_restants)
+						lettre = input("Lettre: ")
+						ensemble_lettres_à_révéler.add(lettre)
+						if lettre not in mot_à_deviner:
+							essais_restants -= 1
+
+					if essais_restants &lt;= 0:
+						print("Perdu. Le mot est:", mot_à_deviner)
+					else:
+						print("Gagné! Le mot est:", mot_à_deviner)
+				</code></pre>
 </div>
+		
+	</div>
 
 	
 	<div class="exercice">
@@ -415,8 +492,51 @@
 <p>Vérifiez que le mot change de façon aléatoire à chaque lancement du programme. Aléatoire ne signifie pas différent à chaque fois, il est donc
 			possible que le même mot soit proposé plusieurs fois de suite. Plus il y a de mots possibles, et moins ils ont de chances de sortir 2 fois de
 			suite.</p>
-</div>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
 
+
+					# Question 2
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+					# Question 4
+					import random
+
+					tous_les_mots = {"bonjour", "salut", "voiture"}
+					mot_à_deviner = random.choice(list(tous_les_mots))
+					essais_restants = 3
+					ensemble_lettres_à_révéler = set()
+					# Tant que le mot en cours n'est pas deviné et que le joueur a encore des essais à jouer
+					while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+						afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+						print("Vie restante:", essais_restants)
+						lettre = input("Lettre: ")
+						ensemble_lettres_à_révéler.add(lettre)
+						if lettre not in mot_à_deviner:
+							essais_restants -= 1
+
+					if essais_restants &lt;= 0:
+						print("Perdu. Le mot est:", mot_à_deviner)
+					else:
+						print("Gagné! Le mot est:", mot_à_deviner)
+				</code></pre>
+</div>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
