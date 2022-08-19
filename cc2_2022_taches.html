@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>📝 Contrôle continu 2 | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp3.html">
+				✏️ TP 3 - Calculatrice niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td3.html">
+				✍️ TD 3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp5.html">
+				✏️ TP 5 - Prog. objets niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cc1_2022.html">
+				📝 Contrôle continu 1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp6.html">
+				✏️ TP 6 - Prog. objets niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_boutique_1.html">
+				✏️ TP 8 - Boutique niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_boutique_2.html">
+				✏️ TP 9 - Boutique niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_1.html">
+				✏️ TP 10 - Jeu du pendu niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_2.html">
+				✏️ TP 11 - Jeu du pendu niv.2
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cc2_2022_taches.html">
+				📝 Contrôle continu 2
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	<h1 data-nb="32" id="📝 Contrôle continu 2">📝 Contrôle continu 2</h1>
+	
+
+	<div class="exercice">
+<ul>
+<li><strong>A faire seul</strong></li>
+<li><strong>Date début:</strong> samedi 20 oût 2022</li>
+<li><strong>Date limite pour rendre:</strong> lundi 29 août 2022 à 23h59 (9 jours au total).
+			</li>
+<li><strong>A rendre sur Moodle:</strong> soumettre uniquement votre unique fichier .py, dans l'onglet <em>évaluations</em> du cours d'algo. et
+				prog. 2 en Python.
+			</li>
+<li><strong>En cas de retard:</strong> Aucun retard possible.
+			</li>
+</ul>
+<p>La triche sera <strong>activement</strong> recherchée et sanctionnée par un zéro à toutes les copies identiques ou avec des portions de code non
+			négligeables identiques.</p>
+
+		
+		<h2 data-nb="32.1" id="Introduction">Introduction</h2>
+<p>Vous allez programmer deux classes qui ensemble vont permettre de gérer des tâches et listes de tâches. Ces deux classes vont offrir des
+			fonctionnalités qui pourraient être utilisées dans un programme, mais il n'y aura pas vraiment de programme exécutable par un utilisateur une fois
+			ce CC complété. Lorsqu'on exécutera le fichier .py que vous allez créer, rien ne se passera dans la console, car le fichier ne contiendra que des
+			déclarations de classes et méthodes. Vous allez donc écrire en quelque sorte une petite bibliothèque de code réutilisable.</p>
+<h3 data-nb="32.1.1" id="Règles strictes">Règles strictes</h3>
+<div style="color:inherit;">
+<p>Voici ce qui doit être strictement respecté comme demandé dans les consignes (sinon les points ne seront pas comptés):</p>
+<p>Vous devez créer 2 classes:</p>
+<ul>
+<li>Une classe <code>Tâche</code>, qui a 9 méthodes imposées (constructeur inclus).
+				</li>
+<li>Une classe <code>ListeTâches</code>, qui a 9 méthodes imposées (constructeur inclus).
+				</li>
+</ul>
+<p>Dans chaque classe vous pouvez ajouter des méthodes pour vous aider si vous le désirez, mais elles ne seront pas considérées / évaluées.</p>
+<p>Vous ne pouvez importer aucun module / package autre que ceux de la bibliothèque standard de Python. </p>
+<p>Le tout dans UN SEUL module (un seul fichier .py).</p>
+<ul>
+<li>le nom que vous donnez à vos classes et à chaque méthode doivent être EXACTEMENT ceux demandés, au caractère prêt : majuscule / minuscule,
+					avec ACCENTS(!) quand ils sont présents.
+				</li>
+<li>le <strong>nombre</strong> et <strong>l'ordre</strong> des paramètres pour chaque méthode doivent être EXACTEMENT comme demandés.</li>
+<li>la valeur et le type de retour de chaque méthode doit respecter ce qui est demandé.</li>
+<li>en règle générale tenez-vous en uniquement à ce qui est demandé, ni plus ni moins. Vous serez noté sur le respect scrupuleux du "contrat" de
+					chaque méthode (nom, paramètres, actions, et valeurs de retour).
+				</li>
+<li>il ne doit y avoir AUCUN CODE EN DEHORS des classes : quand on le lance, le programme ne doit rien faire de spécial, il ne fait que déclarer
+					les deux classes.
+				</li>
+</ul>
+</div>
+<h3 data-nb="32.1.2" id="Parties libres">Parties libres</h3>
+<div style="color:inherit;">
+<p>Et voici là où vous êtes libres de faire comme vous voulez:</p>
+<ul>
+<li>le nom du module (fichier .py) n'importe pas</li>
+<li>l'ordre des méthodes n'importe pas</li>
+<li>le <em>nom</em> de chaque paramètre des méthodes n'importe pas</li>
+<li>comment chaque méthode fait ce qu'elle doit (le code qui implémente la logique dans chaque méthode) n'importe pas, tant qu'elle le fait
+					correctement comme l'énoncé le demande
+				</li>
+</ul>
+</div>
+<p>Les classes et méthodes sont demandées dans aucun ordre particulier, donc faites-les dans l'ordre que vous préférez, même si certaines dépendent
+			d'autres.</p>
+
+		
+		<h3 data-nb="32.1.3" id="Malus">Malus</h3>
+<p>Dans certaines circonstances, vous aurez les malus suivants:</p>
+<p><strong>Malus 1 :</strong> (-2 points) pour éviter ce malus, votre code doit pouvoir être lancé sans provoquer d'erreur ni bloquer en demandant à
+			l'utilisateur d'entrer un texte ou une option.</p>
+
+		
+		<p>Il y a au total 25 points à gagner. Ils sont expliqués ci-dessous, en même temps que la description des deux classes que vous devez coder.</p>
+<h2 data-nb="32.2" id="Classe Tâche">Classe Tâche</h2>
+<p>Chaque instance de cette classe représente une tâche de la vie quotidienne. Une tâche peut être grande ou petite. Par exemple faire la cuisine, faire
+			un devoir, faire sa séance de sport etc... </p>
+<h3 data-nb="32.2.1" id="Constructeur et méthodes basiques">Constructeur et méthodes basiques</h3>
+<p>Une tâche a un nom (type <code>str</code>), une description (type <code>str</code>), une date de début et une date de fin (type <a href="https://docs.python.org/fr/3/library/datetime.html#date-objects"><code>datetime.date</code></a>, à vous de lire et apprendre comment on
+			utilise cette classe). Ces 4 informations sont précisées en paramètres du constructeur, dans cet ordre exact. Les deux dates sont facultatives,
+			elles sont indéfinies si elles ne sont pas précisées lors de l'appel du constructeur (à vous de décider comment une date indéfinie est représentée).
+			Une tâche peut ainsi avoir une date de début et une date de fin précisées toutes les deux, ou bien une date de début mais pas de fin, ou bien une
+			date de fin mais pas de début, et enfin aucune date spécifiée. Si les deux dates sont spécifiées, la date de début DOIT être AVANT celle de fin (pas
+			le même jour, et encore moins un jour après celui de fin), sinon elles sont considérées incorrectes (dans ce cas voir plus bas pour les
+			conséquences).</p>
+<p><strong>Point 1 :</strong> Une tâche peut donner son nom sous forme de <code>str</code> grâce à la méthode <code>avoir_nom</code>, qui ne prend aucun
+			paramètre. Une tâche peut aussi donner sa description sous forme de <code>str</code> grâce à la méthode <code>avoir_description</code>, qui ne prend
+			aucun paramètre.</p>
+<h3 data-nb="32.2.2" id="Dates début et fin">Dates début et fin</h3>
+<p><strong>Point 2 :</strong> Une tâche peut donner ses dates de début et de fin grâce à la méthode <code>avoir_dates_début_fin</code>, qui ne prend
+			aucun paramètre et retourne un <code>tuple</code> qui contient comme premier élément un objet de type <code>datetime.date</code> pour la date de
+			début et en second élément un objet également de type <code>datetime.date</code> pour la date de fin. <strong>Point 3 :</strong> une date
+			indéterminée (début ou fin) sera représentée par <code>None</code> comme valeur dans le <code>tuple</code> retourné, et si la tâche n'a aucune date
+			(de début ni de fin) les deux éléments à la fois du <code>tuple</code> résultat sont <code>None</code>. <strong>Point 4 :</strong> Lorsque les deux
+			dates sont spécifiées dans le constructeur mais quand elles sont incorrectes, les deux éléments du <code>tuple</code> résultat de cette méthode
+			doivent aussi être <code>None</code>.</p>
+<p>On peut spécifier / modifier les dates de début et de fin d'une tâche après sa création grâce à la méthode <code>spécifier_dates</code>, qui prend 2
+			paramètres de type <code>datetime.date</code>, qui sont la nouvelle date de début voulue, puis celle de fin, dans cet ordre. Quand les dates données
+			en paramètres sont correctes, cette méthode remplace toujours les dates de fin et de début de la tâche par les nouvelles (même si l'une ou les deux
+			nouvelles dates sont <code>None</code>). Les dates en paramètres sont considérées correctes si la date de début est chronologiquement avant
+			(strictement, pas égale à) celle de fin <strong>(Point 5)</strong> ou si seulement une des deux dates est spécifiée, ou si les deux ne sont pas
+			spécifiées <strong>(Point 6)</strong>, dans ces cas la méthode retourne le <code>int</code> zéro. <strong>Point 7 :</strong> si les dates en
+			paramètres sont incorrectes la méthode ne change aucune date de la tâche et retourne le <code>int</code> -1.</p>
+<h3 data-nb="32.2.3" id="Durée">Durée</h3>
+<p><strong>Point 8 :</strong> Une tâche peut donner sa durée totale grâce à la méthode <code>avoir_durée_tâche_jours</code>, qui ne prend aucun
+			paramètre et retourne le nombre de jours que la tâche dure sous forme de <code>int</code>. <strong>Point 9 :</strong> si la tâche n'a qu'une seule
+			date (début ou fin) ou aucune, cette méthode retourne le <code>int</code> -1</p>
+<h3 data-nb="32.2.4" id="Catégories">Catégories</h3>
+<p>Une tâche peut avoir des tags ou être dans des catégories, c'est la même chose. Une catégorie est simplement une chaîne de caractères. C'est un moyen
+			de les associer plus tard ensemble. Par exemple : il peut y avoir des tâches dans la catégorie "Cuisine" et d'autres dans "Travail". On peut
+			associer une catégorie à une tâche grâce à la méthode <code>ajouter_catégorie</code> qui prend une catégorie en paramètre sous forme de
+			<code>str</code>, et retourne le <code>int</code> 0 <strong>(Point 10)</strong> si l'association a été faite correctement, ou le <code>int</code> -1
+			<strong>(Point 11)</strong> si la tâche est déjà dans la catégorie spécifiée, il est ainsi impossible d'ajouter une tâche deux fois dans la même
+			catégorie. Pour savoir si une tâche est dans une catégorie, créer la méthode <code>est_dans_catégorie</code> qui prend une catégorie en paramètre
+			sous forme de <code>str</code>, et retourne sous forme de <code>bool</code> vrai si la tâche est dans la catégorie demandée, faux sinon. On peut
+			retirer une tâche d'une catégorie avec la méthode <code>supprimer_catégorie</code> qui prend une catégorie en paramètre sous forme de
+			<code>str</code> qui retourne le <code>int</code> 0 <strong>(Point 12)</strong> si la tâche était bien dans la catégorie spécifiée et a donc été
+			enlevée, le <code>int</code> -1 <strong>(Point 13)</strong> si la tâche n'est pas dans la catégorie spécifiée en paramètre. </p>
+
+		
+		<h2 data-nb="32.3" id="Classe ListeTâches">Classe ListeTâches</h2>
+<p>Chaque instance de cette classe représente une liste ordonnée de tâches, qu'on peut gérer et qui permet d'obtenir des informations sur cet ensemble.
+			Attention, on appelle cette classe <code>ListeTâches</code>, mais il ne s'agit pas d'une liste dans le sens le type built-in <code>list</code>, mais
+			bien d'une nouvelle classe que vous devez coder.</p>
+<h3 data-nb="32.3.1" id="Constructeur et méthodes basiques">Constructeur et méthodes basiques</h3>
+<p>Une liste de tâches a un nom (type <code>str</code>) et une description (type <code>str</code>). Ces 2 informations sont précisées en paramètres du
+			constructeur, dans cet ordre exact.</p>
+<p><strong>Point 14 :</strong> Une liste de tâches peut donner son nom sous forme de <code>str</code> grâce à la méthode <code>avoir_nom</code>, qui ne
+			prend aucun paramètre. Une tâche peut aussi donner sa description sous forme de <code>str</code> grâce à la méthode <code>avoir_description</code>,
+			qui ne prend aucun paramètre.</p>
+<h3 data-nb="32.3.2" id="Ajout, obtention et suppression de tâches">Ajout, obtention et suppression de tâches</h3>
+<p>On peut ajouter une tâche dans une liste de tâches grâce à la méthode <code>ajouter_tâche</code>, qui prend une instance de la classe
+			<code>Tâche</code> comme unique paramètre, et retourne le <code>int</code> 0 <strong>(Point 15)</strong> si l'ajout a bien été fait, le
+			<code>int</code> -1 <strong>(Point 16)</strong> si la tâche donnée est déjà dans la liste et donc l'ajout ne se fait PAS une seconde fois.</p>
+<p><strong>Point 17 :</strong> Une liste de tâches peut donner toutes ses tâches grâce à la méthode <code>avoir_liste_toutes_les_tâches</code>, qui
+			prend une catégorie en paramètre <em>facultatif</em> sous forme de <code>str</code>, et qui retourne une <code>list</code> de tâches. Si la
+			catégorie n'est pas spécifiée, la méthode retourne toutes les tâches. Si la catégorie est spécifiée, la méthode retourne seulement les tâches qui
+			sont dans cette catégorie.</p>
+<p>On peut supprimer une tâche d'une liste de tâches grâce à la méthode <code>supprimer_tâche</code> qui prend le nom d'une tâche sous forme de <code>str</code>
+			en paramètre, et qui supprime de la liste la <em>première</em> tâche qui a ce nom. Si une tâche a bien été supprimée la méthode retourne le <code>int</code>
+			0 <strong>(Point 18)</strong>, sinon si aucune tâche avec le nom donné en paramètre n'a pu être trouvée et donc supprimée, la méthode retourne le
+			<code>int</code> -1 <strong>(Point 19)</strong>.</p>
+<h3 data-nb="32.3.3" id="Tâches expirées">Tâches expirées</h3>
+<p>On peut obtenir la liste de toutes les tâches expirées d'une liste de tâches grâce à la méthode <code>avoir_liste_tâches_expirées</code> qui prend
+			une catégorie sous forme de <code>str</code> comme unique paramètre <em>facultatif</em>. Une tâche est expirée si elle a une date de fin et si cette
+			date est passée (strictement, pas égale) PAR RAPPORT AU MOMENT où cette méthode est appelée. Si aucune catégorie n'est spécifiée cette méthode
+			retourne toutes les tâches expirées <strong>(Point 20)</strong>. Sinon elle retourne toutes les tâches expirées et qui sont dans la catégorie donnée
+			en paramètre <strong>(Point 21)</strong>.</p>
+<h3 data-nb="32.3.4" id="Tâches en cours">Tâches en cours</h3>
+<p>On peut obtenir la liste de toutes les tâches en cours d'une liste de tâches grâce à la méthode <code>avoir_liste_tâches_en_cours</code> qui prend
+			une catégorie sous forme de <code>str</code> comme unique paramètre <em>facultatif</em>. Une tâche est en cours si la date à laquelle cette méthode
+			est appelée est entre la date de début de la tâche et celle de fin. Si la tâche n'a qu'une date de début (et pas de fin), elle doit être antérieure
+			(ou égale) à la date à laquelle cette méthode est appelée. Si la tâche n'a qu'une date de fin (et pas de début), elle doit être future (ou égale)
+			par rapport à la date à laquelle cette méthode est appelée. Une tâche sans date de début ni de fin n'est jamais considérée en cours. Si aucune
+			catégorie n'est spécifiée cette méthode retourne toutes les tâches en cours <strong>(Point 22)</strong>. Sinon elle retourne toutes les tâches en
+			cours et qui sont dans la catégorie donnée en paramètre <strong>(Point 23)</strong>.</p>
+<p>On peut obtenir la durée totale en jour de toutes les tâches en cours d'une liste de tâches grâce à la méthode <code>avoir_durée_totale_tâches_en_cours_jours</code>
+			qui prend une catégorie sous forme de <code>str</code> comme unique paramètre <em>facultatif</em>. Si aucune catégorie n'est spécifiée cette méthode
+			retourne la durée totale cumulée en jours de toutes les tâches en cours <strong>(Point 24)</strong>. Sinon elle retourne la durée totale cumulée en
+			jours de toutes les tâches en cours et qui sont dans la catégorie donnée en paramètre <strong>(Point 25)</strong>.</p>
+</div>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
