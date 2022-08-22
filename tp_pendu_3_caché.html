@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>✏️ TP 12 - Jeu du pendu niv.3 | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp3.html">
+				✏️ TP 3 - Calculatrice niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td3.html">
+				✍️ TD 3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp5.html">
+				✏️ TP 5 - Prog. objets niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cc1_2022.html">
+				📝 Contrôle continu 1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp6.html">
+				✏️ TP 6 - Prog. objets niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_boutique_1.html">
+				✏️ TP 8 - Boutique niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_boutique_2.html">
+				✏️ TP 9 - Boutique niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_1.html">
+				✏️ TP 10 - Jeu du pendu niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_2.html">
+				✏️ TP 11 - Jeu du pendu niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cc2_2022_taches.html">
+				📝 Contrôle continu 2
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_pendu_3.html">
+				✏️ TP 12 - Jeu du pendu niv.3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	<h1 data-nb="33" id="✏️ TP 12 - Jeu du pendu niv.3">✏️ TP 12 - Jeu du pendu niv.3</h1>
+	
+
+	<p>Ce TP est la suite directe du pendu niveau 2.</p>
+<p>Pour rappel, voici le jeu du pendu dans son intégralité. C'est ce que vous aurez à la fin de ce TP, et vers quoi les questions ci-dessous vont vous
+		guider:</p>
+<video controls="" preload="none" src="img/pendu/demo_complete.mp4"></video>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.1" id="Question 1">Question 1</h2>
+<p>On va commencer à se pencher sur les dessins pendant le jeu. Pour commencer, dans cette question on va se contenter de juste créer les dessins, on ne
+			les affiche pas encore durant le jeu. </p>
+<p>Créer une variable globale de type <code>list</code>, qui contiendra chaque dessin du pendu selon l'évolution du joueur (plus ou moins pendu). Chaque
+			dessin est en fait une chaîne de caractères, qui grâce à l'agencement de caractères spéciaux sur plusieurs lignes, forment un dessin.</p>
+<p>Vous pouvez vous servir des triples guillemets <code>"""</code> ou <code>'''</code>, qui comme vous l'avez vu jusqu'ici permettent de délimiter des
+			commentaires sur plusieurs lignes, mais également à délimiter des chaînes de caractères sur plusieurs lignes, ce qui est pratique dans notre cas.
+		</p>
+<p>Vous pouvez vous aider des caractères suivants pour vos dessins: <code>░ ╩ ╠ ═ ║ ╪ ┼ ─ │</code>, mais vous êtes libres de faire les dessins que vous
+			souhaitez. Vous pouvez trouver de nombreux caractères spéciaux grâce au programme "Table des caractères" dans Windows, par exemple.</p>
+<p>Voici un exemple, sous forme de code, d'un des dessins que vous devez créer dans la liste de tous les dessins:</p>
+<pre class="line-numbers"><code class="language-python">
+			"""
+			╠══════╪
+			║
+			║
+			║
+			║
+			║
+			║
+		  ══╩════════
+		░░░░░░░░░░░░░░░░░"""
+		</code></pre>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.2" id="Question 2">Question 2</h2>
+<p>Créer une fonction qui permet d'<strong>afficher</strong> un des dessins du pendu, en se servant de la liste créée dans la question précédente. La
+			fonction prend un seul paramètre de type <code>int</code>, qui donne le nombre d'essais restants au joueur avant d'avoir perdu. À partir du nombre
+			d'essais restants qu'on lui passe, la fonction est capable d'afficher le dessin correspondant.</p>
+<p>Par exemple s'il reste 0 essai restant, ça signifie que le joueur a perdu, et que donc il faut afficher le dessin du pendu complet. Si au contraire
+			il reste des essais restants, il faut afficher un dessin intermédiaire, ou celui qui correspond au début du jeu en cas de nombre d'essais maximal.
+			(d'ailleurs, question qu'il vous faudra résoudre : quel est ce nombre maximal d'essais possibles ?) </p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.3" id="Question 3">Question 3</h2>
+<p>Utiliser votre fonction et liste créées précédemment, en les intégrant dans le jeu cette fois, afin que le joueur voit son état (plus ou moins
+			pendu). Testez votre jeu pour vérifier que ça fonctionne.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+
+
+					# Question 3
+					import random
+					import copy
+					import time
+					import os
+
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_3 liste mots.txt")
+					mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+					# désormais le nombre d'essais restants dépend du nombre de dessins
+					essais_restants = len(DESSINS_PENDUS) - 1
+					total_mots_devinés = 0
+					mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					while mot_à_deviner and essais_restants &gt; 0:
+						ensemble_lettres_à_révéler = set()
+						while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+							os.system("cls")
+							print("Votre score actuel:", total_mots_devinés)
+							# On affiche le pendu au bon endroit
+							afficher_pendu(essais_restants)
+							afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+							print("Vie restante:", essais_restants)
+							lettre = input("Lettre: ")
+							ensemble_lettres_à_révéler.add(lettre)
+							if lettre not in mot_à_deviner:
+								essais_restants -= 1
+						if essais_restants &lt;= 0:
+							# On affiche le pendu une dernière fois quand le joueur a perdu
+							os.system("cls")
+							afficher_pendu(essais_restants)
+							print("Perdu. Le mot est:", mot_à_deviner)
+						else:
+							print("Gagné! Le mot est:", mot_à_deviner)
+							total_mots_devinés += 1
+						time.sleep(2)
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					if essais_restants &gt; 0:
+						print("Bravo! Vous avez deviné tous les mots!")
+					print("Votre score final:", total_mots_devinés)
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.4" id="Question 4">Question 4</h2>
+<p>On va rajouter un menu principal à notre jeu, afin que le joueur puisse rejouer une fois qu'il / elle a gagné ou perdu. Dans le menu principal il n'y
+			aura que 2 options : jouer et quitter. L'option jouer lance le jeu tel que vous l'avez développé jusqu'à présent.</p>
+<p>Tout d'abord placer tout le code de la logique de votre jeu dans une fonction, afin qu'une partie de pendu puisse facilement être lancée par simple
+			appel de cette fonction. Cela facilitera et raccourcira l'écriture du code du menu principal. Cette fonction ne doit prendre aucun paramètre.
+			Lorsque le joueur gagne (tous les mots devinés) ou perd (plus aucun essai restant), la fonction se termine et retourne le nombre de mots que le
+			joueur a pu trouver au cours de la partie. </p>
+<p>Ensuite, dans le contexte global (c'est-à-dire en dehors de toute fonction), créer le menu principal (une boucle <code>while</code> comme vous en
+			avez l'habitude désormais), avec les 2 options citées plus haut. L'option "jouer" doit lancer une partie. L'option "quitter" doit terminer le
+			programme.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+
+
+					# Question 4
+					import random
+					import copy
+					import time
+					import os
+
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_3 liste mots.txt")
+
+
+					# nouvelle fonction où une partie entière se déroule
+					def jouer():
+						mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+						essais_restants = len(DESSINS_PENDUS) - 1
+						total_mots_devinés = 0
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						while mot_à_deviner and essais_restants &gt; 0:
+							ensemble_lettres_à_révéler = set()
+							while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+								os.system("cls")
+								print("Votre score actuel:", total_mots_devinés)
+								afficher_pendu(essais_restants)
+								afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+								print("Vie restante:", essais_restants)
+								lettre = input("Lettre: ")
+								ensemble_lettres_à_révéler.add(lettre)
+								if lettre not in mot_à_deviner:
+									essais_restants -= 1
+							if essais_restants &lt;= 0:
+								os.system("cls")
+								afficher_pendu(essais_restants)
+								print("Perdu. Le mot est:", mot_à_deviner)
+							else:
+								print("Gagné! Le mot est:", mot_à_deviner)
+								total_mots_devinés += 1
+							time.sleep(2)
+							mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						if essais_restants &gt; 0:
+							print("Bravo! Vous avez deviné tous les mots!")
+						print("Votre score final:", total_mots_devinés)
+						time.sleep(2) # on rajoute cette pause car les messages seront effacés dans le menu principal
+						os.system("cls") # puis on nettoie l'écran de jeu pour que la suite puisse s'afficher proprement
+						return total_mots_devinés
+
+
+					# Boucle menu principal
+					os.system("cls")
+					réponse_joueur = ""
+					while réponse_joueur != "q":
+						os.system("cls")
+						print("j - jouer")
+						print("q - quitter")
+						réponse_joueur = input("Action: ")
+						os.system("cls")
+						if "j" == réponse_joueur:
+							jouer()
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.5" id="Question 5">Question 5</h2>
+<p>Afficher au joueur son meilleur score dans le menu principal.</p>
+<p>Le score est simplement le nombre de mots trouvés lors d'une partie. Le meilleur score n'est pas retenu entre chaque lancement du programme, il
+			commence toujours à zéro. Mais il est retenu entre chaque partie, et il est mis à jour à la fin d'une partie si lors de celle-ci le joueur a trouvé
+			plus de mots que le meilleur score qu'il a pu avoir jusque-là.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+					
+					
+					# Question 5
+					import random
+					import copy
+					import time
+					import os
+					
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_3 liste mots.txt")
+					
+					
+					def jouer():
+						mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+						essais_restants = len(DESSINS_PENDUS) - 1
+						total_mots_devinés = 0
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						while mot_à_deviner and essais_restants &gt; 0:
+							ensemble_lettres_à_révéler = set()
+							while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+								os.system("cls")
+								print("Votre score actuel:", total_mots_devinés)
+								afficher_pendu(essais_restants)
+								afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+								print("Vie restante:", essais_restants)
+								lettre = input("Lettre: ")
+								ensemble_lettres_à_révéler.add(lettre)
+								if lettre not in mot_à_deviner:
+									essais_restants -= 1
+							if essais_restants &lt;= 0:
+								os.system("cls")
+								afficher_pendu(essais_restants)
+								print("Perdu. Le mot est:", mot_à_deviner)
+							else:
+								print("Gagné! Le mot est:", mot_à_deviner)
+								total_mots_devinés += 1
+							time.sleep(2)
+							mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						if essais_restants &gt; 0:
+							print("Bravo! Vous avez deviné tous les mots!")
+						print("Votre score final:", total_mots_devinés)
+						time.sleep(2)
+						os.system("cls")
+						return total_mots_devinés
+					
+					
+					os.system("cls")
+					max_mots_trouvés = 0  # le meilleur score
+					réponse_joueur = ""
+					while réponse_joueur != "q":
+						os.system("cls")
+						print("Meilleur score:", max_mots_trouvés)
+						print("j - jouer")
+						print("q - quitter")
+						réponse_joueur = input("Action: ")
+						os.system("cls")
+						if "j" == réponse_joueur:
+							# On garde le meilleur score désormais
+							score_dernier_jeu = jouer()
+							max_mots_trouvés = max(score_dernier_jeu, max_mots_trouvés)
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.6" id="Question 6">Question 6</h2>
+<p>Ajouter une option dans le menu principal pour permettre au joueur de voir l'ensemble des mots qui sont proposés à chaque partie. Cet ensemble n'est
+			pas affiché en temps normal, seulement quand cette option est choisie.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+					
+
+					# Question 6
+					import random
+					import copy
+					import time
+					import os
+					
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_3 liste mots.txt")
+					
+					
+					def jouer():
+						mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+						essais_restants = len(DESSINS_PENDUS) - 1
+						total_mots_devinés = 0
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						while mot_à_deviner and essais_restants &gt; 0:
+							ensemble_lettres_à_révéler = set()
+							while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+								os.system("cls")
+								print("Votre score actuel:", total_mots_devinés)
+								afficher_pendu(essais_restants)
+								afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+								print("Vie restante:", essais_restants)
+								lettre = input("Lettre: ")
+								ensemble_lettres_à_révéler.add(lettre)
+								if lettre not in mot_à_deviner:
+									essais_restants -= 1
+							if essais_restants &lt;= 0:
+								os.system("cls")
+								afficher_pendu(essais_restants)
+								print("Perdu. Le mot est:", mot_à_deviner)
+							else:
+								print("Gagné! Le mot est:", mot_à_deviner)
+								total_mots_devinés += 1
+							time.sleep(2)
+							mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						if essais_restants &gt; 0:
+							print("Bravo! Vous avez deviné tous les mots!")
+						print("Votre score final:", total_mots_devinés)
+						time.sleep(2)
+						os.system("cls")
+						return total_mots_devinés
+					
+					
+					os.system("cls")
+					max_mots_trouvés = 0
+					réponse_joueur = ""
+					while réponse_joueur != "q":
+						print("Meilleur score:", max_mots_trouvés)
+						print("j - jouer")
+						print("v - voir tous les mots existants") # nouvelle option
+						print("q - quitter")
+						réponse_joueur = input("Action: ")
+						os.system("cls")
+						if "j" == réponse_joueur:
+							score_dernier_jeu = jouer()
+							max_mots_trouvés = max(score_dernier_jeu, max_mots_trouvés)
+						elif "v" == réponse_joueur:
+							# Affichage des mots
+							print("Tous les mots:", ENSEMBLE_DE_TOUS_LES_MOTS)
+							print()
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.7" id="Question 7">Question 7</h2>
+<p>Ajouter une option dans le menu principal pour permettre au joueur d'ajouter un mot dans l'ensemble des mots. Attention cet ajout doit être
+			persistant, permanent, c'est-à-dire que lorsque le programme se termine, et qu'on le relance ensuite, le mot ajouté précédemment est toujours
+			présent. Il vous faudra donc modifier le fichier texte qui contient la liste de tous les mots.</p>
+<p>Je vous recommande de créer une fonction pour ça, puis de l'exécuter dans le menu principal lorsque l'option pour ajouter un mot est choisie. Cette
+			fonction prend 2 paramètres : le nouveau mot à ajouter (de type <code>str</code>) et un ensemble de tous les mots du jeu (de type <code>set</code>).
+			Cette fonction fait l'ajout aussi bien dans la liste des mots en mémoire (celle que le jeu utilise pendant son exécution) que dans le fichier qui
+			contient tous les mots. Elle ne retourne rien, aucun résultat.</p>
+<p>Attention à ne pas permettre l'ajout d'un même mot plusieurs fois, dans l'ensemble des mots en mémoire, comme dans le fichier texte.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+					
+					
+					# Question 7
+					# Création de cette variable, car on en a besoin à plusieurs endroits
+					NOM_FICHIER_TEXTE_MOTS = "pendu_3 liste mots.txt"
+					
+					
+					# Ajout de cette fonction
+					def ajouter_mot(nouveau_mot, tous_les_mots):
+						if nouveau_mot in tous_les_mots:
+							return
+						tous_les_mots.add(nouveau_mot)
+						with open(NOM_FICHIER_TEXTE_MOTS, "a") as f:
+							f.write(nouveau_mot + "\n")
+					
+					
+					import random
+					import copy
+					import time
+					import os
+					
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					# utilisation de la variable NOM_FICHIER_TEXTE_MOTS au lieu d'écrire directement le nom du fichier
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, NOM_FICHIER_TEXTE_MOTS)
+					
+					
+					def jouer():
+						mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+						essais_restants = len(DESSINS_PENDUS) - 1
+						total_mots_devinés = 0
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						while mot_à_deviner and essais_restants &gt; 0:
+							ensemble_lettres_à_révéler = set()
+							while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+								os.system("cls")
+								print("Votre score actuel:", total_mots_devinés)
+								afficher_pendu(essais_restants)
+								afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+								print("Vie restante:", essais_restants)
+								lettre = input("Lettre: ")
+								ensemble_lettres_à_révéler.add(lettre)
+								if lettre not in mot_à_deviner:
+									essais_restants -= 1
+							if essais_restants &lt;= 0:
+								os.system("cls")
+								afficher_pendu(essais_restants)
+								print("Perdu. Le mot est:", mot_à_deviner)
+							else:
+								print("Gagné! Le mot est:", mot_à_deviner)
+								total_mots_devinés += 1
+							time.sleep(2)
+							mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						if essais_restants &gt; 0:
+							print("Bravo! Vous avez deviné tous les mots!")
+						print("Votre score final:", total_mots_devinés)
+						time.sleep(2)
+						os.system("cls")
+						return total_mots_devinés
+					
+					
+					os.system("cls")
+					max_mots_trouvés = 0
+					réponse_joueur = ""
+					while réponse_joueur != "q":
+						print("Meilleur score:", max_mots_trouvés)
+						print("j - jouer")
+						print("v - voir tous les mots existants")
+						print("a - ajouter un mot (modif. persistante)")  # nouvelle option
+						print("q - quitter")
+						réponse_joueur = input("Action: ")
+						os.system("cls")
+						if "j" == réponse_joueur:
+							score_dernier_jeu = jouer()
+							max_mots_trouvés = max(score_dernier_jeu, max_mots_trouvés)
+						elif "v" == réponse_joueur:
+							print("Tous les mots:", ENSEMBLE_DE_TOUS_LES_MOTS)
+							print()
+						elif "a" == réponse_joueur:
+							# Ajout PERSISTANT de mots
+							ajouter_mot(input("Nouveau mot: ").lower(), ENSEMBLE_DE_TOUS_LES_MOTS)
+							print("Mot ajouté.")
+							print()
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="33.8" id="Question 8">Question 8</h2>
+<p>Cette question est similaire à la précédente, mais pour supprimer des mots cette fois.</p>
+<p>Je vous recommande à nouveau de créer une fonction pour la suppression, et de l'exécuter ensuite lorsque l'option de suppression de mot est choisie
+			dans le menu principal. Elle prend les mêmes paramètres que la fonction d'ajout, mais supprime un mot au lieu de l'ajouter.</p>
+<p>Prendre en compte le cas où le mot spécifié n'existe pas, il faut le préciser au joueur sans provoquer d'erreur.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1: créer les dessins
+					DESSINS_PENDUS = [
+						"""
+					░░░░░░░░░░░░░░░░░""",
+						"""
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║
+						║
+						║
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /
+						║ /
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/
+						║
+						║
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+						"""
+						╠══════╪
+						║  /   │
+						║ /    ║
+						║/     O
+						║     ─┼─
+						║     / \\
+						║
+					  ══╩════════
+					░░░░░░░░░░░░░░░░░""",
+					]
+
+
+					# Question 2: créer cette fonction
+					def afficher_pendu(essais_restants):
+						indice = len(DESSINS_PENDUS) - essais_restants - 1
+						if indice &lt;= 0:
+							print(DESSINS_PENDUS[0])
+						elif indice &gt;= len(DESSINS_PENDUS):
+							print(DESSINS_PENDUS[-1])
+						else:
+							print(DESSINS_PENDUS[indice])
+
+
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+
+
+					# Question 8
+					NOM_FICHIER_TEXTE_MOTS = "pendu_3 liste mots.txt"
+
+
+					# Ajout de cette fonction
+					def supprimer_mot(mot_à_supprimer, tous_les_mots):
+						tous_les_mots.remove(mot_à_supprimer)
+						with open(NOM_FICHIER_TEXTE_MOTS, "w") as f:
+							for mot in tous_les_mots:
+								f.write(mot + "\n")
+
+
+					def ajouter_mot(nouveau_mot, tous_les_mots):
+						if nouveau_mot in tous_les_mots:
+							return
+						tous_les_mots.add(nouveau_mot)
+						with open(NOM_FICHIER_TEXTE_MOTS, "a") as f:
+							f.write(nouveau_mot + "\n")
+
+
+					import random
+					import copy
+					import time
+					import os
+
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					# utilisation de la variable NOM_FICHIER_TEXTE_MOTS au lieu d'écrire directement le nom du fichier
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, NOM_FICHIER_TEXTE_MOTS)
+
+
+					def jouer():
+						mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+						essais_restants = len(DESSINS_PENDUS) - 1
+						total_mots_devinés = 0
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						while mot_à_deviner and essais_restants &gt; 0:
+							ensemble_lettres_à_révéler = set()
+							while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+								os.system("cls")
+								print("Votre score actuel:", total_mots_devinés)
+								afficher_pendu(essais_restants)
+								afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+								print("Vie restante:", essais_restants)
+								lettre = input("Lettre: ")
+								ensemble_lettres_à_révéler.add(lettre)
+								if lettre not in mot_à_deviner:
+									essais_restants -= 1
+							if essais_restants &lt;= 0:
+								os.system("cls")
+								afficher_pendu(essais_restants)
+								print("Perdu. Le mot est:", mot_à_deviner)
+							else:
+								print("Gagné! Le mot est:", mot_à_deviner)
+								total_mots_devinés += 1
+							time.sleep(2)
+							mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+						if essais_restants &gt; 0:
+							print("Bravo! Vous avez deviné tous les mots!")
+						print("Votre score final:", total_mots_devinés)
+						time.sleep(2)
+						os.system("cls")
+						return total_mots_devinés
+
+
+					os.system("cls")
+					max_mots_trouvés = 0
+					réponse_joueur = ""
+					while réponse_joueur != "q":
+						print("Meilleur score:", max_mots_trouvés)
+						print("j - jouer")
+						print("v - voir tous les mots existants")
+						print("a - ajouter un mot (modif. persistante)")
+						print("s - supprimer un mot (modif. persistante)")  # nouvelle option
+						print("q - quitter")
+						réponse_joueur = input("Action: ")
+						os.system("cls")
+						if "j" == réponse_joueur:
+							score_dernier_jeu = jouer()
+							max_mots_trouvés = max(score_dernier_jeu, max_mots_trouvés)
+						elif "v" == réponse_joueur:
+							print("Tous les mots:", ENSEMBLE_DE_TOUS_LES_MOTS)
+							print()
+						elif "a" == réponse_joueur:
+							ajouter_mot(input("Nouveau mot: ").lower(), ENSEMBLE_DE_TOUS_LES_MOTS)
+							print("Mot ajouté.")
+							print()
+						elif "s" == réponse_joueur:
+							# Suppression PERSISTANTE des mots
+							try:
+								supprimer_mot(input("Mot à supprimer: ").lower(), ENSEMBLE_DE_TOUS_LES_MOTS)
+								print("Mot supprimé.")
+							except KeyError:
+								print("Ce mot n'existe pas.")
+							print()
+				</code></pre>
+</div>
+		
+	</div>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
