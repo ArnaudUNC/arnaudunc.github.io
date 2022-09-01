@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>📝 Contrôle continu 3 | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp3.html">
+				✏️ TP 3 - Calculatrice niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td3.html">
+				✍️ TD 3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp5.html">
+				✏️ TP 5 - Prog. objets niv.3 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cc1_2022.html">
+				📝 Contrôle continu 1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp6.html">
+				✏️ TP 6 - Prog. objets niv.4 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_boutique_1.html">
+				✏️ TP 8 - Boutique niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_boutique_2.html">
+				✏️ TP 9 - Boutique niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_1.html">
+				✏️ TP 10 - Jeu du pendu niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_2.html">
+				✏️ TP 11 - Jeu du pendu niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cc2_2022_taches.html">
+				📝 Contrôle continu 2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp_pendu_3.html">
+				✏️ TP 12 - Jeu du pendu niv.3
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cc3_2022_etudiants.html">
+				📝 Contrôle continu 3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		    <h1 data-nb="34" id="📝 Contrôle continu 3">📝 Contrôle continu 3</h1>    
+
+	<div class="exercice">
+<ul>
+<li><strong>A faire seul</strong></li>
+<li><strong>Date début:</strong> vendredi 2 septembre 2022</li>
+<li><strong>Date limite pour rendre:</strong> samedi 10 septembre 2022 à 23h59 (8 jours au total).
+			</li>
+<li><strong>A rendre sur Moodle:</strong> soumettre uniquement votre unique fichier .py, dans l'onglet <em>évaluations</em> du cours d'algo. et
+				prog. 2 en Python.
+			</li>
+<li><strong>En cas de retard:</strong> Aucun retard possible.
+			</li>
+</ul>
+<p>La triche sera <strong>activement</strong> recherchée et sanctionnée par un zéro à toutes les copies identiques ou avec des portions de code non
+			négligeables identiques.</p>
+
+		
+		<h2 data-nb="34.1" id="Introduction">Introduction</h2>
+<p>Vous allez programmer 7 fonctions qui permettent de manipuler une base de données d'étudiants qui se présente sous la forme d'un dictionnaire
+			(détails plus bas). Ces fonctions vont offrir des fonctionnalités qui pourraient être utilisées dans un programme, mais il n'y aura pas vraiment de
+			programme exécutable par un utilisateur une fois ce CC complété. Lorsqu'on exécutera le fichier .py que vous allez créer, rien ne se passera dans la
+			console, car le fichier ne contiendra que des déclarations de fonctions. Vous allez donc écrire en quelque sorte une petite bibliothèque de code
+			réutilisable.</p>
+<h3 data-nb="34.1.1" id="Règles strictes">Règles strictes</h3>
+<div style="color:inherit;">
+<p>Voici ce qui doit être strictement respecté comme demandé dans les consignes (sinon les points ne seront pas comptés):</p>
+<p>Vous devez créer les fonctions demandées. Vous pouvez ajouter d'autres fonctions pour vous aider si vous le désirez, mais elles ne seront pas
+				considérées / évaluées.</p>
+<p>Vous ne pouvez importer aucun module / package autre que ceux de la bibliothèque standard de Python. </p>
+<p>Le tout dans UN SEUL module (un seul fichier .py).</p>
+<ul>
+<li>les noms que vous donnez à vos fonctions doivent être EXACTEMENT ceux demandés, au caractère prêt : majuscule / minuscule, avec ACCENTS(!)
+					quand ils sont présents.
+				</li>
+<li>le <strong>nombre</strong> et <strong>l'ordre</strong> des paramètres pour chaque fonction doivent être EXACTEMENT comme demandés.</li>
+<li>la valeur et le type de retour de chaque fonction doit respecter ce qui est demandé.</li>
+<li>en règle générale tenez-vous en uniquement à ce qui est demandé, ni plus ni moins. Vous serez noté sur le respect scrupuleux du "contrat" de
+					chaque fonction (nom, paramètres, actions, et valeurs de retour).
+				</li>
+<li>il ne doit y avoir AUCUN CODE EN DEHORS des fonctions : quand on le lance, le programme ne doit rien faire de spécial, il ne fait que
+					déclarer les fonctions.
+				</li>
+</ul>
+</div>
+<h3 data-nb="34.1.2" id="Parties libres">Parties libres</h3>
+<div style="color:inherit;">
+<p>Et voici là où vous êtes libres de faire comme vous voulez:</p>
+<ul>
+<li>le nom du module (fichier .py) n'importe pas</li>
+<li>l'ordre des fonctions n'importe pas</li>
+<li>le NOM de chaque paramètre des fonctions n'importe pas (sauf pour une fonction en particulier, voir plus bas)</li>
+<li>comment chaque fonction fait ce qu'elle doit (le code qui implémente la logique) n'importe pas, tant qu'elle le fait correctement comme
+					l'énoncé le demande
+				</li>
+</ul>
+</div>
+<p>Les fonctions sont demandées dans aucun ordre particulier, donc faites-les dans l'ordre que vous préférez, même si certaines peuvent dépendre
+			d'autres.</p>
+
+		
+		<h3 data-nb="34.1.3" id="Malus">Malus</h3>
+<p>Dans certaines circonstances, vous aurez les malus suivants:</p>
+<p><strong>Malus 1 :</strong> (-2 points) pour éviter ce malus, votre code doit pouvoir être lancé sans provoquer d'erreur ni bloquer en demandant à
+			l'utilisateur d'entrer un texte ou une option.</p>
+<p>Il y a au total 16 points à gagner. Ils sont expliqués ci-dessous, en même temps que la description des fonctions que vous devez coder.</p>
+
+		
+		<h2 data-nb="34.2" id="Base d'étudiants">Base d'étudiants</h2>
+<p>Les données des étudiants, manipulées par toutes les fonctions, auront toujours la même forme suivante:</p>
+<p>Un étudiant est représenté par un dictionnaire qui contient les clés et valeurs suivantes:</p>
+<ul>
+<li><p>La clé <code>"prénom"</code> (avec accent!) de type <code>str</code> est associée à une valeur de type <code>str</code> qui est le prénom de
+				l'étudiant.</p></li>
+<li><p>La clé <code>"nom"</code> de type <code>str</code> est associée à une valeur de type <code>str</code> qui est le nom de l'étudiant.</p></li>
+<li><p>La clé <code>"est_fille"</code> de type <code>str</code> est associée à une valeur de type <code>bool</code> qui est vrai si l'étudiant est
+				une fille, faux sinon.</p></li>
+<li><p>La clé <code>"notes"</code> de type <code>str</code> est associée à une valeur de type <code>list</code> qui contient toutes les notes de
+				l'étudiant. Chaque note sera sous la forme d'un <code>tuple</code> de 2 éléments: le 1er de type <code>float</code> qui est la note, et le 2ème
+				de type <code>float</code> qui est le coefficient de la note.</p></li>
+</ul>
+<p>Une base d'étudiants (il peut y avoir une seule ou plusieurs bases d'étudiants, cela n'importe pas pour votre code) est un <code>dict</code> qui
+			associe des clés toujours sous forme de <code>int</code>, qui sont les identifiants uniques des étudiants, à des valeurs qui sont toujours des
+			<code>dict</code> qui réprésentent les étudiants (voir juste au-dessus ↑ ).</p>
+<p>Donc par exemple une base d'étudiants peut avoir la clé <code>5</code> qui est associée à un dictionnaire ayant la structure décrite juste plus haut
+			↑ ainsi qu'une autre clé <code>31</code> qui est associée à un autre dictionnaire ayant la même structure mais bien sûr pas les mêmes données dedans
+			(nom, prénom, genre et notes).</p>
+<h2 data-nb="34.3" id="Fonctions à coder">Fonctions à coder</h2>
+
+		
+		<h3 data-nb="34.3.1" id="Fonction ajouter_nouvel_étudiant">Fonction <code>ajouter_nouvel_étudiant</code></h3>
+<p>Cette fonction permet d'ajouter un nouvel étudiant dans une base de données.</p>
+<p>Elle prend 5 paramètres (dans cet ordre exact, comme expliqué plus haut):</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants dans laquelle faire l'ajout.</p></li>
+<li><p>L'identifiant, sous forme de <code>int</code>, du nouvel étudiant.</p></li>
+<li><p>Le nom de famille, sous forme de <code>str</code>, du nouvel étudiant</p></li>
+<li><p>Le prénom, sous forme de <code>str</code>, du nouvel étudiant</p></li>
+<li><p>Le genre, sous forme de <code>bool</code>, du nouvel étudiant. <code>True</code> si c'est une fille, <code>False</code> si c'est un garçon.
+			</p>
+</li>
+</ol>
+<p>La fonction retourne le <code>int</code> 0 si l'ajout s'est déroulé correctement (<strong>Point 1</strong>), le <code>int</code> -1 si l'identifiant
+			existe déjà dans la base de données passée en paramètre (<strong>Point 2</strong>).</p>
+
+		
+		<h3 data-nb="34.3.2" id="Fonction ajouter_note_étudiant">Fonction <code>ajouter_note_étudiant</code></h3>
+<p>Cette fonction permet d'ajouter une note et son coefficient a un étudiant existant dans une base de données.</p>
+<p>Elle prend 4 paramètres (dans cet ordre exact, comme expliqué plus haut):</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants dans laquelle se trouve l'étudiant.</p></li>
+<li><p>L'identifiant, sous forme de <code>int</code>, de l'étudiant.</p></li>
+<li><p>La nouvelle note, sous forme de <code>float</code>, de l'étudiant</p></li>
+<li><p>Le coefficient, sous forme de <code>float</code>, de la note.</p></li>
+</ol>
+<p>La fonction retourne le <code>int</code> 0 si l'ajout s'est déroulé correctement (<strong>Point 3</strong>), le <code>int</code> -1 si l'étudiant
+			n'est pas dans la base de données passée en paramètre (<strong>Point 4</strong>).</p>
+
+		
+		<h3 data-nb="34.3.3" id="Fonction avoir_moyenne_pondérée_étudiant">Fonction <code>avoir_moyenne_pondérée_étudiant</code></h3>
+<p>Cette fonction permet d'avoir la moyenne pondérée d'un étudiant existant dans une base de données.</p>
+<p>Elle prend 2 paramètres:</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants dans laquelle se trouve l'étudiant.</p></li>
+<li><p>L'identifiant, sous forme de <code>int</code>, de l'étudiant.</p></li>
+</ol>
+<p>La fonction retourne la moyenne pondérée de l'étudiant sous forme de <code>float</code> (<strong>Point 5</strong>), le <code>int</code> -1 si
+			l'étudiant n'est pas dans la base de données passée en paramètre (<strong>Point 6</strong>).</p>
+
+		
+		<h3 data-nb="34.3.4" id="Fonction avoir_moyenne_pondérée_générale">Fonction <code>avoir_moyenne_pondérée_générale</code></h3>
+<p>Cette fonction permet d'avoir la moyenne pondérée de tous les étudiants existants dans une base de données.</p>
+<p>Elle prend 1 paramètre:</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants pour laquelle on veut la moyenne pondérée générale.</p></li>
+</ol>
+<p>La fonction retourne la moyenne pondérée générale, sous forme de <code>float</code>, de l'ensemble des étudiants de la base passée en paramètre
+			(<strong>Point 7</strong>). Si la base ne contient aucun étudiant, la moyenne doit être zéro sous forme de <code>int</code> ou <code>float</code>
+			(<strong>Point 8</strong>).</p>
+
+		
+		<h3 data-nb="34.3.5" id="Fonction avoir_étudiant">Fonction <code>avoir_étudiant</code></h3>
+<p>Cette fonction permet de retrouver un étudiant et son identifiant dans une base de données, à partir de son nom et prénom.</p>
+<p>Elle prend 3 paramètres:</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants dans laquelle chercher l'étudiant.</p></li>
+<li><p>Le nom, sous forme de <code>str</code>, de l'étudiant.</p></li>
+<li><p>Le prénom, sous forme de <code>str</code>, de l'étudiant.</p></li>
+</ol>
+<p>La fonction retourne un tuple qui contient deux éléments : en premier l'identifiant, sous forme de <code>int</code>, de l'étudiant recherché, et en
+			second élément du tuple l'étudiant lui-même, sous forme de <code>dict</code> (<strong>Point 9</strong>). Si l'étudiant recherché n'existe pas dans
+			la base, le tuple résultat contient encore 2 éléments, <code>None</code> et <code>None</code> (<strong>Point 10</strong>).</p>
+
+		
+		<h3 data-nb="34.3.6" id="Fonction supprimer_étudiant">Fonction <code>supprimer_étudiant</code></h3>
+<p>Cette fonction permet de supprimer un étudiant d'une base de données, à partir de son nom et prénom.</p>
+<p>Elle prend 3 paramètres:</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants dans laquelle supprimer l'étudiant.</p></li>
+<li><p>Le nom, sous forme de <code>str</code>, de l'étudiant.</p></li>
+<li><p>Le prénom, sous forme de <code>str</code>, de l'étudiant.</p></li>
+</ol>
+<p>La fonction retourne 0 sous forme de <code>int</code> si l'étudiant cherché a bien été supprimé de la base passée en paramètre (<strong>Point
+			11</strong>) ou -1 sous forme de <code>int</code> si l'étudiant n'existe pas dans la base (<strong>Point 12</strong>).</p>
+
+		
+		<h3 data-nb="34.3.7" id="Fonction maj_étudiant">Fonction <code>maj_étudiant</code></h3>
+<p>Cette fonction permet de mettre à jour les données sur un étudiant dans une base de données. L'étudiant sera retrouvé par son nom et prénom.</p>
+<p>Elle prend 6 paramètres, dont 3 facultatifs POUR LESQUELS LE NOM EST IMPOSÉ (contrairement aux autres paramètres obligatoires pour lesquels le nom
+			est libre):</p>
+<ol>
+<li><p>Un <code>dict</code> qui représente la base d'étudiants dans laquelle chercher l'étudiant.</p></li>
+<li><p>Le nom, sous forme de <code>str</code>, de l'étudiant.</p></li>
+<li><p>Le prénom, sous forme de <code>str</code>, de l'étudiant.</p></li>
+<li><p>Le nouveau nom, sous forme de <code>str</code>, de l'étudiant. Ce paramètre est FACULTATIF, DOIT ÊTRE NOMMÉ <code>nouveau_nom</code> et a
+				<code>None</code> pour valeur par défaut.</p></li>
+<li><p>Le nouveau prénom, sous forme de <code>str</code>, de l'étudiant. Ce paramètre est FACULTATIF, DOIT ÊTRE NOMMÉ <code>nouveau_prénom</code>
+				(avec accent!) et a <code>None</code> pour valeur par défaut.</p></li>
+<li><p>Le nouveau genre, sous forme de <code>bool</code>, de l'étudiant. Ce paramètre est FACULTATIF, DOIT ÊTRE NOMMÉ
+				<code>nouveau_genre_est_fille</code> et a <code>None</code> pour valeur par défaut.</p></li>
+</ol>
+<p>La fonction retourne 0 sous forme de <code>int</code> si l'étudiant cherché a bien été modifié avec le nouveau prénom et/ou le nouveau nom et/ou le
+			nouveau genre (<strong>Point 13</strong>) ou -1 sous forme de <code>int</code> si l'étudiant n'existe pas dans la base (<strong>Point 14</strong>).
+		</p>
+<p>La fonction modifie uniquement les données de l'étudiant qui sont spécifiées en paramètre (nouveau nom, ou nouveau prénom, ou nouveau genre) et ne
+			met pas à jour les données non spécifiées (qui donc valent leur valeur par défaut <code>None</code>). Cela doit être le cas qu'il y ait zéro ou une
+			seule donnée spécifiée (différente de None) en paramètre (<strong>Point 15</strong>) ou plusieurs (<strong>Point 16</strong>).</p>
+</div>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
