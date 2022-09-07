@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>📝 Contrôle continu 1 | Algo et prog 2 en Python</title>
+	<title>📝 Contrôle continu 1 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -237,7 +237,7 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cc1_2022.html">
-				📝 Contrôle continu 1
+				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
@@ -258,28 +258,28 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_boutique_1.html">
-				✏️ TP 8 - Boutique niv.1
+				✏️ TP 8 - Boutique niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_boutique_2.html">
-				✏️ TP 9 - Boutique niv.2
+				✏️ TP 9 - Boutique niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_1.html">
-				✏️ TP 10 - Jeu du pendu niv.1
+				✏️ TP 10 - Jeu du pendu niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_2.html">
-				✏️ TP 11 - Jeu du pendu niv.2
+				✏️ TP 11 - Jeu du pendu niv.2 ✔️
 			</a>
 		</div>
 
@@ -293,7 +293,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_3.html">
-				✏️ TP 12 - Jeu du pendu niv.3
+				✏️ TP 12 - Jeu du pendu niv.3 ✔️
 			</a>
 		</div>
 
@@ -310,7 +310,8 @@
 
 
 		
-	<h1 data-nb="25" id="📝 Contrôle continu 1">📝 Contrôle continu 1</h1>
+	<h1 data-nb="25" id="📝 Contrôle continu 1 ✔️">📝 Contrôle continu 1 ✔️</h1>
+	
 	
 
 	<div class="exercice">
@@ -781,6 +782,402 @@ ____________________________________
 <li><p>(3 points bonus) Ajouter le support des références dans une formule vers d'autres cellules de type formule, qui peuvent elles-mêmes contenir des
 			références et ainsi de suite. On ne prend toujours pas en compte les boucles (cellules qui finissent par se référencer elles-mêmes)</p></li>
 </ol>
+
+	
+		<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+ALPHABET = "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+TAILLE_MAX_X = 14
+TAILLE_MAX_Y = 14
+NIVEAU_A_EXECUTER = 6
+TAILLE_INITIALE_TABLEAU_X = 10
+TAILLE_INITIALE_TABLEAU_Y = 10
+largeur_colonnes_défaut = 6
+largeur_colonnes_spécifiques = [None for _ in range(TAILLE_INITIALE_TABLEAU_X)]
+tableau = [[None for j in range(TAILLE_INITIALE_TABLEAU_Y)] for i in range(TAILLE_INITIALE_TABLEAU_X)]
+
+
+def calculer_valeur_str_cellule(valeur_cellule):
+	"""
+	Retourne une chaine qui peut être affichée à l'utilisateur comme contenu la cellule.
+	Ne prend pas en compte la largeur de la cellule, juste son contenu.
+	"""
+	if type(valeur_cellule) is str and valeur_cellule[0] == "=":
+		try:
+			formule: str = valeur_cellule[1:]
+			i = 0
+			while i &lt; len(formule):
+				c = formule[i]
+				try:
+					no_colonne = ALPHABET.index(c)
+					longueur_no_ligne = -1
+					try:
+						no_ligne = int(formule[i + 1:i + 3]) - 1
+						longueur_no_ligne = 2
+					except:
+						# Ligne pas sur 2 caractères
+						try:
+							no_ligne = int(formule[i + 1:i + 2]) - 1
+							longueur_no_ligne = 1
+						except:
+							# Ligne pas sur 1 caractère
+							return "#Err"
+					if longueur_no_ligne != -1:
+						valeur_cellule_ref = calculer_valeur_str_cellule(tableau[no_colonne][no_ligne])
+						# indice_début = i - 1 if i - 1 &gt;= 0 else 0
+						indice_début = i
+						formule = formule[:indice_début] + str(valeur_cellule_ref) + formule[indice_début + longueur_no_ligne + 1:]
+						i += longueur_no_ligne  # -1 car on fait plus un après, dans tous les cas
+				except:
+					# Pas un nom de colonne
+					pass
+				i += 1
+			return str(eval(formule))
+		except:
+			return "#Err"
+	return str(valeur_cellule)
+
+
+def afficher_tableau():
+	ligne0 = "  |"
+	for x in range(len(tableau)):
+		x_restant = x
+		while x_restant &gt; 0:
+			x_restant -= 25
+		largeur_colonne = largeur_colonnes_spécifiques[x]
+		if not largeur_colonne:
+			largeur_colonne = largeur_colonnes_défaut
+		ligne0 += ALPHABET[x].center(largeur_colonne, "_") + "|"
+	print(ligne0)
+	for y in range(len(tableau[0])):
+		ligne_str = f"{y + 1:2}" + "|"
+		for x in range(len(tableau)):
+			largeur_colonne = largeur_colonnes_spécifiques[x]
+			if not largeur_colonne:
+				largeur_colonne = largeur_colonnes_défaut
+			if tableau[x][y] != None:  # != None car tableau[x][y] peut valoir 0
+				cellule_val_str = calculer_valeur_str_cellule(tableau[x][y])
+				ligne_str += cellule_val_str.ljust(largeur_colonne, "_")[:largeur_colonne] + "|"
+			else:
+				ligne_str += "_" * largeur_colonne + "|"
+		print(ligne_str)
+
+
+if NIVEAU_A_EXECUTER == 1:
+	afficher_tableau()
+else:
+	def demander_cellule_utilisateur():
+		"""
+		Retourne un tuple x,y qui est la position de la cellule dans le tableau, None si choix invalide
+		"""
+		nom_cellule = input("Cellule: ")
+		try:
+			colonne_cellule = ALPHABET.index(nom_cellule[0])
+			ligne_cellule = int(nom_cellule[1:]) - 1  # -1 car l'utilisateur compte à partir de 1, et nous à partir de 0
+			if colonne_cellule &lt; 0 or colonne_cellule &gt;= len(tableau) or ligne_cellule &lt; 0 or ligne_cellule &gt;= len(tableau[0]):
+				print("Nom de cellule invalide")
+				return
+			return colonne_cellule, ligne_cellule
+		except:
+			print("Nom de cellule invalide")
+
+
+	def demander_colonne_utilisateur():
+		"""
+		Retourne un entier qui est le numéro de la colonne dans le tableau, None si choix invalide
+		"""
+		nom_colonne = input("Colonne: ")
+		try:
+			no_colonne = ALPHABET.index(nom_colonne)
+			if no_colonne &lt; 0 or no_colonne &gt;= len(tableau):
+				print("Colonne invalide")
+				return
+			return no_colonne
+		except:
+			print("Nom de colonne invalide")
+
+
+	def demander_ligne_utilisateur():
+		"""
+		Retourne un entier qui est le numéro de la ligne dans le tableau, None si choix invalide
+		"""
+		try:
+			no_ligne = int(input("Ligne: ")) - 1
+			if no_ligne &lt; 0 or no_ligne &gt;= len(tableau[0]):
+				print("Ligne invalide")
+				return
+			return no_ligne
+		except:
+			print("Numéro de ligne invalide")
+
+
+	def décaler_références_formules_colonnes(no_colonne_début, direction):
+		"""
+		direction est soit "gauche" soit "droite".
+
+		Les formules à partir de no_colonne_début, et toutes celles à droite, verront leurs références décalées d'une colonne à gauche ou à droite
+		selon la direction choisie.
+		Par exemple =E5 + B5 deviendra =D5 + A5, si on décale vers la gauche.
+		Par exemple =E5 + B5 deviendra =F5 + C5, si on décale vers la droite.
+
+		Les références à la colonne A deviendront invalides si on décale à gauche à partir de A.
+		Ou plutôt : toutes les références aux cellules dans la colonne no_colonne_début deviennent invalides si on décale à gauche
+		"""
+		décalage_indice_alphabet = - 1
+		if direction == "droite":
+			décalage_indice_alphabet = +1
+
+		for colonne_nb, colonne in enumerate(tableau):
+			for ligne_nb, ligne in enumerate(colonne):
+				i = 0
+				if type(ligne) is str and ligne[0] == "=":
+					while i &lt; len(ligne):
+						c = ligne[i]
+						try:
+							indice_colonne = ALPHABET.index(c)
+							# On décale dans les deux sens les références aux colonnes strictement à droite de celle à partir de laquelle faire le décalage,
+							# et aussi celle directement sur la colonne de début mais seulement si on décale à droite
+							if indice_colonne &gt; no_colonne_début or indice_colonne == no_colonne_début and direction == "droite":
+								nom_nlle_colonne = ALPHABET[indice_colonne + décalage_indice_alphabet]
+								ligne = ligne[:i] + nom_nlle_colonne + ligne[i + 1:]
+							# pour les références directement sur la colonnes de départ, et si on doit décaler à gauche, on les rend invalides
+							elif indice_colonne == no_colonne_début and direction == "gauche":
+								nom_nlle_colonne = "Ø"
+								ligne = ligne[:i] + nom_nlle_colonne + ligne[i + 1:]
+						except:
+							pass
+						i += 1
+				colonne[ligne_nb] = ligne
+
+
+	def décaler_références_formules_lignes(no_ligne_début, direction):
+		"""
+		direction est soit "haut" soit "bas".
+
+		Même chose que pour la fonction de décalage des colonnes, mais cette fois-ci pour les lignes.
+		"""
+		décalage_lignes = - 1
+		if direction == "bas":
+			décalage_lignes = +1
+
+		for colonne_nb, colonne in enumerate(tableau):
+			for ligne_nb, valeur_cellule in enumerate(colonne):
+				i = 0
+				if type(valeur_cellule) is str and valeur_cellule[0] == "=":
+					while i &lt; len(valeur_cellule):
+						c = valeur_cellule[i]
+						try:
+							# Si trouvé une référence à une colonne
+							no_colonne = ALPHABET.index(c)
+							longueur_no_ligne = -1
+							try:
+								# Tentative d'avoir numéro de ligne sur 2 caractères
+								no_ligne_ref = int(valeur_cellule[i + 1:i + 3])
+								longueur_no_ligne = 2
+							except:
+								try:
+									# Tentative d'avoir numéro de ligne sur 1 caractère
+									no_ligne_ref = int(valeur_cellule[i + 1:i + 2])
+									longueur_no_ligne = 1
+								except:
+									# Aucun no de ligne =&gt; mauvaise formule, mais on continue à décaler les autres références
+									i += 1
+									continue
+							# Si on a trouvé un numéro de ligne correct
+							if longueur_no_ligne != -1:
+								# On décale dans les deux sens les références aux lignes strictement en dessous de celle à partir de laquelle faire le décalage,
+								# et aussi celle directement sur la ligne de début mais seulement si on décale vers le bas
+								if no_ligne_ref &gt; no_ligne_début or no_ligne_ref == no_ligne_début and direction == "bas":
+									no_nlle_ligne_ref = no_ligne_ref + décalage_lignes
+									valeur_cellule = valeur_cellule[:i + 1] + str(no_nlle_ligne_ref) + valeur_cellule[i + 1 + longueur_no_ligne:]
+								# Pour les références directement sur la ligne de départ, et si on doit décaler vers le haut, on les rend invalides
+								elif no_ligne_ref == no_ligne_début and direction == "haut":
+									no_nlle_ligne_ref = "Ø"
+									valeur_cellule = valeur_cellule[:i + 1] + str(no_nlle_ligne_ref) + valeur_cellule[i + 1 + longueur_no_ligne:]
+						except:
+							# Caractère actuel pas une référence vers un nom de colonne
+							# ou bien la ligne n'était pas une existante
+							pass
+						i += 1
+				colonne[ligne_nb] = valeur_cellule
+
+
+	# Boucle principale
+	while True:
+		afficher_tableau()
+		print("m - modifier donnée cellule")
+		print("s - supprimer donnée cellule")
+		print("ml - modifier la largeur par défaut de toutes les colonnes")
+		print("mlc - modifier la largeur d'une colonne spécifique")
+		print("rl - réinitialiser largeur de toutes les colonnes à la largeur par défaut")
+		if NIVEAU_A_EXECUTER &gt;= 3:
+			print("acf - ajouter une colonne à la fin")
+			print("acd - ajouter une colonne à droite d'une autre")
+			print("acg - ajouter une colonne à gauche d'une autre")
+			print("alf - ajouter une ligne à la fin")
+			print("alh - ajouter une ligne en haut d'une autre")
+			print("alb - ajouter une ligne en bas d'une autre")
+			print("sc - supprimer une colonne")
+			print("sl - supprimer une ligne")
+		if NIVEAU_A_EXECUTER &gt;= 4:
+			print("st - sauvegarder tableau dans fichier .csv")
+			print("ct - charger tableau depuis fichier .csv")
+		if NIVEAU_A_EXECUTER &gt;= 5:
+			print("vc - voir contenu brut cellule")
+		print("q - quitter")
+		choix_utilisateur = input("Votre choix: ")
+
+		######################################################## Modif / suppression données cellules
+		if choix_utilisateur == "m":
+			try:
+				colonne_cellule, ligne_cellule = demander_cellule_utilisateur()
+				valeur = input("Valeur: ")
+				tableau[colonne_cellule][ligne_cellule] = None if not valeur else valeur
+			except:
+				pass
+
+		elif choix_utilisateur == "s":
+			try:
+				colonne_cellule, ligne_cellule = demander_cellule_utilisateur()
+				tableau[colonne_cellule][ligne_cellule] = None
+			except:
+				pass
+
+		######################################################## Modif largeur des colonnes
+		elif choix_utilisateur == "ml":
+			try:
+				largeur_demandée = int(input("Largeur: "))
+				if largeur_demandée &lt; 1 or largeur_demandée &gt; 20:
+					print("La largeur doit être entre 1 et 20")
+				else:
+					largeur_colonnes_défaut = largeur_demandée
+			except:
+				print("Nombre invalide")
+
+		elif choix_utilisateur == "mlc":
+			no_colonne = demander_colonne_utilisateur()
+			if no_colonne != None:
+				try:
+					largeur_demandée = int(input("Largeur: "))
+					if largeur_demandée &lt; 1 or largeur_demandée &gt; 20:
+						print("La largeur doit être entre 1 et 20")
+					else:
+						largeur_colonnes_spécifiques[no_colonne] = largeur_demandée
+				except:
+					print("Nombre invalide")
+
+		elif choix_utilisateur == "rl":
+			for i in range(len(largeur_colonnes_spécifiques)):
+				largeur_colonnes_spécifiques[i] = None
+
+		######################################################## Ajout / suppression de colonnes
+		elif choix_utilisateur in ("acf", "acg", "acd"):
+			if len(tableau) &gt;= TAILLE_MAX_X:
+				print("Nombre maximum de colonnes atteint")
+			else:
+				if choix_utilisateur == "acf":
+					tableau.append([None for j in range(len(tableau[0]))])
+					largeur_colonnes_spécifiques.append(None)
+				# Inutile de décaler les références, aucune référence possible à droite de cette nouvelle dernière colonne
+				else:
+					no_colonne = demander_colonne_utilisateur()
+					if no_colonne != None:  # préciser != None car le numéro peut être zéro, ce qui évalue à False si on fait juste if no_colonne
+						indice_ajout_nlle_colonne = no_colonne  # par défaut on ajoute à gauche
+						if choix_utilisateur == "acd":
+							indice_ajout_nlle_colonne += 1
+						tableau.insert(indice_ajout_nlle_colonne, [None for j in range(len(tableau[0]))])
+						largeur_colonnes_spécifiques.insert(indice_ajout_nlle_colonne, None)
+						décaler_références_formules_colonnes(indice_ajout_nlle_colonne, "droite")
+
+		elif choix_utilisateur == "sc":
+			if len(tableau) &lt;= 1:
+				print("Nombre minimum de colonnes atteint")
+			else:
+				no_colonne_à_suppr = demander_colonne_utilisateur()
+				if no_colonne_à_suppr != None:  # préciser != None car le numéro peut être zéro, ce qui évalue à False si on fait juste if no_colonne
+					del tableau[no_colonne_à_suppr]
+					del largeur_colonnes_spécifiques[no_colonne_à_suppr]
+					décaler_références_formules_colonnes(no_colonne_à_suppr, "gauche")
+
+		######################################################## Ajout / suppression de lignes
+		elif choix_utilisateur in ("alf", "alh", "alb"):
+			if len(tableau[0]) &gt;= TAILLE_MAX_Y:
+				print("Nombre maximum de lignes atteint")
+			else:
+				if choix_utilisateur == "alf":
+					for no_colonne in tableau:
+						no_colonne.append(None)
+				else:
+					no_ligne = demander_ligne_utilisateur()
+					if no_ligne != None:  # préciser != None car le numéro peut être zéro, ce qui évalue à False si on fait juste if no_colonne
+						indice_ajout_nlle_ligne = no_ligne  # par défaut on ajoute en haut
+						if choix_utilisateur == "alb":
+							indice_ajout_nlle_ligne += 1
+						for no_colonne in tableau:
+							no_colonne.insert(indice_ajout_nlle_ligne, None)
+						décaler_références_formules_lignes(indice_ajout_nlle_ligne + 1, "bas")  # +1 parce que les formules comptent les lignes à partir de 1
+
+		elif choix_utilisateur == "sl":
+			if len(tableau[0]) &lt;= 1:
+				print("Nombre minimum de lignes atteint")
+			else:
+				no_ligne_à_supprimer = demander_ligne_utilisateur()
+				if no_ligne_à_supprimer != None:  # préciser != None car le numéro peut être zéro, ce qui évalue à False si on fait juste if no_colonne
+					for no_colonne in tableau:
+						del no_colonne[no_ligne_à_supprimer]
+					décaler_références_formules_lignes(no_ligne_à_supprimer + 1, "haut")  # +1 parce que les formules comptent les lignes à partir de 1
+
+		######################################################## Voir contenu brut d'une cellule
+		elif choix_utilisateur == "vc":
+			try:
+				colonne_cellule, ligne_cellule = demander_cellule_utilisateur()
+				print("Valeur brute de la cellule:", tableau[colonne_cellule][ligne_cellule])
+			except:
+				pass
+
+		######################################################## Sauvegarder /charger le tableau
+		elif choix_utilisateur == "st":
+			nom_fichier = input("Nom fichier (sans extension): ")
+			f = open(nom_fichier + ".csv", "w", encoding="utf-8")
+			for j in range(len(tableau[0])):
+				ligne_str = ""
+				for i in range(len(tableau)):
+					valeur_calculée_str_cellule = calculer_valeur_str_cellule(tableau[i][j])
+					if valeur_calculée_str_cellule == "None":
+						ligne_str += ";"
+					else:
+						ligne_str += valeur_calculée_str_cellule + ";"
+				f.write(ligne_str[:-1] + "\n")  # on ignore le dernier ; car il ne délimite aucune colonne
+			f.close()
+
+		elif choix_utilisateur == "ct":
+			nom_fichier = input("Nom fichier (avec extension): ")
+			try:
+				f = open(nom_fichier, "r", encoding="utf-8")
+				# On va stocker les données du fichier dans un tableau indexé par les lignes d'abord, colonnes ensuite, car on lit le fichier ligne par ligne
+				tableau_lignes_colonnes = []
+				for ligne in f:
+					tableau_lignes_colonnes.append(ligne[:-1].split(";"))  # on ne considère pas le dernier caractère parce qu'il est le saut de ligne \n
+					# Remplacement des chaines vides par None
+					for colonne_nb, no_colonne in enumerate(tableau_lignes_colonnes[-1]):
+						if no_colonne == "":
+							tableau_lignes_colonnes[-1][colonne_nb] = None
+				f.close()
+				# On construit le véritable tableau en faisant une rotation du premier, indexé par les colonnes d'abord, les lignes ensuites
+				tableau = [[None for _ in tableau_lignes_colonnes] for _ in
+						   tableau_lignes_colonnes[0]]  # crée autant de colonnes qu'il y a de valeurs dans la 1er ligne de tableau2
+				for ligne_nb, ligne in enumerate(tableau_lignes_colonnes):
+					for colonne_nb, valeur_colonne in enumerate(ligne):
+						tableau[colonne_nb][ligne_nb] = valeur_colonne
+			except:
+				print("Fichier invalide")
+
+		######################################################## Quitter
+		elif choix_utilisateur == "q":
+			break
+			</code></pre>
+</div>
+	
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

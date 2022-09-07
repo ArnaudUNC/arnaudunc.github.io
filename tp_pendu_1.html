@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 10 - Jeu du pendu niv.1 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 10 - Jeu du pendu niv.1 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -237,7 +237,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2022.html">
-				📝 Contrôle continu 1
+				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
@@ -258,28 +258,28 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp_boutique_1.html">
-				✏️ TP 8 - Boutique niv.1
+				✏️ TP 8 - Boutique niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp_boutique_2.html">
-				✏️ TP 9 - Boutique niv.2
+				✏️ TP 9 - Boutique niv.2 ✔️
 			</a>
 		</div>
 
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_1.html">
-				✏️ TP 10 - Jeu du pendu niv.1
+				✏️ TP 10 - Jeu du pendu niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_2.html">
-				✏️ TP 11 - Jeu du pendu niv.2
+				✏️ TP 11 - Jeu du pendu niv.2 ✔️
 			</a>
 		</div>
 
@@ -293,7 +293,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_3.html">
-				✏️ TP 12 - Jeu du pendu niv.3
+				✏️ TP 12 - Jeu du pendu niv.3 ✔️
 			</a>
 		</div>
 
@@ -310,7 +310,7 @@
 
 
 		
-	<h1 data-nb="30" id="✏️ TP 10 - Jeu du pendu niv.1">✏️ TP 10 - Jeu du pendu niv.1</h1>
+	<h1 data-nb="30" id="✏️ TP 10 - Jeu du pendu niv.1 ✔️">✏️ TP 10 - Jeu du pendu niv.1 ✔️</h1>
 	
 
 	<p>Dans les TP suivants on va créer le jeu du pendu:</p>
@@ -390,6 +390,17 @@
 			joueur, faux sinon.</p>
 <p>Testez que votre fonction fonctionne avec quelques appels.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -404,6 +415,28 @@
 <p>Ecrire la fonction <code>afficher_mot()</code>, qui prend les mêmes 2 paramètres que la fonction de la question précédente. Elle ne renvoie aucun
 			résultat. Lorsqu'on l'appelle, elle affiche dans la console le mot avec les bonnes lettres révélées ou pas.</p>
 <p>Testez que votre fonction fonctionne avec quelques appels.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					# Question 2
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -420,6 +453,47 @@
 </ul>
 <p>Stockez les lettres que le joueur demande dans un <code>set</code>, et utilisez les 2 fonctions précédentes pour vous aider.</p>
 <p>Vérifiez que votre jeu fonctionne.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					# Question 2
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 3
+					mot_à_deviner = "bonjour"
+					essais_restants = 3
+					ensemble_lettres_à_révéler = set()
+					# Tant que le mot en cours n'est pas deviné et que le joueur a encore des essais à jouer
+					while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+						afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+						print("Vie restante:", essais_restants)
+						lettre = input("Lettre: ")
+						ensemble_lettres_à_révéler.add(lettre)
+						if lettre not in mot_à_deviner:
+							essais_restants -= 1
+
+					if essais_restants &lt;= 0:
+						print("Perdu. Le mot est:", mot_à_deviner)
+					else:
+						print("Gagné! Le mot est:", mot_à_deviner)
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -439,6 +513,50 @@
 <p>Vérifiez que le mot change de façon aléatoire à chaque lancement du programme. Aléatoire ne signifie pas différent à chaque fois, il est donc
 			possible que le même mot soit proposé plusieurs fois de suite. Plus il y a de mots possibles, et moins ils ont de chances de sortir 2 fois de
 			suite.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Question 1
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					# Question 2
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 4
+					import random
+
+					tous_les_mots = {"bonjour", "salut", "voiture"}
+					mot_à_deviner = random.choice(list(tous_les_mots))
+					essais_restants = 3
+					ensemble_lettres_à_révéler = set()
+					# Tant que le mot en cours n'est pas deviné et que le joueur a encore des essais à jouer
+					while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+						afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+						print("Vie restante:", essais_restants)
+						lettre = input("Lettre: ")
+						ensemble_lettres_à_révéler.add(lettre)
+						if lettre not in mot_à_deviner:
+							essais_restants -= 1
+
+					if essais_restants &lt;= 0:
+						print("Perdu. Le mot est:", mot_à_deviner)
+					else:
+						print("Gagné! Le mot est:", mot_à_deviner)
+				</code></pre>
+</div>
 		
 	</div>
 

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 11 - Jeu du pendu niv.2 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 11 - Jeu du pendu niv.2 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -237,7 +237,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2022.html">
-				📝 Contrôle continu 1
+				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
@@ -258,28 +258,28 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp_boutique_1.html">
-				✏️ TP 8 - Boutique niv.1
+				✏️ TP 8 - Boutique niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp_boutique_2.html">
-				✏️ TP 9 - Boutique niv.2
+				✏️ TP 9 - Boutique niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp_pendu_1.html">
-				✏️ TP 10 - Jeu du pendu niv.1
+				✏️ TP 10 - Jeu du pendu niv.1 ✔️
 			</a>
 		</div>
 
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_2.html">
-				✏️ TP 11 - Jeu du pendu niv.2
+				✏️ TP 11 - Jeu du pendu niv.2 ✔️
 			</a>
 		</div>
 
@@ -293,7 +293,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_3.html">
-				✏️ TP 12 - Jeu du pendu niv.3
+				✏️ TP 12 - Jeu du pendu niv.3 ✔️
 			</a>
 		</div>
 
@@ -310,7 +310,7 @@
 
 
 		
-	<h1 data-nb="31" id="✏️ TP 11 - Jeu du pendu niv.2">✏️ TP 11 - Jeu du pendu niv.2</h1>
+	<h1 data-nb="31" id="✏️ TP 11 - Jeu du pendu niv.2 ✔️">✏️ TP 11 - Jeu du pendu niv.2 ✔️</h1>
 	
 
 	<p>Ce TP est la suite directe du pendu niveau 1.</p>
@@ -334,6 +334,33 @@
 <li><code>.rstrip()</code> qui permet d'enlever un caractère ou une séquence de caractère à droite d'une chaîne.</li>
 </ul>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 1: créer cette fonction
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -341,6 +368,59 @@
 <h2 data-nb="31.2" id="Question 2">Question 2</h2>
 <p>Créer un fichier texte dans le même dossier que votre fichier .py, mettez-y 2 ou 3 mots, un par ligne. Puis modifiez votre programme de façon à ce
 			qu'il lise les mots à deviner depuis le fichier en utilisant votre fonction précédente, avant que la logique du jeu démarre.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 1: créer cette fonction
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					# Question 2: créer le fichier "pendu_2 liste mots.txt", puis s'en servir
+					import random
+
+					# Le précédent déclarait les mots directement dans un ensemble:
+					# tous_les_mots = {"bonjour", "salut", "voiture"}
+					# Le tp présent charge les mots dans un ensemble à partir d'un fichier désormais:
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_2 liste mots.txt")
+
+					mot_à_deviner = random.choice(list(ENSEMBLE_DE_TOUS_LES_MOTS))
+					essais_restants = 3
+					ensemble_lettres_à_révéler = set()
+					while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+						afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+						print("Vie restante:", essais_restants)
+						lettre = input("Lettre: ")
+						ensemble_lettres_à_révéler.add(lettre)
+						if lettre not in mot_à_deviner:
+							essais_restants -= 1
+
+					if essais_restants &lt;= 0:
+						print("Perdu. Le mot est:", mot_à_deviner)
+					else:
+						print("Gagné! Le mot est:", mot_à_deviner)
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -358,6 +438,67 @@
 <li>le retourner</li>
 </ol>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 1: créer cette fonction
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					# Question 2: créer le fichier "pendu_2 liste mots.txt", puis s'en servir
+					import random
+
+					# Le TP précédent déclarait les mots directement dans un ensemble:
+					# tous_les_mots = {"bonjour", "salut", "voiture"}
+					# Le TP présent charge les mots dans un ensemble à partir d'un fichier désormais:
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_2 liste mots.txt")
+
+					mot_à_deviner = random.choice(list(ENSEMBLE_DE_TOUS_LES_MOTS))
+					essais_restants = 3
+					ensemble_lettres_à_révéler = set()
+					while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+						afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+						print("Vie restante:", essais_restants)
+						lettre = input("Lettre: ")
+						ensemble_lettres_à_révéler.add(lettre)
+						if lettre not in mot_à_deviner:
+							essais_restants -= 1
+
+					if essais_restants &lt;= 0:
+						print("Perdu. Le mot est:", mot_à_deviner)
+					else:
+						print("Gagné! Le mot est:", mot_à_deviner)
+
+					# Question 3: écrire cette fonction
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -371,6 +512,74 @@
 <p>Si le joueur devine tous les mots sans épuiser son nombre d'essais, c'est à dire qu'il n'en reste aucun à deviner, alors il / elle a gagné, et le jeu
 			se termine. Si le joueur épuise son nombre d'essais avant d'avoir découvert TOUS les mots, alors il / elle a perdu.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 1: créer cette fonction
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					# Question 3: écrire cette fonction
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+
+
+					# Question 4: répéter jeu tant que tous les mots ont pas été sortis, déclarer vainqueur à la fin
+					import random
+					import copy  # nouvel import
+
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_2 liste mots.txt")
+					# mot_à_deviner = random.choice(list(ENSEMBLE_DE_TOUS_LES_MOTS)) &lt;= on ne fait plus simplement ça
+					# Maintenant on va tenir un ensemble des mots restants à deviner, et choisir à partir de là
+					mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+					essais_restants = 3
+					# on choisit un mot aléatoire pour commencer (s'il y en)
+					mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					while mot_à_deviner and essais_restants &gt; 0:  # nouvelle boucle while "extérieure"
+						ensemble_lettres_à_révéler = set()
+						while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+							afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+							print("Vie restante:", essais_restants)
+							lettre = input("Lettre: ")
+							ensemble_lettres_à_révéler.add(lettre)
+							if lettre not in mot_à_deviner:
+								essais_restants -= 1
+						if essais_restants &lt;= 0:
+							print("Perdu. Le mot est:", mot_à_deviner)
+						else:
+							print("Gagné! Le mot est:", mot_à_deviner)
+						# on choisit un mot aléatoire (s'il en reste) pour la prochaine boucle
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					# Joueur à fini le jeu en entier
+					if essais_restants &gt; 0:
+						print("Bravo! Vous avez deviné tous les mots!")
+				</code></pre>
+</div>
+		
 	</div>
 
 	
@@ -378,6 +587,75 @@
 <h2 data-nb="31.5" id="Question 5">Question 5</h2>
 <p>Rajouter un score au jeu, et l'afficher au joueur pendant le jeu et à la fin, qu'il / elle ait gagné ou non. Le score est simplement le nombre de
 			mots au total que le joueur a deviné jusque là.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 1: créer cette fonction
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					# Question 3: écrire cette fonction
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+
+
+					# Question 5: gérer le score
+					import random
+					import copy
+
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_2 liste mots.txt")
+					mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+					essais_restants = 3
+					total_mots_devinés = 0  # on tient un score maintenant
+					mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					while mot_à_deviner and essais_restants &gt; 0:
+						ensemble_lettres_à_révéler = set()
+						while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+							# Affichage score pendant le jeu
+							print("Votre score actuel:", total_mots_devinés)
+							afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+							print("Vie restante:", essais_restants)
+							lettre = input("Lettre: ")
+							ensemble_lettres_à_révéler.add(lettre)
+							if lettre not in mot_à_deviner:
+								essais_restants -= 1
+						if essais_restants &lt;= 0:
+							print("Perdu. Le mot est:", mot_à_deviner)
+						else:
+							print("Gagné! Le mot est:", mot_à_deviner)
+							total_mots_devinés += 1  # mise à jour du score
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					if essais_restants &gt; 0:
+						print("Bravo! Vous avez deviné tous les mots!")
+					# Affichage score final
+					print("Votre score final:", total_mots_devinés)
+				</code></pre>
+</div>
 		
 	</div>
 
@@ -389,6 +667,78 @@
 			<code>sleep()</code> du module <code>time</code>.</p>
 <p>Voici ce que vous devriez avoir à la fin de ce TP:</p>
 <video controls="" preload="none" src="img/pendu/2 final.mp4"></video>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def mot_est_deviné(mot_à_deviner, lettres_à_révéler_set):
+						for lettre in mot_à_deviner:
+							if lettre not in lettres_à_révéler_set:
+								return False
+						return True
+
+
+					def afficher_mot(mot_à_deviner, lettres_à_révéler_set):
+						str_à_afficher = ""
+						for lettre in mot_à_deviner:
+							if lettre in lettres_à_révéler_set:
+								str_à_afficher += lettre + " "
+							else:
+								str_à_afficher += "_ "
+						print(str_à_afficher)
+
+
+					# Question 1: créer cette fonction
+					def charger_mots_depuis_fichier(ensemble_mots, nom_fichier):
+						with open(nom_fichier, "r") as f:
+							for ligne in f:
+								ensemble_mots.add(ligne.lower().rstrip("\n"))
+
+
+					# Question 3: écrire cette fonction
+					def avoir_et_retirer_mot_aléatoire(ensemble_mots):
+						if len(ensemble_mots) &lt;= 0:
+							return
+						mot = random.choice(list(ensemble_mots))
+						ensemble_mots.remove(mot)
+						return mot.lower()
+
+
+					# 6: nettoyage écran et pauses
+					import random
+					import copy
+					import time
+					import os
+
+					ENSEMBLE_DE_TOUS_LES_MOTS = set()
+					charger_mots_depuis_fichier(ENSEMBLE_DE_TOUS_LES_MOTS, "pendu_2 liste mots.txt")
+					mots_non_devinés = copy.copy(ENSEMBLE_DE_TOUS_LES_MOTS)
+					essais_restants = 3
+					total_mots_devinés = 0
+					mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					while mot_à_deviner and essais_restants &gt; 0:
+						ensemble_lettres_à_révéler = set()
+						while not mot_est_deviné(mot_à_deviner, ensemble_lettres_à_révéler) and essais_restants &gt; 0:
+							os.system("cls")  # nettoyage ecran
+							print("Votre score actuel:", total_mots_devinés)
+							afficher_mot(mot_à_deviner, ensemble_lettres_à_révéler)
+							print("Vie restante:", essais_restants)
+							lettre = input("Lettre: ")
+							ensemble_lettres_à_révéler.add(lettre)
+							if lettre not in mot_à_deviner:
+								essais_restants -= 1
+						if essais_restants &lt;= 0:
+							print("Perdu. Le mot est:", mot_à_deviner)
+						else:
+							print("Gagné! Le mot est:", mot_à_deviner)
+							total_mots_devinés += 1
+						# pause pour permettre au joueur de lire le message avant le prochain nettoyage d'écran
+						time.sleep(2)
+						mot_à_deviner = avoir_et_retirer_mot_aléatoire(mots_non_devinés)
+					if essais_restants &gt; 0:
+						print("Bravo! Vous avez deviné tous les mots!")
+					print("Votre score final:", total_mots_devinés)
+				</code></pre>
+</div>
 		
 	</div>
 

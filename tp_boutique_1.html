@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 8 - Boutique niv.1 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 8 - Boutique niv.1 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -237,7 +237,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2022.html">
-				📝 Contrôle continu 1
+				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
@@ -258,28 +258,28 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_boutique_1.html">
-				✏️ TP 8 - Boutique niv.1
+				✏️ TP 8 - Boutique niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_boutique_2.html">
-				✏️ TP 9 - Boutique niv.2
+				✏️ TP 9 - Boutique niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_1.html">
-				✏️ TP 10 - Jeu du pendu niv.1
+				✏️ TP 10 - Jeu du pendu niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_2.html">
-				✏️ TP 11 - Jeu du pendu niv.2
+				✏️ TP 11 - Jeu du pendu niv.2 ✔️
 			</a>
 		</div>
 
@@ -293,7 +293,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp_pendu_3.html">
-				✏️ TP 12 - Jeu du pendu niv.3
+				✏️ TP 12 - Jeu du pendu niv.3 ✔️
 			</a>
 		</div>
 
@@ -310,7 +310,7 @@
 
 
 		
-	<h1 data-nb="28" id="✏️ TP 8 - Boutique niv.1">✏️ TP 8 - Boutique niv.1</h1>
+	<h1 data-nb="28" id="✏️ TP 8 - Boutique niv.1 ✔️">✏️ TP 8 - Boutique niv.1 ✔️</h1>
 	
 
 	<p>Dans ce TP on va s'entraîner sur les dictionnaires en Python.</p>
@@ -425,6 +425,211 @@
 			</li>
 </ul>
 
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# Pour la console originale Windows uniquement, inutile pour le Terminal de Windows
+					# import os
+					# os.system("color")
+
+					import time
+
+					vendeurs = {
+						'Susie': {
+							'portrait': "👩‍🌾",
+							'métier': 'Agricultrice',
+							'produits': {
+								'pom': {
+									"nom": 'Pommes import NZ',
+									"francs à l'unité": 50,
+									'icone': "🍎",
+								},
+								'poi': {
+									"nom": 'Poires import NZ',
+									"francs à l'unité": 70,
+									'icone': "🍐",
+								},
+								'ora': {
+									"nom": 'Oranges locales',
+									"francs à l'unité": 110,
+									'icone': "🍊",
+								}
+							}
+						},
+						'Julie': {
+							'portrait': "👩‍🍳",
+							'métier': 'Pâtissière',
+							'produits': {
+								'd': {
+									"nom": 'Donuts sauce choco',
+									"francs à l'unité": 150,
+									'icone': "🍩",
+								},
+								'c': {
+									"nom": 'Cookies aux pépites de chocolat',
+									"francs à l'unité": 200,
+									'icone': "🍪",
+								},
+								'g': {
+									"nom": 'Parts de gateau crème fraîche',
+									"francs à l'unité": 170,
+									'icone': "🍰",
+								}
+							}
+						},
+						'Thomas': {
+							'portrait': "🧔⚓",
+							'métier': 'Pêcheur',
+							'produits': {
+								'cra': {
+									"nom": 'Crabes de mangrove',
+									"francs à l'unité": 700,
+									'icone': "🦀",
+								},
+								'cre': {
+									"nom": 'Crevettes moyennes',
+									"francs à l'unité": 150,
+									'icone': "🦐",
+								},
+								'bec': {
+									"nom": 'Becs de canne',
+									"francs à l'unité": 450,
+									'icone': "🐟",
+								}
+							}
+						},
+					}
+
+
+					def afficher_produits():
+						print('Bienvenue au marché 🏪, voici nos vendeurs:')
+						# print()
+						for nom_vendeur, description_vendeur in vendeurs.items():
+							print(description_vendeur['portrait'] + '  ' + nom_vendeur + ' (' + description_vendeur['métier'] + ') vend:')
+							for code_produit, description_produit in description_vendeur['produits'].items():
+								desc_produit_str = '\t' + description_produit['icone'] + '  ' + description_produit['nom']
+								desc_produit_str += ' (code: ' + code_produit + '), ' + str(description_produit["francs à l'unité"]) + ' F/unité'
+								print(desc_produit_str)
+
+
+					panier_client = {}
+
+
+					def retrouver_produit(code_produit_à_retrouver):
+						for nom_vendeur, vendeur in vendeurs.items():
+							for code_produit, produit in vendeur["produits"].items():
+								if code_produit == code_produit_à_retrouver:
+									return produit
+
+
+					argent = 5000
+
+
+					# retourne 0 si tout s'est bien passé, 1 si le produit spécifié n'existe pas, 2 s'il n'y a pas assez d'argent, 3 si quantité est 0 ou négatif
+					def ajouter_articles_dans_panier(code_produit_à_ajouter, quantité):
+						if quantité &lt;= 0:
+							return 3
+
+						produit_à_ajouter = retrouver_produit(code_produit_à_ajouter)
+						if not produit_à_ajouter:
+							return 1
+
+						global argent
+						prix_produit = produit_à_ajouter["francs à l'unité"] * quantité
+						if prix_produit &gt; argent:
+							return 2
+
+						argent -= prix_produit
+
+						if code_produit_à_ajouter not in panier_client:
+							panier_client[code_produit_à_ajouter] = {
+								'produit': produit_à_ajouter,
+								'quantité': quantité
+							}
+						else:
+							panier_client[code_produit_à_ajouter]['quantité'] += quantité
+
+						return 0
+
+
+					# retourne 0 si tout s'est bien passé, 1 si le panier ne contient pas le produit spécifié
+					def supprimer_produit_du_panier(code_produit_à_supprimer):
+						if code_produit_à_supprimer not in panier_client:
+							return 1
+
+						argent_récupéré = panier_client[code_produit_à_supprimer]["produit"]["francs à l'unité"] * panier_client[code_produit_à_supprimer]["quantité"]
+						global argent
+						argent += argent_récupéré
+						del panier_client[code_produit_à_supprimer]
+
+						return 0
+
+
+					def afficher_panier():
+						print('\x1b[38;2;255;255;100;48;2;100;100;100m'"💰 Vous disposez de:", str(argent), 'F', '\x1b[0m')
+						if len(panier_client) == 0:
+							print("🛒 Votre panier est vide")
+						else:
+							print("🛒 Votre panier contient:")
+							for code_produit, produit in panier_client.items():
+								print((produit['produit']['icone'] + ' ') * produit['quantité'], str(produit['quantité']), produit['produit']['nom'])
+
+
+					# ajouter_articles_dans_panier('cra', 2)
+					# ajouter_articles_dans_panier('pom', 4)
+
+
+					def afficher_message_erreur(msg):
+						print('\x1b[38;2;255;255;0m⚠', msg, '\x1b[0m')
+						time.sleep(2)
+
+
+					def afficher_message_confirmation(msg):
+						print('\x1b[38;2;0;255;0m✓', msg, '\x1b[0m')
+
+
+					réponse_utilisateur = ''
+					while True:
+						afficher_produits()
+						afficher_panier()
+						print("Que voulez-vous faire?")
+						print("- a pour ajouter des articles au panier")
+						print("- r pour rendre des articles")
+						print("- q pour confirmer votre commande et quitter la boutique")
+						réponse_utilisateur = input()
+
+						if réponse_utilisateur == 'a':
+							code_produit = input("Code produit: ")
+							quantité = input("Quantité: ")
+							try:
+								quantité = int(quantité)
+							except ValueError:
+								afficher_message_erreur("Veuillez entrer un nombre entier pour la quantité.")
+								continue
+							résultat = ajouter_articles_dans_panier(code_produit, quantité)
+
+							if résultat == 1:
+								afficher_message_erreur('Le code produit "' + code_produit + '" n\'existe pas.')
+							elif résultat == 2:
+								afficher_message_erreur("Vous n'avez pas assez d'argent pour en acheter autant.")
+							elif résultat == 3:
+								afficher_message_erreur('Quantité insuffisante')
+							elif résultat == 0:
+								afficher_message_confirmation("Vos produits ont été ajoutés à votre panier")
+
+						elif réponse_utilisateur == 'r':
+							code_produit = input("Code produit: ")
+							résultat = supprimer_produit_du_panier(code_produit)
+							if résultat == 1:
+								afficher_message_erreur('Le code produit "' + code_produit + '" n\'existe pas dans votre panier.')
+							elif résultat == 0:
+								afficher_message_confirmation("Vos produits ont été supprimés de votre panier")
+
+						elif réponse_utilisateur == 'q':
+							afficher_message_confirmation("Vous recevrez bientôt votre commande. Merci pour votre visite!")
+							break
+				</code></pre>
+</div>
 		
 	</div>
 <h2 data-nb="28.1" id="De la couleur dans le terminal">De la couleur dans le terminal</h2>
