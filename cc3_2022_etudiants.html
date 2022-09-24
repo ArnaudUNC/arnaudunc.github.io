@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>📝 Contrôle continu 3 | Algo et prog 2 en Python</title>
+	<title>📝 Contrôle continu 3 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -300,7 +300,7 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cc3_2022_etudiants.html">
-				📝 Contrôle continu 3
+				📝 Contrôle continu 3 ✔️
 			</a>
 		</div>
 
@@ -310,7 +310,9 @@
 
 
 		
-	<h1 data-nb="34" id="📝 Contrôle continu 3">📝 Contrôle continu 3</h1>
+	<h1 data-nb="34" id="📝 Contrôle continu 3 ✔️">📝 Contrôle continu 3 ✔️</h1>
+	
+	
 	
 
 	<div class="exercice">
@@ -500,7 +502,90 @@
 <p>La fonction modifie uniquement les données de l'étudiant qui sont spécifiées en paramètre (nouveau nom, ou nouveau prénom, ou nouveau genre) et ne
 			met pas à jour les données non spécifiées (qui donc valent leur valeur par défaut <code>None</code>). Cela doit être le cas qu'il y ait zéro ou une
 			seule donnée spécifiée (différente de None) en paramètre (<strong>Point 15</strong>) ou plusieurs (<strong>Point 16</strong>).</p>
+
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def ajouter_nouvel_étudiant(base_étudiants, id_étudiant, nom, prénom, est_fille):
+						""" Retourne -1 si l'id est déjà dans la base, 0 si tout s'est bien passé """
+						if id_étudiant in base_étudiants:
+							return -1
+						base_étudiants[id_étudiant] = {
+							"nom": nom,
+							"prénom": prénom,
+							"est_fille": est_fille,
+							"notes": []
+						}
+						return 0
+
+
+					def ajouter_note_étudiant(base_étudiants, id_étudiant, note, coeff):
+						""" Retourne 0 si note bien ajoutée, -1 si l'id étudiant n'est pas dans la base  """
+						if id_étudiant not in base_étudiants:
+							return -1
+						base_étudiants[id_étudiant]["notes"].append((note, coeff))
+						return 0
+
+
+					def avoir_moyenne_pondérée_étudiant(base_étudiants, id_étudiant):
+						""" Retourne la moyenne de l'étudiant, -1 si l'id n'est pas dans la base """
+						if id_étudiant not in base_étudiants:
+							return -1
+						notes_étudiant = base_étudiants[id_étudiant]["notes"]
+						if len(notes_étudiant) &lt;= 0:
+							return 0
+						total_notes = 0
+						total_coeff = 0
+						for note in notes_étudiant:
+							total_notes += note[0] * note[1]
+							total_coeff += note[1]
+						return total_notes / total_coeff
+
+
+					def avoir_moyenne_pondérée_générale(base_étudiants):
+						""" Retourne la moyenne générale pondérée de tous les étudiants """
+						if len(base_étudiants) == 0:
+							return 0
+						total_moyennes = 0
+						for id_étudiant, étudiant in base_étudiants.items():
+							total_moyennes += avoir_moyenne_pondérée_étudiant(base_étudiants, id_étudiant)
+						return total_moyennes / len(base_étudiants)
+
+
+					def avoir_étudiant(base_étudiants, nom, prénom):
+						"""	Retourne un tuple contenant l'id de l'étudiant demandé et l'étudiant en question ; le tuple None,None s'il n'existe pas. """
+						for id_étudiant, étudiant in base_étudiants.items():
+							if étudiant["nom"] == nom and étudiant["prénom"] == prénom:
+								return id_étudiant, étudiant
+						return None, None
+
+
+					def supprimer_étudiant(base_étudiants, nom, prénom):
+						""" Retourne 0 si l'étudiant a bien été supprimé, -1 s'il n'existe pas """
+						id_étudiant, étudiant = avoir_étudiant(base_étudiants, nom, prénom)
+						if id_étudiant == None or étudiant == None:
+							return -1
+						del base_étudiants[id_étudiant]
+						return 0
+
+
+					def maj_étudiant(base_étudiants, nom, prénom, nouveau_nom=None, nouveau_prénom=None, nouveau_genre_est_fille=None):
+						""" ATTENTION le nom des 3 paramètres facultatifs est important pour cette fonction.
+						Retourne 0 si l'étudiant a bien été modifié, -1 s'il n'existe pas """
+						id_étudiant, étudiant = avoir_étudiant(base_étudiants, nom, prénom)
+						if id_étudiant == None or étudiant == None:
+							return -1
+						if nouveau_nom:
+							étudiant["nom"] = nouveau_nom
+						if nouveau_prénom:
+							étudiant["prénom"] = nouveau_prénom
+						if nouveau_genre_est_fille:
+							étudiant["est_fille"] = nouveau_genre_est_fille
+						return 0
+				</code></pre>
 </div>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
