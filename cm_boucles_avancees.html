@@ -75,6 +75,13 @@
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_spec_impl_versions.html">
 				Spécification, implémentations et versions
 			</a>
@@ -112,13 +119,6 @@
 			<!--span class="ballot_box">☒</span-->
 			<a href="cm_namespaces_modules.html">
 				Namespaces et modules
-			</a>
-		</div>
-
-		<div class=" h h1">
-			<!--span class="ballot_box">☒</span-->
-			<a href="cm_exceptions.html">
-				Les exceptions
 			</a>
 		</div>
 
@@ -167,7 +167,7 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="cm_compr_listes.html">
-				Compréhension de listes et dictionnaires
+				Compréhension de listes
 			</a>
 		</div>
 
@@ -312,17 +312,19 @@
 		
 	
 	<h1 data-nb="12" id="Techniques avancées sur les boucles">Techniques avancées sur les boucles</h1>
-<p>
-		Les techniques suivantes vont compléter vos connaissances des boucles et des listes en Python. Elles sont très souvent utilisées, et sont donc
+<p>Les techniques suivantes vont compléter vos connaissances sur les boucles et les listes en Python. Elles sont très souvent utilisées, donc
 		essentielles.</p>
 
 	
 	<h2 data-nb="12.1" id="break">break</h2>
-<p>
+<!--p>
 		L’instruction <code>break</code> quand elle est exécutée stoppe la boucle <code>for</code> ou <code>while</code> dans laquelle elle se situe. La
 		condition d’arrêt de la boucle n’est pas évaluée, la boucle se termine tout simplement à l’endroit même du break, et le fil d’exécution du programme se
-		poursuit avec ce qui suit la boucle.</p>
-<p>Exemple: si on boucle de 0 à 9, mais qu'on fait un break à 3, la boucle s'arrêtera à 3:</p>
+		poursuit avec ce qui suit la boucle.</p-->
+<p>Lorsqu'elle est exécutée, l'instruction "break" interrompt immédiatement la boucle "for" ou "while" dans laquelle elle se trouve. La condition de sortie
+		de la boucle n'est pas évaluée, la boucle se termine immédiatement au point où "break" est rencontré, et le programme continue son exécution avec les
+		instructions qui suivent la boucle.</p>
+<p>Exemple: cette boucle va de 0 à 9, mais un break la stoppera à 3:</p>
 <pre><code class="language-python">
 		for i in range(10):
 			print(i)
@@ -347,11 +349,15 @@
 
 	
 	<h2 data-nb="12.2" id="continue">continue</h2>
-<p>
+<!--p>
 		Cette instruction lorsqu'elle est exécutée dans une boucle permet de passer directement à l’itération suivante. L’itération actuelle est simplement
 		stoppée exactement à l’endroit du <code>continue</code>, et la boucle continue avec l’itération suivante de façon classique, c'est à dire que
 		l'incrémentation est faite dans le cas d'une boucle <code>for</code>, le test d'arrêt de la boucle est effectué, puis l'itération suivante démarre (sauf
-		si le test d'arrêt évalue à <code>False</code>). </p>
+		si le test d'arrêt évalue à <code>False</code>). </p-->
+<p>Lorsqu'elle est exécutée dans une boucle, cette instruction permet de passer directement à l'itération suivante. L'itération en cours est simplement
+		interrompue au moment précis du "continue", et la boucle continue normalement avec l'itération suivante. Dans le cas d'une boucle "for",
+		l'incrémentation est effectuée, la condition de fin de boucle est évaluée, puis la prochaine itération démarre (sauf si le test de fin de boucle évalue
+		à False).</p>
 <p>Par exemple, cette boucle ↓ va de 0 à 9, mais à chaque itération, si <code>i</code> n'est pas égal 5, on "continue", donc la boucle ne fait pas le <code>print()</code>
 		et passe à l'itération suivante. Le seul cas où le <code>print()</code> peut être exécuté est quand <code>i</code> vaut 5:</p>
 <pre><code class="language-python">
@@ -367,8 +373,8 @@
 
 	
 	<h2 data-nb="12.3" id="enumerate()">enumerate()</h2>
-<p>Lorsqu’on boucle sur une séquence avec une boucle <code>for</code>, et qu’on a besoin d’avoir à la fois l’indice actuel, et sa valeur correspondante, on
-		utilise la fonction <code>enumerate()</code> comme ceci (remarquer que la boucle for supporte l'unpacking d'iterables): </p>
+<p>Lorsqu’on boucle sur une <a href="cm_sequences.html">séquence</a> avec une boucle <code>for</code>, et qu’on a besoin d’avoir à la fois l’indice actuel,
+		et sa valeur correspondante, on utilise la fonction <code>enumerate()</code> comme ceci (remarquer que la boucle for supporte <a href="cm_iterable_unpacking.html">l'unpacking d'iterables</a>): </p>
 <pre><code class="language-python">
 		for indice, valeur in enumerate([10, 20, 30]):
 			print(indice, valeur)
@@ -377,7 +383,7 @@
 <pre><code>0 10
 1 20
 2 30</code></pre>
-<p><code>enumerate()</code> prend un <code>iterable</code> en paramètre, et retourne un objet de type <code>enumerate</code>, qui est un type d'<code>iterator</code>
+<p><code>enumerate()</code> prend un <code>iterable</code> en paramètre et retourne un objet de type <code>enumerate</code>, qui est un type d'<code>iterator</code>
 		et donc utilisable par la boucle <code>for</code>. Chaque élément de cet <code>iterator</code> est un tuple contenant deux valeurs: en premier l'indice
 		sous forme de <code>int</code>, et en second l'élément correspondant dans l'<code>iterable</code> passé en paramètre.</p>
 <p>Exemple:</p>
@@ -397,7 +403,7 @@
 
 	
 	<h2 data-nb="12.4" id="zip()">zip()</h2>
-<p>Lorsqu’on veut boucler sur plusieurs <code>iterables</code> en même temps, on utilise <code>zip()</code> comme ceci:</p>
+<p>Lorsqu’on veut boucler sur plusieurs <a href="cm_iterables.html"><code>iterables</code></a> en même temps, on utilise <code>zip()</code> comme ceci:</p>
 <pre><code class="language-python">
 		L1 = [10, 20, 30]
 		L2 = ['Salut', 'à', 'vous']
@@ -410,10 +416,9 @@
 20 à 6
 30 vous 7
 </code></pre>
-<p><code>zip()</code> prend un ou plusieurs <code>iterables</code> en paramètre, et retourne un objet de type <code>zip</code>, qui est un type d<code>iterator</code>.
-		Chaque élément de cet <code>iterator</code> est un tuple. A chaque itération, ce tuple contiendra autant d'élements que d'itérables passés en paramètre.
-		Le 1er élément du tuple sera l'élément à la position actuelle dans le premier <code>iterable</code>, le 2nd élément du tuple sera l'élément à la
-		position actuelle dans le second <code>iterable</code>, et ainsi de suite.</p>
+<p><code>zip()</code> prend un ou plusieurs <code>iterables</code> en paramètre, et retourne un objet de type <code>zip</code>, qui est un type d'<a href="cm_iterables.html"><code>iterator</code></a>. Chaque élément de cet <code>iterator</code> est un tuple. A chaque itération, ce tuple
+		contiendra autant d'élements que d'itérables passés en paramètre. Le 1er élément du tuple sera l'élément à la position actuelle dans le premier <code>iterable</code>,
+		le 2nd élément du tuple sera l'élément à la position actuelle dans le second <code>iterable</code>, et ainsi de suite.</p>
 <p>Exemple:</p>
 <pre><code class="language-python">
 		&gt;&gt;&gt; z = zip([10, 20, 30], ['Salut', 'à', 'vous'], [5, 6, 7])
@@ -428,12 +433,13 @@
 		&gt;&gt;&gt; next(z)
 		StopIteration
 	</code></pre>
-<p>Par défaut <code>zip()</code> s'arrête quand l'<code>iterable</code> le plus court a été parcouru, les éléments restants dans les autres seront ignorés.
-	</p>
+<p>Par défaut <code>zip()</code> s'arrête quand l'<a href="cm_iterables.html"><code>iterable</code></a> le plus court a été parcouru, les éléments restants
+		dans les autres seront ignorés. </p>
 
 	
 	<h2 data-nb="12.5" id="reversed()">reversed()</h2>
-<p>Prend un <code>iterable</code> en paramètre, et retourne un <code>iterator</code> qui renverra les mêmes valeurs mais en ordre inverse.</p>
+<p>Prend un <a href="cm_iterables.html"><code>iterable</code></a> en paramètre, et retourne un <a href="cm_iterables.html"><code>iterator</code></a> qui
+		renverra les mêmes valeurs mais en ordre inverse.</p>
 <p>Exemple:</p>
 <pre><code class="language-python">
 		&gt;&gt;&gt; r = reversed([10, 20, 30])
@@ -450,22 +456,23 @@
 	</code></pre>
 
 	
-	<h2 data-nb="12.6" id="else sur les boucles">else sur les boucles</h2>
-<p>Une clause <code>else</code> facultative peut être ajoutée sur les boucles. Elle SERA exécutée lorsque la boucle sera terminée "naturellement", c'est à
+	<!--h2>else sur les boucles</h2>
+	<p>Une clause <code>else</code> facultative peut être ajoutée sur les boucles. Elle SERA exécutée lorsque la boucle sera terminée "naturellement", c'est à
 		dire quand <code>for</code> aura parcouru son <code>iterable</code> en entier, ou quand la condition du <code>while</code> deviendra <code>False</code>.
 		Le <code>else</code> ne SERA PAS exécuté si la boucle est terminée par un <code>break</code>.</p>
-<pre><code class="language-python">
+	<pre><code class="language-python">
 		for i in range(3):
 			if i == 5:
 				break
 		else:
 			print('5 non trouvé')
 	</code></pre>
-<p>Affichage:</p>
-<p><code>5 non trouvé</code></p>
-<p>Ce mécanisme est rarement utilisé, mais peut être utile dans certaines situations, par exemple lorsqu’on recherche une valeur précise dans un <code>iterable</code>.
+	<p>Affichage:</p>
+	<p><code>5 non trouvé</code></p>
+
+	<p>Ce mécanisme est rarement utilisé, mais peut être utile dans certaines situations, par exemple lorsqu’on recherche une valeur précise dans un <code>iterable</code>.
 		Si on la trouve on fait un <code>break</code>, on considère que la boucle a fait son travail, et le programme se poursuit après la boucle (et son <code>else</code>
-		associé qui sera ignoré). Sinon (la boucle n'a pas trouvé l'élément voulu) on prend les mesures nécessaires dans le <code>else</code>.</p>
+		associé qui sera ignoré). Sinon (la boucle n'a pas trouvé l'élément voulu) on prend les mesures nécessaires dans le <code>else</code>.</p-->
 
 
 
