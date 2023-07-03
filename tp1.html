@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>L'instruction pass | Algo et prog 2 en Python</title>
+	<title>✏️ TP 1 - Calculatrice niv.2 | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -73,63 +73,63 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_pass.html">
 				L'instruction pass
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_exceptions.html">
 				Les exceptions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_spec_impl_versions.html">
 				Spécification, implémentations et versions
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_methodes_exec.html">
 				Façons d'exécuter un programme Python
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_memoire_donnees.html">
 				Mémoire et modèle de données
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_prog_objets.html">
 				Programmation objets
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_namespaces_modules.html">
 				Namespaces et modules
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
 				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2
@@ -149,46 +149,98 @@
 
 
 		
+	<h1 data-nb="10" id="✏️ TP 1 - Calculatrice niv.2">✏️ TP 1 - Calculatrice niv.2</h1>
 	
-	<h1 data-nb="2" id="L'instruction pass">L'instruction pass</h1>
-<!--p>L'instruction <code>pass</code> ne fait rien. Elle est utile pour satisfaire certaines règles syntaxiques de Python, spécifiquement quand un bloc de code
-		est nécessaire mais qu'il doit être vide, à ce moment <code>pass</code> est utile car un bloc de code doit avoir au moins une ligne. Par exemple si on a
-		un <code>if-else</code> qui doit être vide, on ne peut pas écrire: </p-->
-<p>L'instruction "pass" n'a aucun effet. Elle est employée pour répondre à certaines règles syntaxiques de Python, notamment lorsqu'un bloc de code est
-		requis mais doit rester vide. À ce moment-là, "pass" est utile, car un bloc de code doit comporter au moins une ligne. Par exemple, si nous avons un
-		"if-else" qui doit rester vide, nous ne pouvons pas écrire :</p>
-<pre><code class="language-python">
-		if True:
-		else:
-	</code></pre>
-<p>On aura une <code>SyntaxError</code>. Il faudra écrire:</p>
-<pre><code class="language-python">
-		if True:
-			pass
-		else:
-			pass
-	</code></pre>
-<p>Il en sera de même pour les boucles <code>for</code> vides:</p>
-<pre><code class="language-python">
-		for i in range(10):
-			pass
-	</code></pre>
-<p>Les boucles <code>while</code> vides:</p>
-<pre><code class="language-python">
-		while True:
-			pass
-	</code></pre>
-<p>Les fonctions vides:</p>
-<pre><code class="language-python">
-		def fonction_vide():
-			pass
-	</code></pre>
-<!--p>Et partout ailleurs où un bloc vide est nécessaire. On peut avoir besoin d'un bloc vide pour diverses raisons, par exemple lorsqu'on souhaite ajouter une
-		structure (if, fonction, boucle, etc...) mais pas encore sa logique, pour se rappeler de le faire plus tard à cet endroit précis.</p-->
-<p>Et dans toutes les autres situations où un bloc vide est requis. Il peut être nécessaire d'avoir un bloc vide pour différentes raisons, par exemple
-		lorsque l'on souhaite ajouter une structure (if, fonction, boucle, etc.) sans encore définir sa logique, afin de se rappeler de le faire ultérieurement
-		à cet endroit précis.</p>
-<p><code>pass</code> n'a aucun impact sur les performances du programme: à part son rôle syntaxique elle est ignorée par Python.</p>
+
+	
+	<div class="exercice">
+<h2 data-nb="10.1" id="Question 1">Question 1</h2>
+<p>Partant de la solution de la dernière question du TD précédent, on veut maintenant en plus forcer l'utilisateur à entrer des nombres, et pas juste
+			stopper le programme avec un message dans le cas contraire. Pour cela, demander à l'utilisateur le 1er nombre indéfiniment tant qu'il / elle n'a pas
+			entré un nombre correct, en précisant bien à chaque fois ce qui est attendu, et afficher à chaque fois l'erreur (texte entré n'est pas un nombre).
+			Faire de même pour le second nombre.</p>
+<p>On veut aussi que l'utilisateur puisse entrer des nombres à virgule, comme par exemple 2.5, 8.04, etc...</p>
+		
+	</div>
+
+
+	
+	<div class="exercice">
+<h2 data-nb="10.2" id="Question 2">Question 2</h2>
+<p>Dans cette question, on n'ajoute aucune nouvelle fonctionnalité à notre programme, on adapte simplement le code pour le simplifier et le
+			raccourcir.</p>
+<p>Partant de la solution de la question précédente, on veut simplifier le code en éliminant le code redondant (<em>redondant</em> signifie
+			<em>dupliqué</em>, <em>identique</em>, <em>répété</em>). On peut voir qu'on fait pratiquement la même chose pour obtenir chacun des deux nombres
+			<code>nb1</code> et <code>nb2</code>, donc mettre dans une fonction le code pour obtenir un seul nombre. </p>
+<p>Donner un nom explicite à la fonction, de façon à ce qu'on comprenne, rien que par son nom, ce qu'elle est censée faire et censée retourner comme
+			résultat.</p>
+<p>Puis appeler cette fonction 2 fois: une fois pour obtenir de l'utilisateur le 1er nombre, puis une seconde fois pour obtenir le 2ème nombre.</p>
+<p>Le reste du programme reste inchangé.</p>
+		
+	</div>
+	
+	<div class="exercice">
+<h2 data-nb="10.3" id="Question 3">Question 3</h2>
+<p>Partant de la solution de l'exercice précédent, forcer l'utilisateur à ne pouvoir entrer que l'une des 4 opérations autorisées: addition,
+			soustraction, division, multiplication.</p>
+<p>S'il / elle entre n'importe quoi d'autre, le programme affiche un message d'erreur adapté, et redemande encore et encore l'opération, jusqu'à ce que
+			celle-ci soit l'une de celles permises.</p>
+		
+	</div>
+
+
+	
+	<div class="exercice">
+<h2 data-nb="10.4" id="Question 4">Question 4</h2>
+<p>Partant de la solution de l'exercice précédent, répéter l'ensemble du programme indéfiniment, pour permettre à l'utilisateur de faire autant de
+			calculs qu'il / elle souhaite.</p>
+<p>A chaque fois qu'un calcul a été réalisé, demander à l'utilisateur s'il / elle souhaite continuer ou arrêter. Si l'utilisateur décide d'arrêter, le
+			programme se termine. Sinon il recommence en demandant à nouveaux deux nombre, l'opération et affiche le résultat.</p>
+		
+	</div>
+	
+	<div class="exercice">
+<h2 data-nb="10.5" id="Question 5">Question 5</h2>
+<p>Partant de la solution de l'exercice précédent, on veut rendre le code plus lisible et simple à comprendre. On n'ajoute aucune nouvelle
+			fonctionnalité du point de vue de l'utilisateur, on adapte le code pour l'améliorer.</p>
+<p>Mettre dans une fonction tout le code qui sert à un seul calcul, et donc PAS le code qui sert à répéter les calculs si l'utilisateur souhaite en
+			faire d'autres. Utiliser / exécuter ensuite cette fonction avec le code qui répète les caluls.</p>
+		
+	</div>
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	<div class="exercice">
+<h2 data-nb="10.7" id="Question 6">Question 6</h2>
+<p>On ne va pas ajouter de nouvelle fonctionnalité à notre programme, mais on va utiliser une autre approche que les exceptions (qui sont l'approche
+			idéale dans le contexte de cet exercice) pour savoir si un nombre entré par l'utilisateur est correct ou pas.</p>
+<p>Copiez-collez la fonction qui vous sert à obtenir un nombre de l'utilisateur, afin d'avoir une copie et de garder l'originale intacte. Dans cette
+			copie, que vous renommerez avec un nom adapté, n'utilisez plus les exceptions. Testez "à la main" (par votre propre code) si le texte entré est un
+			nombre correct (à virgule ou entier, et avec signe négatif présent ou pas). Vous aurez besoin de connaître <code>break</code> et
+			<code>continue</code> pour vous faciliter la tâche, à lire dans le cours, partie sur les boucles avancées.</p>
+<p>Attention cette modification ne doit pas changer le comportement de la fonction, c'est-à-dire si le texte entré n'est pas un nombre, il faut le
+			redemander encore à l'utilisateur jusqu'à ce qu'un nombre correct soit entré.</p>
+<p>Utilisez votre nouvelle fonction dans votre programme pour la tester.</p>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
