@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Manipulation de fichiers texte | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	<h1 data-nb="16" id="Manipulation de fichiers texte">Manipulation de fichiers texte</h1>
+<p>La fonction built-in <code>open()</code> renvoie un objet de type fichier et est le plus souvent utilisée avec deux arguments positionnels et un argument
+		nommé:</p>
+<pre><code class="language-python">
+		open(filename, mode='r', encoding=None)
+	</code></pre>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		f = open('mon fichier.txt', 'w', encoding="utf-8")
+	</code></pre>
+<p>Le premier argument est une chaîne contenant le chemin et le nom du fichier. Le deuxième argument est une autre chaîne contenant quelques caractères
+		décrivant la façon dont le fichier est utilisé. <code>mode</code> peut être <code>'r'</code> quand le fichier n'est accédé qu'en lecture,
+		<code>'w'</code> en écriture seulement (un fichier existant portant le même nom sera alors écrasé) et <code>'a'</code> ouvre le fichier en mode ajout
+		(toute donnée écrite dans le fichier est automatiquement ajoutée à la fin). <code>'r+'</code> ouvre le fichier en mode lecture/écriture. L'argument
+		<code>mode</code> est optionnel, sa valeur par défaut est <code>'r'</code>.</p>
+<p>Normalement, les fichiers sont ouverts en <strong>mode texte</strong>, c'est-à-dire que vous lisez et écrivez des chaînes de caractères depuis et dans ce
+		fichier, suivant un encodage donné via le paramètre <code>encoding</code>. Si <code>encoding</code> n'est pas spécifié, l'encodage par défaut dépend de
+		la plateforme. UTF-8 étant le standard moderne par défaut, spécifier <code>encoding="utf-8"</code> est recommandé à moins que vous ne sachiez que vous
+		devez utiliser un autre encodage. L’ajout d’un <code>'b'</code> au mode ouvre le fichier en <strong>mode binaire</strong>. Les données en mode binaire
+		sont lues et écrites sous forme d’objets de type <code>bytes</code>. Vous ne pouvez pas spécifier encoding lorsque vous ouvrez un fichier en mode
+		binaire.</p>
+<p>En mode texte, le comportement par défaut, à la lecture, est de convertir les fin de lignes spécifiques à la plateforme (\n sur Unix, \r\n sur Windows,
+		etc.) en simples \n. Lors de l'écriture, le comportement par défaut est d'appliquer l'opération inverse : les \n sont convertis dans leur équivalent sur
+		la plateforme courante. Ces modifications effectuées automatiquement sont normales pour du texte, mais détérioreraient des données binaires contenues
+		dans un fichier de type JPEG ou EXE. Soyez particulièrement attentifs à ouvrir ces fichiers binaires en mode binaire.</p>
+<p>Vous devez appeler la méthode <strong><code>close()</code></strong> de l'objet fichier pour le fermer, et ainsi immédiatement libérer les ressources
+		qu'il utilise. Après la fermeture du fichier toute tentative d'utilisation de l'objet fichier (lecture ou écriture) échoue systématiquement.</p>
+<h2 data-nb="16.1" id="Méthodes des objets fichiers">Méthodes des objets fichiers</h2>
+<p>Dans les exemples de code suivant on suppose qu'un objet fichier référencé par l'identifiant <code>f</code> a déjà été créé.</p>
+<p>Pour lire le contenu d'un fichier, appelez <strong><code>f.read(taille)</code></strong>, cette dernière lit une certaine quantité de données et la
+		renvoie sous forme de chaîne (en mode texte) ou d'objet bytes (en mode binaire). <code>taille</code> est un argument numérique facultatif. Lorsque
+		<code>taille</code> est omis ou négatif, la totalité du contenu du fichier sera lue et renvoyée, attention donc à ne pas lire des fichiers plus grands
+		que la quantité de mémoire disponible, sinon une exception sera lancée. Si <code>taille</code> référence un entier positif, au maximum
+		<code>taille</code> caractères (en mode texte) ou <code>taille</code> octets (en mode binaire) sont lus et renvoyés. Si la fin du fichier est atteinte,
+		<code>f.read()</code> renvoie une chaîne vide.</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; f.read()
+		'Ceci est le contenu complet du fichier texte.\n'
+
+		&gt;&gt;&gt; f.read()
+		''
+	</code></pre>
+<p><strong><code>f.readline()</code></strong> lit une seule ligne du fichier. Un caractère de fin de ligne (\n) est laissé à la fin de la chaîne. Si <code>f.readline()</code>
+		renvoie une chaîne vide, c'est que la fin du fichier a été atteinte, alors qu'une ligne vide est représentée par <code>'\n'</code> (une chaîne de
+		caractères ne contenant qu'une fin de ligne).</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; f.readline()
+		'Première ligne du fichier texte.\n'
+
+		&gt;&gt;&gt; f.readline()
+		'Seconde et dernière ligne'
+
+		&gt;&gt;&gt; f.readline()
+		''
+	</code></pre>
+<p>Pour lire ligne par ligne, vous pouvez aussi boucler sur l'objet fichier. C'est plus efficace en termes de gestion mémoire, plus rapide et donne un code
+		plus simple :</p>
+<pre><code class="language-python">
+		for ligne_de_texte in f:
+			print(ligne_de_texte, end='')
+	</code></pre>
+<p>Affichage:</p>
+<pre><code class="language-python-console">
+		Première ligne du fichier texte.
+		Seconde et dernière ligne
+	</code></pre>
+<p>Pour construire une liste avec toutes les lignes d'un fichier, il est aussi possible d'utiliser <strong><code>list(f)</code></strong> ou <strong><code>f.readlines()</code></strong>.
+	</p>
+<p><code><strong>f.write(chaine)</strong></code> écrit le contenu de chaine dans le fichier et renvoie le nombre de caractères écrits.</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; f.write('Du texte\n')
+		9
+	</code></pre>
+<p>Les fichiers disposent de méthodes supplémentaires. Consultez la référence de la bibliothèque standard pour avoir un guide complet des objets
+		fichiers.</p>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

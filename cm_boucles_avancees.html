@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Techniques avancées sur les boucles | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="12" id="Techniques avancées sur les boucles">Techniques avancées sur les boucles</h1>
+<p>Les techniques suivantes vont compléter vos connaissances sur les boucles et les listes en Python. Elles sont très souvent utilisées, donc
+		essentielles.</p>
+
+	
+	<h2 data-nb="12.1" id="break">break</h2>
+<!--p>
+		L’instruction <code>break</code> quand elle est exécutée stoppe la boucle <code>for</code> ou <code>while</code> dans laquelle elle se situe. La
+		condition d’arrêt de la boucle n’est pas évaluée, la boucle se termine tout simplement à l’endroit même du break, et le fil d’exécution du programme se
+		poursuit avec ce qui suit la boucle.</p-->
+<p>Lorsqu'elle est exécutée, l'instruction "break" interrompt immédiatement la boucle "for" ou "while" dans laquelle elle se trouve. La condition de sortie
+		de la boucle n'est pas évaluée, la boucle se termine immédiatement au point où "break" est rencontré, et le programme continue son exécution avec les
+		instructions qui suivent la boucle.</p>
+<p>Exemple: cette boucle va de 0 à 9, mais un break la stoppera à 3:</p>
+<pre><code class="language-python">
+		for i in range(10):
+			print(i)
+			if i == 3:
+				break
+	</code></pre>
+<p>Affichage:</p>
+<pre><code>0
+1
+2
+3</code></pre>
+<p><code>break</code> ne stoppe QUE la boucle dans laquelle elle se situe DIRECTEMENT, pas une boucle extérieure dans le cas des boucles imbriquées. Par
+		exemple:</p>
+<pre><code class="language-python">
+		for i in range(5):
+			for j in range(5):
+				break
+	</code></pre>
+<p>Dans ce code ↑ à chaque itération de la première boucle (avec <code>i</code>) la seconde boucle (avec <code>j</code>) n'a jamais l'occasion d'aller
+		jusqu'au bout car elle est stoppée dès sa première itération. Cependant la première boucle va jusqu'au bout.</p>
+<p><code>break</code> en dehors d'une boucle provoque une <code>SyntaxError</code>.</p>
+
+	
+	<h2 data-nb="12.2" id="continue">continue</h2>
+<!--p>
+		Cette instruction lorsqu'elle est exécutée dans une boucle permet de passer directement à l’itération suivante. L’itération actuelle est simplement
+		stoppée exactement à l’endroit du <code>continue</code>, et la boucle continue avec l’itération suivante de façon classique, c'est à dire que
+		l'incrémentation est faite dans le cas d'une boucle <code>for</code>, le test d'arrêt de la boucle est effectué, puis l'itération suivante démarre (sauf
+		si le test d'arrêt évalue à <code>False</code>). </p-->
+<p>Lorsqu'elle est exécutée dans une boucle, cette instruction permet de passer directement à l'itération suivante. L'itération en cours est simplement
+		interrompue au moment précis du "continue", et la boucle continue normalement avec l'itération suivante. Dans le cas d'une boucle "for",
+		l'incrémentation est effectuée, la condition de fin de boucle est évaluée, puis la prochaine itération démarre (sauf si le test de fin de boucle évalue
+		à False).</p>
+<p>Par exemple, cette boucle ↓ va de 0 à 9, mais à chaque itération, si <code>i</code> n'est pas égal 5, on "continue", donc la boucle ne fait pas le <code>print()</code>
+		et passe à l'itération suivante. Le seul cas où le <code>print()</code> peut être exécuté est quand <code>i</code> vaut 5:</p>
+<pre><code class="language-python">
+		for i in range(10):
+			if i != 5:
+				continue
+			print(i)
+	</code></pre>
+<p>Affichage:</p>
+<p><code>5</code></p>
+<p>Tout comme pour <code>break</code>, <code>continue</code> n'affecte QUE la boucle dans laquelle elle se situe DIRECTEMENT, et pas d'éventuelles boucles
+		extérieures. En dehors d'une boucle, <code>continue</code> provoque aussi une <code>SyntaxError</code>.</p>
+
+	
+	<h2 data-nb="12.3" id="enumerate()">enumerate()</h2>
+<p>Lorsqu’on boucle sur une <a href="cm_sequences.html">séquence</a> avec une boucle <code>for</code>, et qu’on a besoin d’avoir à la fois l’indice actuel,
+		et sa valeur correspondante, on utilise la fonction <code>enumerate()</code> comme ceci (remarquer que la boucle for supporte <a href="cm_iterable_unpacking.html">l'unpacking d'iterables</a>): </p>
+<pre><code class="language-python">
+		for indice, valeur in enumerate([10, 20, 30]):
+			print(indice, valeur)
+	</code></pre>
+<p>Affichage:</p>
+<pre><code>0 10
+1 20
+2 30</code></pre>
+<p><code>enumerate()</code> prend un <code>iterable</code> en paramètre et retourne un objet de type <code>enumerate</code>, qui est un type d'<code>iterator</code>
+		et donc utilisable par la boucle <code>for</code>. Chaque élément de cet <code>iterator</code> est un tuple contenant deux valeurs: en premier l'indice
+		sous forme de <code>int</code>, et en second l'élément correspondant dans l'<code>iterable</code> passé en paramètre.</p>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; e = enumerate([10, 20, 30])
+		&gt;&gt;&gt; e
+		&lt;enumerate object at 0x000001D11D28ABC0&gt;
+		&gt;&gt;&gt; next(e)
+		(0, 10)
+		&gt;&gt;&gt; next(e)
+		(1, 20)
+		&gt;&gt;&gt; next(e)
+		(2, 30)
+		&gt;&gt;&gt; next(e)
+		StopIteration
+	</code></pre>
+
+	
+	<h2 data-nb="12.4" id="zip()">zip()</h2>
+<p>Lorsqu’on veut boucler sur plusieurs <a href="cm_iterables.html"><code>iterables</code></a> en même temps, on utilise <code>zip()</code> comme ceci:</p>
+<pre><code class="language-python">
+		L1 = [10, 20, 30]
+		L2 = ['Salut', 'à', 'vous']
+		L3 = [5, 6, 7]
+		for val1, val2, val3 in zip(L1, L2, L3):
+			print(val1, val2, val3)
+	</code></pre>
+<p>Affichage:</p>
+<pre><code>10 Salut 5
+20 à 6
+30 vous 7
+</code></pre>
+<p><code>zip()</code> prend un ou plusieurs <code>iterables</code> en paramètre, et retourne un objet de type <code>zip</code>, qui est un type d'<a href="cm_iterables.html"><code>iterator</code></a>. Chaque élément de cet <code>iterator</code> est un tuple. A chaque itération, ce tuple
+		contiendra autant d'élements que d'itérables passés en paramètre. Le 1er élément du tuple sera l'élément à la position actuelle dans le premier <code>iterable</code>,
+		le 2nd élément du tuple sera l'élément à la position actuelle dans le second <code>iterable</code>, et ainsi de suite.</p>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; z = zip([10, 20, 30], ['Salut', 'à', 'vous'], [5, 6, 7])
+		&gt;&gt;&gt; z
+		&lt;zip object at 0x000001D11D28ABC0&gt;
+		&gt;&gt;&gt; next(z)
+		(10, 'Salut', 5)
+		&gt;&gt;&gt; next(z)
+		(20, 'à', 6)
+		&gt;&gt;&gt; next(z)
+		(30, 'vous', 7)
+		&gt;&gt;&gt; next(z)
+		StopIteration
+	</code></pre>
+<p>Par défaut <code>zip()</code> s'arrête quand l'<a href="cm_iterables.html"><code>iterable</code></a> le plus court a été parcouru, les éléments restants
+		dans les autres seront ignorés. </p>
+
+	
+	<h2 data-nb="12.5" id="reversed()">reversed()</h2>
+<p>Prend un <a href="cm_iterables.html"><code>iterable</code></a> en paramètre, et retourne un <a href="cm_iterables.html"><code>iterator</code></a> qui
+		renverra les mêmes valeurs mais en ordre inverse.</p>
+<p>Exemple:</p>
+<pre><code class="language-python">
+		&gt;&gt;&gt; r = reversed([10, 20, 30])
+		&gt;&gt;&gt; r
+		&lt;list_reverseiterator object at 0x000001D11D23DF60&gt;
+		&gt;&gt;&gt; next(r)
+		30
+		&gt;&gt;&gt; next(r)
+		20
+		&gt;&gt;&gt; next(r)
+		10
+		&gt;&gt;&gt; next(r)
+		StopIteration
+	</code></pre>
+
+	
+	<!--h2>else sur les boucles</h2>
+	<p>Une clause <code>else</code> facultative peut être ajoutée sur les boucles. Elle SERA exécutée lorsque la boucle sera terminée "naturellement", c'est à
+		dire quand <code>for</code> aura parcouru son <code>iterable</code> en entier, ou quand la condition du <code>while</code> deviendra <code>False</code>.
+		Le <code>else</code> ne SERA PAS exécuté si la boucle est terminée par un <code>break</code>.</p>
+	<pre><code class="language-python">
+		for i in range(3):
+			if i == 5:
+				break
+		else:
+			print('5 non trouvé')
+	</code></pre>
+	<p>Affichage:</p>
+	<p><code>5 non trouvé</code></p>
+
+	<p>Ce mécanisme est rarement utilisé, mais peut être utile dans certaines situations, par exemple lorsqu’on recherche une valeur précise dans un <code>iterable</code>.
+		Si on la trouve on fait un <code>break</code>, on considère que la boucle a fait son travail, et le programme se poursuit après la boucle (et son <code>else</code>
+		associé qui sera ignoré). Sinon (la boucle n'a pas trouvé l'élément voulu) on prend les mesures nécessaires dans le <code>else</code>.</p-->
+
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

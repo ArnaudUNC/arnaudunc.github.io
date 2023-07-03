@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hash et dictionnaires | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="14" id="Hash et dictionnaires">Hash et dictionnaires</h1>
+
+	
+	<h2 data-nb="14.1" id="Limites des séquences">Limites des séquences</h2>
+<h3 data-nb="14.1.1" id="Les indices sont forcément des entier">Les indices sont forcément des entier</h3>
+<p>Les séquences que sont les listes, tuples, chaînes et ranges sont pratiques pour stocker des données ordonnées qu'on retrouve par un indice c'est à dire
+		un nombre entier. Cependant nous sommes embêtés si on souhaite stocker et retrouver des données non par un nombre entier mais par un autre type d'objet,
+		par exemple des chaînes.</p>
+
+	
+
+	<h3 data-nb="14.1.2" id="Certaines opérations sont lentes">Certaines opérations sont lentes</h3>
+<p>Une autre limitation des séquences est leur performance faible pour certaines opérations.</p>
+<p>L'accès à un élément par son indice, et éventuellement sa modification, se font en un temps fixe, on dit complexité <em>O(1)</em>, ce qui est la
+		meilleure performance possible.</p>
+	
+
+	<p>En revanche toute opération qui nécessite la recherche d'un élément, par exemple avec l'opérateur <code>in</code>, la méthode <code>index()</code> des
+		<code>str</code>, ou la méthode <code>remove()</code> des <code>list</code>, se fait en temps linéaire qui dépend de la taille <code>n</code> de la
+		séquence, on dit complexité <em>O(n)</em>. Pour trouver un élément en particulier dans une séquence il faut la parcourir en partant du début et chercher
+		ainsi élément par élément jusqu'à ce qu'on le trouve. Dans le meilleur des cas l'élément cherché est le premier, ça sera très rapide. Dans le pire des
+		cas l'élément cherché sera le dernier ou n'existera pas du tout dans la séquence, ainsi elle aura été parcourue en entier.</p>
+	
+
+	<p>Dans une liste, la suppression d'un élément par son indice est aussi en complexité O(n) car il faut déplacer d'une "case" en mémoire vers le début de la
+		liste tous les éléments suivants. (on dit "case" pour signifier la taille en mémoire de chaque position du tableau). L'insertion à un autre endroit qu'à
+		la fin de la liste est aussi en complexité O(n), avec le pire cas quand on insère au premier indice (indice 0), car il faut déplacer tous les éléments
+		suivants cette fois-ci d'une "case" mémoire vers la fin de la liste.</p>
+	
+
+	
+	<h2 data-nb="14.2" id="Les tables de hachage">Les tables de hachage</h2>
+<p>Elles sont un type de données qui résout les deux problèmes listés plus haut. On les appelle aussi <em>tables de hash</em> ou <em>tableaux
+		associatifs</em>. En anglais on les appelle <em>map</em>, <em>hashmap</em>, <em>hash table</em> ou encore <em>associative arrays</em>.</p>
+<p>Contrairement aux séquences qui sont ordonnées par des indices qui commencent par zéro, une table de hachage n'est pas ordonnée. C'est une collection, un
+		ensemble de valeurs ou bien de couples (clé, valeur).</p>
+<p>Dans le concept, une table de hachage est un tableau associé à une fonction de hachage. Cette fonction fait la correspondance entre une valeur quelconque
+		passée en entrée et une case du tableau en sortie. À chaque valeur différente qu'on lui passera correspondra idéalement une case unique du tableau. Et
+		pour deux valeurs identiques, la fonction doit désigner toujours la même case du tableau. Dans ce tableau on pourra y stocker la valeur utilisée pour
+		calculer son hash, mais aussi si on souhaite une valeur associée, dans ce cas on dit que la valeur qui sert à calculer le hash est une <em>clé</em> qui
+		a une valeur associée dans la table de hachage.</p>
+
+	
+
+	<p>Ce mécanisme permet de stocker et retrouver des valeurs stockées et potentiellement leur valeur associée:</p>
+<ul>
+<li><p>indexées et donc retrouvées non pas par un nombre, mais par une valeur arbritraire, ce qui en fait un mécanisme de stockage très polyvalent</p>
+</li>
+<li><p>sans avoir à parcourir le tableau en entier, car la fonction de hachage nous donne directement la case qu'on cherche, ce qui est très rapide</p>
+</li>
+</ul>
+<p>La performance de la table de hachage va dépendre ainsi de la performance de la fonction pour calculer le hash de la valeur cherchée, donc en temps fixe
+		O(1).</p>
+<p>Il arrive que la fonction de hash, n'étant pas parfaite, donne en sortie la même case du tableau pour deux valeurs pourtant différentes en entrée. On
+		appelle cette situation une collision et c'est un problème. Il est résolu en stockant dans le tableau non pas une seule valeur, ou un seul couple <em>(clé,
+			valeur)</em>, mais plusieurs. Ainsi en cas de collision, la recherche continue cette fois-ci au sein de la case du tableau en faisant une recherche
+		séquentielle élément par élément (ou clé par clé s'il s'agit de couples stockés), comme dans une séquence. On retombe donc sur le même problème de
+		performance vu avec les séquences. C'est pour ça qu'une table de hachage est conçue de façon à limiter au maximum les collisions.</p>
+
+	
+
+	<p>Une table de hachage sait aussi gérer la taille de son tableau en fonction du nombre d'éléments qu'il contient de façon à maintenir les collisions
+		potentielles au minimum tout en minimisant la taille du tableau afin de ne pas gaspiller de mémoire.</p>
+<h2 data-nb="14.3" id="Les types de donnée hashables en Python">Les types de donnée hashables en Python</h2>
+<p>Un type de donnée est hashable si:</p>
+<ul>
+<li><p>ses objets ont la méthode spéciale <code>__hash__()</code> qui calcule la valeur de hash à partir de la valeur de l'objet en question</p></li>
+<li><p>l'objet est immutable</p></li>
+<li><p>sa valeur peut être comparée à celle d'autres objets avec l'opérateur <code>==</code>, donc il doit avoir la méthode spéciale
+			<code>__eq__()</code>. Des objets qui sont hashables doivent donner la même valeur de hash s'ils sont considérés égaux lors de leur comparaison
+			(sans être forcément le même objet, voir valeur VS identité).</p></li>
+</ul>
+<p>Les types built-in de Python qui sont <em>immutables</em> sont (quasiment) tous hashables. Les types <em>mutables</em> comme les listes et les
+		dictionnaires sont non hashables. Les tuples (et tout autre conteneur immutable) sont un peu spéciaux: ils sont immutables donc hashables, mais
+		attention, seulement s'ils ne contiennent que des objets de type eux aussi hashables. Donc le tuple <code>(3, 2, "Toto")</code> est un tuple hashable
+		car le <code>int 3</code>, le <code>int 2</code> et la <code>str "toto"</code> sont tous hashables (types built-in immutables). Par contre le tuple
+		<code>(["coucou", 2], True)</code> n'est pas hashable car son premier élément est de type <code>list</code> (type built-in mutable).</p>
+<p>Pourquoi les types mutables ne sont pas hashables? Car rappelez-vous qu'une valeur de hash est calculée à partir de la <strong>valeur</strong> de
+		l'objet. Deux objets qui ne sont pas les mêmes, donc n'ayant pas la même identité obtenue par la fonction <code>id()</code>, peuvent avoir la même
+		valeur, c'est à dire que la comparaison avec <code>==</code> entre ces deux objets donne <code>True</code>. Cette comparaison est faite grâce à leur
+		méthode spéciale <code>__eq__()</code>. Et par conséquence deux objets de même valeur doivent donner la même valeur de hash, par leur fonction <code>__hash__()</code>.
+		Hors si la valeur d'un objet change, sa valeur de hash doit aussi changer, dans une table de hash cela n'aurait aucun sens d'insérer une clé qui peut
+		changer à tout moment, car on ne pourrait plus le retrouver ensuite si sa valeur de hash change par rapport au moment de son insertion, et il serait
+		aussi stocké dans la mauvaise case du tableau s'il change après insertion.</p>
+<p>Pour vos propres types de données (vos classes), les objets sont considérés hashables par défaut car ils se comparent tous comme non-égaux sauf avec
+		eux-même, et ils dérivent leur valeur de hash à partir de leur identifiant. Cela a été fait ainsi pour que vous puissiez utiliser facilement des
+		instances de vos propres classes comme clés des dictionnaires, sans trop vous soucier des détails. Cependant cela se complique dès qu'on veut redéfinir
+		les méthodes <code>__eq__()</code> et/ou <code>__hash__()</code> de nos objets car elles doivent respecter les règles citées plus haut pour qu'un type
+		de donnée soit hashable. La méthode <code>__neq__()</code> donne par défaut l'inverse de <code>__eq__()</code>, on ne la redéfinit donc pas en général.
+	</p>
+<p>En Python on utilise la fonction built-in <code>hash()</code>, qui prend n'importe quel objet hashable en paramètre, et retourne sa valeur de hash sous
+		forme de <code>int</code>:</p>
+	
+	<pre><code class="language-python-console">
+		&gt;&gt;&gt; hash(5)
+		5
+
+		&gt;&gt;&gt; hash("Bonjour")
+		2689713187822685706
+
+		&gt;&gt;&gt; hash(("ceci", "est", "un", "tuple", "de", "str"))
+		-7366719707112751249
+
+		&gt;&gt;&gt; hash([])
+		TypeError: unhashable type: 'list'
+
+		&gt;&gt;&gt; hash(("tuple", "avec", "liste", []))
+		TypeError: unhashable type: 'list'
+	</code></pre>
+<p>La fonction <code>hash()</code> utilise la méthode spéciale <code>__hash__()</code> de l'objet, c'est équivalent:</p>
+<pre><code class="language-python-console">
+		&gt;&gt;&gt; a = 5
+		&gt;&gt;&gt; a.__hash__()
+		5
+
+		&gt;&gt;&gt; "Bonjour".__hash__()
+		2689713187822685706
+
+		&gt;&gt;&gt; hash(("ceci", "est", "un", "tuple", "de", "str"))
+		-7366719707112751249
+
+		&gt;&gt;&gt; [].__hash__()
+		TypeError: 'NoneType' object is not callable
+	</code></pre>
+
+	
+	<h2 data-nb="14.4" id="Le type dict">Le type dict</h2>
+<p>Les dictionnaires sont parmi les types de base les plus utilisés en Python, avec les nombres, les chaînes, les listes et les tuples. Ils sont une
+		implémentation de table de hachage, ils ont donc les avantages vus plus haut. L'insertion d'éléments, la recherche d'éléments, et la suppression
+		d'éléments dans un dictionnaire sont indépendants de la taille du dictionnaire, ces opérations sont ainsi très rapides. Le nom exact de ce type de
+		donnée est <code><strong>dict</strong></code>.</p>
+<p>Les <code>dict</code> sont un type de donnée mutable, un dictionnaire peut donc être modifié directement sans avoir besoin de créer des copies en
+		mémoire, ce qui est très efficace.</p>
+<p>Un <code>dict</code> associe des <strong>valeurs</strong> à des <strong>clés</strong>. Les clés doivent être des objets de type <em>hashable</em>. Les
+		valeurs peuvent être de n'importe quel type. Chaque clé est unique dans le dictionnaire, et à chaque clé correspond une seule valeur, qui elle peut ne
+		pas être unique.</p>
+<p>Bien qu'une table de hachage n'a pas de notion d'ordre de ses éléments, les éléments dans un <code>dict</code> en Python sont ordonnés par l'ordre
+		d'insertion des clés, mais ce n'est en général pas une considération importante.</p>
+
+
+
+	
+	<h3 data-nb="14.4.1" id="Création de dictionnaires">Création de dictionnaires</h3>
+
+	
+	<h4 data-nb="14.4.1.1" id="Avec des valeurs littérales">Avec des valeurs littérales</h4>
+<pre><code class="language-python">
+		# Un dict vide:
+		d = {}
+
+		# Un dict initialisé avec des clés et valeurs de différents types:
+		d = {'a': 10, 'b': 20, 'c': 15, ('i', 'j'): 'Bonjour', 8: [0, 1, 2]}
+	</code></pre>
+<p>Quand la valeur littérale d'un <code>dict</code> est trop longue, on peut l'écrire de façon à avoir une clé et sa valeur par ligne, comme ceci:</p>
+<pre><code class="language-python">
+		# Ecriture plus lisible d'un dictionnaire
+		d = {
+			'a': 10,
+			'b': 20,
+			'c': 15,
+			('i', 'j'): 'Bonjour',
+			8: [0, 1, 2]
+		}
+	</code></pre>
+<p>On peut ajouter une virgule après le dernier élément, ce n'est pas considéré comme une erreur de syntaxe:</p>
+<pre><code class="language-python">
+		d = {
+			'a': 10,
+			'b': 20, # virgule à la fin n'est pas une erreur de syntaxe
+		}
+	</code></pre>
+
+	
+	<h4 data-nb="14.4.1.2" id="Avec le constructeur dict()">Avec le constructeur dict()</h4>
+<pre><code class="language-python">
+		# Un dict vide:
+		d = dict()
+		d == {}
+
+
+		# Donne les clé et valeurs de départ grâce à des paramètres nommés,
+		# mais dans ce cas les clés sont forcément des str:
+		d = dict(un=1, deux=2)
+		d == {'un': 1, 'deux': 2}
+
+
+		# Donne les clés et valeurs de départ dans un iterable de couples,
+		# par exemple ici une liste de tuples qui contiennent clé et valeur:
+		d = dict([
+			('un', 1),
+			('deux', 2)
+		])
+		d == {'un': 1, 'deux': 2}
+
+
+		# On peut aussi rajouter des arguments nommés à l'appel du constructeur
+		# pour ajouter initialement des couples non présents dans l'itérable:
+		d = dict(
+			[('un',1), ('deux',2)],
+			trois=3,
+			quatre=4
+		)
+		d == {'un': 1, 'deux': 2, 'trois': 3, 'quatre': 4}
+
+
+		# Copie (superficielle) à partir d'un autre dict:
+		d1 = {'un': 1, 'deux': 2}
+		d2 = dict(d1)
+		d2 == {'un': 1, 'deux': 2}
+
+
+		# Copie (superficielle) à partir d'un autre dict
+		# avec en plus ajout d'élements initiaux grâce à des arguments nommés:
+		d2 = dict(
+			d1,
+			trois=3,
+			quatre=4
+		)
+		d2 == {'un': 1, 'deux': 2, 'trois': 3, 'quatre': 4}
+	</code></pre>
+
+	
+	<h3 data-nb="14.4.2" id="Ajouter, retrouver et modifier des valeurs">Ajouter, retrouver et modifier des valeurs</h3>
+<p>Pour ajouter une <em>nouvelle</em> clé et sa valeur dans un <code>dict</code> existant, on utilise l'indexation et l'affectation:</p>
+<pre><code class="language-python">
+		d = {}
+		d['un'] = 1
+		d['deux'] = 2
+		d == {'un': 1, 'deux': 2}
+	</code></pre>
+<p>Pour retrouver la valeur associée à une clé dans un <code>dict</code>, on utilise l'indexation:
+	<pre><code class="language-python">
+		d = {'un': 1, 'deux': 2}
+		d['un'] == 1
+	</code></pre>
+<p>Pour modifier la valeur associée à une clé existante, on utilise encore l'indexation et l'affectation:</p>
+<pre><code class="language-python">
+		d = {'un': 1, 'deux': 2}
+		d['un'] = 10
+		d['un'] == 10
+	</code></pre>
+
+	
+	<h3 data-nb="14.4.3" id="Suppression des clés / valeurs">Suppression des clés / valeurs</h3>
+<p>Supprimer une clé et sa valeur asssociée se fait avec l'instruction <code>del</code></p>
+<pre><code class="language-python">
+		d = {'a': 5}
+		del d['a']
+		print(d) # Affiche {}
+	</code></pre>
+<p>Tenter d’accéder à, ou de supprimer une clé inexistante provoque une erreur de type <code>KeyError</code></p>
+<pre><code class="language-python">
+		d = {'a': 5}
+		try:
+			print(d['b'])
+		except:
+			print("Cette clé n'existe pas") # Ce message sera affiché
+	</code></pre>
+
+
+	
+	<h3 data-nb="14.4.4" id="Test d'existence d'une clé">Test d'existence d'une clé</h3>
+<p>L’opérateur booléen <code>in</code> peut être utilisé pour savoir si une clé est présente dans un <code>dict</code>:</p>
+<pre><code class="language-python">
+		d = {'a': 5, 'b': 15}
+		'a' in d # Vaut True
+		'c' in d # Vaut False
+	</code></pre>
+
+	
+	<h3 data-nb="14.4.5" id="Boucles sur les dict">Boucles sur les <code>dict</code></h3>
+<p>Les dict ont plusieurs méthodes qui nous retournent des <code>iterable</code> afin de les parcourir.</p>
+<p>Boucler sur un dict directement nous retourne les clés une par une:</p>
+<pre><code class="language-python">
+		d = {'a': 'bonjour', 'b': 'à', 'c': 'vous'}
+
+		for clé in d:
+			print(clé, d[clé])
+	</code></pre>
+<p>C'est équivalent à utiliser la méthode <code>keys()</code>:</p>
+<pre><code class="language-python">
+		for clé in d.keys():
+			print(clé, d[clé])
+	</code></pre>
+<p>Plus efficace (en terme d'écriture de code et de performance) si on veut obtenir chaque clé et sa valeur associée, on peut boucler sur un dict avec la
+		méthode <code>items()</code>:</p>
+<pre><code class="language-python">
+		# Remarquez les deux variables de la boucle for
+		for clé, valeur in d.items():
+			print(clé, valeur)
+	</code></pre>
+<p>Si on ne veut que les valeurs on utilise la méthode <code>values()</code>:</p>
+<pre><code class="language-python">
+		for valeur in d.values():
+			print(valeur)
+	</code></pre>
+
+	
+
+	
+	<h3 data-nb="14.4.6" id="Vider un dict">Vider un <code>dict</code></h3>
+<p>Pour supprimer tous les éléments d’un dict, on peut appeler sa méthode <code>clear()</code></p>
+<pre><code class="language-python">
+		monDict.clear()
+	</code></pre>
+
+	
+	<h3 data-nb="14.4.7" id="Longueur d'un dict">Longueur d'un <code>dict</code></h3>
+<p>On peut avoir la longueur d'un dictionnaire avec la fonction <code>len()</code> (comme pour les listes):</p>
+<pre><code class="language-python">
+		d = {'a': 'bonjour', 'b': 'à', 'c': 'vous'}
+
+		len(d) # retourne 3
+	</code></pre>
+
+
+
+	
+	
+
+	
+	
+	
+	
+
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

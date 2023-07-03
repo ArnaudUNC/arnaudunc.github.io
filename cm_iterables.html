@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Iterables, iterators | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="10" id="Iterables, iterators">Iterables, iterators</h1>
+<p>La boucle <code>for</code> que vous connaissez repose sur un mécanisme qu'on appelle <em>protocole d'itération</em>. Ce protocole repose sur deux types
+		d'objets qui sont simples mais efficaces:</p>
+<ul>
+<li><p>les <code>iterables</code></p></li>
+<li><p>les <code>iterators</code> ou <em>itérateurs</em> en français</p></li>
+</ul>
+<p>Ces deux types séparent les objets qui contiennent les données qui sont de type <code>iterable</code>, des objets qui permettent d'itérer, de parcourir
+		ces données, ce sont les <em>itérateurs</em>. L'avantage des objets de type <em>iterateur</em> est qu'ils peuvent être parcourus de façon simple et
+		toujours identique, peu importe les données sous-jacentes contenues dans l'objet <code>iterable</code> correspondant. L'avantage du type
+		<code>iterable</code> est qu'à partir d'un objet de ce type on peut obtenir autant d'objets <code>iterator</code> qu'on veut pour le parcourir.</p>
+<p>De nombreux types built-in sont des <code>iterables</code>, par exemple <code>str</code>, <code>list</code>, <code>tuple</code> et <code>range</code>. En
+		fait tous les types séquences sont aussi des <code>iterables</code> (mais tous les <code>iterables</code> ne sont pas forcément des séquences).</p>
+<img alt="" src="img/cm_iterables/iterateurs_a_partir_diterable.png"/>
+<p>Pour obtenir un objet <code>iterator</code> à partir d'un objet <code>iterable</code> on utilise la fonction built-in <code>iter()</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; iter([10, 20, 30])
+		&lt;list_iterator object at 0x000001D11D298F70&gt;
+
+		&gt;&gt;&gt; iter((10, 20, 30))
+		&lt;tuple_iterator object at 0x000001D11D29BE20&gt;
+
+		&gt;&gt;&gt; iter(range(10))
+		&lt;range_iterator object at 0x000001D11C85E010&gt;
+
+		&gt;&gt;&gt; iter("Bonjour")
+		&lt;str_iterator object at 0x000001D11D298640&gt;
+	</code></pre>
+<p>Puis on obtient les éléments les uns après les autres en appelant la fonction built-in <code>next()</code> qui prend en paramètre un
+		<code>iterator</code> et renvoie le prochain élément de l'<code>iterable</code> sous-jacent. Quand il n'y a plus d'élément disponible
+		<code>next()</code> provoque une exception de type <code>StopIteration</code>:</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; i = iter([10, 20, 30])
+		&gt;&gt;&gt; next(i)
+		10
+		&gt;&gt;&gt; next(i)
+		20
+		&gt;&gt;&gt; next(i)
+		30
+		&gt;&gt;&gt; next(i)
+		StopIteration
+		&gt;&gt;&gt; next(i)
+		StopIteration
+	</code></pre>
+<p>Un <code>iterator</code> ne peut être parcouru qu'une seule fois. Lorsqu'il a été "consommé", c'est-à-dire parcouru entièrement, si on veut parcourir à
+		nouveau l'<code>iterable</code>, il faut créer un nouvel itérateur avec <code>iter()</code>.</p>
+<p>Les objets <code>iterable</code> ont la méthode spéciale <code>__iter__()</code> et les <code>iterator</code> ont les méthodes spéciales
+		<code>__iter__()</code> et <code>__next__()</code>.</p>
+<img alt="" src="img/cm_iterables/iterables_et_iterateurs.png"/>
+<p>La méthode <strong><code>__iter__()</code></strong> appelée sur un objet <strong><code>iterable</code></strong> fait exactement la même chose que la
+		fonction <code>iter()</code>: elle retourne un nouvel objet <code>iterator</code> capable de parcourir cet <code>iterable</code>.</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; L = [10, 20, 30]
+		&gt;&gt;&gt; iter(L)
+		&lt;list_iterator object at 0x000001D11D29B9A0&gt;
+		&gt;&gt;&gt; L.__iter__()
+		&lt;list_iterator object at 0x000001D11D29BD60&gt;
+	</code></pre>
+<p>La méthode <strong><code>__iter__()</code></strong> appelée sur un objet <strong><code>iterator</code></strong> retourne lui-même. Ainsi un <code>iterator</code>
+		est considéré lui-même comme étant un <code>iterable</code>.</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; i = iter([10, 20, 30])
+		&gt;&gt;&gt; i is iter(i)
+		True
+	</code></pre>
+<p>La méthode <strong><code>__next__()</code></strong> appelée sur un objet <strong><code>iterator</code></strong> fait exactement la même chose que la
+		fonction <code>next()</code>: elle retourne le prochain élément.</p>
+<pre><code class="language-python-python-console">
+		&gt;&gt;&gt; i = iter([10, 20, 30])
+		&gt;&gt;&gt; next(i)
+		10
+		&gt;&gt;&gt; i.__next__()
+		20
+		&gt;&gt;&gt; i.__next__()
+		30
+		&gt;&gt;&gt; i.__next__()
+		StopIteration
+	</code></pre>
+<h2 data-nb="10.1" id="Utilisations du protocole d'itération">Utilisations du protocole d'itération</h2>
+<p>On n'utilise jamais le protocole d'itération directement comme on vient de le voir, c'est la boucle <code>for</code> qui le fait pour nous, ainsi que les
+		compréhensions (qu'on verra plus loin dans ce cours). L'utilité de connaître ce protocole est de pouvoir créer nos propres types/classes
+		<code>iterable</code> et <code>iterator</code>. Pour cela nos classes devront implémenter les méthodes spéciales <code>__iter__()</code> pour les <code>iterables</code>
+		et <code>__iter__()</code> et <code>__next__()</code> pour les <code>iterator</code>.</p>
+<p>On peut désormais détailler le fonctionnement de la boucle <code>for</code> plus en détail, voyons cet exemple typique:</p>
+<pre><code class="language-python-python">
+		for i in range(10):
+			print(i)
+	</code></pre>
+<ol>
+<li><p>Lorsqu'elle commence, la boucle <code>for</code> évalue l'expression à droite du <code>in</code> qui doit nécessairement donner un objet de type
+			<strong><code>iterable</code></strong>. Dans cet exemple, le constructeur <code>range(10)</code> nous retourne un objet de type <code>range</code>
+			qui est bien un type <code>iterable</code>, comme on l'a vu plus haut.</p></li>
+<li><p>La boucle appelle <code>iter()</code> sur cet <code>iterable</code> et garde en mémoire l'objet <code>iterator</code> résultat. Dans cet exemple
+			ça sera un objet de type <code>range_iterator</code> très exactement. Cet objet est invisible pour nous, il est géré en interne par la boucle.</p>
+</li>
+<li><p>Avant chaque itération, la boucle appellera <code>next()</code> sur son <code>iterator</code>, et assignera la valeur retournée à la variable à
+			gauche du <code>in</code>. Dans l'exemple la variable <code>i</code> prendra avant chaque itération la valeur que <code>next()</code> sur le <code>range_iterator</code>
+			retournera, soit tour à tour les nombres 0, 1, 2 ... jusqu'à 9.</p></li>
+<li><p>Le code utilisateur dans le bloc de la boucle est executé. Dans cet exemple c'est <code>print(i)</code></p></li>
+<li><p>Les étape 3 et 4 sont répétées jusqu'à ce que la fonction <code>next()</code> provoque une exception <code>StopIteration</code>, à ce moment la
+			boucle est terminée, et le programme continue après celle-ci.</p></li>
+</ol>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>

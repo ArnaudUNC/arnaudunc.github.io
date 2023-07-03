@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fonctions et paramètres | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	
+	<h1 data-nb="13" id="Fonctions et paramètres">Fonctions et paramètres</h1>
+
+	
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	<h2 data-nb="13.1" id="Valeur par défaut des paramètres">Valeur par défaut des paramètres</h2>
+<p>On les déclare ainsi:</p>
+<pre><code class="language-python">
+		def f(p1, p2=10):
+			pass
+
+		# p2 vaut 15
+		f(5, 15)
+
+		# p2 n'est pas spécifié, alors il vaut 10, sa valeur par défaut
+		f(5)
+	</code></pre>
+<p>Quand un paramètre a une valeur par défaut, il devient facultatif de le préciser lors d'un appel de la fonction, et lorsqu'on les précise leur ordre est
+		sans importance. Les paramètres sans valeur par défaut restent obligatoires lors de l'appel.</p>
+<p>Les paramètres qui ont une valeur par défaut doivent être placés <strong>APRES</strong> ceux qui n'ont pas de valeur par défaut, aussi bien lors de la
+		déclaration de la fonction, que lors de l'appel de la fonction.</p>
+
+	
+	<h2 data-nb="13.2" id="Passage de paramètres par leur nom">Passage de paramètres par leur nom</h2>
+<p>Au moment de l’appel d’une fonction, on peut donner la valeur d’un paramètre en spécifiant son nom également, au lieu de uniquement sa valeur, on les
+		appelle alors des <strong><em>paramètres nommés</em></strong>, <em>named parameters</em> ou <strong><em>keyword arguments</em> </strong>en anglais. On
+		appelle <strong><em>paramètres positionnels</em></strong> ou <em>positional arguments</em> les paramètres passés de façon classique.</p>
+<pre><code class="language-python">
+		def f(p1, p2, p3):
+			pass
+
+		# ↓ L'ordre des paramètres nommés n'est pas important
+		f(p2=50, p3=8, p1=2)
+
+		# ↓ ERREUR: il est interdit de spécifier plusieurs fois le même paramètre
+		# Ici p1 est donné 2 fois
+		f(p2=50, p3=8, p1=2, p1=10)
+	</code></pre>
+<p>On peut donner à la fois des paramètres positionnels et des paramètres nommés. Dans ce cas, les paramètres positionnels doivent être listés en premier,
+		et les paramètres nommés ensuite. L'ordre des paramètres positionnels reste important:</p>
+<pre><code class="language-python">
+		def f(p1, p2, p3, p4):
+			pass
+
+		# ↓ OK
+		# p1 vaut 50, p2 vaut 8
+		f(50, 8, p4=2, p3=10)
+
+		# ↓ ERREUR: les paramètres nommés doivent être passés APRES les non nommés.
+		# Ici p4=2 est avant 8, ça devrait être l'inverse.
+		f(50, p4=2, 8, p3=10)
+
+		# ↓ ERREUR: p1 est donné deux fois!
+		# p1 vaut 50, puis on dit aussi qu'il vaut 10...
+		f(50, 8, p4=2, p3=10, p1=10)
+	</code></pre>
+
+	
+	<h2 data-nb="13.3" id="Nombre variable de paramètres positionnés">Nombre variable de paramètres positionnés</h2>
+<p>Cette option est rarement utilisée. On peut spécifier dans la définition d’une fonction un paramètre spécial précédé de *, comme ceci:</p>
+<pre><code class="language-python">
+		def f(arg1, arg2=8, *args):
+			print('arg1=', arg1)
+			print('arg2=', arg2)
+			for p in args:
+				print('args', p)
+
+		f(10, 12, 20, 40)
+	</code></pre>
+<p>Affichage:</p>
+<pre><code class="language-python-console">
+		arg1= 10
+		arg2= 12
+		args 20
+		args 40
+	</code></pre>
+<p>Ce paramètre spécial, nommé paramètre variadique, qui référencera une liste au moment de l'exécution de la fonction, est placé en dernier dans la liste
+		des paramètres, dans la définition de la fonction, ou juste avant le paramètre ** quand il est présent. Il va englober lors de l’appel tous les
+		paramètres positionnels, à partir de sa position dans la définition de la fonction. Tous les paramètres suivants lors de l’appel ne peuvent être que des
+		paramètres nommés.</p>
+<p>On le nomme par défaut <em>args</em>, pour <em>arguments</em>, mais il peut avoir n'importe quel nom, c'est la présence de l'étoile qui compte.</p>
+
+	
+	<h2 data-nb="13.4" id="Nombre variable de paramètres nommés">Nombre variable de paramètres nommés</h2>
+<p>Cette option est également rarement utilisée. On peut spécifier dans la définition d’une fonction un paramètre spécial précédé de **, comme ceci:</p>
+<pre><code class="language-python">
+		def f(arg1, arg2=8, **kwargs):
+			print('arg1=', arg1)
+			print('arg2=', arg2)
+			for clé, valeur in kwargs.items():
+				print('kwargs', clé, valeur)
+
+		f(10, arg2=20, truc='bidule', a='b')
+	</code></pre>
+<p>Affichage:</p>
+<pre><code class="language-python-console">
+		arg1= 10
+		arg2= 20
+		kwargs truc bidule
+		kwargs a b
+	</code></pre>
+<p>Ce paramètre référencera un dictionnaire au moment de l'appel, qui contiendra pour clés tous les paramètres nommés avec leur valeur associée, autres que
+		ceux déclarés formellement dans la définition de la fonction. Il doit forcément être le dernier paramètre d’une fonction, quand il est présent.</p>
+<p>Le nom <em><strong>kwargs</strong></em> est souvent employé, car il signifie en anglais “keyword arguments”, ce qui signifie arguments (ou paramètre,
+		c’est pareil) par mot-clé, ou argument nommé. Mais il peut être nommé comme on veut, c'est la présence de la double étoile qui compte.</p>
+
+	
+	<h2 data-nb="13.5" id="La portée des variables">La portée des variables</h2>
+<h3 data-nb="13.5.1" id="Variables globales">Variables globales</h3>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	<p>Les variables globales sont accessibles en lecture dans les fonctions, mais pas en écriture:</p>
+<pre><code class="language-python">
+		var_globale = 10
+
+		def une_fonction():
+			# Lit var_globale
+			print(var_globale) # Affiche 10
+	</code></pre>
+<pre><code class="language-python">
+		var_globale = 10
+
+		def une_fonction():
+			var_globale = 8
+			# Ne modifie pas var_globale
+			# mais créé une nouvelle variable LOCALE qui s'appelle aussi var_globale
+
+	</code></pre>
+<p>Pour modifier une variable globale depuis une fonction, il faut utiliser le mot-clé <code>global</code> comme ceci:</p>
+<pre><code class="language-python">
+		var_globale = 10
+
+		def une_fonction():
+			global var_globale
+			var_globale = 8
+			# La variable globale est bien modifiée
+	</code></pre>
+<p>La fonction built-in <a href="https://docs.python.org/fr/3/library/functions.html?highlight=vars#globals"><code>globals()</code></a>, peu importe où elle
+		est appelée, retourne toujours un dictionnaire qui contient tous les identifiants du contexte global du module dans lequel elle est appelée et leurs
+		objets associés.</p>
+
+	
+	<h3 data-nb="13.5.3" id="Dans les fonctions: les variables locales">Dans les fonctions: les variables locales</h3>
+<p>Les variables déclarées / créées dans les fonctions sont appelées variables locales. Les paramètres des fonctions sont aussi des variables locales,
+		créées automatiquement et initialisées avec les valeurs effectives lors de l'appel de la fonction. Les variables locales n'existent que pendant
+		l'execution de la fonction dans laquelle elles sont déclarées. </p>
+<p>Ici on parle bien des indetifiants, et pas des objets qu'elles référencent, qu'il ne faut pas confondre. Par exemple si vous créez une liste dans une
+		fonction, la stockez dans une variable locale L, puis retournez L, la variable L n'existe plus lorsque la fonction a fini son execution, mais la liste
+		si, et peut être utilisée ensuite en dehors de la fonction au travers d'autres variables.</p>
+<p>La fonction <a href="https://docs.python.org/fr/3/library/functions.html#locals"><code>locals()</code></a> retourne la liste de toutes les variables locales et leur valeur associée, dans le contexte dans lequel
+		<code>locals()</code> est appelée, dans une fonction, ou en dehors. Si appelée en dehors d'une fonction, elle se comporte comme <code>globals()</code>.
+	</p>
+
+
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
