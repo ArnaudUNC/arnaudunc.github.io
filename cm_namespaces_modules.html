@@ -447,6 +447,11 @@ __main__</code></pre>
 		mais pour rendre le schéma plus lisible les objets sont montrés éparpillés autour du namespace.)</p>
 <img alt="" src="img/cm_namespaces/constructeur.png"/>
 <h3 data-nb="8.9.4" id="Namespace des deux instances de MaClasse:">Namespace des deux instances de MaClasse:</h3>
+<p>Les namespaces des objets sont un peu spéciaux, car on n'exécute jamais du code dans le "contexte" d'un objet, mais dans des méthodes, où on y fait
+		référence toujours par le paramètre "self", comme dans le constructeur tel qu'illustré dans le schéma plus haut. C'est pour cette raison que les autres
+		variables n'apparaissent pas sur le schéma ci-dessous, car la notion de visibilité n'a pas vraiment de sens, seule la notion de nom DANS le namespace de
+		chaque objet est pertinente. Mais conceptuellement on peut représenter les namespaces des deux instances "mon_objet_1" et "mon_objet_2" comme
+		ci-dessous. </p>
 <p>(Attention, les objets sont toujours stockés dans l'espace unique des objets (voir partie sur le <a href="cm_memoire_donnees.html">modèle de données</a>),
 		mais pour rendre le schéma plus lisible les objets sont montrés éparpillés autour du namespace.)</p>
 <img alt="" src="img/cm_namespaces/objets.png"/>
