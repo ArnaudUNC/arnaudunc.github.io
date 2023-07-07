@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 1 - Calculatrice niv.2 | Algo et prog 2 en Python</title>
+	<title>✏️ TP 1 - Calculatrice niv.2 (✔️) | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -188,14 +188,14 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2
+				✏️ TP 1 - Calculatrice niv.2 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td2.html">
-				✍️ TD 2 - Prog. objets niv.1
+				✍️ TD 2 - Prog. objets niv.1 (✔️)
 			</a>
 		</div>
 
@@ -212,7 +212,7 @@
 
 
 		
-	<h1 data-nb="18" id="✏️ TP 1 - Calculatrice niv.2">✏️ TP 1 - Calculatrice niv.2</h1>
+	<h1 data-nb="18" id="✏️ TP 1 - Calculatrice niv.2 (✔️)">✏️ TP 1 - Calculatrice niv.2 (✔️)</h1>
 	
 
 	
@@ -223,6 +223,158 @@
 			entré un nombre correct, en précisant bien à chaque fois ce qui est attendu, et afficher à chaque fois l'erreur (texte entré n'est pas un nombre).
 			Faire de même pour le second nombre.</p>
 <p>On veut aussi que l'utilisateur puisse entrer des nombres à virgule, comme par exemple 2.5, 8.04, etc...</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				# Obtenir nombre 1.
+				# ↓ On part du fait que nb1 n'est pas un nombre, même si on ne le connait pas encore
+				nb1_est_pas_un_nombre = True
+				# ↓ Ainsi la boucle peut être exécutée au moins une fois
+				while nb1_est_pas_un_nombre:
+					# ↓ On récupère nb1 sous forme de str
+					# ↓ On reste en dehors du try car aucune erreur possible encore
+					nb1 = input("Entrez nombre 1: ")
+					try:
+						# ↓ On tente de convertir nb1 en float
+						# ↓ Cela peut provoquer une erreur, donc on doit être dans un bloc try
+						nb1 = float(nb1)
+						# ↓ si ça a fonctionné, on change la variable pour stopper la boucle
+						nb1_est_pas_un_nombre = False
+					except:
+						# En cas d'erreur dans le bloc try, ce bloc sera exécuté
+						print(nb1, "n'est pas un nombre")
+
+				# Obtenir nombre 2: on fait exactement la même chose que pour nb1.
+				nb2_est_pas_un_nombre = True
+				while nb2_est_pas_un_nombre:
+					nb2 = input("Entrez nombre 2: ")
+					try:
+						nb2 = float(nb2)
+						nb2_est_pas_un_nombre = False
+					except:
+						print(nb2, "n'est pas un nombre")
+
+				# Obtenir opérateur.
+				op = input("Operation? (+,-,*,/): ")
+
+				# Execution de l'opération.
+				# On a juste retiré le try-except par rapport à l'exercice précédent,
+				# car plus rien ici ne provoque d'erreur potentielle.
+				if op == "+":
+					print(nb1, op, nb2, "=", nb1 + nb2)
+				elif op == "-":
+					print(nb1, op, nb2, "=", nb1 - nb2)
+				elif op == "*":
+					print(nb1, op, nb2, "=", nb1 * nb2)
+				elif op == "/":
+					print(nb1, op, nb2, "=", nb1 / nb2)
+				else:
+					print("Opération inconnue: ", op)
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: 4.2
+Entrez nombre 2: 5
+Operation? (+,-,*,/): +
+4.2 + 5.0 = 9.2
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez nombre 1: t
+t n'est pas un nombre
+Entrez nombre 1: y
+y n'est pas un nombre
+Entrez nombre 1: 4.2
+Entrez nombre 2: 5
+Operation? (+,-,*,/): +
+4.2 + 5.0 = 9.2
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>On utilise la fonction <code>float()</code> au lieu de <code>int()</code>, pour que l'utilisateur puisse entrer des nombres à virgule.
+					</li>
+<li>Bien nommer ses variables est très important. <code>nb1_est_pas_un_nombre</code> décrit bien ce que la variable est censée avoir comme
+						valeur, et donc aide à comprendre son rôle dans le programme. Son type de donnée est également clair par son nom: c'est vrai ou c'est
+						faux, c'est donc un <code>bool</code>. Si on l'avait nommée <code>nb_correct</code> par exemple, on pourrait croire en lisant le code
+						que la variable contient le nombre correct lui-même, ce qui n'est pas le cas. Un nom trop court comme <code>x</code> ou <code>a</code>,
+						ne donnerait aucune information, rendrait le programme difficile à lire, et augmenterait les probabilité d'écrire du code incorrect.
+					</li>
+<li><p>On a écrit à la ligne 14 <code class="language-python">nb1_est_pas_un_nombre = False</code> ce qui veut dire qu'on a donc bien <code>nb1</code>
+						sous forme de nombre (sous forme de <code>float</code> et non plus sous forme de <code>str</code>), hors comment peut-on être sûr de ça
+						à cette ligne?</p>
+<p>Parce que dans un bloc <code>try:</code>, chaque ligne peut s'exécuter à condition que toutes les précédentes (du bloc
+							<code>try:</code>) ont bien pu être exécutées sans erreur. La première ligne du bloc qui provoquera une erreur stoppera
+							immédiatement le bloc <code>try:</code>, et c'est le bloc <code>except:</code> qui va démarrer.</p>
+<p>Ainsi, à la ligne 14, la ligne 12 s'est forcément bien exécutée, ce qui veut dire que l'appel à la fonction <code>float(nb1)</code> a
+							réussi, et que donc <code>nb1</code> a pu être converti de <code>str</code> vers <code>float</code> sans problème.</p>
+</li>
+<li>
+<p> Pour tester si une variable ne contient pas un nombre, certains écrivent le test suivant: (qui est faux, et inutile, voir plus bas
+							pourquoi)</p>
+<pre><code class="language-python">
+						nb = "10"
+						# ↓ La condition vaut True car "10" est différent du type int.
+						if nb != int:
+							print("Pas un nombre")
+					</code></pre>
+<p>Le test est faux, car il compare <strong>la valeur</strong> de la variable avec le type <code>int</code>, hors il faudrait comparer
+							<strong>le type</strong> de la valeur de la variable. Vous savez obtenir le type d'une donnée avec la fonction pré-définie <code>type()</code>.
+							Donc la version correcte serait:</p>
+<pre><code class="language-python">
+						nb = "10"
+						# ↓ La condition vaut encore True car le type de "10" est str,
+						# hors str != int,
+						# donc nb n'est toujours PAS considéré comme un nombre.
+						if type(nb) != int:
+							print("Pas un nombre")
+					</code></pre>
+<p>De toute façon cette approche est inutile pour cet exercice, car on ne peut obtenir le nombre de l'utilisateur que sous forme de
+							<code>str</code> en premier lieu, grâce à la fonction <code>input()</code>. Puis il faut tenter de convertir en nombre avec un appel
+							à <code>int()</code> ou <code>float()</code>. Ces appels provoqueront une erreur si le texte de l'utilisateur ne représente pas un
+							nombre, le test <code>type(nb) != int</code> ne pourra donc jamais être utilisé car il y aura erreur avant. Seules les exceptions
+							avec des blocs <code>try-except</code> peuvent nous aider dans cette situation.</p>
+</li>
+<li>
+<p>Une version alternative avec une seule boucle <code>while</code> pour les deux nombres, au lieu de chacun sa boucle:</p>
+<pre class="line-numbers"><code class="language-python">
+						nb1_est_pas_un_nombre = True
+						nb2_est_pas_un_nombre = True
+						while nb1_est_pas_un_nombre or nb2_est_pas_un_nombre:
+							if nb1_est_pas_un_nombre:
+								nb1 = input("Entrez nombre 1: ")
+								try:
+									nb1 = float(nb1)
+									nb1_est_pas_un_nombre = False
+								except:
+									print(nb1, "n'est pas un nombre")
+
+							if nb2_est_pas_un_nombre:
+								nb2 = input("Entrez nombre 2: ")
+								try:
+									nb2 = float(nb2)
+									nb2_est_pas_un_nombre = False
+								except:
+									print(nb2, "n'est pas un nombre")
+
+						# Obtenir opérateur
+						op = input("Operation? (+,-,*,/): ")
+
+						# Execution de l'opération
+						if op == "+":
+							print(nb1, op, nb2, "=", nb1 + nb2)
+						elif op == "-":
+							print(nb1, op, nb2, "=", nb1 - nb2)
+						elif op == "*":
+							print(nb1, op, nb2, "=", nb1 * nb2)
+						elif op == "/":
+							print(nb1, op, nb2, "=", nb1 / nb2)
+						else:
+							print("Opération inconnue: ", op)
+					</code></pre>
+<p>Cette solution est un peu moins pratique pour l'utilisateur car si le premier nombre n'en est pas un, le message d'erreur s'affiche,
+							mais le nombre 2 est demandé ensuite, au lieu de redemander nb1. De plus, cette solution s'adapte mal pour la question suivante,
+							donc privilégier la première approche.</p>
+</li>
+</ul>
+</div>
 		
 	</div>
 
@@ -240,6 +392,130 @@
 <p>Puis appeler cette fonction 2 fois: une fois pour obtenir de l'utilisateur le 1er nombre, puis une seconde fois pour obtenir le 2ème nombre.</p>
 <p>Le reste du programme reste inchangé.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				# On définit notre fonction, en lui donnant un nom explicite.
+				# Aucun paramètre n'est nécessaire pour ce qu'on souhaite faire.
+				def obtenir_nb_de_utilisateur():
+					# Le code à l'intérieur est identique à la question précédente.
+					# On change juste nb1 ou nb2 en nb, car la fonction ne se
+					# préoccupe que de récupérer un seul nombre,
+					# et de retourner ce nombre: la fonction ne se préoccupe pas
+					# de à quoi servira ce nombre, elle fait juste son travail à elle.
+					nb_est_pas_un_nombre = True
+					while nb_est_pas_un_nombre:
+						nb = input("Entrez un nombre: ")
+						try:
+							nb = float(nb)
+							nb_est_pas_un_nombre = False
+						except:
+							print(nb, "n'est pas un nombre")
+					# ↓ On n'oublie surtout pas de retourner,
+					# au code qui va appeler cette fonction,
+					# le nombre de l'utilisateur.
+					return nb
+
+				# ↓ On peut maintenant appeller notre fonction 2 fois,
+				# pour obtenir nos deux nombres.
+				nb1 = obtenir_nb_de_utilisateur()
+				nb2 = obtenir_nb_de_utilisateur()
+
+				# ↓ Le reste est identique à la question précédente ↓
+
+				# Opérateur
+				op = input("Operation? (+,-,*,/): ")
+
+				# Execution de l'opération
+				if op == "+":
+					print(nb1, op, nb2, "=", nb1 + nb2)
+				elif op == "-":
+					print(nb1, op, nb2, "=", nb1 - nb2)
+				elif op == "*":
+					print(nb1, op, nb2, "=", nb1 * nb2)
+				elif op == "/":
+					print(nb1, op, nb2, "=", nb1 / nb2)
+				else:
+					print("Opération inconnue: ", op)
+			</code></pre>
+<pre class="affichage_console"><code>
+Entrez un nombre: 3.5
+Entrez un nombre: 1.1
+Operation? (+,-,*,/): +
+3.5 + 1.1 = 4.6
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Entrez un nombre: y
+y n'est pas un nombre
+Entrez un nombre: u
+u n'est pas un nombre
+Entrez un nombre: 4.5
+Entrez un nombre: i
+i n'est pas un nombre
+Entrez un nombre: p
+p n'est pas un nombre
+Entrez un nombre: 6
+Operation? (+,-,*,/): +
+4.5 + 6.0 = 10.5
+&gt;</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>A l'affichage, l'utilisateur ne sait plus s'il entre le 1er ou le 2ème nombre, car le message est identique dans les deux cas. Pour
+						éviter ça on pourrait rajouter un paramètre à notre fonction pour modifier le message si besoin, au moment de l'appel de la fonction.
+						Par exemple:</p>
+<pre class="line-numbers"><code class="language-python">
+						# On rajoute un paramètre pour contrôler le message.
+						# Le nom du paramètre est important, il doit décrire son rôle,
+						# et donner une information sur le type attendu, ici c'est à dire str.
+						def obtenir_nb_de_utilisateur(message):
+							nb_est_pas_un_nombre = True
+							while nb_est_pas_un_nombre:
+								# ↓ On utilise le paramètre message ici:
+								# on le passe comme paramètre à la fonction input().
+								nb = input(message)
+								try:
+									nb = float(nb)
+									nb_est_pas_un_nombre = False
+								except:
+									print(nb, "n'est pas un nombre")
+							return nb
+
+						# ↓ On peut désormais passer un message différent à chaque appel.
+						nb1 = obtenir_nb_de_utilisateur("Nombre 1: ")
+						nb2 = obtenir_nb_de_utilisateur("Nombre 2: ")
+
+
+						op = input("Operation? (+,-,*,/): ")
+						if op == "+":
+							print(nb1, op, nb2, "=", nb1 + nb2)
+						elif op == "-":
+							print(nb1, op, nb2, "=", nb1 - nb2)
+						elif op == "*":
+							print(nb1, op, nb2, "=", nb1 * nb2)
+						elif op == "/":
+							print(nb1, op, nb2, "=", nb1 / nb2)
+						else:
+							print("Opération inconnue: ", op)
+					</code></pre>
+<pre class="affichage_console"><code>
+Nombre 1: 4
+Nombre 2: 5
+Operation? (+,-,*,/): +
+4.0 + 5.0 = 9.0
+&gt;</code></pre>
+<pre class="affichage_console"><code>
+Nombre 1: y
+y n'est pas un nombre
+Nombre 1: u
+u n'est pas un nombre
+Nombre 1: 4
+Nombre 2: 5
+Operation? (+,-,*,/): +
+4.0 + 5.0 = 9.0
+&gt;</code></pre>
+</li>
+</ul>
+</div>
+		
 	</div>
 	
 	<div class="exercice">
@@ -248,6 +524,68 @@
 			soustraction, division, multiplication.</p>
 <p>S'il / elle entre n'importe quoi d'autre, le programme affiche un message d'erreur adapté, et redemande encore et encore l'opération, jusqu'à ce que
 			celle-ci soit l'une de celles permises.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def avoir_nombre_utilisateur(message):
+						nb_est_correct = False
+						while not nb_est_correct:
+							txt_utilisateur = input(message)
+							try:
+								nombre = float(txt_utilisateur)
+								nb_est_correct = True
+							except:
+								print(txt_utilisateur, "n'est pas un nombre")
+						return nombre
+
+
+					# Obtenir nombres
+					nb1 = avoir_nombre_utilisateur("Nombre 1: ")
+					nb2 = avoir_nombre_utilisateur("Nombre 2: ")
+
+					# Obtenir op
+					opération_est_correcte = False
+					while not opération_est_correcte:
+						op = input("Opération (+,-,*,/): ")
+						# ↓ L'opérateur booléen "in" renvoit True ou False.
+						# True si ce qui est à sa gauche EST DANS la séquence à sa droite,
+						# donc ici si op est égal à n'importe lequel des éléments de la liste.
+						opération_est_correcte = op in ["+", "-", "/", "*", ]
+						if not opération_est_correcte:
+							print(op, "n'est pas une opération supportée")
+
+					# Calculer et afficher résultat
+					if op == "+":
+						print(nb1, "+", nb2, "=", nb1 + nb2)
+					elif op == "-":
+						print(nb1, "-", nb2, "=", nb1 - nb2)
+					elif op == "/":
+						print(nb1, "/", nb2, "=", nb1 / nb2)
+					else:
+						print(nb1, "*", nb2, "=", nb1 * nb2)
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>Ne pas confondre le <code>try-except</code> avec le <code>if-else</code>.</p>
+<p><code>if-else</code> sert à faire telle ou telle action selon une condition, par exemple si l'utilisateur n'a pas entré une opération
+							supportée (+,-,/,*). </p>
+<p><code>try-except</code> sert à garder le contrôle sur l'exécution du programme en cas d'erreur (erreur au sens exécution impossible
+							par Python, pas une erreur du point de vue de l'utilisateur), par exemple si on tente de transformer en <code>int</code> ou <code>float</code>
+							le texte de l'utilisateur.</p>
+</li>
+<li><p>Comment savoir s'il faut utiliser <code>try-except</code> ou <code>if-else</code>?</p>
+<p>Si un morceau de code que vous voulez exécuter peut provoquer des erreurs qui sont affichées en rouge dans la console, et qui
+							stoppent le programme, il faut un <code>try-except</code> pour intercepter l'erreur si elle survient, et vous permettre de continuer
+							l'exécution du programme.</p>
+<p>Si le code ne provoque pas d'erreur potentiellement, mais que vous voulez faire des actions différentes selon une condition, alors
+							utiliser un <code>if-else</code>. </p></li>
+<li><p>Une version alternative de <code>op in ["+", "-", "/", "*", ]</code> pourrait être:</p>
+<pre><code class="language-python">
+						opération_est_correcte = op == "+" or op == "-" or op == "/" or op == "*"
+					</code></pre>
+</li>
+</ul>
+</div>
 		
 	</div>
 
