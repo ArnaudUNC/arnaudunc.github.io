@@ -206,6 +206,13 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td3.html">
+				✍️ TD 3
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
@@ -240,7 +247,7 @@
 						nb1 = float(nb1)
 						# ↓ si ça a fonctionné, on change la variable pour stopper la boucle
 						nb1_est_pas_un_nombre = False
-					except:
+					except ValueError:
 						# En cas d'erreur dans le bloc try, ce bloc sera exécuté
 						print(nb1, "n'est pas un nombre")
 
@@ -251,7 +258,7 @@
 					try:
 						nb2 = float(nb2)
 						nb2_est_pas_un_nombre = False
-					except:
+					except ValueError:
 						print(nb2, "n'est pas un nombre")
 
 				# Obtenir opérateur.
@@ -343,7 +350,7 @@ Operation? (+,-,*,/): +
 								try:
 									nb1 = float(nb1)
 									nb1_est_pas_un_nombre = False
-								except:
+								except ValueError:
 									print(nb1, "n'est pas un nombre")
 
 							if nb2_est_pas_un_nombre:
@@ -351,7 +358,7 @@ Operation? (+,-,*,/): +
 								try:
 									nb2 = float(nb2)
 									nb2_est_pas_un_nombre = False
-								except:
+								except ValueError:
 									print(nb2, "n'est pas un nombre")
 
 						# Obtenir opérateur
@@ -408,7 +415,7 @@ Operation? (+,-,*,/): +
 						try:
 							nb = float(nb)
 							nb_est_pas_un_nombre = False
-						except:
+						except ValueError:
 							print(nb, "n'est pas un nombre")
 					# ↓ On n'oublie surtout pas de retourner,
 					# au code qui va appeler cette fonction,
@@ -475,7 +482,7 @@ Operation? (+,-,*,/): +
 								try:
 									nb = float(nb)
 									nb_est_pas_un_nombre = False
-								except:
+								except ValueError:
 									print(nb, "n'est pas un nombre")
 							return nb
 
@@ -534,7 +541,7 @@ Operation? (+,-,*,/): +
 							try:
 								nombre = float(txt_utilisateur)
 								nb_est_correct = True
-							except:
+							except ValueError:
 								print(txt_utilisateur, "n'est pas un nombre")
 						return nombre
 

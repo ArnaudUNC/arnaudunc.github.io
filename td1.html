@@ -206,6 +206,13 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td3.html">
+				✍️ TD 3
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
@@ -528,7 +535,7 @@ Votre nombre: 5
 				try:
 					nb_utilisateur = int(texte_utilisateur)
 					print("Votre nombre:", nb_utilisateur)
-				except:
+				except ValueError:
 					print(texte_utilisateur, "n'est pas un nombre.")
 			</code></pre>
 <pre class="affichage_console"><code>
@@ -556,7 +563,7 @@ u n'est pas un nombre.
 						try:
 							nb_utilisateur = int(texte_utilisateur)
 							# on a déplacé la ligne ici à la fin ↓
-						except:
+						except ValueError:
 							print(texte_utilisateur, "n'est pas un nombre.")
 						# ERREUR la ligne dessous est toujours exécutée,
 						# car située après le try-except.
@@ -646,7 +653,7 @@ Somme: 7
 					nb2 = int(input("Ecrire nombre 2: "))
 					somme = nb1 + nb2
 					print("Somme:", somme)
-				except:
+				except ValueError:
 					print("Un des deux nombres n'est pas correct.")
 			</code></pre>
 <pre class="affichage_console"><code>
@@ -695,7 +702,7 @@ Un des deux nombres n'est pas correct.
 						print(nb1, op, nb2, "=", nb1 / nb2)
 					else:
 						print("Opération inconnue: ", op)
-				except:
+				except ValueError:
 					print("Un des 2 nombres est incorrect.")
 			</code></pre>
 <pre class="affichage_console"><code>
@@ -771,7 +778,7 @@ Un des 2 nombres est incorrect.
 											print(nb1, op, nb2, "=", nb1 / nb2)
 										else:
 											print("Opération inconnue: ", op)
-						except:
+						except ValueError:
 							print("Un des 2 nombres est incorrect.")
 					</code></pre>
 </li>

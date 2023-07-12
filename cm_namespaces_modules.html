@@ -206,6 +206,13 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="td3.html">
+				✍️ TD 3
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
@@ -300,8 +307,10 @@
 
 	
 	<h2 data-nb="8.4" id="L'instruction import">L'instruction <code>import</code></h2>
-<p>Lorsqu'un module est importé, un identifiant qui porte son nom est créé dans le namespace où l'instruction import se situe et pointe vers un objet de
-		type <code>module</code> correspondant au module importé nouvellement créé, par lesquels on accèdera au module importé.</p>
+<p>Après qu'un module est importé, un identifiant qui porte son nom est créé dans le namespace où l'instruction <code>import</code> se situe (dans l'exemple
+		ci-dessous le nom "modA" est créé par le "import"). Cet identifiant pointe vers un objet nouvellement créé de type <code>module</code> correspondant au
+		module importé, objet par lequel on accèdera au module importé (le module modA.py dans l'exemple ci-dessous). C'est donc par cet objet qu'on peut
+		accéder au namespace du module que l'objet représente, et donc à tous les noms présents dans ce module.</p>
 <pre><code class="language-python">
 		# Ceci est le fichier modB.py
 		import modA
@@ -360,7 +369,7 @@
 	
 	<h2 data-nb="8.5" id="L'identifiant __name__ et le module __main__">L'identifiant <code>__name__</code> et le module <code>__main__</code></h2>
 <p>Chaque module contient un identifiant pré-défini <code>__name__</code> (avec double <code>_</code> de chaque côté) qui pointe vers un objet de type
-		<code>str</code> qui contient son nom. Si on execute <code>modB.py</code> ci-dessous ↓</p>
+		<code>str</code> qui a pour valeur le nom du module. Si on execute <code>modB.py</code> ci-dessous ↓</p>
 <pre><code class="language-python">
 		# fichier modA.py
 		print(__name__)
@@ -375,10 +384,11 @@
 modA
 modA
 __main__</code></pre>
-<p>Remarquez une chose spéciale ↑ la variable <code>__name__</code> dans <code>modB.py</code> ne vaut pas <code>"modB"</code> mais la string <code>"__main__"</code>.
-		Le module qui est exécuté par le programme Python (par exemple avec la commande <code>python modB.py</code>), devient le module principal, le point
-		d'entrée du programme, et son module prend le nom spécial <code>"__main__"</code>. Dans replit le module qui est exécuté est le fichier main.py par
-		défaut, quand on clique sur le bouton <em>Run</em>.</p>
+<p>On peut voir que la variable "__name__" dans modA vaut bien "modA".</p>
+<p>Par contre, remarquez une chose spéciale: ↑ la variable <code>__name__</code> dans <code>modB.py</code> ne vaut pas <code>"modB"</code> mais la string
+		<code>"__main__"</code>. Le module qui est exécuté par le programme Python (par exemple avec la commande <code>python modB.py</code>), devient le module
+		principal, le point d'entrée du programme, et son module prend le nom spécial <code>"__main__"</code>. Dans replit le module qui est exécuté est le
+		fichier main.py par défaut, quand on clique sur le bouton <em>Run</em>.</p>
 
 
 
