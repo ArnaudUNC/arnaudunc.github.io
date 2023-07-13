@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>📝 Contrôle continu 1 ✔️ | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2 (✔️)
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1 (✔️)
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td3.html">
+				✍️ TD 3
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="cc1_2023.html">
+				📝 Contrôle continu 1 ✔️
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	<h1 data-nb="22" id="📝 Contrôle continu 1 ✔️">📝 Contrôle continu 1 ✔️</h1>
+<h2 data-nb="22.1" id="Documents">Documents</h2>
+<ul>
+<li><a href="documents/CC1 2023 - Variation 1.pdf" target="_blank">Variation 1</a></li>
+<li><a href="documents/CC1 2023 - Variation 2.pdf" target="_blank">Variation 2</a></li>
+</ul>
+<h2 data-nb="22.2" id="Coefficients des questions">Coefficients des questions</h2>
+<h3 data-nb="22.2.1" id="Variation 1">Variation 1</h3>
+<img alt="" src="img/CC1 2023/CC1 2023 - Variation 1 - Coefficients.png" style="width:1381px;min-width:1000px;"/>
+<h3 data-nb="22.2.2" id="Variation 2">Variation 2</h3>
+<img alt="" src="img/CC1 2023/CC1 2023 - Variation 2 - Coefficients.png" style="width:1467px;min-width:1000px;"/>
+<h2 data-nb="22.3" id="Correction">Correction</h2>
+<h3 data-nb="22.3.1" id="Variation 1">Variation 1</h3>
+<p><strong> 1) Donnez le nom exact des 7 types de donnée fondamentaux qu'on connait en Python, et pour chacun préciser s'ils sont mutables ou
+		immutables.</strong></p>
+<p>int, immutable; float, immutable; str, immutable; tuple, immutable; list, mutable; bool, immutable; NoneType, immutable.</p>
+<p><strong>2) Quelle fonction permet de connaître l'identité d'un objet? Quel est le type de son résultat.</strong></p>
+<p>id(); int</p>
+<p><strong>3) Quelle fonction permet de connaître le type d'un objet? Quel est le type de son résultat.</strong></p>
+<p>type(); type</p>
+<p><strong>4) Soit le code suivant:</strong></p>
+<div>
+		L1 = ["a", "b", "c"]
+		<br/>
+		L2 = ["a", "b", "c"]
+	</div>
+<p>Donner les résultats des expressions suivantes:</p>
+<div>
+		L1 == L2
+		<br/>
+		L1 is L2
+	</div>
+<p>et expliquer pourquoi on a ces résultats.</p>
+<p>True pour "==" car les deux objets de type list ont la même valeur, mais False pour "is" car ce sont deux objets différents, ils n'ont donc pas la même
+		identité.</p>
+<p><strong>5) Pour chaque ligne ci-dessous, dire si c'est une expression ou pas, et pourquoi ça l'est ou pas. Quand c'est une expression donner sa valeur
+		finale et son type final.</strong></p>
+<div>
+		10
+		<br/>
+		ma_variable = 3
+		<br/>
+		ma_variable
+		<br/>
+		ma_variable + 5
+		<br/>
+		return ma_variable + 1
+		<br/>
+		ma_variable &gt; 3
+		<br/>
+		ma_variable - 1 == 3
+		<br/>
+		max([5+6, 10])
+	</div>
+<p>10 est une expression, car c'est une constante, donc un objet dont la valeur est écrite littéralement. La valeur de l'expression est le int 10. </p><p>
+	ma_variable = 3 n'est pas une expression, car c'est une instruction. </p><p>
+	ma_variable est une expression, car c'est une variable, la valeur de l'expression est celle de l'objet référencé par la variable, qui est le int 3. </p><p>
+	ma_variable + 5 est une expression, résultat de l'opérateur + entre deux int, la valeur est le int 8. </p><p>
+	return ma_variable + 1 n'est pas une expression. ma_variable + 1 en est une, mais avec return devant l'ensemble devient une instruction. </p><p>
+	ma_variable &gt; 3 est une expression, résultat de l'opérateur &gt; entre deux int, la valeur est le bool False. </p><p>
+	ma_variable - 1 == 3 est une expression. D'abord l'opérateur - est calulé entre deux int car il a une priorité supérieure à celle de l'opérateur ==. Puis
+	l'opérateur == est évalué entre deux int. La valeur finale de l'expression est le bool False. </p><p>
+	max([5+6, 10]) est une expression, résultat de l'appel de la fonction max, avec comme paramètre la liste [11,10], le calcul de 5+6 se faisant avant de
+	pouvoir passer la liste en paramètre. Le résultat final de l'expression est le int 11. </p>
+<p><strong>6) Expliquer ce qu'est la variable __name__: ce qu'elle "contient" comme donnée, et dans quel(s) namespace(s) elle existe.</strong></p>
+<p>Ce nom existe dans chaque module, et référence un objet de type str qui est le nom du module (le nom du fichier .py) dans lequel elle existe si le module
+		est importé, "__main__" si le module est celui qui est exécuté.</p>
+<p><strong>7) Expliquer ce qu'est une variable locale.</strong></p>
+	C'est une variable qui existe dans le namespace d'une fonction en cours d'exécution.
+
+	<p><strong>8) Le namespace des variables globales est-il unique? Pourquoi?</strong></p>
+	Non, car ce qu'on appelle le namespace global est en fait le namespace d'un module, il y a donc autant de namespaces "globaux" que de modules.
+
+	<p><strong>9) Dessiner le graphe des noms (les variables) et des objets, en plaçant bien les noms dans leur namespace respectif, lorsque le programme a fini
+		d'exécuter la ligne 8, après être entré dans la fonction par son appel à la ligne 9. Pour chaque objet bien donner les 3 informations importantes le
+		concernant (donnez-leur des identités de votre choix, mais restez simple).</strong></p>
+<pre><code>1-  bonjour = "Bonjour"
+2-  a = 5.2
+3-  Y = [True, None]
+4-  L = [5, True]
+5-  b = a
+6-  def ma_fonction(L, a):
+7-        L.append(b)
+8-        a += 1
+9-  ma_fonction(Y, 2)
+10- c = 8
+	</code></pre>
+<img alt="" src="img/CC1 2023/CC1 2023 - Variation 1 - Graphe.png"/>
+<p><strong>10) Si on essaye de faire fonctionner le code suivant que verra-t-on affiché dans la console?</strong></p>
+<pre><code>a = 1
+try:
+	a = 5
+	a = float("a")
+	a = 10
+except TypeError:
+	print("Erreur TypeError", a)
+except ValueError:
+	print("Erreur ValueError", a)
+except NameError:
+	print("Erreur NameError", a)
+</code></pre>
+<p>On verra: Erreur ValueError 5.</p>
+<h3 data-nb="22.3.2" id="Variation 2">Variation 2</h3>
+<p><strong>1) Qu'est-ce que CPython?</strong></p>
+<p>CPython est l'implémentation de référence de Python. Une implémentation est une version spécifique et concrète de la spécification de Python.</p>
+<p><strong>2) Quelles sont les 3 informations associées à tout objet en Python.</strong></p>
+<p>Son type, sa valeur et son identité.</p>
+<p><strong>3) Expliquer ce qu'est une expression, et donner au moins 3 "choses" qui peuvent la composer.</strong></p>
+<p>Une expression est l'écriture dans le code d'un calcul (ou d'une valeur) qui peut être très court ou très long, mais qui s'évalue au final à une seule et
+		unique valeur, donc un seul objet, et qui a donc un type final unique. On utilise les expression à certains endroits où un calcul (ou une valeur) est
+		nécessaire, par exemple à droite de l'affectation avec "=", la condition du bloc if, la condition de la boucle while, ou encore à droite du "in" dans la
+		boucle for. Une expression peut être composée de valeurs littérales, de noms (variables), d'appels de fonctions, d'opérateurs, et de parenthèses pour
+		contrôler la priorité des opérateurs.</p>
+<p><strong>4) Soit le code suivant:</strong></p>
+<p>a = 5
+		<br/>
+		Sachant que l'objet 5 est immutable, est-il possile de faire ensuite:
+		<br/>
+		a += 1
+		<br/>
+		Expliquer votre réponse.
+	</p>
+<p>Oui c'est possible car l'objet 5 de type int ne change pas, c'est la variable "a" qui change, et référence un nouvel objet de type int et de valeur
+		6.</p>
+<p><strong>5) Qu'est ce que sont techniquement "is" et "==". Puis expliquer ce qu'ils font, le type de donnée de leur résultat, et leur différence.</strong>
+</p>
+<p>Ce sont deux opérateurs binaires, et booléens car ils ont tous deux un bool comme résultat. "is" compare l'identité des deux objets à gauche et à droite,
+		et vaut vrai si les deux identités sont égales, faux sinon. "==" compare la valeur des deux objets à gauche et à droite, et vaut vrai si les deux objets
+		ont la même valeur, faux sinon.</p>
+<p><strong>6) Soit les deux modules A et B suivants:</strong></p>
+<p>
+		Module A:
+		<br/>
+		print(__name__)
+		<br/>
+<br/>
+		Module B:
+		<br/>
+		import A
+		<br/>
+		print(__name__)
+		<br/>
+		Si on exécute le module B, que verra-t-on affiché dans la console?
+	</p>
+<p>On verra:
+		<br/>
+		A (à cause du print dans le module A, qui affiche le nom du module, puisque celui-ci est importé)
+		<br/>
+		__main__ (à cause du print dans le module B, qui affiche "__main__" puisque ce module est celui qui est exécuté)
+	</p>
+<p><strong>7) Expliquer ce qu'est une variable globale</strong></p>
+<p>C'est une variable qui existe dans le namespace d'un module.</p>
+<p><strong>8) Le namespace d'un module est-il le même que le namespace global? Pourquoi?</strong></p>
+<p>Oui, tout simplement car les deux noms (namespace global et namespace d'un module) sont synonymes. Ce qui implique qu'il n'y a pas de namespace global
+		unique, mais un namespace par module.</p>
+<p><strong>9) Dessiner le graphe des noms (les variables) et des objets, en plaçant bien les noms dans leur namespace respectif, lorsque le programme a fini
+		d'exécuter la ligne 8, après être entré dans la fonction par son appel à la ligne 9. Pour chaque objet bien donner les 3 informations importantes le
+		concernant (donnez-leur des identités de votre choix, mais restez simple).</strong></p>
+<img alt="" src="img/CC1 2023/CC1 2023 - Variation 2 - Graphe.png"/>
+<p><strong>10) Si on essaye de faire fonctionner le code suivant que verra-t-on affiché dans la console, et expliquer pourquoi.</strong></p>
+<pre><code>x = 10
+try:
+	x = 50
+	x = float(str(1/0) + "toto")
+	x = 100
+except ValueError:
+	print("Erreur ValueError", x)
+except ZeroDivisionError:
+	print("Erreur ZeroDivisionError", x)
+except:
+	print("Erreur générique", x)
+print("Bonjour")
+</code></pre>
+<p>On verra affiché:
+		<br/>
+		Erreur ZeroDivisionError 50
+		<br/>
+		Bonjour
+	</p>
+<p>Parce que l'opération 1/0 devra être calculée en premier sur la ligne où elle se situe, et cela provoquera une ZeroDivisionError. La ligne ne pouvant se
+		terminer correctement, x référence toujours l'objet précédent, soit le int 50. La ligne x = 100 ne sera pas exécutée car elle est dans le try après la
+		ligne qui provoque l'exception.</p>
+<p>Le Bonjour c'est parce que ce print est à la suite de la structure try-except, il s'exécute donc qu'il y ait eu une erreur ou non.</p>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
