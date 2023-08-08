@@ -208,6 +208,13 @@
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
+			<a href="cc1_2023.html">
+				📝 Contrôle continu 1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
 			<a href="td3.html">
 				✍️ TD 3
 			</a>
@@ -215,8 +222,15 @@
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
-			<a href="cc1_2023.html">
-				📝 Contrôle continu 1 ✔️
+			<a href="tp3.html">
+				✏️ TP 3 - Calculatrice niv.4
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2
 			</a>
 		</div>
 
@@ -612,6 +626,58 @@ Operation? (+,-,*,/): +
 <p>A chaque fois qu'un calcul a été réalisé, demander à l'utilisateur s'il / elle souhaite continuer ou arrêter. Si l'utilisateur décide d'arrêter, le
 			programme se termine. Sinon il recommence en demandant à nouveaux deux nombre, l'opération et affiche le résultat.</p>
 		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+				def avoir_nombre_utilisateur(message):
+					nb_est_correct = False
+					while not nb_est_correct:
+						txt_utilisateur = input(message)
+						try:
+							nombre = float(txt_utilisateur)
+							nb_est_correct = True
+						except:
+							print(txt_utilisateur, "n'est pas un nombre")
+					return nombre
+
+				# Boucle pour répéter les calculs
+				utilisateur_veut_continuer = True
+				while utilisateur_veut_continuer:
+					nb1 = avoir_nombre_utilisateur("Nombre 1: ")
+					nb2 = avoir_nombre_utilisateur("Nombre 2: ")
+
+					opération_est_correcte = False
+					while not opération_est_correcte:
+						op = input("Opération (+,-,*,/): ")
+						opération_est_correcte = op in ["+", "-", "/", "*", ]
+						if not opération_est_correcte:
+							print(op, "n'est pas une opération supportée")
+
+					if op == "+":
+						print(nb1, "+", nb2, "=", nb1 + nb2)
+					elif op == "-":
+						print(nb1, "-", nb2, "=", nb1 - nb2)
+					elif op == "/":
+						print(nb1, "/", nb2, "=", nb1 / nb2)
+					else:
+						print(nb1, "*", nb2, "=", nb1 * nb2)
+
+					# Demander utilisateur si veut continuer
+					réponse_utilisateur = input("Faire nouveau calcul? (o pour oui): ")
+					utilisateur_veut_continuer = réponse_utilisateur == "o"
+			</code></pre>
+<p>Remarques:</p>
+<ul>
+<li><p>Sur la dernière ligne, ne pas confondre <code>=</code> avec <code>==</code>.</p>
+<p><code>==</code> est un opérateur booléen, qui vaut <code>True</code> quand les deux éléments à gauche et à droite sont égaux. Sur
+							cette ligne de code en particulier, <code>==</code> est exécuté en premier, et vaut <code>True</code> si
+							<code>réponse_utilisateur</code> est égal à <code>"o"</code>, <code>False</code> sinon.</p>
+<p><code>=</code> est l'instruction d'affectation de valeur à une variable, et sera exécuté APRÈS le <code>==</code>, c'est à dire la
+							variable <code>utilisateur_veut_continuer</code> prendra la valeur du résultat du test <code>==</code> (c'est à dire
+							<code>True</code> ou <code>False</code>).</p>
+</li>
+</ul>
+</div>
+		
 	</div>
 	
 	<div class="exercice">
@@ -620,6 +686,68 @@ Operation? (+,-,*,/): +
 			fonctionnalité du point de vue de l'utilisateur, on adapte le code pour l'améliorer.</p>
 <p>Mettre dans une fonction tout le code qui sert à un seul calcul, et donc PAS le code qui sert à répéter les calculs si l'utilisateur souhaite en
 			faire d'autres. Utiliser / exécuter ensuite cette fonction avec le code qui répète les caluls.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def avoir_nombre_utilisateur(message):
+						nb_est_correct = False
+						while not nb_est_correct:
+							txt_utilisateur = input(message)
+							try:
+								nombre = float(txt_utilisateur)
+								nb_est_correct = True
+							except:
+								print(txt_utilisateur, "n'est pas un nombre")
+						return nombre
+
+
+					# Définition de notre seconde fonction
+					def faire_calcul_utilisateur():
+						nb1 = avoir_nombre_utilisateur("Nombre 1: ")
+
+						opération_est_correcte = False
+						while not opération_est_correcte:
+							op = input("Opération (+,-,*,/): ")
+							opération_est_correcte = op in ["+", "-", "/", "*", ]
+							if not opération_est_correcte:
+								print(op, "n'est pas une opération supportée")
+
+						nb2 = avoir_nombre_utilisateur("Nombre 2: ")
+
+						if op == "+":
+							print(nb1, "+", nb2, "=", nb1 + nb2)
+						elif op == "-":
+							print(nb1, "-", nb2, "=", nb1 - nb2)
+						elif op == "/":
+							print(nb1, "/", nb2, "=", nb1 / nb2)
+						else:
+							print(nb1, "*", nb2, "=", nb1 * nb2)
+
+
+					utilisateur_veut_continuer = True
+					while utilisateur_veut_continuer:
+
+						# Appel de la fonction
+						faire_calcul_utilisateur()
+
+						réponse_utilisateur = input("Faire nouveau calcul? (o pour oui): ")
+						utilisateur_veut_continuer = réponse_utilisateur == "o"
+				</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>On exécute notre fonction <code>avoir_nombre_utilisateur</code> dans notre seconde fonction <code>faire_calcul_utilisateur</code>. Il
+						est fréquent en programmation d'utiliser nos fonctions dans d'autres de nos fonctions.
+					</li>
+<li><p>La fonction <code>avoir_nombre_utilisateur</code> retourne un résultat avec l'instruction <code>return</code>. En revanche la
+						fonction <code>faire_calcul_utilisateur</code> ne retourne aucun résultat, car c'est ce qu'on souhaite: qu'elle fasse tout le travail de
+						demander les nombres et l'opérateur à l'utilisateur et lui affiche le résultat. On a décidé que la fonction ne sert pas à renvoyer un
+						quelconque résultat, seul nous importe qu'elle fasse ce qu'elle doit faire.</p>
+<p>Dans notre boucle <code>while</code> tout en bas, on veut juste appeler la fonction, et qu'elle fasse <em>elle-même</em> tout le
+							calcul et l'affichage. Dans ce cas, un <code>return</code> dans la fonction est inutile.</p>
+<p>Rappelez-vous cependant que même si on n'écrit aucun <code>return</code>, une fonction retourne quand même <code>None</code> par
+							défaut. </p></li>
+</ul>
+</div>
 		
 	</div>
 

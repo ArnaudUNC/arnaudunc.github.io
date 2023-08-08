@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Compréhension de listes | Algo et prog 2 en Python</title>
+	<title>✏️ TP 3 - Calculatrice niv.4 | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -164,63 +164,63 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_compr_listes.html">
 				Compréhension de listes
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_manip_fich_texte.html">
 				Manipulation de fichiers texte
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
 				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td2.html">
 				✍️ TD 2 - Prog. objets niv.1 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
 				✏️ TP 2 - Calculatrice niv.3
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2023.html">
 				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td3.html">
 				✍️ TD 3
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp3.html">
 				✏️ TP 3 - Calculatrice niv.4
@@ -240,54 +240,52 @@
 
 
 		
-	
-	<h1 data-nb="15" id="Compréhension de listes">Compréhension de listes</h1>
-<h2 data-nb="15.1" id="Listes">Listes</h2>
-<p>Une compréhension de liste est une facilité d'écriture qui permet de créer des listes de façon concise, donc en écrivant très peu de code. Typiquement on
-		s'en sert pour créer des listes dont chaque élément est le résultat d'une opération appliquée à chaque élément d'un autre <code>iterable</code>.</p>
-<p>Prenons un exemple. On veut créer une liste de nombres entre 0 et 9 élevés au carré. De façon classique, sans compréhension, on ferait:</p>
-<pre><code class="language-python">
-		carrés = []
-		for x in range(10):
-			carrés.append(x**2)
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Avec une compréhension de liste, on peut écrire:</p>
-<pre><code class="language-python">
-		carrés = [x**2 for x in range(10)]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Notez que cette écriture est plus courte. Un autre bénéfice est que la variable <code>x</code> est "locale" à la compréhension, elle n'existe plus après
-		son exécution, ce qui est une bonne chose, contrairement à la boucle <code>for</code> qui a créé <code>x</code> qui existe encore après la boucle.</p>
-<p>Une compréhension est une expression, elle s'évalue donc à une seule valeur, et est d'un certain type, qui dans le cas d'une compréhension de liste sera
-		le type <code>list</code>. On peut lire cette compréhension <code>[x**2 for x in range(10)]</code> de la manière suivante: "une nouvelle liste qui
-		contient x élevé à la puissance 2 pour chaque x dans l'intervalle 0 inclus à 10 exclu".</p>
-<p>On peut aussi ne considérer que certains éléments avec un <code>if</code> facultatif et une expression booléenne.</p>
-<pre><code class="language-python">
-		L = [-4, -2, 0, 2, 4]
-		carrés = [x for x in L if x &gt;= 0]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 2, 4]</code></p>
-<p>On lit cette compréhension <code>[x for x in L if x &gt;= 0]</code> de la manière suivante: "une nouvelle liste qui contient x pour chaque x dans L si x est
-		plus grand ou égal à zéro".</p>
-
-	
+	<h1 data-nb="23" id="✏️ TP 3 - Calculatrice niv.4">✏️ TP 3 - Calculatrice niv.4</h1>
 	
 
-	<h2 data-nb="15.3" id="Dictionnaires">Dictionnaires</h2>
-<p>Ils supportent aussi l'écriture concise sous forme de compréhension. Par exemple:</p>
-<pre><code class="language-python">
-		d = {x: x**2 for x in (2, 4, 6)}
-		print(d)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>{2: 4, 4: 16, 6: 36}</code></p>
+	
+	<div class="exercice">
+<h2 data-nb="23.1" id="Question 1">Question 1</h2>
+<p>Permettre de calculer des expressions qui comportent plusieurs opérateurs + - * et /. Respecter l'ordre des priorités des opérations. Un espace au
+			minimum doit être présent entre les opérateurs et les opérandes. Demander à l'utilisateur s'il veut continuer ou pas de faire des calculs à chaque
+			résultat affiché. Afficher un message d'erreur approprié quand une expression est mal formée.</p>
+<p>Exemples d'expressions reconnues par cette version de la calculatrice:</p>
+<ul>
+<li><p>5 (résultat 5)</p></li>
+<li><p>5 + 5 (résultat 10)</p></li>
+<li><p>5 +     5 (résultat 10)</p></li>
+<li><p>5 + 5 * 2 (résultat 15)</p></li>
+<li><p>5 + 5 * 2 - 1 (résultat 14)</p></li>
+</ul>
+<p>Exemples d'expressions NON reconnues:</p>
+<ul>
+<li><p>+</p></li>
+<li><p>+ 5</p></li>
+<li><p>5 5</p></li>
+<li><p>5+5</p></li>
+<li><p>5 +5</p></li>
+<li><p>5 + + 5</p></li>
+</ul>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="23.2" id="Question 2">Question 2</h2>
+<p>L'utilisateur doit pouvoir en plus utiliser les fonctions <code>cos</code>, <code>sin</code> et <code>tan</code> du module <code>math</code>, dans
+			ses expressions. Les paramètres des fonctions <code>cos</code> <code>sin</code> et <code>tan</code> doivent être des valeurs simples, pas des
+			sous-expressions.</p>
+<p>Exemples d'expressions reconnues par cette version de la calculatrice:</p>
+<ul>
+<li><p>cos(1) (résultat 0.5403023058681398)</p></li>
+<li><p>cos(3.1416) + 2 * 3 (résultat 5.000000000026985)</p></li>
+</ul>
+<p>Exemples d'expressions NON reconnues:</p>
+<ul>
+<li><p>cos(2 + 3)</p></li>
+</ul>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">

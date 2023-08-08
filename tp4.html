@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Compréhension de listes | Algo et prog 2 en Python</title>
+	<title>✏️ TP 4 - Prog. objets niv.2 | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -164,70 +164,70 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_compr_listes.html">
 				Compréhension de listes
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_manip_fich_texte.html">
 				Manipulation de fichiers texte
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
 				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td2.html">
 				✍️ TD 2 - Prog. objets niv.1 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
 				✏️ TP 2 - Calculatrice niv.3
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2023.html">
 				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td3.html">
 				✍️ TD 3
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp3.html">
 				✏️ TP 3 - Calculatrice niv.4
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp4.html">
 				✏️ TP 4 - Prog. objets niv.2
@@ -240,54 +240,75 @@
 
 
 		
-	
-	<h1 data-nb="15" id="Compréhension de listes">Compréhension de listes</h1>
-<h2 data-nb="15.1" id="Listes">Listes</h2>
-<p>Une compréhension de liste est une facilité d'écriture qui permet de créer des listes de façon concise, donc en écrivant très peu de code. Typiquement on
-		s'en sert pour créer des listes dont chaque élément est le résultat d'une opération appliquée à chaque élément d'un autre <code>iterable</code>.</p>
-<p>Prenons un exemple. On veut créer une liste de nombres entre 0 et 9 élevés au carré. De façon classique, sans compréhension, on ferait:</p>
-<pre><code class="language-python">
-		carrés = []
-		for x in range(10):
-			carrés.append(x**2)
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Avec une compréhension de liste, on peut écrire:</p>
-<pre><code class="language-python">
-		carrés = [x**2 for x in range(10)]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Notez que cette écriture est plus courte. Un autre bénéfice est que la variable <code>x</code> est "locale" à la compréhension, elle n'existe plus après
-		son exécution, ce qui est une bonne chose, contrairement à la boucle <code>for</code> qui a créé <code>x</code> qui existe encore après la boucle.</p>
-<p>Une compréhension est une expression, elle s'évalue donc à une seule valeur, et est d'un certain type, qui dans le cas d'une compréhension de liste sera
-		le type <code>list</code>. On peut lire cette compréhension <code>[x**2 for x in range(10)]</code> de la manière suivante: "une nouvelle liste qui
-		contient x élevé à la puissance 2 pour chaque x dans l'intervalle 0 inclus à 10 exclu".</p>
-<p>On peut aussi ne considérer que certains éléments avec un <code>if</code> facultatif et une expression booléenne.</p>
-<pre><code class="language-python">
-		L = [-4, -2, 0, 2, 4]
-		carrés = [x for x in L if x &gt;= 0]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 2, 4]</code></p>
-<p>On lit cette compréhension <code>[x for x in L if x &gt;= 0]</code> de la manière suivante: "une nouvelle liste qui contient x pour chaque x dans L si x est
-		plus grand ou égal à zéro".</p>
-
-	
+	<h1 data-nb="24" id="✏️ TP 4 - Prog. objets niv.2">✏️ TP 4 - Prog. objets niv.2</h1>
 	
 
-	<h2 data-nb="15.3" id="Dictionnaires">Dictionnaires</h2>
-<p>Ils supportent aussi l'écriture concise sous forme de compréhension. Par exemple:</p>
-<pre><code class="language-python">
-		d = {x: x**2 for x in (2, 4, 6)}
-		print(d)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>{2: 4, 4: 16, 6: 36}</code></p>
+	<p>Ce TP est la suite directe du TD 2, la partie sur les personnages.</p>
+
+	
+	<div class="exercice">
+<h2 data-nb="24.1" id="Question 1">Question 1</h2>
+<p>Ajouter un attribut <code>points_de_vie</code> qui vaut 50 initialement pour tous les personnages. </p>
+<p>La méthode <code>saluer</code> doit afficher "Bonjour, je suis &lt;nom&gt;. Ma vie est &lt;points_de_vie&gt;". Par exemple "Bonjour, je suis Toto. Ma
+			vie est 50"</p>
+<p>Exécuter votre programme et vérifier qu'il affiche bien le bon résultat, c'est-à-dire chacun dit bonjour avec un nom différent, et affiche la même
+			vie.</p>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="24.2" id="Question 2">Question 2</h2>
+<p>Ajouter une méthode <code>blesser</code>, qui prend en paramètre le nombre de points de dégâts, et les soustrait à la vie du personnage. Quand un
+			personnage a une vie de zéro il est considéré mort, alors sa salutation devient "&lt;nom&gt; est mort", par exemple "Toto est mort".</p>
+<p>Quand elle est exécutée, la méthode affiche dans la console "&lt;nom&gt; subit &lt;x&gt; dégâts", par exemple "Toto subit 10 dégâts".</p>
+<p>Veiller à ce que:</p>
+<ul>
+<li>un personnage ne peut avoir une vie négative</li>
+<li>un personnage ne peut se soigner par cette méthode</li>
+</ul>
+<p>Tenter de blesser un de vos personnages, avec comme dégâts 20, puis -20, puis 100, puis -200.</p>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="24.3" id="Question 3">Question 3</h2>
+<p>Ajouter une méthode <code>soigner</code>, qui prend en paramètre le nombre de points de soin, et les ajoute à la vie du personnage.</p>
+<p>Quand elle est exécutée, la méthode affiche dans la console "&lt;nom&gt; est soigné de &lt;x&gt; points", par exemple "Toto est soigné de 10
+			points".</p>
+<p>Veiller à ce que:</p>
+<ul>
+<li>un personnage mort (vie à zéro) ne peut plus être soigné</li>
+<li>un personnage ne peut être blessé par cette méthode</li>
+</ul>
+<p>Tentez de soigner un de vos personnages, avec comme soins 20, puis -20, puis 100, puis -200.</p>
+<p>Blessez un de vos personnages avec 100 points de dégâts, puis tentez de le soigner de 100 points de vie et vérifiez que c'est impossible car il est
+			mort.</p>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="24.4" id="Question 4">Question 4</h2>
+<p>Ajouter un attribut <code>points_de_vie_max</code>, dont la valeur initiale est spécifiée en paramètre dans le constructeur. Ainsi l'attribut <code>points_de_vie</code>
+			est la vie actuelle du personnage, tandis que <code>points_de_vie_max</code> est la vie maximale du personnage. Le personnage doit avoir sa vie
+			actuelle au maximum lors de sa création.</p>
+<p>Afficher la vie max dans la salutation du personnage, sous la forme qui vous convient.</p>
+<p>Veiller à ce qu'un personnage ne peut être soigné au-delà de sa vie maximale. Blessez un de vos personnages, sans le tuer, puis soignez-le
+			<em>plus</em> qu'il n'a été blessé. Vérifiez qu'il est impossible de le soigner au-delà de sa vie maximale.</p>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="24.5" id="Question 5">Question 5</h2>
+<p>Faire en sorte qu'un personnage puisse attaquer un autre. Pour cela ajouter la méthode <code>attaquer</code>, qui prend en paramètre le personnage
+			cible. Chaque attaque d'un personnage provoque toujours 25 points de dégâts.</p>
+<p>Lors d'une attaque, on veut lire dans la console un message qui dit que le personnage attaquant attaque le personnage cible pour 25 dégâts, par
+			exemple "Toto attaque Titi pour 25 dégâts". Puis sur une seconde ligne on doit lire "Titi subit 25 dégâts".</p>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
