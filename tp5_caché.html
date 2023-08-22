@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>✏️ TP 5 - Prog. objets niv.3 ✔️ | Algo et prog 2 en Python</title>
+	<link href="prism.css" rel="stylesheet"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--link rel="icon" href="img/favicon.svg"-->
+	<link rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3C!--	%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E">
+</head>
+<body>
+<div id="conteneur">
+	<div id="side_nav_bar">
+		<!--svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100" style="display:block; margin:auto; padding: 0 0 1em 0;">
+	<style>
+		text {
+			text-align: center;
+			fill: white;
+			text-anchor: middle;
+			font-size: 11pt;
+		}
+	</style>
+	<rect fill="#4B8BBE" x="0" y="0" width="100" height="100"></rect>
+	<text x="50" y="45" style="font-size: 30pt;">
+		🐍
+
+	</text>
+	<text x="50" y="75" fill="#FFE873">
+		Algo et prog 2
+	</text>
+	<text x="50" y="90" fill="#FFE873">
+		en Python
+	</text>
+</svg-->
+
+<div style="color:#4B8BBE; font-size: 200%; padding: 2%; text-align: center">
+	Algo. et prog. 2 en
+</div>
+<img src="img/python-logo-generic.png" alt="Logo de Python" style="width: 100%; max-width: 19em; display:block; margin:auto;">
+<div style="text-align: center; opacity: 0.5; font-size: small">Arnaud COUTURIER - Python 3.10</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="index.html">
+				Introduction
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_pass.html">
+				L'instruction pass
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_exceptions.html">
+				Les exceptions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_spec_impl_versions.html">
+				Spécification, implémentations et versions
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_methodes_exec.html">
+				Façons d'exécuter un programme Python
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_memoire_donnees.html">
+				Mémoire et modèle de données
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_prog_objets.html">
+				Programmation objets
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_namespaces_modules.html">
+				Namespaces et modules
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_sequences.html">
+				Les séquences
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterables.html">
+				Iterables, iterators
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_iterable_unpacking.html">
+				Iterable unpacking
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_boucles_avancees.html">
+				Techniques avancées sur les boucles
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_fonc_params.html">
+				Fonctions et paramètres
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_dict_set.html">
+				Hash et dictionnaires
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_compr_listes.html">
+				Compréhension de listes
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cm_manip_fich_texte.html">
+				Manipulation de fichiers texte
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td1.html">
+				✍️ TD 1 - Calculatrice niv.1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp1.html">
+				✏️ TP 1 - Calculatrice niv.2 (✔️)
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td2.html">
+				✍️ TD 2 - Prog. objets niv.1 (✔️)
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp2.html">
+				✏️ TP 2 - Calculatrice niv.3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="cc1_2023.html">
+				📝 Contrôle continu 1 ✔️
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="td3.html">
+				✍️ TD 3
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp3.html">
+				✏️ TP 3 - Calculatrice niv.4
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
+			<a href="tp4.html">
+				✏️ TP 4 - Prog. objets niv.2
+			</a>
+		</div>
+
+		<div class="page_actuelle h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp5_caché.html">
+				✏️ TP 5 - Prog. objets niv.3 ✔️
+			</a>
+		</div>
+
+	</div>
+	<div id="contenu">
+		
+
+
+		
+	<h1 data-nb="25" id="✏️ TP 5 - Prog. objets niv.3 ✔️">✏️ TP 5 - Prog. objets niv.3 ✔️</h1>
+	
+
+	<p>Ce TP est la suite directe du TP 4.</p>
+
+	
+	<div class="exercice">
+<h2 data-nb="25.1" id="Question 1">Question 1</h2>
+<p>On va créer un terrain, dans lequel les personnages seront visibles, et pourront se déplacer. Un terrain sera représenté visuellement dans la console
+			comme un tableau de caractères à deux dimensions, et on affichera sur chaque case le caractère <code>"·"</code> là où il n'y a aucun personnage, ou
+			un autre caractère là où se situera le personnage du joueur.</p>
+<p>Cela se fera grâce à une classe <code>Terrain</code>, donc créer la classe et grâce à son constructeur chaque instance de <code>Terrain</code> devra
+			avoir les attributs <code>taille_x</code> et <code>taille_y</code>, qui décrivent la taille du terrain en nombre de cases sur x et y.</p>
+<p>Pour commencer un terrain ne contiendra qu'un seul perso, donc ajouter un attribut <code>perso</code> qui permet au terrain de savoir quel perso il
+			contient.</p>
+<p>Ces 3 attributs doivent être spécifiés lors de la création de chaque terrain, donc leur valeur initiale doit être spécifiée en paramètre du
+			constructeur.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ Nouvelle classe
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							# ↓ L'attribut perso pointera vers un objet instance de Personnage
+							self.perso = perso
+
+					# ↓ Rien de changé par rapport à la question précédente
+					class Personnage:
+						def __init__(self, nom_initial, pv_max):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="25.2" id="Question 2">Question 2</h2>
+<p>Il nous faut augmenter les capacités de chaque Personnage, pour qu'ils puissent avoir une position x et y. Donc ajouter pour chaque perso un <em>attribut</em>
+<code>position</code>, qui est une liste de deux <code>int</code>: le premier est la position du perso sur x, le second sur y. Ajouter le ou les
+			paramètres au constructeur de <code>Personnage</code> pour pouvoir spécifier la position initiale.</p>
+<p>On veut aussi donner à chaque personnage la capacité de se dessiner. Pour cela chaque perso retient simplement un caractère qui le représente. Ce
+			caractère sera dans <em>l'attribut</em> <code>caractère_apparence</code>, et sa valeur initiale doit être passée en <em>paramètre</em> du constructeur,
+			pour qu'on puisse spécifier le caractère de chaque perso au moment de leur création. </p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ Rien de changé par rapport à la question précédente
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+
+					class Personnage:
+						# ↓ On a modifié le constructeur
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.caractère_apparence = caractère_apparence
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="25.3" id="Question 3">Question 3</h2>
+<p>Dans la classe <code>Terrain</code>, ajouter une méthode <code>dessiner</code>, qui affiche le terrain dans la console. Elle ne prend aucun
+			paramètre.</p>
+<p>Chaque ligne du terrain (qui est comme un tableau à 2 dimensions) doit être représentée par une ligne de texte dans la console. Ainsi vous devez
+			afficher le tableau case par case sur la même ligne, puis ligne par ligne, jusqu'à ce que toutes les lignes soient afichées.</p>
+<p>Pour chaque case, si elle est vide, c'est à dire si le personnage du terrain ne s'y trouve pas, le caractère <code>"·"</code> doit être affiché. Si
+			la case contient le personnage du terrain, alors le caractère spécifique du perso doit être affiché.</p>
+<p>Instanciez un <code>Personnage</code>, un <code>Terrain</code>, et essayer de l'afficher correctement par sa méthode <code>dessiner()</code>.</p>
+<p>Voici ce que vous devriez voir pour un terrain de 15 sur x par 10 sur y, et son perso à la position x=2 et y=1 et qui a pour caractère
+			<code>"@"</code>:</p>
+<pre class="affichage_console"><code>
+· · · · · · · · · · · · · · ·
+· · @ · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·
+· · · · · · · · · · · · · · ·</code></pre>
+<p>Remarquez que pour x on va de gauche à droite, mais pour y on va du haut vers le bas. y=0 est la première ligne en haut.</p>
+<p>Dans la console, les lignes sont bien plus hautes que la largeur d'un caractère, ce qui risque de donner un aspect "écrasé" horizontalement à votre
+			terrain. Pour contre-balancer ça, ajoutez un caractère espace après le caractère de chaque case (y compri celle où se trouve le perso), comme dans
+			l'exemple montré.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+						# ↓ On a ajouté cette méthode
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.caractère_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+					# ↓ Rien de changé par rapport à la question précédente
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.caractère_apparence = caractère_apparence
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis", self.nom, "ma vie est", self.points_de_vie, "/", self.points_de_vie_max)
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+					# ↓ On instancie et on dessine un terrain et son perso
+					perso1 = Personnage("Toto", 100, "@", 2, 1)
+					terrain = Terrain(15, 10, perso1)
+					terrain.dessiner()
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="25.4" id="Question 4">Question 4</h2>
+<p>On va permettre au joueur de déplacer son perso sur le terrain. Pour cela on va lui afficher le terrain, puis lui demander d'entrer au clavier quelle
+			action il / elle veut faire, et ainsi jusqu'à ce que l'utilisateur décide d'arrêter. Cela doit se faire dans la méthode <code>démarrer</code> (qui
+			ne prend aucun paramètre), d'une nouvelle classe <code>Jeu</code>. </p>
+<p>Pour quitter il faudra entrer <code>"qq"</code> (deux fois la lettre q).</p>
+<p>Pour se déplacer ça sera:</p>
+<ul>
+<li>"z" pour aller vers le HAUT visuellement dans la console</li>
+<li>"s" pour aller vers le BAS visuellement dans la console</li>
+<li>"q" pour aller vers la GAUCHE visuellement dans la console</li>
+<li>"d" pour aller vers la DROITE visuellement dans la console</li>
+</ul>
+<p>Chaque instance de <code>Jeu</code> doit avoir deux <em>attributs</em>: </p>
+<ol>
+<li><code>terrain</code>, qui est l'instance de <code>Terrain</code> dans lequel le jeu se déroule. La valeur initiale doit être passée en <code>paramètre</code>
+				du constructeur.
+			</li>
+<li><code>perso_heros</code>, qui est l'instance de <code>Personnage</code> que le joueur humain contrôle par le clavier. La valeur initiale doit
+				aussi être passée en <code>paramètre</code> du constructeur.
+			</li>
+</ol>
+<p>Sous l'affichage du terrain, avant de laisser l'utilisateur entrer son choix, afficher la salutation de son perso. On veut que le perso donne sa
+			position lorsqu'il salue, donc modifier la méthode <code>saluer()</code> de la classe <code>Personnage</code> pour avoir quelque chose du genre:</p>
+<pre class="affichage_console"><code>
+Bonjour, je suis Toto: vie= 100/100. Position=(0,0)
+</code></pre>
+<p>Créer une instance de Jeu, et le démarrer. Vous devriez avoir un résultat comme celui-ci:</p>
+<video controls="" preload="none" src="img/tp5/tp5 q4 crf30.mp4"></video>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ Aucune modification
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.caractère_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.caractère_apparence = caractère_apparence
+
+						# ↓ Modifié
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								# ↓ Quand une ligne est trop longue visuellement en Python,
+								# on peut la couper avec le caractère \ suivi d'un saut de ligne.
+								# Un saut de ligne seul est interdit.
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+					# ↓ Ajouté nouvelle classe
+					class Jeu:
+						def __init__(self, terrain, perso_heros):
+							self.terrain = terrain
+							self.perso_heros = perso_heros
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								self.terrain.dessiner()
+								self.perso_heros.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso_heros.position[0] -= 1
+								elif action_utilisateur == "d":
+									self.perso_heros.position[0] += 1
+								elif action_utilisateur == "z":
+									self.perso_heros.position[1] -= 1
+								elif action_utilisateur == "s":
+									self.perso_heros.position[1] += 1
+
+
+					perso1 = Personnage("Toto", 100, "@", 2, 1)
+					terrain = Terrain(15, 10, perso1)
+					# ↓ Création d'une instance de Jeu
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+</div>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="25.5" id="Question 5">Question 5</h2>
+<p>Le fait que l'affichage s'ajoute toujours en bas de la console, et que l'ancien affichage reste visible n'est pas pratique. Ce qu'on voudrait c'est
+			que le terrain reste "fixe" visuellement dans la console, ça serait plus facile à regarder.</p>
+<p>Pour ça il existe une commande au niveau du système d'exploitation qui permet de "nettoyer" la console, c'est à dire effacer tout ce qui est visible.
+			Cette commande est "clear" pour Linux, et "cls" pour Windows. Replit tourne avec Linux. Allez dans le "Shell" (dans replit, l'onglet à côté de
+			"Console") et appuyez simplement plusieurs fois sur la touche "Entrée" pour sauter des lignes. Ensuite entrez la commande <code>clear</code> et
+			voyez que tout est effacé.</p>
+<p>On peut appeler une commande du système d'exploitation depuis Python grâce à la fonction <code>system</code> du module <code>os</code>. Cette
+			fonction prend un paramètre de type <code>str</code>, qui est le nom de la commande système à exécuter. Le module <code>os</code> est appelé ainsi
+			pour "Operating System", système d'exploitation en anglais, et il fait partie de la bibliothèque standard de Python.</p>
+<p>Appelez "clear" au bon endroit de votre code pour obtenir ceci:</p>
+<video controls="" preload="none" src="img/tp5/tp5 q5 crf30.mp4"></video>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ On doit importer le module os pour avoir accès à sa fonction "system",
+					# qu'on utilise plus bas dans la méthode "démarrer()" de la classe "Jeu".
+					import os
+
+					# ↓ Aucune modification
+					class Terrain:
+						def __init__(self, taille_x, taille_y, perso):
+							self.taille_x = taille_x
+							self.taille_y = taille_y
+							self.perso = perso
+
+						def dessiner(self):
+							for j in range(self.taille_y):
+								ligne = ""
+								for i in range(self.taille_x):
+									if self.perso.position == [i, j]:
+										ligne += self.perso.caractère_apparence + " "
+									else:
+										ligne += "· "
+								print(ligne)
+
+					# ↓ Aucune modification
+					class Personnage:
+						def __init__(self, nom_initial, pv_max, caractère_apparence, x, y):
+							self.nom = nom_initial
+							self.points_de_vie = self.points_de_vie_max = pv_max
+							self.position = [x, y]
+							self.caractère_apparence = caractère_apparence
+
+						def saluer(self):
+							if self.points_de_vie &gt; 0:
+								print("Bonjour, je suis " + self.nom + ": vie=" + str(self.points_de_vie) \
+									  + "/" + str(self.points_de_vie_max) + ". Position=(" \
+									  + str(self.position[0]) + "," + str(self.position[1]) + ")")
+							else:
+								print(self.nom, "est mort")
+
+						def soigner(self, points_de_soin):
+							if self.points_de_vie &lt;= 0:
+								print("Impossible de soigner un perso mort")
+								return
+							if points_de_soin &lt;= 0:
+								print("Soins négatifs, impossible")
+								return
+							vie_avant_soins = self.points_de_vie
+							soins_effectifs = points_de_soin
+							self.points_de_vie += points_de_soin
+							if self.points_de_vie &gt; self.points_de_vie_max:
+								soins_effectifs = self.points_de_vie_max - vie_avant_soins
+								self.points_de_vie = self.points_de_vie_max
+							print(self.nom, "est soigné de", soins_effectifs, "points")
+
+						def blesser(self, points_de_dégâts):
+							if points_de_dégâts &gt; 0:
+								vie_avant_dégâts = self.points_de_vie
+								self.points_de_vie -= points_de_dégâts
+								if self.points_de_vie &lt; 0:
+									self.points_de_vie = 0
+									print(self.nom, "subit", vie_avant_dégâts, "dégâts")
+								else:
+									print(self.nom, "subit", points_de_dégâts, "dégâts")
+							else:
+								print("Dégâts négatifs ou zéro interdits pour", self.nom)
+
+						def attaquer(self, perso_cible):
+							print(self.nom, "attaque", perso_cible.nom)
+							perso_cible.blesser(25)
+
+
+
+					class Jeu:
+						def __init__(self, terrain, perso_heros):
+							self.terrain = terrain
+							self.perso_heros = perso_heros
+
+						def démarrer(self):
+							action_utilisateur = ""
+							while action_utilisateur != "qq":
+								# ↓ Ajouté ces 2 lignes
+								# os.system("cls")  # si exécuté avec windows
+								os.system("clear") # si exécuté avec linux / mac (replit fonctionne avec linux)
+								self.terrain.dessiner()
+								self.perso_heros.saluer()
+								action_utilisateur = input("Action: ")
+								if action_utilisateur == "q":
+									self.perso_heros.position[0] -= 1
+								elif action_utilisateur == "d":
+									self.perso_heros.position[0] += 1
+								elif action_utilisateur == "z":
+									self.perso_heros.position[1] -= 1
+								elif action_utilisateur == "s":
+									self.perso_heros.position[1] += 1
+
+
+					perso1 = Personnage("Toto", 100, "@", 2, 1)
+					terrain = Terrain(15, 10, perso1)
+					jeu = Jeu(terrain, perso1)
+					jeu.démarrer()
+				</code></pre>
+</div>
+		
+	</div>
+
+
+		<div class="nav_arrows" style=" margin-bottom: 1em;">
+
+			<div style="text-align: center; opacity: 0.5; font-size: small">
+
+			</div>
+		</div>
+
+	</div>
+
+	
+		<style>
+			@media only screen and (min-width: 70em) {
+				#side_nav_bar {
+					width: 25vw;
+				}
+
+				#contenu {
+					width: 75vw;
+				}
+			}
+		</style>
+	
+
+
+</div>
+  
+<script src="prism.js"></script>
+
+<script>
+	if (document.URL.indexOf("localhost") === -1) {
+		//console.log("pas localhost");
+		document.querySelector("link[rel = 'icon']").setAttribute("href", "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='200' height='200' viewBox='0 0 100 100' style='display:block; margin:auto; padding: 0 0 1em 0;'%3E%3Cstyle%3E text %7B text-align: center; fill: white; text-anchor: middle; font-size: 11pt; %3C/style%3E%3C!--	%3Crect fill='hsl(000,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E--%3E%3Crect fill='hsl(200,50%25, 50%25)' x='0' y='0' width='100' height='100'%3E%3C/rect%3E%3Ctext x='50' y='75' style='font-size: 50pt;' id='t'%3E 🐍 %3C/text%3E%3C!--	%3Canimate--%3E%3C!-- xlink:href='%23t'--%3E%3C!-- attributeName='y'--%3E%3C!-- calcMode='spline'--%3E%3C!-- values='60; 90; 60'--%3E%3C!-- keyTimes='0; 0.5; 1'--%3E%3C!-- keySplines='--%3E%3C!-- .42 0 1 1;--%3E%3C!-- 0 0 .59 1;'--%3E%3C!-- dur='2s'--%3E%3C!-- fill='freeze'--%3E%3C!-- repeatCount='indefinite'/%3E--%3E%3C/svg%3E");
+	} else {
+		//console.log("localhost");
+	}
+	// On supprime la première ligne des <pre><code> qui est considérée toujours vide et inutile
+	const codes = document.querySelectorAll('pre[class="affichage_console"] code');
+	
+	codes.forEach(function (el) {
+		// Attention: modifier textContent ou innerText d'un élément détruit tous ses éléments enfant :(
+		//el.textContent = el.textContent.replace(/^\n/, '');
+		// On modifie donc le premie noeud texte uniquement
+		el.childNodes[0].textContent = el.childNodes[0].textContent.replace(/^\n/, ''); // suppose que c'est un élément texte
+	});
+
+	// On ajoute un <br> avant et après chaque <pre>
+	let pres = document.querySelectorAll('pre, .exercices div.noté');
+	pres.forEach(function (el) {
+		el.parentNode.insertBefore(document.createElement('div'), el);
+		el.parentNode.insertBefore(document.createElement('div'), el.nextSibling);
+	});
+
+	// On ajoute 'Affichage' avant chaque affichage console
+	pres = document.querySelectorAll('pre[class="affichage_console"]');
+	pres.forEach(function (el) {
+		const p = document.createElement('p');
+		p.innerHTML = `<small>↓ Affichage dans la console (ou dans le shell, selon où vous lancez l'exécution)<mall>`;
+		p.classList.add("légende_placée_en_haut");
+		el.parentNode.insertBefore(p, el);
+	});
+
+	// Cacher corrections dans les TD / TP, et permettre de les afficher
+	let divs_correction = document.querySelectorAll('div[class="correction"]');
+	divs_correction.forEach(function (div) {
+		div.classList.add("correction_hidden");
+		const p = document.createElement('p');
+		p.innerHTML = `<span class="correction_lien_à_cliquer">📝 Afficher / cacher correction ✓</span>`;
+		p.onclick = function (evt) {
+			div.classList.toggle("correction_hidden");
+		};
+		div.parentNode.insertBefore(p, div);
+	});
+</script>
+</body>
+</html>
