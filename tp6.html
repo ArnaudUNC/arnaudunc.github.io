@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Compréhension de listes | Algo et prog 2 en Python</title>
+	<title>✏️ TP 6 - Prog. objets niv.4 | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -164,84 +164,84 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_compr_listes.html">
 				Compréhension de listes
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cm_manip_fich_texte.html">
 				Manipulation de fichiers texte
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td1.html">
 				✍️ TD 1 - Calculatrice niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
 				✏️ TP 1 - Calculatrice niv.2 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td2.html">
 				✍️ TD 2 - Prog. objets niv.1 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
 				✏️ TP 2 - Calculatrice niv.3
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="cc1_2023.html">
 				📝 Contrôle continu 1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="td3.html">
 				✍️ TD 3 (✔️)
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp3.html">
 				✏️ TP 3 - Calculatrice niv.4
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp4.html">
 				✏️ TP 4 - Prog. objets niv.2
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp5.html">
 				✏️ TP 5 - Prog. objets niv.3
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp6.html">
 				✏️ TP 6 - Prog. objets niv.4
@@ -254,54 +254,80 @@
 
 
 		
-	
-	<h1 data-nb="15" id="Compréhension de listes">Compréhension de listes</h1>
-<h2 data-nb="15.1" id="Listes">Listes</h2>
-<p>Une compréhension de liste est une facilité d'écriture qui permet de créer des listes de façon concise, donc en écrivant très peu de code. Typiquement on
-		s'en sert pour créer des listes dont chaque élément est le résultat d'une opération appliquée à chaque élément d'un autre <code>iterable</code>.</p>
-<p>Prenons un exemple. On veut créer une liste de nombres entre 0 et 9 élevés au carré. De façon classique, sans compréhension, on ferait:</p>
-<pre><code class="language-python">
-		carrés = []
-		for x in range(10):
-			carrés.append(x**2)
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Avec une compréhension de liste, on peut écrire:</p>
-<pre><code class="language-python">
-		carrés = [x**2 for x in range(10)]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></p>
-<p>Notez que cette écriture est plus courte. Un autre bénéfice est que la variable <code>x</code> est "locale" à la compréhension, elle n'existe plus après
-		son exécution, ce qui est une bonne chose, contrairement à la boucle <code>for</code> qui a créé <code>x</code> qui existe encore après la boucle.</p>
-<p>Une compréhension est une expression, elle s'évalue donc à une seule valeur, et est d'un certain type, qui dans le cas d'une compréhension de liste sera
-		le type <code>list</code>. On peut lire cette compréhension <code>[x**2 for x in range(10)]</code> de la manière suivante: "une nouvelle liste qui
-		contient x élevé à la puissance 2 pour chaque x dans l'intervalle 0 inclus à 10 exclu".</p>
-<p>On peut aussi ne considérer que certains éléments avec un <code>if</code> facultatif et une expression booléenne.</p>
-<pre><code class="language-python">
-		L = [-4, -2, 0, 2, 4]
-		carrés = [x for x in L if x &gt;= 0]
-		print(carrés)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>[0, 2, 4]</code></p>
-<p>On lit cette compréhension <code>[x for x in L if x &gt;= 0]</code> de la manière suivante: "une nouvelle liste qui contient x pour chaque x dans L si x est
-		plus grand ou égal à zéro".</p>
-
-	
+	<h1 data-nb="26" id="✏️ TP 6 - Prog. objets niv.4">✏️ TP 6 - Prog. objets niv.4</h1>
 	
 
-	<h2 data-nb="15.3" id="Dictionnaires">Dictionnaires</h2>
-<p>Ils supportent aussi l'écriture concise sous forme de compréhension. Par exemple:</p>
-<pre><code class="language-python">
-		d = {x: x**2 for x in (2, 4, 6)}
-		print(d)
-	</code></pre>
-<p>Affichage:</p>
-<p><code>{2: 4, 4: 16, 6: 36}</code></p>
+	<p>Ce TP est la suite directe du TP 5.</p>
+
+	
+	<div class="exercice">
+<h2 data-nb="26.1" id="Question 1">Question 1</h2>
+<p>On veut qu'il soit impossible pour un Personnage de sortir du Terrain, il faut le restreindre dans l'aire de jeu.</p>
+<video controls="" preload="none" src="img/tp6/q1.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li>chaque Personnage aura besoin de savoir sur quel Terrain il se trouve, donc ajouter un attribut (par exemple <code>terrain</code>) dans le
+				constructeur de Personnage. Le Terrain doit être spécifié au moment de la création du perso, donc ajouter également un paramètre au
+				constructeur, et initialiser la valeur de l'attribut avec la valeur du paramètre.
+			</li>
+<li><p>Jusqu'à présent, le déplacement du Personnage se fait en modifiant sa position depuis la classe Jeu, mais cela n'est pas bon car ce n'est pas
+				la responsabilité de Jeu. Jeu devrait plutôt <em>demander</em> au Personnage de se déplacer en appelant une de ses méthodes (de la classe
+				Personnage), et ensuite c'est le perso lui-même qui ferait son propre déplacement selon sa propre logique. Ainsi il pourrait éviter de sortir du
+				Terrain par exemple, mais on pourrait aussi ajouter d'autres contraintes facilement plus tard.</p>
+<p>Ajouter dans la classe Personnage une méthode pour se déplacer. La méthode prend 2 paramètres (en plus de <code>self</code>):</p>
+<ol>
+<li>un <code>int</code> pour le nombres de cases de déplacement horizontalement sur le terrain du perso</li>
+<li>un second <code>int</code> pour verticalement</li>
+</ol>
+<p>C'est dans cette méthode qu'on empêche le Personnage de sortir de son terrain.</p>
+</li>
+<li>Dans méthode <code>démarrer</code> de la classe Jeu, utiliser la nouvelle méthode de Personnage pour déplacer le perso joueur.
+			</li>
+<li>Vérifier que ça fonctionne: le perso ne devrait plus pouvoir sortir du terrain.</li>
+</ol>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="26.2" id="Question 2">Question 2</h2>
+<p>On veut ajouter des murs sur notre terrain. Pour l'instant ils ne bloquent pas le perso du joueur.</p>
+<video controls="" preload="none" src="img/tp6/q2.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li><p>Ajouter pour chaque Terrain un attribut qui est un tableau à 2 dimensions, dans lequel vous stockerez si oui ou non chaque case contient un
+				mur ou pas. Un mur (et l'absence de mur) peut être représenté dans chaque case du tableau par un <code>int</code> (0 = un mur, autre valeur =
+				pas de mur par exemple) ou un <code>bool</code> (<code>True</code> = un mur, <code>False</code> = pas de mur), au choix.</p>
+<p>On peut considérer qu'un Terrain ne contient aucun mur après sa création, ils seront ajoutés un par un en modifiant directement son tableau
+					de murs.</p>
+</li>
+<li><p>Modifier la méthode <code>déssiner</code> de la classe <code>Terrain</code> pour prendre en compte les murs et les dessiner. Vous pouvez
+				utiliser deux fois le caractère "█" pour faire un carré dans la console, comme ceci: ██. Les cases vides sont toujours dessinées avec le
+				caractère "·" à ne pas confondre avec le point "."</p>
+<p>Quand un Personnage se trouve sur la même case qu'un mur, c'est lui qui est dessiné, pas le mur, pour éviter de perdre de vue le perso du
+					joueur.</p>
+</li>
+<li>Après la création du Terrain, en bas du programme, lui ajouter quelques murs avant de lancer le Jeu, et vérifier que vous les voyez. Mais vous
+				pouvez passer à travers pour le moment.
+			</li>
+</ol>
+		
+	</div>
+
+	
+	<div class="exercice">
+<h2 data-nb="26.3" id="Question 3">Question 3</h2>
+<p>Maintenant on veut empêcher le perso du joueur de passer à travers les murs.</p>
+<video controls="" preload="none" src="img/tp6/q3.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li>Ajouter les contraintes nécessaires, dans la méthode pour se déplacer de la classe Personnage, que vous avez ajoutée précédemment.
+			</li>
+<li>Sur votre Terrain, créez une pièce, des murs et divers obstacles.</li>
+<li>Vérifiez que le perso du joueur est bloqué par les murs.</li>
+</ol>
+		
+	</div>
 
 
 		<div class="nav_arrows" style=" margin-bottom: 1em;">
