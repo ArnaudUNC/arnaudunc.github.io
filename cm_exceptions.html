@@ -328,8 +328,8 @@ TypeError: can only concatenate str (not "int") to str</code></pre>
 <pre class="affichage_console"><code>Avant
 Une division par zéro a eu lieu, ouille!
 Après</code></pre>
-<p>Remarquez ↑ que la ligne 3 n'a pas été exécutée, car la 2 a provoqué une <code>ZeroDivisionError</code>. Par contre la ligne 5 a été exécutée. Maintenant
-		si on fait:</p>
+<p>Remarquez ↑ que la ligne 4 n'a pas été exécutée, car la 3 a provoqué une <code>ZeroDivisionError</code>. Par contre la ligne 6 a été exécutée. Maintenant
+		si on corrige la source de l'erreur, c'est-à-dire la division par zéro:</p>
 <pre class="line-numbers"><code class="language-python">
 		print("Avant")
 		try:
@@ -342,7 +342,7 @@ Après</code></pre>
 <pre class="affichage_console"><code>Avant
 La division a fonctionné
 Après</code></pre>
-<p>Maintenant ↑ la ligne 3 a été exécutée mais pas la 5, car la division de la ligne 2 n'a provoqué aucune erreur.</p>
+<p>Maintenant ↑ la ligne 4 a été exécutée mais pas la 6, car la division de la ligne 3 n'a provoqué aucune erreur.</p>
 <p>On peut avoir plusieurs <code>except</code>, comme ceci:</p>
 <pre class="line-numbers"><code class="language-python">
 		try:
