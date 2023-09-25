@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✍️ TD 2 - Prog. objets niv.1 (✔️) | Algo et prog 2 en Python</title>
+	<title>✍️ TD 2 - Prog. objets niv.1 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -188,21 +188,21 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2 (✔️)
+				✏️ TP 1 - Calculatrice niv.2 ✔️
 			</a>
 		</div>
 
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td2.html">
-				✍️ TD 2 - Prog. objets niv.1 (✔️)
+				✍️ TD 2 - Prog. objets niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp2.html">
-				✏️ TP 2 - Calculatrice niv.3
+				✏️ TP 2 - Calculatrice niv.3 ✔️
 			</a>
 		</div>
 
@@ -216,21 +216,21 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td3.html">
-				✍️ TD 3 (✔️)
+				✍️ TD 3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp3.html">
-				✏️ TP 3 - Calculatrice niv.4
+				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp4.html">
-				✏️ TP 4 - Prog. objets niv.2
+				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
@@ -248,13 +248,34 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_boutique_1.html">
+				✏️ TP 8 - Boutique niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_boutique_2.html">
+				✏️ TP 9 - Boutique niv.2
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
 
 
 		
-	<h1 data-nb="19" id="✍️ TD 2 - Prog. objets niv.1 (✔️)">✍️ TD 2 - Prog. objets niv.1 (✔️)</h1>
+	<h1 data-nb="19" id="✍️ TD 2 - Prog. objets niv.1 ✔️">✍️ TD 2 - Prog. objets niv.1 ✔️</h1>
 	
 
 	
@@ -529,6 +550,49 @@ Bonjour, je suis Titi</code></pre>
 			précédente). Si la bouilloire est vide cette méthode retourne -1.</p>
 <p>Elle a une méthode "chauffer", qui augmente la température de son eau à celle de l'ébullition de l'eau, qui ne prend aucun paramètre et retourne le
 			temps (en secondes) qui lui a été nécessaire pour chauffer toute son eau. Si la bouilloire est vide cette méthode retourne -1.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					class Bouilloire:
+						def __init__(self, puissance, volume_max_litres):
+							self.volume_max_litres = volume_max_litres
+							self.volume_eau_litres = 0
+							self.puissance_cal_par_s = puissance
+							self.température: Temperature = None
+
+						def vider(self):
+							self.volume_eau_litres = 0
+							self.température = None
+
+						def remplir(self, volume_à_ajouter, temp_eau):
+							ancien_volume = self.volume_eau_litres
+							self.volume_eau_litres = min(self.volume_max_litres, self.volume_eau_litres + volume_à_ajouter)
+							volume_ajouté = self.volume_eau_litres - ancien_volume
+							if self.température:
+								assert ancien_volume != 0
+								pourcent_ancien_volume = ancien_volume / self.volume_eau_litres
+								pourcent_volume_ajouté = volume_ajouté / self.volume_eau_litres
+								nouvelle_temp_celsius = self.température.celsius() * pourcent_ancien_volume + temp_eau.celsius() * pourcent_volume_ajouté
+								self.température = Temperature(nouvelle_temp_celsius, "celsius")
+							else:
+								assert ancien_volume == 0
+								self.température = temp_eau
+							return volume_ajouté
+
+						def avoir_température(self):
+							if self.température:
+								return self.température
+							return -1
+
+						def chauffer(self):
+							if self.volume_eau_litres &lt;= 0:
+								return -1
+							degrés_à_chauffer = 100 - self.température.celsius()
+							assert degrés_à_chauffer &gt;= 0
+							self.température = Temperature(100, "celsius")
+							return self.volume_eau_litres * 1000 / self.puissance_cal_par_s * degrés_à_chauffer
+				</code></pre>
+</div>
 		
 	</div>
 

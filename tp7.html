@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 3 - Calculatrice niv.4 ✔️ | Algo et prog 2 en Python</title>
+	<title>✏️ TP 7 - Prog. objets niv.5 | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -220,35 +220,35 @@
 			</a>
 		</div>
 
-		<div class="page_actuelle h h1">
-			<!--span class="ballot_box">☐</span-->
+		<div class=" h h1">
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp3.html">
 				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp4.html">
 				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp5.html">
 				✏️ TP 5 - Prog. objets niv.3
 			</a>
 		</div>
 
 		<div class=" h h1">
-			<!--span class="ballot_box">☐</span-->
+			<!--span class="ballot_box">☒</span-->
 			<a href="tp6.html">
 				✏️ TP 6 - Prog. objets niv.4
 			</a>
 		</div>
 
-		<div class=" h h1">
+		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp7.html">
 				✏️ TP 7 - Prog. objets niv.5
@@ -275,182 +275,62 @@
 
 
 		
-	<h1 data-nb="23" id="✏️ TP 3 - Calculatrice niv.4 ✔️">✏️ TP 3 - Calculatrice niv.4 ✔️</h1>
+	<h1 data-nb="27" id="✏️ TP 7 - Prog. objets niv.5">✏️ TP 7 - Prog. objets niv.5</h1>
 	
+
+	<p>Ce TP est la suite directe du TP 6.</p>
 
 	
 	<div class="exercice">
-<h2 data-nb="23.1" id="Question 1">Question 1</h2>
-<p>Permettre de calculer des expressions qui comportent plusieurs opérateurs + - * et /. Respecter l'ordre des priorités des opérations. Un espace au
-			minimum doit être présent entre les opérateurs et les opérandes. Demander à l'utilisateur s'il veut continuer ou pas de faire des calculs à chaque
-			résultat affiché. Afficher un message d'erreur approprié quand une expression est mal formée.</p>
-<p>Exemples d'expressions reconnues par cette version de la calculatrice:</p>
-<ul>
-<li><p>5 (résultat 5)</p></li>
-<li><p>5 + 5 (résultat 10)</p></li>
-<li><p>5 +     5 (résultat 10)</p></li>
-<li><p>5 + 5 * 2 (résultat 15)</p></li>
-<li><p>5 + 5 * 2 - 1 (résultat 14)</p></li>
-</ul>
-<p>Exemples d'expressions NON reconnues:</p>
-<ul>
-<li><p>+</p></li>
-<li><p>+ 5</p></li>
-<li><p>5 5</p></li>
-<li><p>5+5</p></li>
-<li><p>5 +5</p></li>
-<li><p>5 + + 5</p></li>
-</ul>
-		
-			<div class="correction">
-<pre class="line-numbers"><code class="language-python">
-					def calculer_expression(expr):
-						termes = expr.split()
-						for i, terme in enumerate(termes):
-							try:
-								termes[i] = float(terme)
-							except ValueError:
-								if terme not in "+-*/":
-									print("Mauvaise expression:", terme, "n'est pas reconnu comme une opération ou valeur valide.")
-									return
-						# Première passe avec * et /
-						i = 0
-						while i &lt; len(termes):
-							terme = termes[i]
-							if type(terme) is str and terme in "*/":
-								try:
-									if terme == "*":
-										termes[i] = termes[i - 1] * termes[i + 1]
-									else:
-										termes[i] = termes[i - 1] / termes[i + 1]
-									del termes[i + 1]
-									del termes[i - 1]
-								except:
-									print("Mauvaise expression: impossible de calculer", terme)
-									return
-								i = i - 2
-							i += 1
-						# Seconde passe avec + et -
-						i = 0
-						while i &lt; len(termes):
-							terme = termes[i]
-							if type(terme) is str and terme in "-+":
-								try:
-									if terme == "+":
-										termes[i] = termes[i - 1] + termes[i + 1]
-									else:
-										termes[i] = termes[i - 1] - termes[i + 1]
-									del termes[i + 1]
-									del termes[i - 1]
-								except:
-									print("Mauvaise expression: impossible de calculer", terme)
-									return
-								i = i - 2
-							i += 1
-						if len(termes) &gt; 1:
-							print("Mauvaise expressions: trop d'opérandes")
-							return
-						return termes[0]
-
-					doit_continuer_calculs = True
-					while doit_continuer_calculs:
-						print(calculer_expression(input("Expression: ")))
-						doit_continuer_calculs = input("Continuer? (n pour non): ") != "n"
-				</code></pre>
-</div>
+<h2 data-nb="27.1" id="Question 1">Question 1</h2>
+<p>Il est temps d'ajouter quelques ennemis sur notre Terrain. Ils ne font rien, et ne bloquent pas le joueur pour le moment, mais ils sont affichés.</p>
+<video controls="" preload="none" src="img/tp6/q4.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li>Le Terrain et le Jeu doivent avoir chacun leur propre liste des Personnages ennemis: le Terrain pour pouvoir les dessiner, et le Jeu pour les
+				faire saluer et ainsi afficher leurs détails (nom, vie etc...). Donc ajouter les attributs là il faut. Les ennemis doivent être ajoutés <em>après</em>
+				l'instanciation du Jeu et du Terrain. Si on ajoute un ennemi au Terrain, attention à l'ajouter également au Jeu, pour que le dessin du terrain
+				<em>et</em> les salutations correspondent bien.
+			</li>
+<li>La création d'une méthode <code>avoir_ennemi_a_position()</code> dans la classe Terrain devrait vous aider. Elle prend en paramètres (en plus de
+				<code>self</code>) le x et y d'une case sur laquelle vous souhaitez savoir si un ennemi s'y trouve, et la méthode renvoie le premier ennemi sur
+				la case en question s'il y en a un ou plusieurs, <code>None</code> sinon. Elle sera utile pour dessiner le Terrain, et dans la classe Personnage
+				plus tard.
+			</li>
+<li>Pour vérifier que ça fonctionne: ajouter 2 ennemis au terrain, chacun avec un nom et un symbole différent pour leur affichage sur le terrain,
+				vous les voyez dans le Terrain, vous voyez leur salutation à chacun, et le joueur peut passer à travers.
+			</li>
+</ol>
 		
 	</div>
 
 	
 	<div class="exercice">
-<h2 data-nb="23.2" id="Question 2">Question 2</h2>
-<p>L'utilisateur doit pouvoir en plus utiliser les fonctions <code>cos</code>, <code>sin</code> et <code>tan</code> du module <code>math</code>, dans
-			ses expressions. Les paramètres des fonctions <code>cos</code> <code>sin</code> et <code>tan</code> doivent être des valeurs simples, pas des
-			sous-expressions.</p>
-<p>Exemples d'expressions reconnues par cette version de la calculatrice:</p>
-<ul>
-<li><p>cos(1) (résultat 0.5403023058681398)</p></li>
-<li><p>cos(3.1416) + 2 * 3 (résultat 5.000000000026985)</p></li>
-</ul>
-<p>Exemples d'expressions NON reconnues:</p>
-<ul>
-<li><p>cos(2 + 3)</p></li>
-</ul>
-		
-			<div class="correction">
-<pre class="line-numbers"><code class="language-python">
-					import math
-
-					def calculer_expression(expr):
-						termes = expr.split()
-						for i, terme in enumerate(termes):
-							try:
-								termes[i] = float(terme)
-							except ValueError:
-								if terme not in "+-*/":
-									if not terme.startswith("sin(") and not terme.startswith("cos(") and not terme.startswith("tan("):
-										print("Mauvaise expression:", terme, "n'est pas reconnu comme une opération ou valeur valide.")
-										return
-						# passe sin cos tan
-						i = 0
-						while i &lt; len(termes):
-							terme = termes[i]
-							if type(terme) is str and (terme.startswith("sin(") or terme.startswith("cos(") or terme.startswith("tan(")):
-								try:
-									if terme.startswith("sin("):
-										termes[i] = math.sin(float(terme[4:-1]))
-									elif terme.startswith("cos("):
-										termes[i] = math.cos(float(terme[4:-1]))
-									else:
-										termes[i] = math.tan(float(terme[4:-1]))
-								except ValueError:
-									print("Mauvaise expression:", terme, "n'est pas reconnu comme une opération ou valeur valide.")
-							i += 1
-						# passe * et /
-						i = 0
-						while i &lt; len(termes):
-							terme = termes[i]
-							if type(terme) is str and terme in "*/":
-								try:
-									if terme == "*":
-										termes[i] = termes[i - 1] * termes[i + 1]
-									else:
-										termes[i] = termes[i - 1] / termes[i + 1]
-									del termes[i + 1]
-									del termes[i - 1]
-								except:
-									print("Mauvaise expression: impossible de calculer", terme)
-									return
-								i = i - 2
-							i += 1
-						# passe + et -
-						i = 0
-						while i &lt; len(termes):
-							terme = termes[i]
-							if type(terme) is str and terme in "-+":
-								try:
-									if terme == "+":
-										termes[i] = termes[i - 1] + termes[i + 1]
-									else:
-										termes[i] = termes[i - 1] - termes[i + 1]
-									del termes[i + 1]
-									del termes[i - 1]
-								except:
-									print("Mauvaise expression: impossible de calculer", terme)
-									return
-								i = i - 2
-							i += 1
-						if len(termes) &gt; 1:
-							print("Mauvaise expressions: trop d'opérandes")
-							return
-						return termes[0]
-
-					doit_continuer_calculs = True
-					while doit_continuer_calculs:
-						print(calculer_expression(input("Expression: ")))
-						doit_continuer_calculs = input("Continuer? (n pour non): ") != "n"
-				</code></pre>
-</div>
+<h2 data-nb="27.2" id="Question 2">Question 2</h2>
+<p>Désormais le joueur peut attaquer et tuer les ennemis en se déplaçant vers eux. Les dégâts sont affichés pendant une ou deux secondes. Le jeu
+			s'arrête lorsque tous les ennemis sont vaincus et un message de victoire est affiché. Si le joueur quitte avant, le message de game over est
+			affiché.</p>
+<video controls="" preload="none" src="img/tp6/q5.mp4"></video>
+<p>Faites selon la façon qui vous convient, ou utilisez la façon ci-dessous:</p>
+<ol>
+<li>Faites en sorte que les ennemis bloquent le joueur. Cela peut être fait dans la méthode de déplacement dans la classe Personnage, et vous pouvez
+				aussi utiliser la méthode <code>avoir_ennemi_a_position()</code> de la classe Terrain pour facilement avoir l'ennemi (s'il y en a un) qui se
+				trouve sur la case de destination du perso joueur quand celui-ci se déplace.
+			</li>
+<li>Le perso joueur attaque les ennemis vivants qui se trouve sur son chemin, mais ignore les morts.</li>
+<li>L'affichage des dégâts est effacé à chaque tour (à cause de <code>os.system()</code>) et il est donc impossible de lire ce qui se passe (quel
+				perso attaque qui). Pour corriger ça, utiliser la fonction <code>sleep()</code> du module <code>time</code>. Elle prend un paramètre: le nombre
+				de secondes à attendre. Quand cette fonction est appelée, le programme se met en pause pour la durée demandée, puis reprend à la ligne suivante
+				de l'appel de la fonction.
+			</li>
+<li>Les Personnages morts sont affichés différemment sur le Terrain par rapport à quand ils sont vivants, donc il vous faut un second caractère
+				d'affichage pour chaque perso.
+			</li>
+<li>Afficher un message de victoire ou de game over à la fin de la partie, selon comment le jeu se termine. De plus, en cas de victoire, attention à
+				bien afficher tout correctement pour le dernier affichage du Terrain: tous les ennemis sont bien affichés comme morts sur le Terrain et dans
+				leur salutation.
+			</li>
+</ol>
 		
 	</div>
 

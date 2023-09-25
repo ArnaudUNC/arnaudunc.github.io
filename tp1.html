@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✏️ TP 1 - Calculatrice niv.2 (✔️) | Algo et prog 2 en Python</title>
+	<title>✏️ TP 1 - Calculatrice niv.2 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -188,21 +188,21 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2 (✔️)
+				✏️ TP 1 - Calculatrice niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td2.html">
-				✍️ TD 2 - Prog. objets niv.1 (✔️)
+				✍️ TD 2 - Prog. objets niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp2.html">
-				✏️ TP 2 - Calculatrice niv.3
+				✏️ TP 2 - Calculatrice niv.3 ✔️
 			</a>
 		</div>
 
@@ -216,21 +216,21 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td3.html">
-				✍️ TD 3 (✔️)
+				✍️ TD 3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp3.html">
-				✏️ TP 3 - Calculatrice niv.4
+				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp4.html">
-				✏️ TP 4 - Prog. objets niv.2
+				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
@@ -248,13 +248,34 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_boutique_1.html">
+				✏️ TP 8 - Boutique niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_boutique_2.html">
+				✏️ TP 9 - Boutique niv.2
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
 
 
 		
-	<h1 data-nb="18" id="✏️ TP 1 - Calculatrice niv.2 (✔️)">✏️ TP 1 - Calculatrice niv.2 (✔️)</h1>
+	<h1 data-nb="18" id="✏️ TP 1 - Calculatrice niv.2 ✔️">✏️ TP 1 - Calculatrice niv.2 ✔️</h1>
 	
 
 	
@@ -796,6 +817,79 @@ Operation? (+,-,*,/): +
 <p>Attention cette modification ne doit pas changer le comportement de la fonction, c'est-à-dire si le texte entré n'est pas un nombre, il faut le
 			redemander encore à l'utilisateur jusqu'à ce qu'un nombre correct soit entré.</p>
 <p>Utilisez votre nouvelle fonction dans votre programme pour la tester.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					def avoir_nombre_utilisateur_exceptions(message):
+						nb_est_correct = False
+						while not nb_est_correct:
+							txt_utilisateur = input(message)
+							try:
+								nombre = float(txt_utilisateur)
+								nb_est_correct = True
+							except:
+								print(txt_utilisateur, "n'est pas un nombre")
+						return nombre
+
+					def avoir_nombre_utilisateur_verif_manuelle(message):
+						txt_utilisateur_est_un_nombre = False
+						while not txt_utilisateur_est_un_nombre:
+							txt_utilisateur = input(message)
+							indice_départ = 0
+							signe = txt_utilisateur[indice_départ]
+							virgule_rencontrée = False
+							if signe == "-":
+								indice_départ += 1
+							txt_utilisateur_est_un_nombre = True
+							for i in range(indice_départ, len(txt_utilisateur)):
+								c = txt_utilisateur[i]
+								if c == ".":
+									if not virgule_rencontrée:
+										virgule_rencontrée = True
+									else:
+										print(txt_utilisateur, "n'est pas un nombre")
+										txt_utilisateur_est_un_nombre = False
+										break
+								elif c not in "0123456789":
+									print(txt_utilisateur, "n'est pas un nombre")
+									txt_utilisateur_est_un_nombre = False
+									break
+
+						return float(txt_utilisateur)
+
+
+					# Définition de notre seconde fonction
+					def faire_calcul_utilisateur():
+						nb1 = avoir_nombre_utilisateur_verif_manuelle("Nombre 1: ")
+
+						opération_est_correcte = False
+						while not opération_est_correcte:
+							op = input("Opération (+,-,*,/): ")
+							opération_est_correcte = op in ["+", "-", "/", "*", ]
+							if not opération_est_correcte:
+								print(op, "n'est pas une opération supportée")
+
+						nb2 = avoir_nombre_utilisateur_verif_manuelle("Nombre 2: ")
+
+						if op == "+":
+							print(nb1, "+", nb2, "=", nb1 + nb2)
+						elif op == "-":
+							print(nb1, "-", nb2, "=", nb1 - nb2)
+						elif op == "/":
+							print(nb1, "/", nb2, "=", nb1 / nb2)
+						else:
+							print(nb1, "*", nb2, "=", nb1 * nb2)
+
+
+					utilisateur_veut_continuer = True
+					while utilisateur_veut_continuer:
+						# Appel de la fonction
+						faire_calcul_utilisateur()
+
+						réponse_utilisateur = input("Faire nouveau calcul? (o pour oui): ")
+						utilisateur_veut_continuer = réponse_utilisateur == "o"
+				</code></pre>
+</div>
 		
 	</div>
 

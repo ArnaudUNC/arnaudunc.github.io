@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>✍️ TD 3 (✔️) | Algo et prog 2 en Python</title>
+	<title>✍️ TD 3 ✔️ | Algo et prog 2 en Python</title>
 	<link href="prism.css" rel="stylesheet"/>
 	<link href="style.css" rel="stylesheet"/>
 	<!--link rel="icon" href="img/favicon.svg"-->
@@ -188,21 +188,21 @@
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp1.html">
-				✏️ TP 1 - Calculatrice niv.2 (✔️)
+				✏️ TP 1 - Calculatrice niv.2 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="td2.html">
-				✍️ TD 2 - Prog. objets niv.1 (✔️)
+				✍️ TD 2 - Prog. objets niv.1 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☒</span-->
 			<a href="tp2.html">
-				✏️ TP 2 - Calculatrice niv.3
+				✏️ TP 2 - Calculatrice niv.3 ✔️
 			</a>
 		</div>
 
@@ -216,21 +216,21 @@
 		<div class="page_actuelle h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="td3.html">
-				✍️ TD 3 (✔️)
+				✍️ TD 3 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp3.html">
-				✏️ TP 3 - Calculatrice niv.4
+				✏️ TP 3 - Calculatrice niv.4 ✔️
 			</a>
 		</div>
 
 		<div class=" h h1">
 			<!--span class="ballot_box">☐</span-->
 			<a href="tp4.html">
-				✏️ TP 4 - Prog. objets niv.2
+				✏️ TP 4 - Prog. objets niv.2 ✔️
 			</a>
 		</div>
 
@@ -248,13 +248,34 @@
 			</a>
 		</div>
 
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp7.html">
+				✏️ TP 7 - Prog. objets niv.5
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_boutique_1.html">
+				✏️ TP 8 - Boutique niv.1
+			</a>
+		</div>
+
+		<div class=" h h1">
+			<!--span class="ballot_box">☐</span-->
+			<a href="tp_boutique_2.html">
+				✏️ TP 9 - Boutique niv.2
+			</a>
+		</div>
+
 	</div>
 	<div id="contenu">
 		
 
 
 		
-	<h1 data-nb="22" id="✍️ TD 3 (✔️)">✍️ TD 3 (✔️)</h1>
+	<h1 data-nb="22" id="✍️ TD 3 ✔️">✍️ TD 3 ✔️</h1>
 	
 	
 	
@@ -868,7 +889,29 @@
 <h2 data-nb="22.9" id="Question 9">Question 9</h2>
 <p>Dans un nouveau fichier Python, créer un programme qui crée un nouveau fichier texte, et y écrit le texte "Bonjour depuis Python" dedans.</p>
 <p>Puis à l'aide d'une boucle, écrire ce texte 1000 fois dans le fichier texte qui doit donc avoir au final 1000 lignes.</p>
+		
+			<div class="correction">
+<pre class="line-numbers"><code class="language-python">
+					# ↓ On crée le fichier avec la fonction open et le mode "w" pour 'write'.
+					# ↓ On précise aussi le paramètre "encoding" pour que le fichier supporte
+					# tous les caractères de toutes les langues du monde.
+					fichier = open("Fichier créé par Python.txt", "w", encoding="utf-8")
+
+					for no_ligne in range(1000):
+						# ↓ On écrit dans le fichier avec la méthode write de l'objet référencé
+						# par la variable "fichier".
+						# ↓ On n'oublie pas le caractère saut de ligne \n pour bien voir des
+						# lignes dans le fichier texte généré, car write ne saute pas de ligne
+						# automatiquement pour nous.
+						fichier.write("Bonjour\n")
+
+					# ↓ On n'oublie pas de fermer le fichier pour que Python l'enregistre
+					# correctement une fois qu'on a fini d'écrire dedans.
+					fichier.close()
+				</code></pre>
 </div>
+		
+	</div>
 
 	
 
